@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://du82m8s6amvuo"]
+
+[ext_resource type="Script" path="res://obj/components/hand_component.gd" id="1_02xou"]
+[ext_resource type="PackedScene" uid="uid://cwotqbwgjwes1" path="res://obj/guns/akm.tscn" id="2_d3jrv"]
+
+[node name="player_hand_component" type="Node2D"]
+script = ExtResource("1_02xou")
+
+[node name="Marker2D" type="Marker2D" parent="."]
+position = Vector2(34, 0)
+
+[node name="AKM" parent="Marker2D" instance=ExtResource("2_d3jrv")]

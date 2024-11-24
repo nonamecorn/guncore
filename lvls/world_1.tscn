@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://dcchx721txe4c"]
+
+[ext_resource type="PackedScene" uid="uid://b720un0jadula" path="res://lvls/rooms/starting_room.tscn" id="1_08hws"]
+[ext_resource type="Script" path="res://lvls/world_1.gd" id="1_ki535"]
+
+[node name="world1" type="Node2D"]
+script = ExtResource("1_ki535")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.28485, 0.28485, 0.28485, 1)
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -4897.0
+offset_top = -3133.0
+offset_right = 8472.0
+offset_bottom = 4742.0
+color = Color(0.168627, 0.0784314, 0.141176, 1)
+
+[node name="modules" type="Node2D" parent="."]
+
+[node name="starting room" parent="modules" instance=ExtResource("1_08hws")]

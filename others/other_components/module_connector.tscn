@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bf65xavyr0pes"]
+
+[ext_resource type="Script" path="res://module_connector.gd" id="1_4gpo4"]
+
+[node name="module_connector" type="Marker2D"]
+script = ExtResource("1_4gpo4")
