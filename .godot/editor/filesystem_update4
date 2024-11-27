@@ -1,10 +1,1 @@
 res://obj/bodies/player.tscn
-res://lvls/layers.tscn
-res://lvls/rooms/starting_room.tscn
-res://lvls/world_1.tscn
-res://lvls/corridors/horisonteast_corr.tscn
-res://lvls/rooms/basic_room.tscn
-res://others/other_components/module_connector.tscn
-res://lvls/corridors/horisontwest_corr.tscn
-res://lvls/corridors/vertical_corr.tscn
-res://obj/guns/akm.tscn

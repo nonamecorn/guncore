@@ -42,6 +42,6 @@ zoom = Vector2(2, 2)
 
 [node name="player_hand_component" parent="." instance=ExtResource("3_nq5y6")]
 position = Vector2(0, 3)
-hand_length = 10
+hand_length = 9
 
 [editable path="player_hand_component"]
