@@ -1,13 +1,18 @@
-[gd_scene load_steps=6 format=3 uid="uid://btw10scl5f85a"]
+[gd_scene load_steps=8 format=3 uid="uid://btw10scl5f85a"]
 
 [ext_resource type="Script" path="res://obj/bodies/player.gd" id="1_6n3fv"]
 [ext_resource type="Texture2D" uid="uid://du0org7i4d6mq" path="res://img/GG.png" id="1_e2wcx"]
 [ext_resource type="PackedScene" uid="uid://du82m8s6amvuo" path="res://obj/components/player_hand_component.tscn" id="3_nq5y6"]
+[ext_resource type="Texture2D" uid="uid://cbar0qfi373wm" path="res://img/GG_n.png" id="3_scge0"]
 [ext_resource type="Texture2D" uid="uid://wxsgj06q1u6r" path="res://img/light232.png" id="4_nbk6u"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mx0ab"]
 radius = 7.0
 height = 14.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_27y6e"]
+diffuse_texture = ExtResource("1_e2wcx")
+normal_texture = ExtResource("3_scge0")
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_6n3fv")
@@ -15,17 +20,6 @@ script = ExtResource("1_6n3fv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_mx0ab")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_e2wcx")
-
-[node name="Camera2D" type="Camera2D" parent="."]
-ignore_rotation = false
-zoom = Vector2(2, 2)
-
-[node name="player_hand_component" parent="." instance=ExtResource("3_nq5y6")]
-position = Vector2(0, 3)
-hand_length = 10
 
 [node name="sprite_light" type="PointLight2D" parent="."]
 shadow_enabled = true
@@ -38,5 +32,16 @@ range_item_cull_mask = 2
 shadow_enabled = true
 texture = ExtResource("4_nbk6u")
 texture_scale = 0.75
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("CanvasTexture_27y6e")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+ignore_rotation = false
+zoom = Vector2(2, 2)
+
+[node name="player_hand_component" parent="." instance=ExtResource("3_nq5y6")]
+position = Vector2(0, 3)
+hand_length = 9
 
 [editable path="player_hand_component"]
