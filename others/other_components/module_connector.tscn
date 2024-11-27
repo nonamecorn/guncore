@@ -2,5 +2,5 @@
 
 [ext_resource type="Script" path="res://module_connector.gd" id="1_4gpo4"]
 
-[node name="module_connector" type="Marker2D"]
+[node name="module_connector" type="Marker2D" groups=["connector"]]
 script = ExtResource("1_4gpo4")

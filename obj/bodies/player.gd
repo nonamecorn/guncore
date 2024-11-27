@@ -12,6 +12,7 @@ enum {
 	IDLE,
 }
 
+
 func _physics_process(delta):
 	match state:
 			MOVE:

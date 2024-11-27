@@ -7,6 +7,11 @@
 [node name="BasicRoom" type="Node2D"]
 script = ExtResource("1_ygdka")
 
+[node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
+color = Color(1, 0.611765, 1, 0.290196)
+polygon = PackedVector2Array(-416, 0, 512, 0, 512, 448, -416, 448)
+
 [node name="layers" parent="." instance=ExtResource("1_0qsy7")]
 
 [node name="TileMapLayer" parent="layers" index="0"]

@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 window/size/mode=3
 window/stretch/mode="viewport"
 
+[global_group]
+
+connector="used for room generation"
+
 [input]
 
 ui_left={
