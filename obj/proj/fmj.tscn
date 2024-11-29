@@ -58,9 +58,7 @@ animations = [{
 }]
 
 [node name="fmj" instance=ExtResource("1_ub8af")]
-gravity_scale = 0.0
-contact_monitor = true
-max_contacts_reported = 1
+collision_layer = 2
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CapsuleShape2D_qy0bh")
@@ -70,3 +68,7 @@ visible = false
 sprite_frames = SubResource("SpriteFrames_eh58y")
 frame = 5
 frame_progress = 1.0
+
+[node name="Timer" parent="." index="3"]
+wait_time = 0.001
+autostart = false

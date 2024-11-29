@@ -9,9 +9,17 @@ diffuse_texture = ExtResource("2_fa7ih")
 normal_texture = ExtResource("3_tw73x")
 
 [node name="AKM" instance=ExtResource("1_k6mo1")]
+base_range = 0.1
+base_max_ammo = 30
 
-[node name="Sprite2D" parent="." index="2"]
+[node name="Sprite2D" parent="." index="0"]
 texture = SubResource("CanvasTexture_tu32f")
 
-[node name="end_of_barrel" parent="mods_markers" index="1"]
+[node name="mods" type="Node2D" parent="mods_markers" index="0"]
+visible = false
+
+[node name="end_of_barrel" parent="mods_markers" index="2"]
 position = Vector2(20, -0.5)
+
+[node name="firerate" parent="." index="2"]
+wait_time = 0.15

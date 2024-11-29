@@ -6,6 +6,8 @@ const ACCELERATION = 500
 const FRICTION = 500
 var state = MOVE
 var health = 10
+var flipped = false
+signal died
 
 enum {
 	MOVE,
@@ -26,6 +28,10 @@ func get_input_dir():
 
 func move_state(delta):
 	var input_vector = get_input_dir()
+	#if input_vector.x < 0 and !flipped:
+		#flip()
+	#if input_vector.x > 0 and flipped:
+		#flip()
 	if input_vector != Vector2.ZERO:
 		velocity = velocity.move_toward(input_vector * MAX_SPEED,delta * ACCELERATION)
 	else:
@@ -36,7 +42,12 @@ func play():
 	state = MOVE
 	$Camera2D.enabled = true
 
+func flip():
+	flipped = !flipped
+	$Sprite2D.scale.x *= -1
+
 func death():
+	died.emit()
 	state = IDLE
 	$CollisionShape2D.disabled = true
 
@@ -44,5 +55,4 @@ func hurt(amnt):
 	health -= amnt
 	print(health)
 	if health == 0:
-		emit_signal("died")
 		call_deferred("death")

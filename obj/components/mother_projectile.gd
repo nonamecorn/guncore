@@ -1,30 +1,39 @@
-extends RigidBody2D
+extends CharacterBody2D
 
 #var spark = preload("res://obj/projs/spark.tscn")
+var speed = 500
+var move_vec : Vector2
+var mod_vec : Vector2
+var damage : int
+var active = true
 
 var rng = RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	rng.randomize()
 	
-func init(vec: Vector2):
-	apply_impulse(Vector2(700,0).rotated(global_rotation + rng.randf_range(-0.02,0.02)) + vec)
+func init(vec: Vector2, range_sec):
+	mod_vec = vec
+	move_vec = Vector2.RIGHT
+	move_vec = move_vec.rotated(global_rotation)
+	$Timer.wait_time = range_sec
+	$Timer.start()
 
-func _on_body_entered(body):
-	if body.has_method("hurt"):
-		body.hurt(1)
-#		var bullet_inst = spark.instantiate()
-		#bullet_inst.global_position = global_position
-		#get_tree().current_scene.add_child.call_deferred(bullet_inst)
-	$Sprite2D.hide()
-	$destroy_anim.show()
-	$destroy_anim.play()
+func _physics_process(delta):
+	if !active: return
+	var coll = move_and_collide((move_vec * speed + mod_vec) * delta)
+	if coll:
+		active = false
+		if coll.get_collider().has_method("hurt"):
+			coll.get_collider().hurt(1)
+		$Sprite2D.hide()
+		$destroy_anim.show()
+		$destroy_anim.play()
 
 func _on_timer_timeout():
 	$Sprite2D.hide()
 	$destroy_anim.show()
 	$destroy_anim.play()
-
 
 func _on_destroy_anim_animation_finished() -> void:
 	queue_free()

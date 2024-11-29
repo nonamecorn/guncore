@@ -14,6 +14,6 @@ enum module_type {
 
 
 
-func pop():
+func get_info():
 	queue_free()
 	return [type,orientation,global_position]

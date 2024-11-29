@@ -1,15 +1,31 @@
-[gd_scene load_steps=3 format=3 uid="uid://b54hhoyx4ybha"]
+[gd_scene load_steps=5 format=4 uid="uid://b54hhoyx4ybha"]
 
+[ext_resource type="Script" path="res://lvls/corridors/corridor.gd" id="1_dlh8u"]
 [ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="1_o0jhh"]
 [ext_resource type="PackedScene" uid="uid://bf65xavyr0pes" path="res://others/other_components/module_connector.tscn" id="2_6qlav"]
 
-[node name="HorisontCorr" type="Node2D"]
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_4kn5h"]
+vertices = PackedVector2Array(390, 22, -6, 22, -6, -22, 390, -22)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-16, -32, 400, -32, 400, 32, -16, 32)])
 
-[node name="layers" parent="." instance=ExtResource("1_o0jhh")]
+[node name="HorisontCorr" type="Node2D"]
+script = ExtResource("1_dlh8u")
 
 [node name="markers" type="Node2D" parent="."]
 
 [node name="east_module_connector" parent="markers" instance=ExtResource("2_6qlav")]
 position = Vector2(384, 0)
+
+[node name="layers" parent="." instance=ExtResource("1_o0jhh")]
+
+[node name="Ceiling" parent="layers" index="0"]
+tile_map_data = PackedByteArray("AAAAAP7/AAABAAEAAAABAP7/AAABAAEAAAABAP//AAABAAEAAAAAAP//AAABAAEAAAAAAP3/AAABAAAAAAABAP3/AAABAAAAAAACAP7/AAABAAEAAAACAP//AAABAAEAAAACAP3/AAABAAAAAAACAAAAAAABAAEAAAABAAAAAAABAAEAAAAAAAAAAAABAAEAAAADAP//AAABAAEAAAADAAAAAAABAAEAAAADAP7/AAABAAEAAAAEAP//AAABAAEAAAAEAAAAAAABAAEAAAAEAP7/AAABAAEAAAAFAP//AAABAAEAAAAFAAAAAAABAAEAAAAFAP7/AAABAAEAAAAGAP//AAABAAEAAAAGAAAAAAABAAEAAAAGAP7/AAABAAEAAAAHAP//AAABAAEAAAAHAAAAAAABAAEAAAAHAP7/AAABAAEAAAAIAP//AAABAAEAAAAIAAAAAAABAAEAAAAIAP7/AAABAAEAAAALAAAAAAABAAEAAAALAP//AAABAAEAAAALAP7/AAABAAEAAAAKAAAAAAABAAEAAAAKAP//AAABAAEAAAAKAP7/AAABAAEAAAAJAAAAAAABAAEAAAAJAP//AAABAAEAAAAJAP7/AAABAAEAAAABAAEAAAABAAIAAAAAAAEAAAABAAIAAAACAAEAAAABAAIAAAADAP3/AAABAAAAAAADAAEAAAABAAIAAAAEAP3/AAABAAAAAAAEAAEAAAABAAIAAAAFAP3/AAABAAAAAAAFAAEAAAABAAIAAAAGAP3/AAABAAAAAAAGAAEAAAABAAIAAAAHAP3/AAABAAAAAAAHAAEAAAABAAIAAAAIAP3/AAABAAAAAAAIAAEAAAABAAIAAAAJAP3/AAABAAAAAAAJAAEAAAABAAIAAAAKAP3/AAABAAAAAAAKAAEAAAABAAIAAAALAP3/AAABAAAAAAALAAEAAAABAAIAAAA=")
+
+[node name="Walls" parent="layers" index="1"]
+tile_map_data = PackedByteArray("AAALAP7/AgACAAEAAAAKAP7/AgABAAEAAAAJAP7/AgABAAEAAAAIAP7/AgABAAEAAAAHAP7/AgABAAEAAAAGAP7/AgABAAEAAAAFAP7/AgABAAEAAAAEAP7/AgABAAEAAAADAP7/AgABAAEAAAACAP7/AgABAAEAAAABAP7/AgABAAEAAAAAAP7/AgAAAAEAAAA=")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_4kn5h")
 
 [editable path="layers"]

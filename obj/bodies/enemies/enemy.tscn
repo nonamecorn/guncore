@@ -1,0 +1,62 @@
+[gd_scene load_steps=8 format=3 uid="uid://c3jo85so338er"]
+
+[ext_resource type="Script" path="res://obj/bodies/enemies/enemy.gd" id="1_qbvdd"]
+[ext_resource type="Texture2D" uid="uid://dwejiqbyarwxw" path="res://img/enemy.png" id="2_fn425"]
+[ext_resource type="PackedScene" uid="uid://df3di7rm5cgei" path="res://obj/components/enemy_hand_component.tscn" id="2_vctv7"]
+[ext_resource type="PackedScene" uid="uid://cwotqbwgjwes1" path="res://obj/guns/akm.tscn" id="4_yt222"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5x2qx"]
+radius = 259.002
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_egrxt"]
+radius = 7.0
+height = 18.0
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_4s33i"]
+radius = 131.004
+
+[node name="enemy" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent")]
+collision_layer = 3
+script = ExtResource("1_qbvdd")
+nav_agent = NodePath("NavigationAgent2D")
+
+[node name="agro_zone" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="agro_zone"]
+shape = SubResource("CircleShape2D_5x2qx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_fn425")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("CapsuleShape2D_egrxt")
+
+[node name="enemy_hand_component" parent="." instance=ExtResource("2_vctv7")]
+hand_length = 16
+
+[node name="AKM" parent="enemy_hand_component/Marker2D" index="0" instance=ExtResource("4_yt222")]
+
+[node name="sight" type="Area2D" parent="enemy_hand_component"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_hand_component/sight"]
+shape = SubResource("CircleShape2D_4s33i")
+
+[node name="change_position" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="makepath" type="Timer" parent="."]
+wait_time = 0.5
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+
+[connection signal="body_entered" from="agro_zone" to="." method="_on_agro_zone_body_entered"]
+[connection signal="body_entered" from="enemy_hand_component/sight" to="." method="_on_sight_body_entered"]
+[connection signal="body_entered" from="enemy_hand_component/sight" to="enemy_hand_component" method="_on_sight_body_entered"]
+[connection signal="body_exited" from="enemy_hand_component/sight" to="." method="_on_sight_body_exited"]
+[connection signal="body_exited" from="enemy_hand_component/sight" to="enemy_hand_component" method="_on_sight_body_exited"]
+[connection signal="timeout" from="change_position" to="." method="_on_change_position_timeout"]
+[connection signal="timeout" from="makepath" to="." method="_on_makepath_timeout"]
+
+[editable path="enemy_hand_component"]

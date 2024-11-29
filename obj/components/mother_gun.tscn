@@ -1,17 +1,11 @@
-[gd_scene load_steps=5 format=3 uid="uid://ctrbcy5h47qqw"]
+[gd_scene load_steps=4 format=3 uid="uid://ctrbcy5h47qqw"]
 
 [ext_resource type="Script" path="res://obj/components/gun_component.gd" id="1_in4fo"]
 [ext_resource type="Texture2D" uid="uid://bkg58qyl21bnk" path="res://img/AKM.png" id="2_iju5x"]
-[ext_resource type="Script" path="res://obj/components/player_logic_component.gd" id="2_t7sq0"]
 [ext_resource type="Script" path="res://obj/components/mods_markers.gd" id="4_m0byw"]
 
 [node name="mother_gun" type="Node2D"]
 script = ExtResource("1_in4fo")
-
-[node name="player_logic_component" type="Node2D" parent="."]
-script = ExtResource("2_t7sq0")
-
-[node name="enemy_logic_component" type="Node2D" parent="."]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_iju5x")
@@ -25,7 +19,15 @@ position = Vector2(1, 0)
 [node name="end_of_barrel" type="Marker2D" parent="mods_markers"]
 position = Vector2(15, 0)
 
-[node name="mod" type="Marker2D" parent="mods_markers"]
+[node name="scope" type="Marker2D" parent="mods_markers"]
 position = Vector2(-6, -1)
 
-[connection signal="fire" from="player_logic_component" to="." method="_on_player_logic_component_fire"]
+[node name="mag" type="Marker2D" parent="mods_markers"]
+
+[node name="firerate" type="Timer" parent="."]
+wait_time = 0.7
+
+[node name="reload" type="Timer" parent="."]
+wait_time = 0.1
+
+[connection signal="timeout" from="firerate" to="." method="fire"]
