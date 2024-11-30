@@ -10,8 +10,9 @@ var current_max_ammo = base_max_ammo
 var current_ammo = base_max_ammo
 var current_spread = base_spread
 var current_range = base_range
-var num_of_bullets = 1
-@export var recoil = 10
+var num_of_bullets = 10
+@export var ver_recoil = 10
+@export var hor_recoil = 10
 @export var number_of_mods = 0
 @export var player_handled = false
 
@@ -30,20 +31,20 @@ func start_fire():
 
 func stop_fire():
 	$firerate.stop()
-
+#
 func reload():
 	current_ammo = base_max_ammo
-
 func fire():
-	if current_ammo > 0:
-		for i in num_of_bullets:
+	for i in num_of_bullets:
+		if current_ammo > 0:
 			current_ammo -= 1
 			if  player_handled:
-				Input.warp_mouse(get_viewport().get_mouse_position() + Vector2(recoil,0).rotated(global_rotation))
+				var vievscale = get_viewport_transform().get_scale()
+				Input.warp_mouse(get_viewport().get_mouse_position()*vievscale + Vector2(-ver_recoil,randf_range(-hor_recoil, hor_recoil)).rotated(global_rotation)*vievscale)
 			var bullet_inst = bullet_obj.instantiate()
 			bullet_inst.global_position = $mods_markers.check_point_of_fire()
 			bullet_inst.global_rotation_degrees = global_rotation_degrees + rng.randf_range(-base_spread, base_spread)
-			get_tree().current_scene.add_child(bullet_inst)
+			get_tree().current_scene.call_deferred("add_child",bullet_inst) 
 			bullet_inst.init(get_parent().get_parent().get_parent().velocity, base_range)
-		return
-	empty.emit()
+		else: empty.emit()
+	

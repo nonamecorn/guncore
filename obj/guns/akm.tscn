@@ -22,4 +22,4 @@ visible = false
 position = Vector2(20, -0.5)
 
 [node name="firerate" parent="." index="2"]
-wait_time = 0.15
+wait_time = 0.6

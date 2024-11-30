@@ -5,7 +5,7 @@ const MAX_SPEED = 160
 const ACCELERATION = 1000
 const FRICTION = 1000
 var state = MOVE
-var health = 10
+var health = 100
 var flipped = false
 signal died
 

@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://d0ex485qfg6qx"]
+[gd_scene load_steps=4 format=3 uid="uid://d0ex485qfg6qx"]
 
 [ext_resource type="Script" path="res://ui/inventory.gd" id="1_vc4ge"]
+[ext_resource type="Texture2D" uid="uid://dgjymf07d6bpr" path="res://img/inventory.png" id="2_am81f"]
 [ext_resource type="Script" path="res://ui/texture_rect.gd" id="2_gjxwj"]
 
 [node name="Inventory" type="Control"]
@@ -23,8 +24,66 @@ color = Color(0.355314, 0.355314, 0.355314, 1)
 
 [node name="grid_backpack" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 175.0
-offset_top = 178.0
-offset_right = 215.0
-offset_bottom = 218.0
+offset_left = 55.0
+offset_top = 212.0
+offset_right = 695.0
+offset_bottom = 468.0
+texture = ExtResource("2_am81f")
+stretch_mode = 2
 script = ExtResource("2_gjxwj")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 785.0
+offset_top = 95.0
+offset_right = 1123.0
+offset_bottom = 570.0
+
+[node name="Panel" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 47.0
+offset_right = 302.0
+offset_bottom = 150.0
+
+[node name="RECIEVER" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 165.0
+offset_right = 104.0
+offset_bottom = 221.0
+
+[node name="MAG" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 169.0
+offset_right = 188.0
+offset_bottom = 225.0
+
+[node name="BARREL" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 221.0
+offset_top = 164.0
+offset_right = 272.0
+offset_bottom = 220.0
+
+[node name="MUZZLE" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 245.0
+offset_right = 102.0
+offset_bottom = 301.0
+
+[node name="MOD1" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 241.0
+offset_right = 193.0
+offset_bottom = 297.0
+
+[node name="MOD2" type="Panel" parent="Panel"]
+layout_mode = 0
+offset_left = 225.0
+offset_top = 240.0
+offset_right = 276.0
+offset_bottom = 296.0

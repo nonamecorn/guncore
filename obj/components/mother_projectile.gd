@@ -1,10 +1,10 @@
 extends CharacterBody2D
 
 #var spark = preload("res://obj/projs/spark.tscn")
-var speed = 500
+@export var speed = 500
 var move_vec : Vector2
 var mod_vec : Vector2
-var damage : int
+@export var damage : int = 1
 var active = true
 
 var rng = RandomNumberGenerator.new()
@@ -17,7 +17,7 @@ func init(vec: Vector2, range_sec):
 	move_vec = Vector2.RIGHT
 	move_vec = move_vec.rotated(global_rotation)
 	$Timer.wait_time = range_sec
-	$Timer.start()
+	
 
 func _physics_process(delta):
 	if !active: return
@@ -25,7 +25,7 @@ func _physics_process(delta):
 	if coll:
 		active = false
 		if coll.get_collider().has_method("hurt"):
-			coll.get_collider().hurt(1)
+			coll.get_collider().hurt(damage)
 		$Sprite2D.hide()
 		$destroy_anim.show()
 		$destroy_anim.play()

@@ -31,6 +31,7 @@ func _on_sight_body_entered(body):
 		bodies.append(body)
 		state = FIRING
 		$attack.start()
+		$Marker2D.get_child(0).fire()
 
 func _on_sight_body_exited(body):
 	if body in bodies:

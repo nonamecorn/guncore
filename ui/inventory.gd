@@ -1,6 +1,6 @@
 extends Control
  
-const item_base = preload("res://inventory/item_base.tscn")
+#const item_base = preload("res://inventory/item_base.tscn")
  
 @onready var inv_base = $InventoryBase
 @onready var grid_bkpk = $grid_back_pack
@@ -77,11 +77,11 @@ func return_item():
 	item_held = null
  
 func pickup_item(item_id):
-	var item = item_base.instantiate()
-	item.set_meta("id", item_id)
-	item.texture = load(ItemDB.get_item(item_id)["icon"])
-	add_child(item)
-	if !grid_bkpk.insert_item_at_first_available_spot(item):
-		item.queue_free()
-		return false
-	return true
+	var item #= item_base.instantiate()
+	#item.set_meta("id", item_id)
+	##item.texture = load(ItemDB.get_item(item_id)["icon"])
+	#add_child(item)
+	#if !grid_bkpk.insert_item_at_first_available_spot(item):
+		#item.queue_free()
+		#return false
+	#return true

@@ -13,3 +13,11 @@ res://ui/inventory.tscn
 res://ui/item_slot.gd
 res://ui/inventory.gd
 res://ui/texture_rect.gd
+res://obj/components/mother_projectile.gd
+res://obj/parts/mags/mother_mag.gd
+res://obj/proj/fmj.tscn
+res://obj/components/gun_component.gd
+res://obj/bodies/camera_2d.gd
+res://obj/components/enemy_hand_component.gd
+res://obj/bodies/player.gd
+res://obj/bodies/enemies/enemy.gd

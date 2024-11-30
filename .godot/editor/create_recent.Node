@@ -1,8 +1,8 @@
+Panel
 TextureRect
 ColorRect
 MarginContainer
 PanelContainer
-Panel
 Node2D
 PointLight2D
 Timer
