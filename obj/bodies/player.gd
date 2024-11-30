@@ -1,9 +1,9 @@
 extends  CharacterBody2D
 
 @onready var gun = $player_hand_component
-const MAX_SPEED = 100
-const ACCELERATION = 500
-const FRICTION = 500
+const MAX_SPEED = 160
+const ACCELERATION = 1000
+const FRICTION = 1000
 var state = MOVE
 var health = 10
 var flipped = false

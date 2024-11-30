@@ -33,16 +33,20 @@ hand_length = 9
 [node name="AKM" parent="player_hand_component/Marker2D" index="0" instance=ExtResource("5_8ek71")]
 base_range = 1.0
 base_spread = 15.0
+recoil = 20
+player_handled = true
 
 [node name="light_center" type="Marker2D" parent="."]
 position = Vector2(0, 4)
 
 [node name="sprite_light" type="PointLight2D" parent="light_center"]
+enabled = false
 shadow_enabled = true
 shadow_item_cull_mask = 2
 texture = ExtResource("5_t0nkv")
 
 [node name="shadow_light" type="PointLight2D" parent="light_center"]
+enabled = false
 range_item_cull_mask = 2
 shadow_enabled = true
 texture = ExtResource("5_t0nkv")

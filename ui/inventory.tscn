@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0ex485qfg6qx"]
+
+[ext_resource type="Script" path="res://ui/inventory.gd" id="1_vc4ge"]
+[ext_resource type="Script" path="res://ui/texture_rect.gd" id="2_gjxwj"]
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vc4ge")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.355314, 0.355314, 0.355314, 1)
+
+[node name="grid_backpack" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 175.0
+offset_top = 178.0
+offset_right = 215.0
+offset_bottom = 218.0
+script = ExtResource("2_gjxwj")

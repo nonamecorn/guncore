@@ -11,8 +11,9 @@ var current_ammo = base_max_ammo
 var current_spread = base_spread
 var current_range = base_range
 var num_of_bullets = 1
-var recoil = 10
+@export var recoil = 10
 @export var number_of_mods = 0
+@export var player_handled = false
 
 signal empty
 
@@ -37,7 +38,8 @@ func fire():
 	if current_ammo > 0:
 		for i in num_of_bullets:
 			current_ammo -= 1
-			Input.warp_mouse(get_viewport().get_mouse_position() + Vector2(recoil,0).rotated(global_rotation))
+			if  player_handled:
+				Input.warp_mouse(get_viewport().get_mouse_position() + Vector2(recoil,0).rotated(global_rotation))
 			var bullet_inst = bullet_obj.instantiate()
 			bullet_inst.global_position = $mods_markers.check_point_of_fire()
 			bullet_inst.global_rotation_degrees = global_rotation_degrees + rng.randf_range(-base_spread, base_spread)

@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=4 uid="uid://c3pgbdnfobaqo"]
+[gd_scene load_steps=7 format=4 uid="uid://c3pgbdnfobaqo"]
 
 [ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="1_0qsy7"]
 [ext_resource type="Script" path="res://lvls/rooms/basic_room.gd" id="1_ygdka"]
 [ext_resource type="PackedScene" uid="uid://bf65xavyr0pes" path="res://others/other_components/module_connector.tscn" id="3_uvqw5"]
+[ext_resource type="PackedScene" uid="uid://cygteh1bpl375" path="res://lvls/misc/light.tscn" id="4_1h1bm"]
 [ext_resource type="PackedScene" uid="uid://c3jo85so338er" path="res://obj/bodies/enemies/enemy.tscn" id="4_sdj0c"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_oq0ca"]
@@ -41,16 +42,24 @@ tile_map_data = PackedByteArray("AAADAAgAAAABAAEAAAADAAcAAAABAAEAAAADAAYAAAABAAE
 [node name="Walls" parent="layers" index="1"]
 tile_map_data = PackedByteArray("AAD5/wUAAgACAAEAAAD4/wUAAgABAAEAAAD3/wUAAgABAAEAAAD2/wUAAgABAAEAAAD1/wUAAgABAAEAAAD0/wUAAgABAAEAAADz/wUAAgAAAAEAAAD+/wMAAgACAAEAAAD9/wMAAgABAAEAAAD8/wMAAgABAAEAAAD7/wMAAgABAAEAAAD6/wMAAgAAAAEAAAADAAMAAgACAAEAAAACAAMAAgABAAEAAAABAAMAAgAAAAEAAAANAAUAAgACAAEAAAAMAAUAAgABAAEAAAALAAUAAgABAAEAAAAKAAUAAgABAAEAAAAJAAUAAgABAAEAAAAIAAUAAgABAAEAAAAHAAUAAgABAAEAAAAGAAUAAgABAAEAAAAFAAUAAgABAAEAAAAEAAUAAgAAAAEAAAA=")
 
+[node name="decor" type="Node2D" parent="."]
+
+[node name="light" parent="decor" instance=ExtResource("4_1h1bm")]
+position = Vector2(-24, 248)
+
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
 navigation_polygon = SubResource("NavigationPolygon_oq0ca")
 
-[node name="enemy" parent="." instance=ExtResource("4_sdj0c")]
+[node name="enemies" type="Node2D" parent="."]
+
+[node name="enemy" parent="enemies" instance=ExtResource("4_sdj0c")]
 position = Vector2(-56, 264)
 
-[node name="enemy2" parent="." instance=ExtResource("4_sdj0c")]
+[node name="enemy2" parent="enemies" instance=ExtResource("4_sdj0c")]
 position = Vector2(48, 288)
 
-[node name="enemy3" parent="." instance=ExtResource("4_sdj0c")]
+[node name="enemy3" parent="enemies" instance=ExtResource("4_sdj0c")]
 position = Vector2(-88, 192)
 
 [editable path="layers"]

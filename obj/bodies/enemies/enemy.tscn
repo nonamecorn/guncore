@@ -24,13 +24,14 @@ nav_agent = NodePath("NavigationAgent2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="agro_zone"]
 shape = SubResource("CircleShape2D_5x2qx")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_fn425")
+debug_color = Color(0.982069, 0.0184689, 0.35369, 0.0196078)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_egrxt")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_fn425")
 
 [node name="enemy_hand_component" parent="." instance=ExtResource("2_vctv7")]
 hand_length = 16
@@ -41,6 +42,7 @@ hand_length = 16
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_hand_component/sight"]
 shape = SubResource("CircleShape2D_4s33i")
+debug_color = Color(0.981067, 0.115127, 0.195213, 0.0196078)
 
 [node name="change_position" type="Timer" parent="."]
 wait_time = 2.0

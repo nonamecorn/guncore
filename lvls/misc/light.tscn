@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://cygteh1bpl375"]
+
+[ext_resource type="Texture2D" uid="uid://wxsgj06q1u6r" path="res://img/light232.png" id="1_hooxg"]
+
+[node name="light" type="Node2D"]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+shadow_enabled = true
+shadow_item_cull_mask = 2
+texture = ExtResource("1_hooxg")
+
+[node name="shadowlight" type="PointLight2D" parent="."]
+range_item_cull_mask = 2
+shadow_enabled = true
+texture = ExtResource("1_hooxg")
