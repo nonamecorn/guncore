@@ -35,6 +35,9 @@ hand_length = 9
 [node name="AKM" parent="player_hand_component/Marker2D" index="0" instance=ExtResource("5_8ek71")]
 base_range = 1.0
 base_spread = 20.0
+num_of_bullets = 1
+ver_recoil = 3
+hor_recoil = 3
 player_handled = true
 
 [node name="light_center" type="Marker2D" parent="."]
@@ -55,5 +58,12 @@ texture = ExtResource("5_t0nkv")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_mx0ab")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -16.0
+offset_top = -24.0
+offset_right = -15.0
+offset_bottom = -19.0
+color = Color(0.835928, 0.521021, 0.708692, 1)
 
 [editable path="player_hand_component"]

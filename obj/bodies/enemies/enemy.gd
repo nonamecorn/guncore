@@ -13,7 +13,7 @@ enum {
 	IDLE
 }
 var bug = false
-var health = 25
+var health = 10
 var state = IDLE
 var rng = RandomNumberGenerator.new()
 var player = null

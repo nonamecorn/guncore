@@ -20,8 +20,8 @@ func init(vec: Vector2, range_sec):
 	
 
 func _physics_process(delta):
-	if !active: return
 	var coll = move_and_collide((move_vec * speed + mod_vec) * delta)
+	if !active: return
 	if coll:
 		active = false
 		if coll.get_collider().has_method("hurt"):

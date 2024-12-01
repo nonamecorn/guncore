@@ -36,10 +36,8 @@ texture = ExtResource("2_fn425")
 [node name="enemy_hand_component" parent="." instance=ExtResource("2_vctv7")]
 hand_length = 16
 
-[node name="attack" parent="enemy_hand_component" index="0"]
-wait_time = 0.5
-
 [node name="AKM" parent="enemy_hand_component/Marker2D" index="0" instance=ExtResource("4_yt222")]
+num_of_bullets = 1
 
 [node name="sight" type="Area2D" parent="enemy_hand_component"]
 

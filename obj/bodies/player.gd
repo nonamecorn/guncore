@@ -5,7 +5,7 @@ const MAX_SPEED = 160
 const ACCELERATION = 1000
 const FRICTION = 1000
 var state = MOVE
-var health = 100
+var health = 10
 var flipped = false
 signal died
 
@@ -25,8 +25,16 @@ func get_input_dir():
 		Input.get_action_strength("ui_right") - Input.get_action_strength("ui_left"),
 		Input.get_action_strength("ui_down") - Input.get_action_strength("ui_up")
 	).normalized()
-
+var tween : Tween
 func move_state(delta):
+	if Input.is_action_just_pressed("ui_left_mouse"):
+		if tween: tween.kill()
+		tween = create_tween()
+		tween.tween_property($ColorRect, "size", Vector2(30,5), 3)
+	if Input.is_action_just_released("ui_left_mouse"):
+		tween.kill()
+		tween = create_tween()
+		tween.tween_property($ColorRect, "size", Vector2(1,5), 1)
 	var input_vector = get_input_dir()
 	#if input_vector.x < 0 and !flipped:
 		#flip()

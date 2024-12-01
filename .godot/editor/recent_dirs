@@ -1,3 +1,4 @@
+res://others
 res://img/misc
 res://ui
 res://lvls/misc
@@ -5,7 +6,6 @@ res://obj/guns
 res://obj/components
 res://obj/parts/mags
 res://obj/bodies/enemies
-res://others
 res://img
 res://others/other_components
 res://lvls/corridors
