@@ -8,7 +8,7 @@ signal change
 func _ready():
 	for slot in slots:
 		items[slot.name] = null
- 
+
 func insert_item(item):
 	var item_pos = item.global_position + item.size / 2
 	var slot = get_slot_under_pos(item_pos)
@@ -45,3 +45,8 @@ func get_thing_under_pos(arr, pos):
 		if thing != null and thing.get_global_rect().has_point(pos):
 			return thing
 	return null
+
+func get_parts():
+	var parts = {}
+	for part in items:
+		parts[part.name] = part.item_resource

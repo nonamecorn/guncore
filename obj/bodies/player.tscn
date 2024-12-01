@@ -34,6 +34,7 @@ position = Vector2(0, 3)
 hand_length = 9
 
 [node name="gun_base" parent="player_hand_component/Marker2D" index="0" instance=ExtResource("6_m4fya")]
+player_handled = true
 
 [node name="light_center" type="Marker2D" parent="."]
 position = Vector2(0, 4)
@@ -54,14 +55,6 @@ texture = ExtResource("5_t0nkv")
 position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_mx0ab")
 
-[node name="ColorRect" type="ColorRect" parent="."]
-visible = false
-offset_left = -16.0
-offset_top = -24.0
-offset_right = -15.0
-offset_bottom = -19.0
-color = Color(0.835928, 0.521021, 0.708692, 1)
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
 
@@ -73,7 +66,7 @@ offset_top = 176.0
 offset_right = 334.0
 offset_bottom = 304.0
 
-[node name="equipment_shaite" parent="CanvasLayer/Inventory" index="2"]
+[node name="equipment_shaite" parent="CanvasLayer/Inventory" index="3"]
 offset_left = 372.0
 offset_top = 104.0
 offset_right = 548.0

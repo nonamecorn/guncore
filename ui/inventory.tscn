@@ -1,14 +1,15 @@
-[gd_scene load_steps=8 format=3 uid="uid://d0ex485qfg6qx"]
+[gd_scene load_steps=9 format=3 uid="uid://d0ex485qfg6qx"]
 
 [ext_resource type="Script" path="res://ui/inventory.gd" id="1_vc4ge"]
-[ext_resource type="Texture2D" uid="uid://dgjymf07d6bpr" path="res://img/inventory.png" id="2_am81f"]
+[ext_resource type="Texture2D" uid="uid://dgjymf07d6bpr" path="res://img/ui/inventory.png" id="2_am81f"]
 [ext_resource type="Script" path="res://ui/texture_rect.gd" id="2_gjxwj"]
-[ext_resource type="Texture2D" uid="uid://bw36vjs7alshi" path="res://img/floor_tile_n.png" id="4_hp2lx"]
+[ext_resource type="Texture2D" uid="uid://dv0d7wfxp8te5" path="res://img/ui/UI.png" id="4_2lq67"]
 [ext_resource type="Script" path="res://ui/equipment_shaite.gd" id="4_xef72"]
-[ext_resource type="Texture2D" uid="uid://byntmay2jgfoj" path="res://img/Pull.png" id="6_lojmw"]
+[ext_resource type="Texture2D" uid="uid://byntmay2jgfoj" path="res://img/ui/Pull.png" id="6_lojmw"]
+[ext_resource type="Texture2D" uid="uid://um5hrhigv7dp" path="res://img/ui/inventory_1slot.png" id="6_uhxew"]
 [ext_resource type="Script" path="res://ui/collector.gd" id="7_suxgo"]
 
-[node name="Inventory" type="Control"]
+[node name="Inventory" type="Control" node_paths=PackedStringArray("grid_bkpk", "eq_slots", "collector")]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -16,6 +17,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vc4ge")
+grid_bkpk = NodePath("grid_backpack")
+eq_slots = NodePath("equipment_shaite")
+collector = NodePath("collector")
 
 [node name="mockup" type="ColorRect" parent="."]
 layout_mode = 0
@@ -33,120 +37,6 @@ texture = ExtResource("2_am81f")
 stretch_mode = 2
 script = ExtResource("2_gjxwj")
 
-[node name="equipment_shaite" type="NinePatchRect" parent="."]
-layout_mode = 0
-offset_left = 483.0
-offset_top = 5.0
-offset_right = 630.0
-offset_bottom = 185.0
-mouse_filter = 1
-texture = ExtResource("4_hp2lx")
-patch_margin_left = 2
-patch_margin_top = 2
-patch_margin_right = 3
-patch_margin_bottom = 2
-script = ExtResource("4_xef72")
-
-[node name="RECIEVER" type="Panel" parent="equipment_shaite"]
-layout_mode = 0
-offset_left = 5.0
-offset_top = 14.0
-offset_right = 50.0
-offset_bottom = 60.0
-mouse_filter = 1
-
-[node name="MAG" type="Panel" parent="equipment_shaite"]
-layout_mode = 0
-offset_left = 54.0
-offset_top = 14.0
-offset_right = 94.0
-offset_bottom = 59.0
-
-[node name="BARREL" type="Panel" parent="equipment_shaite"]
-layout_mode = 0
-offset_left = 97.0
-offset_top = 14.0
-offset_right = 143.0
-offset_bottom = 59.0
-
-[node name="MUZZLE" type="Panel" parent="equipment_shaite"]
-layout_mode = 0
-offset_left = 6.0
-offset_top = 63.0
-offset_right = 49.0
-offset_bottom = 105.0
-
-[node name="MOD1" type="Panel" parent="equipment_shaite"]
-layout_mode = 0
-offset_left = 53.0
-offset_top = 62.0
-offset_right = 95.0
-offset_bottom = 107.0
-
-[node name="MOD2" type="Panel" parent="equipment_shaite"]
-layout_mode = 0
-offset_left = 99.0
-offset_top = 63.0
-offset_right = 142.0
-offset_bottom = 107.0
-
-[node name="equipment_shaite2" type="NinePatchRect" parent="."]
-layout_mode = 0
-offset_left = 477.0
-offset_top = 191.0
-offset_right = 630.0
-offset_bottom = 360.0
-mouse_filter = 1
-texture = ExtResource("4_hp2lx")
-patch_margin_left = 2
-patch_margin_top = 2
-patch_margin_right = 3
-patch_margin_bottom = 2
-script = ExtResource("4_xef72")
-
-[node name="RECIEVER" type="Panel" parent="equipment_shaite2"]
-layout_mode = 0
-offset_left = 10.0
-offset_top = 13.0
-offset_right = 156.0
-offset_bottom = 82.0
-mouse_filter = 1
-
-[node name="MAG" type="Panel" parent="equipment_shaite2"]
-layout_mode = 0
-offset_left = 26.0
-offset_top = 100.0
-offset_right = 60.0
-offset_bottom = 136.0
-
-[node name="BARREL" type="Panel" parent="equipment_shaite2"]
-layout_mode = 0
-offset_left = 73.0
-offset_top = 98.0
-offset_right = 108.0
-offset_bottom = 134.0
-
-[node name="MUZZLE" type="Panel" parent="equipment_shaite2"]
-layout_mode = 0
-offset_left = 119.0
-offset_top = 97.0
-offset_right = 153.0
-offset_bottom = 131.0
-
-[node name="MOD1" type="Panel" parent="equipment_shaite2"]
-layout_mode = 0
-offset_left = 27.0
-offset_top = 144.0
-offset_right = 58.0
-offset_bottom = 175.0
-
-[node name="MOD2" type="Panel" parent="equipment_shaite2"]
-layout_mode = 0
-offset_left = 76.0
-offset_top = 146.0
-offset_right = 112.0
-offset_bottom = 180.0
-
 [node name="collector" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 12.0
@@ -155,3 +45,70 @@ offset_right = 140.0
 offset_bottom = 333.0
 texture = ExtResource("6_lojmw")
 script = ExtResource("7_suxgo")
+
+[node name="equipment_shaite" type="NinePatchRect" parent="."]
+layout_mode = 2
+offset_left = 494.0
+offset_top = 14.0
+offset_right = 628.0
+offset_bottom = 112.0
+texture = ExtResource("4_2lq67")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+script = ExtResource("4_xef72")
+
+[node name="RECIEVER" type="TextureRect" parent="equipment_shaite"]
+layout_mode = 2
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 47.0
+offset_bottom = 47.0
+texture = ExtResource("6_uhxew")
+stretch_mode = 2
+
+[node name="BARREL" type="TextureRect" parent="equipment_shaite"]
+layout_mode = 2
+offset_left = 87.0
+offset_top = 15.0
+offset_right = 119.0
+offset_bottom = 47.0
+texture = ExtResource("6_uhxew")
+stretch_mode = 2
+
+[node name="MUZZLE" type="TextureRect" parent="equipment_shaite"]
+layout_mode = 2
+offset_left = 15.0
+offset_top = 51.0
+offset_right = 47.0
+offset_bottom = 83.0
+texture = ExtResource("6_uhxew")
+stretch_mode = 2
+
+[node name="MAG" type="TextureRect" parent="equipment_shaite"]
+layout_mode = 2
+offset_left = 51.0
+offset_top = 15.0
+offset_right = 83.0
+offset_bottom = 47.0
+texture = ExtResource("6_uhxew")
+stretch_mode = 2
+
+[node name="MOD1" type="TextureRect" parent="equipment_shaite"]
+layout_mode = 2
+offset_left = 51.0
+offset_top = 51.0
+offset_right = 83.0
+offset_bottom = 83.0
+texture = ExtResource("6_uhxew")
+stretch_mode = 2
+
+[node name="MOD2" type="TextureRect" parent="equipment_shaite"]
+layout_mode = 2
+offset_left = 87.0
+offset_top = 51.0
+offset_right = 119.0
+offset_bottom = 83.0
+texture = ExtResource("6_uhxew")
+stretch_mode = 2

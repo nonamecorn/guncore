@@ -1,0 +1,11 @@
+[gd_resource type="Resource" script_class="Mag" load_steps=3 format=3 uid="uid://bnbmkb8n34y75"]
+
+[ext_resource type="Script" path="res://obj/parts/mag.gd" id="1_4qlor"]
+[ext_resource type="Texture2D" uid="uid://cageco7x6ob6a" path="res://img/parts/AK_Mag.png" id="1_51pky"]
+
+[resource]
+script = ExtResource("1_4qlor")
+sprite = ExtResource("1_51pky")
+previev = ExtResource("1_51pky")
+slot = "MAG"
+sprite_offset = Vector2(0, 5)

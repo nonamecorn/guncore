@@ -1,6 +1,6 @@
 extends Item
-class_name Reciever
-@export var base_range = 0.0
-@export var base_max_ammo = 0
-@export var base_spread = 0.0
+class_name GunReciever
+@export var base_firerate = 0.1
 @export var number_of_mods = 0
+@export var ver_recoil = 0.0
+@export var hor_recoil = 0.0

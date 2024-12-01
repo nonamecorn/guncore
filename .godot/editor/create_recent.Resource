@@ -1,3 +1,3 @@
+Mag
 Barrel
-Reciever
 Resource

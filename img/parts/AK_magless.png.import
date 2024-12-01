@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://bp5iwu0ty8arn"
-path="res://.godot/imported/LongBarrel.png-e80dca0375f04bb20231d8e77150afa8.ctex"
+uid="uid://conedmgt6m078"
+path="res://.godot/imported/AK_magless.png-31aa17a1395074623d18de4e5b0c5a82.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/LongBarrel.png"
-dest_files=["res://.godot/imported/LongBarrel.png-e80dca0375f04bb20231d8e77150afa8.ctex"]
+source_file="res://img/parts/AK_magless.png"
+dest_files=["res://.godot/imported/AK_magless.png-31aa17a1395074623d18de4e5b0c5a82.ctex"]
 
 [params]
 

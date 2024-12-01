@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://byntmay2jgfoj"
-path="res://.godot/imported/Pull.png-9a9e256ec7f4dc290be3c7fe83212f0e.ctex"
+uid="uid://cageco7x6ob6a"
+path="res://.godot/imported/AK_Mag.png-20d3b4ce349c4a716328a8a5d7282ccf.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/Pull.png"
-dest_files=["res://.godot/imported/Pull.png-9a9e256ec7f4dc290be3c7fe83212f0e.ctex"]
+source_file="res://img/parts/AK_Mag.png"
+dest_files=["res://.godot/imported/AK_Mag.png-20d3b4ce349c4a716328a8a5d7282ccf.ctex"]
 
 [params]
 

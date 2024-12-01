@@ -2,9 +2,9 @@ extends Control
  
 const item_base = preload("res://ui/item_base.tscn")
  
-@onready var grid_bkpk = $grid_backpack
-@onready var eq_slots = $equipment_shaite
-@onready var collector = $collector
+@export var grid_bkpk : Node
+@export var eq_slots : Node
+@export var collector : Node
 
 var item_held = null
 var item_offset = Vector2()
