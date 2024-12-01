@@ -1,10 +1,10 @@
 extends Control
  
-#const item_base = preload("res://inventory/item_base.tscn")
+const item_base = preload("res://ui/item_base.tscn")
  
-@onready var inv_base = $InventoryBase
-@onready var grid_bkpk = $grid_back_pack
-#@onready var eq_slots = $EquipmentSlots
+@onready var grid_bkpk = $grid_backpack
+@onready var eq_slots = $equipment_shaite
+@onready var collector = $collector
 
 var item_held = null
 var item_offset = Vector2()
@@ -12,14 +12,8 @@ var last_container = null
 var last_pos = Vector2()
  
 func _ready():
-	pickup_item("sword")
-	pickup_item("potato")
-	pickup_item("potato")
-	pickup_item("sword")
-	pickup_item("breastplate")
-	pickup_item("breastplate")
-	pickup_item("khfdd")
- 
+	pickup_item(load("res://obj/parts/guns/akm.tres"))
+	pickup_item(load("res://obj/parts/barrels/long_barrel.tres"))
  
 func _process(_delta):
 	var cursor_pos = get_global_mouse_position()
@@ -29,7 +23,7 @@ func _process(_delta):
 		release(cursor_pos)
 	if item_held != null:
 		item_held.global_position = cursor_pos + item_offset
-		if Input.is_action_just_released("ui_r"):
+		if Input.is_action_just_released("reload"):
 			item_held.global_position = cursor_pos
 			item_held.rotate()
 			item_offset = Vector2(item_held.size.x, item_held.size.y)
@@ -61,9 +55,9 @@ func release(cursor_pos):
  
  
 func get_container_under_cursor(cursor_pos):
-	var containers = [grid_bkpk, inv_base] #, eq_slots
+	var containers = [grid_bkpk, eq_slots, collector]
 	for c in containers:
-		if c.get_global_rect().has_point(cursor_pos):
+		if c.get_rect().has_point(cursor_pos):
 			return c
 	return null
  
@@ -76,12 +70,12 @@ func return_item():
 	last_container.insert_item(item_held)
 	item_held = null
  
-func pickup_item(item_id):
-	var item #= item_base.instantiate()
-	#item.set_meta("id", item_id)
-	##item.texture = load(ItemDB.get_item(item_id)["icon"])
-	#add_child(item)
-	#if !grid_bkpk.insert_item_at_first_available_spot(item):
-		#item.queue_free()
-		#return false
-	#return true
+func pickup_item(item_res : Item):
+	var item = item_base.instantiate()
+	item.item_resource = item_res
+	item.texture = item_res.previev
+	add_child(item)
+	if !grid_bkpk.insert_item_at_first_available_spot(item):
+		item.queue_free()
+		return false
+	return true

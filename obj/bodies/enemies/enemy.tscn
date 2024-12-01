@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://obj/bodies/enemies/enemy.gd" id="1_qbvdd"]
 [ext_resource type="Texture2D" uid="uid://dwejiqbyarwxw" path="res://img/enemy.png" id="2_fn425"]
 [ext_resource type="PackedScene" uid="uid://df3di7rm5cgei" path="res://obj/components/enemy_hand_component.tscn" id="2_vctv7"]
-[ext_resource type="PackedScene" uid="uid://cwotqbwgjwes1" path="res://obj/guns/akm.tscn" id="4_yt222"]
+[ext_resource type="PackedScene" uid="uid://ctrbcy5h47qqw" path="res://obj/components/gun_base.tscn" id="4_ohoj0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_5x2qx"]
 radius = 259.002
@@ -13,7 +13,7 @@ radius = 7.0
 height = 18.0
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_4s33i"]
-radius = 131.004
+radius = 322.126
 
 [node name="enemy" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent")]
 collision_layer = 3
@@ -36,8 +36,7 @@ texture = ExtResource("2_fn425")
 [node name="enemy_hand_component" parent="." instance=ExtResource("2_vctv7")]
 hand_length = 16
 
-[node name="AKM" parent="enemy_hand_component/Marker2D" index="0" instance=ExtResource("4_yt222")]
-num_of_bullets = 1
+[node name="gun_base" parent="enemy_hand_component/Marker2D" index="0" instance=ExtResource("4_ohoj0")]
 
 [node name="sight" type="Area2D" parent="enemy_hand_component"]
 

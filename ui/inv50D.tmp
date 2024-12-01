@@ -1,0 +1,97 @@
+[gd_scene load_steps=6 format=3 uid="uid://d0ex485qfg6qx"]
+
+[ext_resource type="Script" path="res://ui/inventory.gd" id="1_vc4ge"]
+[ext_resource type="Texture2D" uid="uid://dgjymf07d6bpr" path="res://img/inventory.png" id="2_am81f"]
+[ext_resource type="Script" path="res://ui/texture_rect.gd" id="2_gjxwj"]
+[ext_resource type="Script" path="res://ui/equipment_shaite.gd" id="4_xef72"]
+[ext_resource type="Script" path="res://ui/panel.gd" id="5_efmux"]
+
+[node name="Inventory" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vc4ge")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 41.0
+offset_top = 83.0
+offset_right = -69.0
+offset_bottom = -68.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.355314, 0.355314, 0.355314, 1)
+
+[node name="grid_backpack" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 55.0
+offset_top = 212.0
+offset_right = 695.0
+offset_bottom = 468.0
+texture = ExtResource("2_am81f")
+stretch_mode = 2
+script = ExtResource("2_gjxwj")
+
+[node name="equipment_shaite" type="Panel" parent="."]
+layout_mode = 0
+offset_left = 721.0
+offset_top = 101.0
+offset_right = 1070.0
+offset_bottom = 554.0
+script = ExtResource("4_xef72")
+
+[node name="Panel" type="Panel" parent="equipment_shaite"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 47.0
+offset_right = 302.0
+offset_bottom = 150.0
+script = ExtResource("5_efmux")
+
+[node name="RECIEVER" type="Panel" parent="equipment_shaite"]
+layout_mode = 0
+offset_left = 53.0
+offset_top = 165.0
+offset_right = 104.0
+offset_bottom = 221.0
+
+[node name="MAG" type="Panel" parent="equipment_shaite"]
+layout_mode = 0
+offset_left = 137.0
+offset_top = 169.0
+offset_right = 188.0
+offset_bottom = 225.0
+
+[node name="BARREL" type="Panel" parent="equipment_shaite"]
+layout_mode = 0
+offset_left = 221.0
+offset_top = 164.0
+offset_right = 272.0
+offset_bottom = 220.0
+
+[node name="MUZZLE" type="Panel" parent="equipment_shaite"]
+layout_mode = 0
+offset_left = 51.0
+offset_top = 245.0
+offset_right = 102.0
+offset_bottom = 301.0
+
+[node name="MOD1" type="Panel" parent="equipment_shaite"]
+layout_mode = 0
+offset_left = 142.0
+offset_top = 241.0
+offset_right = 193.0
+offset_bottom = 297.0
+
+[node name="MOD2" type="Panel" parent="equipment_shaite"]
+layout_mode = 0
+offset_left = 225.0
+offset_top = 240.0
+offset_right = 276.0
+offset_bottom = 296.0

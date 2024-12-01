@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="Barrel" load_steps=3 format=3 uid="uid://cjup8q63xpmgt"]
+
+[ext_resource type="Texture2D" uid="uid://bp5iwu0ty8arn" path="res://img/LongBarrel.png" id="1_ovgce"]
+[ext_resource type="Script" path="res://obj/parts/barrel.gd" id="1_xn5q3"]
+
+[resource]
+script = ExtResource("1_xn5q3")
+range = 0.0
+spread = 0.0
+sprite = ExtResource("1_ovgce")
+previev = ExtResource("1_ovgce")
+slot = "BARREL"

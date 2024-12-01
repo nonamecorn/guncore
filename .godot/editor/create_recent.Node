@@ -1,7 +1,9 @@
-ColorRect
-AnimationPlayer
-Panel
 TextureRect
+ColorRect
+NinePatchRect
+CanvasLayer
+Panel
+AnimationPlayer
 MarginContainer
 PanelContainer
 Node2D
@@ -10,5 +12,3 @@ Timer
 Marker2D
 Sprite2D
 CharacterBody2D
-CollisionShape2D
-Area2D

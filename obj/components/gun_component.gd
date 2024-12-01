@@ -5,6 +5,7 @@ var point_of_shooting = Vector2(0,0)
 @export var base_range = 0.0
 @export var base_max_ammo = 0
 @export var base_spread = 0.0
+@export var number_of_mods = 0
 
 var current_max_ammo
 var current_ammo
@@ -14,7 +15,6 @@ var current_range
 @export var num_of_bullets = 10
 @export var ver_recoil = 10
 @export var hor_recoil = 10
-@export var number_of_mods = 0
 @export var player_handled = false
 
 var tween
@@ -41,7 +41,7 @@ func start_fire():
 	$firerate.start()
 
 func stop_fire():
-	tween.kill()
+	if tween: tween.kill()
 	tween = create_tween()
 	tween.tween_property(self, "current_spread", 0, 1)
 	$firerate.stop()

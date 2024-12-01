@@ -28,8 +28,7 @@ func set_movement_target(target_point: Vector2):
 	nav_agent.target_position = target_point
 
 func _physics_process(delta):
-	if dead:
-		return
+	if dead: return
 	match state:
 		SURROUND:
 			surround(get_circle_position(randomnum), delta)

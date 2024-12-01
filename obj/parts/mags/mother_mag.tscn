@@ -1,8 +1,0 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2fj4w4def5y8"]
-
-[ext_resource type="Script" path="res://obj/parts/mags/mother_mag.gd" id="1_k2gmq"]
-
-[node name="mother_mag" type="Node2D"]
-script = ExtResource("1_k2gmq")
-
-[node name="Sprite2D" type="Sprite2D" parent="."]

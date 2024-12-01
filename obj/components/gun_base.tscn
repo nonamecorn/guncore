@@ -1,17 +1,17 @@
 [gd_scene load_steps=4 format=3 uid="uid://ctrbcy5h47qqw"]
 
-[ext_resource type="Script" path="res://obj/components/gun_component.gd" id="1_in4fo"]
-[ext_resource type="Texture2D" uid="uid://bkg58qyl21bnk" path="res://img/AKM.png" id="2_iju5x"]
-[ext_resource type="Script" path="res://obj/components/mods_markers.gd" id="4_m0byw"]
+[ext_resource type="Script" path="res://obj/components/gun_component.gd" id="1_it1k3"]
+[ext_resource type="Texture2D" uid="uid://bkg58qyl21bnk" path="res://img/AKM.png" id="2_mw8d2"]
+[ext_resource type="Script" path="res://obj/components/mods_markers.gd" id="3_de0cc"]
 
-[node name="mother_gun" type="Node2D"]
-script = ExtResource("1_in4fo")
+[node name="gun_base" type="Node2D"]
+script = ExtResource("1_it1k3")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("2_iju5x")
+texture = ExtResource("2_mw8d2")
 
 [node name="mods_markers" type="Node2D" parent="."]
-script = ExtResource("4_m0byw")
+script = ExtResource("3_de0cc")
 
 [node name="base" type="Marker2D" parent="mods_markers"]
 position = Vector2(1, 0)

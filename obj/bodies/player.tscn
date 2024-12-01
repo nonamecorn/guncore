@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=3 uid="uid://btw10scl5f85a"]
+[gd_scene load_steps=11 format=3 uid="uid://btw10scl5f85a"]
 
 [ext_resource type="Script" path="res://obj/bodies/player.gd" id="1_6n3fv"]
 [ext_resource type="Texture2D" uid="uid://du0org7i4d6mq" path="res://img/GG.png" id="1_e2wcx"]
 [ext_resource type="PackedScene" uid="uid://du82m8s6amvuo" path="res://obj/components/player_hand_component.tscn" id="3_nq5y6"]
 [ext_resource type="Texture2D" uid="uid://cbar0qfi373wm" path="res://img/GG_n.png" id="3_scge0"]
 [ext_resource type="Script" path="res://obj/bodies/camera_2d.gd" id="4_6xs1v"]
-[ext_resource type="PackedScene" uid="uid://cwotqbwgjwes1" path="res://obj/guns/akm.tscn" id="5_8ek71"]
 [ext_resource type="Texture2D" uid="uid://wxsgj06q1u6r" path="res://img/light232.png" id="5_t0nkv"]
+[ext_resource type="PackedScene" uid="uid://ctrbcy5h47qqw" path="res://obj/components/gun_base.tscn" id="6_m4fya"]
+[ext_resource type="PackedScene" uid="uid://d0ex485qfg6qx" path="res://ui/inventory.tscn" id="8_wsalq"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_27y6e"]
 diffuse_texture = ExtResource("1_e2wcx")
@@ -32,13 +33,7 @@ script = ExtResource("4_6xs1v")
 position = Vector2(0, 3)
 hand_length = 9
 
-[node name="AKM" parent="player_hand_component/Marker2D" index="0" instance=ExtResource("5_8ek71")]
-base_range = 1.0
-base_spread = 20.0
-num_of_bullets = 1
-ver_recoil = 3
-hor_recoil = 3
-player_handled = true
+[node name="gun_base" parent="player_hand_component/Marker2D" index="0" instance=ExtResource("6_m4fya")]
 
 [node name="light_center" type="Marker2D" parent="."]
 position = Vector2(0, 4)
@@ -60,10 +55,29 @@ position = Vector2(0, 8)
 shape = SubResource("CapsuleShape2D_mx0ab")
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 offset_left = -16.0
 offset_top = -24.0
 offset_right = -15.0
 offset_bottom = -19.0
 color = Color(0.835928, 0.521021, 0.708692, 1)
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="Inventory" parent="CanvasLayer" instance=ExtResource("8_wsalq")]
+
+[node name="grid_backpack" parent="CanvasLayer/Inventory" index="1"]
+offset_left = 14.0
+offset_top = 176.0
+offset_right = 334.0
+offset_bottom = 304.0
+
+[node name="equipment_shaite" parent="CanvasLayer/Inventory" index="2"]
+offset_left = 372.0
+offset_top = 104.0
+offset_right = 548.0
+offset_bottom = 302.0
+
 [editable path="player_hand_component"]
+[editable path="CanvasLayer/Inventory"]
