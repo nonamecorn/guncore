@@ -7,8 +7,8 @@
 script = ExtResource("1_xn5q3")
 range_in_secs = 5.0
 spread = 1.0
-muzzle_position = Vector2(60, 1)
+muzzle_position = Vector2(62, 0)
 sprite = ExtResource("1_nv6u6")
 previev = ExtResource("1_nv6u6")
 slot = "BARREL"
-sprite_offset = Vector2(31, 1)
+sprite_offset = Vector2(30, 0)

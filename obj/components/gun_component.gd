@@ -75,7 +75,7 @@ func start_fire():
 	fire()
 	if spread_tween: spread_tween.kill()
 	spread_tween = create_tween()
-	spread_tween.tween_property(self, "current_spread", current_spread, current_max_ammo*current_firerate)
+	spread_tween.tween_property(self, "current_spread", current_spread, 4)
 	$firerate.start()
 
 func stop_fire():

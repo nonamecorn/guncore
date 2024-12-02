@@ -1,3 +1,4 @@
-Mag
 Barrel
+Mag
+GunReciever
 Resource

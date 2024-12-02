@@ -15,6 +15,12 @@ func _ready():
 	pickup_item(load("res://obj/parts/guns/akm.tres"))
 	pickup_item(load("res://obj/parts/barrels/long_barrel.tres"))
 	pickup_item(load("res://obj/parts/mags/akmag.tres"))
+	pickup_item(load("res://obj/parts/guns/PPsH.tres"))
+	pickup_item(load("res://obj/parts/mags/PPsH_mag.tres"))
+	pickup_item(load("res://obj/parts/barrels/AK_barrel.tres"))
+	pickup_item(load("res://obj/parts/barrels/PPsH_barrel.tres"))
+	pickup_item(load("res://obj/parts/guns/akm.tres"))
+
  
 func _physics_process(_delta):
 	var cursor_pos = get_global_mouse_position()

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Barrel" load_steps=3 format=3 uid="uid://btfemu2cudvw3"]
+
+[ext_resource type="Script" path="res://obj/parts/barrel.gd" id="1_dc7kp"]
+[ext_resource type="Texture2D" uid="uid://cv2hdljwaw5eb" path="res://img/parts/PPsH_Barrel.png" id="1_xwq3i"]
+
+[resource]
+script = ExtResource("1_dc7kp")
+range_in_secs = 0.5
+spread = 20.0
+muzzle_position = Vector2(12, 0)
+sprite = ExtResource("1_xwq3i")
+previev = ExtResource("1_xwq3i")
+slot = "BARREL"
+sprite_offset = Vector2(9, 0)

@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Mag" load_steps=4 format=3 uid="uid://bvg06o71a00gi"]
+
+[ext_resource type="Texture2D" uid="uid://bjanld43ent65" path="res://img/parts/PPsH_Mag.png" id="1_22v56"]
+[ext_resource type="PackedScene" uid="uid://ce5unulp5hnlx" path="res://obj/proj/fmj.tscn" id="1_ociy0"]
+[ext_resource type="Script" path="res://obj/parts/mag.gd" id="2_odm2g"]
+
+[resource]
+script = ExtResource("2_odm2g")
+capacity = 71
+projectile = ExtResource("1_ociy0")
+sprite = ExtResource("1_22v56")
+previev = ExtResource("1_22v56")
+slot = "MAG"
+sprite_offset = Vector2(1, 3)

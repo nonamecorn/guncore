@@ -1,9 +1,9 @@
-res://img/misc
+res://obj/parts/barrels
 res://obj/parts/mags
+res://obj/parts/guns
+res://img/misc
 res://obj/components
 res://ui
-res://obj/parts/barrels
-res://obj/parts/guns
 res://others
 res://lvls/misc
 res://obj/bodies/enemies
