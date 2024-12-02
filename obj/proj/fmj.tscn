@@ -1,74 +1,18 @@
-[gd_scene load_steps=11 format=3 uid="uid://ce5unulp5hnlx"]
+[gd_scene load_steps=3 format=3 uid="uid://ce5unulp5hnlx"]
 
 [ext_resource type="PackedScene" uid="uid://chohchm3nmbw8" path="res://obj/components/mother_projectile.tscn" id="1_ub8af"]
-[ext_resource type="Texture2D" uid="uid://bd17djci3povk" path="res://img/bulletexpanim.png" id="2_6dk0c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qy0bh"]
 radius = 2.0
 height = 10.0
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_gxatg"]
-atlas = ExtResource("2_6dk0c")
-region = Rect2(0, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_bid3o"]
-atlas = ExtResource("2_6dk0c")
-region = Rect2(32, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_gjvur"]
-atlas = ExtResource("2_6dk0c")
-region = Rect2(64, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_lbrdw"]
-atlas = ExtResource("2_6dk0c")
-region = Rect2(96, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_1bnxk"]
-atlas = ExtResource("2_6dk0c")
-region = Rect2(128, 0, 32, 32)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ntlhn"]
-atlas = ExtResource("2_6dk0c")
-region = Rect2(160, 0, 32, 32)
-
-[sub_resource type="SpriteFrames" id="SpriteFrames_eh58y"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gxatg")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_bid3o")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_gjvur")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_lbrdw")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_1bnxk")
-}, {
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_ntlhn")
-}],
-"loop": false,
-"name": &"default",
-"speed": 15.0
-}]
-
 [node name="fmj" instance=ExtResource("1_ub8af")]
 collision_layer = 2
 speed = 715
+damage = 2
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CapsuleShape2D_qy0bh")
 
-[node name="destroy_anim" parent="." index="2"]
-visible = false
-sprite_frames = SubResource("SpriteFrames_eh58y")
-frame = 5
-frame_progress = 1.0
-
-[node name="Timer" parent="." index="3"]
+[node name="Timer" parent="." index="2"]
 wait_time = 0.001

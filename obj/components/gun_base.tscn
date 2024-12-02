@@ -8,12 +8,12 @@ script = ExtResource("1_it1k3")
 [node name="RECIEVER" type="Marker2D" parent="."]
 
 [node name="BARREL" type="Marker2D" parent="."]
-position = Vector2(4, 0)
+position = Vector2(3, 0)
 
 [node name="MUZZLE" type="Marker2D" parent="."]
 
 [node name="MAG" type="Marker2D" parent="."]
-position = Vector2(-1, 1)
+position = Vector2(-2, 1)
 
 [node name="pos" type="Marker2D" parent="."]
 
@@ -22,6 +22,7 @@ wait_time = 0.05
 
 [node name="reload" type="Timer" parent="."]
 wait_time = 0.1
+one_shot = true
 
 [connection signal="timeout" from="firerate" to="." method="fire"]
 [connection signal="timeout" from="reload" to="." method="_on_reload_timeout"]

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Mod" load_steps=5 format=3 uid="uid://bivfsjj4l8b85"]
+[gd_resource type="Resource" script_class="Mod" load_steps=7 format=3 uid="uid://bivfsjj4l8b85"]
 
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_cbe11"]
 [ext_resource type="Script" path="res://obj/parts/mod.gd" id="2_u4otm"]
@@ -11,9 +11,23 @@ value_of_stat = 0.1
 mult = true
 is_set = false
 
+[sub_resource type="Resource" id="Resource_gk2oy"]
+script = ExtResource("1_cbe11")
+stat_name = "current_ver_recoil"
+value_of_stat = 1.5
+mult = true
+is_set = false
+
+[sub_resource type="Resource" id="Resource_fksse"]
+script = ExtResource("1_cbe11")
+stat_name = "current_hor_recoil"
+value_of_stat = 1.1
+mult = true
+is_set = false
+
 [resource]
 script = ExtResource("2_u4otm")
 slot = "GUTS"
 sprite = ExtResource("3_0sn7c")
 sprite_offset = Vector2(0, 0)
-changes = Array[ExtResource("1_cbe11")]([SubResource("Resource_y5pc3")])
+changes = Array[ExtResource("1_cbe11")]([SubResource("Resource_y5pc3"), SubResource("Resource_gk2oy"), SubResource("Resource_fksse")])

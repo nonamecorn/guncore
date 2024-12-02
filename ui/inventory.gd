@@ -27,6 +27,9 @@ func _ready():
 	pickup_item(load("res://obj/parts/muzzles/Muzzel_Brake.tres"))
 	pickup_item(load("res://obj/parts/mods/HomeMadeFCG.tres"))
 	pickup_item(load("res://obj/parts/barrels/GausBarrel.tres"))
+	pickup_item(load("res://obj/parts/guns/SKS.tres"))
+	pickup_item(load("res://obj/parts/barrels/SKS_barrel.tres"))
+	pickup_item(load("res://obj/parts/mags/SKS_mag.tres"))
 
  
 func _physics_process(_delta):

@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-#var spark = preload("res://obj/projs/spark.tscn")
+var spark = preload("res://obj/proj/spark.tscn")
 @export var speed = 500
 var move_vec : Vector2
 var mod_vec : Vector2
@@ -28,13 +28,15 @@ func _physics_process(delta):
 		if coll.get_collider().has_method("hurt"):
 			coll.get_collider().hurt(damage)
 		$Sprite2D.hide()
-		$destroy_anim.show()
-		$destroy_anim.play()
+		create_spark()
+		queue_free()
 
 func _on_timer_timeout():
 	$Sprite2D.hide()
-	$destroy_anim.show()
-	$destroy_anim.play()
-
-func _on_destroy_anim_animation_finished() -> void:
+	create_spark()
 	queue_free()
+
+func create_spark():
+	var spark_inst = spark.instantiate()
+	spark_inst.global_position = global_position
+	get_tree().current_scene.call_deferred("add_child",spark_inst)

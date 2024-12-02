@@ -81,7 +81,8 @@ func asseble_gun(parts : Dictionary):
 				set_stat(change.stat_name, change.value_of_stat)
 				continue
 			change_stat(change.stat_name, change.value_of_stat, change.mult)
-	$firerate.wait_time = current_firerate
+	if current_firerate != 0:
+		$firerate.wait_time = current_firerate
 	$reload.wait_time = current_reload_time
 	show()
 	state = FIRE
@@ -108,6 +109,7 @@ func start_fire():
 	if state: return
 	if current_ammo <= 0: return
 	fire()
+	if current_firerate == 0: return
 	if spread_tween: spread_tween.kill()
 	spread_tween = create_tween()
 	spread_tween.tween_property(self, "current_spread", current_max_spread, current_firerate*current_max_ammo)
