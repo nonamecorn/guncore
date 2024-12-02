@@ -1,7 +1,8 @@
-[gd_resource type="Resource" script_class="Mag" load_steps=4 format=3 uid="uid://bnbmkb8n34y75"]
+[gd_resource type="Resource" script_class="Mag" load_steps=5 format=3 uid="uid://bnbmkb8n34y75"]
 
 [ext_resource type="Script" path="res://obj/parts/mag.gd" id="1_4qlor"]
 [ext_resource type="Texture2D" uid="uid://cageco7x6ob6a" path="res://img/parts/AK_Mag.png" id="1_51pky"]
+[ext_resource type="Script" path="res://obj/components/change.gd" id="1_c5x6n"]
 [ext_resource type="PackedScene" uid="uid://ce5unulp5hnlx" path="res://obj/proj/fmj.tscn" id="2_44mwl"]
 
 [resource]
@@ -9,4 +10,5 @@ script = ExtResource("1_4qlor")
 capacity = 30
 projectile = ExtResource("2_44mwl")
 sprite = ExtResource("1_51pky")
-sprite_offset = Vector2(4, 3)
+sprite_offset = Vector2(3, 4)
+changes = Array[ExtResource("1_c5x6n")]([])

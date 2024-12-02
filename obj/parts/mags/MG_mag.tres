@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Mag" load_steps=4 format=3 uid="uid://uqr2chu2vw4f"]
+[gd_resource type="Resource" script_class="Mag" load_steps=4 format=3 uid="uid://qp2w5ha2huux"]
 
 [ext_resource type="PackedScene" uid="uid://ce5unulp5hnlx" path="res://obj/proj/fmj.tscn" id="1_vqrye"]
 [ext_resource type="Script" path="res://obj/parts/mag.gd" id="2_qemoy"]
@@ -9,4 +9,4 @@ script = ExtResource("2_qemoy")
 capacity = 100
 projectile = ExtResource("1_vqrye")
 sprite = ExtResource("3_u84gw")
-sprite_offset = Vector2(0, 0)
+sprite_offset = Vector2(2, 2)

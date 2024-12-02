@@ -96,7 +96,7 @@ offset_bottom = 47.0
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
-[node name="MOD1" type="TextureRect" parent="equipment_shaite"]
+[node name="ATTACH" type="TextureRect" parent="equipment_shaite"]
 layout_mode = 2
 offset_left = 51.0
 offset_top = 51.0
@@ -105,7 +105,7 @@ offset_bottom = 83.0
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
-[node name="MOD2" type="TextureRect" parent="equipment_shaite"]
+[node name="GUTS" type="TextureRect" parent="equipment_shaite"]
 layout_mode = 2
 offset_left = 87.0
 offset_top = 51.0

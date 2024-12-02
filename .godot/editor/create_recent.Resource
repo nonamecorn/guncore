@@ -1,4 +1,5 @@
+Resource
+Muzzle
 Mag
 Barrel
 GunReciever
-Resource

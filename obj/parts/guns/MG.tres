@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GunReciever" load_steps=3 format=3 uid="uid://djuxdp1gex0m4"]
+[gd_resource type="Resource" script_class="GunReciever" load_steps=3 format=3 uid="uid://binmcxgmesfbh"]
 
 [ext_resource type="Script" path="res://obj/parts/reciever.gd" id="1_8pcku"]
 [ext_resource type="Texture2D" uid="uid://cn24unwluhdf5" path="res://img/parts/MG.png" id="2_3nx22"]
@@ -9,7 +9,7 @@ base_firerate = 0.1
 number_of_mods = 0
 ver_recoil = 10.0
 hor_recoil = 10.0
-mag_position = Vector2(0, 0)
-barrel_position = Vector2(0, 0)
+mag_position = Vector2(2, 2)
+barrel_position = Vector2(8, 0)
 sprite = ExtResource("2_3nx22")
 sprite_offset = Vector2(0, 0)

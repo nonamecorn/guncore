@@ -1,12 +1,15 @@
-[gd_resource type="Resource" script_class="Barrel" load_steps=3 format=3 uid="uid://c3m27pv1gvadm"]
+[gd_resource type="Resource" script_class="Barrel" load_steps=4 format=3 uid="uid://knr31207p64p"]
 
+[ext_resource type="Script" path="res://obj/components/change.gd" id="1_00eg8"]
 [ext_resource type="Texture2D" uid="uid://b6gqhd6ec20ea" path="res://img/parts/AK_Barrel.png" id="1_5su8h"]
 [ext_resource type="Script" path="res://obj/parts/barrel.gd" id="1_a1wfo"]
 
 [resource]
 script = ExtResource("1_a1wfo")
 range_in_secs = 1.0
-spread = 15.0
-muzzle_position = Vector2(6, 0)
+max_spread = 15.0
+min_spread = 0.0
+muzzle_position = Vector2(14, 0)
 sprite = ExtResource("1_5su8h")
 sprite_offset = Vector2(7, 0)
+changes = Array[ExtResource("1_00eg8")]([])

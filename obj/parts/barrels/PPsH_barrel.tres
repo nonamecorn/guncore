@@ -1,12 +1,15 @@
-[gd_resource type="Resource" script_class="Barrel" load_steps=3 format=3 uid="uid://btfemu2cudvw3"]
+[gd_resource type="Resource" script_class="Barrel" load_steps=4 format=3 uid="uid://bcfjwfheulta0"]
 
 [ext_resource type="Script" path="res://obj/parts/barrel.gd" id="1_dc7kp"]
+[ext_resource type="Script" path="res://obj/components/change.gd" id="1_imxsv"]
 [ext_resource type="Texture2D" uid="uid://cv2hdljwaw5eb" path="res://img/parts/PPsH_Barrel.png" id="1_xwq3i"]
 
 [resource]
 script = ExtResource("1_dc7kp")
 range_in_secs = 0.5
-spread = 20.0
+max_spread = 30.0
+min_spread = 5.0
 muzzle_position = Vector2(12, 0)
 sprite = ExtResource("1_xwq3i")
 sprite_offset = Vector2(6, -1)
+changes = Array[ExtResource("1_imxsv")]([])

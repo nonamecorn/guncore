@@ -1,43 +1,24 @@
-[gd_scene load_steps=6 format=3 uid="uid://ctrbcy5h47qqw"]
+[gd_scene load_steps=2 format=3 uid="uid://ctrbcy5h47qqw"]
 
 [ext_resource type="Script" path="res://obj/components/gun_component.gd" id="1_it1k3"]
-[ext_resource type="Texture2D" uid="uid://cn24unwluhdf5" path="res://img/parts/MG.png" id="2_jglrk"]
-[ext_resource type="Texture2D" uid="uid://dplivkec77lca" path="res://img/parts/MG_barrel.png" id="3_lyf72"]
-[ext_resource type="Texture2D" uid="uid://ds10y1n2kfjbe" path="res://img/parts/MG_mag.png" id="4_i2v4k"]
-[ext_resource type="Texture2D" uid="uid://drpu04r5h6iuq" path="res://img/parts/AK.png" id="5_2mk4e"]
 
 [node name="gun_base" type="Node2D"]
 script = ExtResource("1_it1k3")
 
-[node name="Mg" type="Sprite2D" parent="."]
-visible = false
-texture = ExtResource("2_jglrk")
-
 [node name="RECIEVER" type="Marker2D" parent="."]
 
 [node name="BARREL" type="Marker2D" parent="."]
-position = Vector2(1, 0)
-
-[node name="MgBarrel" type="Sprite2D" parent="BARREL"]
-position = Vector2(11, 0)
-texture = ExtResource("3_lyf72")
 
 [node name="MUZZLE" type="Marker2D" parent="."]
 
 [node name="MAG" type="Marker2D" parent="."]
-position = Vector2(-5, 1)
 
-[node name="MgMag" type="Sprite2D" parent="MAG"]
-position = Vector2(3, 2)
-texture = ExtResource("4_i2v4k")
+[node name="pos" type="Marker2D" parent="."]
 
 [node name="firerate" type="Timer" parent="."]
 wait_time = 0.05
 
 [node name="reload" type="Timer" parent="."]
 wait_time = 0.1
-
-[node name="Ak" type="Sprite2D" parent="."]
-texture = ExtResource("5_2mk4e")
 
 [connection signal="timeout" from="firerate" to="." method="fire"]
