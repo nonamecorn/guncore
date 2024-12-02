@@ -8,10 +8,12 @@ script = ExtResource("1_it1k3")
 [node name="RECIEVER" type="Marker2D" parent="."]
 
 [node name="BARREL" type="Marker2D" parent="."]
+position = Vector2(1, 0)
 
 [node name="MUZZLE" type="Marker2D" parent="."]
 
 [node name="MAG" type="Marker2D" parent="."]
+position = Vector2(-5, 1)
 
 [node name="firerate" type="Timer" parent="."]
 wait_time = 0.05

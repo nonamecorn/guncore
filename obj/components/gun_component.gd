@@ -48,8 +48,8 @@ func dispawn_facade(part_name):
 func asseble_gun(parts : Dictionary):
 	gun_parts = parts
 	spawn_facade(parts.RECIEVER, Vector2.ZERO)
-	spawn_facade(parts.BARREL, parts.RECIEVER.barrel_position)
-	spawn_facade(parts.MAG, parts.RECIEVER.mag_position)
+	spawn_facade(parts.BARREL, parts.RECIEVER.barrel_position+parts.BARREL.sprite_offset)
+	spawn_facade(parts.MAG, parts.RECIEVER.mag_position+parts.MAG.sprite_offset)
 	
 	current_firerate = parts.RECIEVER.base_firerate
 	current_max_spread = parts.BARREL.spread

@@ -9,6 +9,4 @@ range_in_secs = 0.5
 spread = 20.0
 muzzle_position = Vector2(12, 0)
 sprite = ExtResource("1_xwq3i")
-previev = ExtResource("1_xwq3i")
-slot = "BARREL"
-sprite_offset = Vector2(9, 0)
+sprite_offset = Vector2(6, -1)

@@ -9,6 +9,4 @@ script = ExtResource("2_odm2g")
 capacity = 71
 projectile = ExtResource("1_ociy0")
 sprite = ExtResource("1_22v56")
-previev = ExtResource("1_22v56")
-slot = "MAG"
-sprite_offset = Vector2(1, 3)
+sprite_offset = Vector2(4, 1)
