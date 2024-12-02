@@ -75,7 +75,7 @@ func return_item():
 func pickup_item(item_res : Item):
 	var item = item_base.instantiate()
 	item.item_resource = item_res
-	item.texture = item_res.previev
+	item.texture = item_res.sprite
 	add_child(item)
 	if !grid_bkpk.insert_item_at_first_available_spot(item):
 		item.queue_free()

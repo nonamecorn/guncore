@@ -7,6 +7,7 @@ var spread_tween
 @onready var rng = RandomNumberGenerator.new()
 @export var player_handled = false
 var current_ammo
+var current_spread = 0
 
 var state = STOP
 
@@ -19,7 +20,7 @@ signal empty
 var current_bullet_obj
 var current_firerate
 var current_max_ammo
-var current_spread
+var current_max_spread
 var current_range
 var current_num_of_bullets
 var current_ver_recoil
@@ -31,26 +32,27 @@ func _ready() -> void:
 func check_point_of_fire() -> Vector2:
 	return $MUZZLE.global_position
 
-func spawn_facade(part):
+func spawn_facade(part,offset):
 	var facade_inst = facade.instantiate()
 	facade_inst.texture = part.sprite
 	var slot = find_child(part.slot)
 	slot.add_child(facade_inst)
-	slot.position = part.sprite_offset
+	slot.position = offset
 
 func dispawn_facade(part_name):
 	var slot = find_child(part_name)
+	if slot.get_child_count() == 0: return
 	slot.get_child(0).queue_free()
 	slot.position = Vector2.ZERO
 
 func asseble_gun(parts : Dictionary):
 	gun_parts = parts
-	spawn_facade(parts.RECIEVER)
-	spawn_facade(parts.BARREL)
-	spawn_facade(parts.MAG)
+	spawn_facade(parts.RECIEVER, Vector2.ZERO)
+	spawn_facade(parts.BARREL, parts.RECIEVER.barrel_position)
+	spawn_facade(parts.MAG, parts.RECIEVER.mag_position)
 	
 	current_firerate = parts.RECIEVER.base_firerate
-	current_spread = parts.BARREL.spread
+	current_max_spread = parts.BARREL.spread
 	current_range = parts.BARREL.range_in_secs
 	current_max_ammo = parts.MAG.capacity
 	current_ammo = parts.MAG.capacity
@@ -75,7 +77,7 @@ func start_fire():
 	fire()
 	if spread_tween: spread_tween.kill()
 	spread_tween = create_tween()
-	spread_tween.tween_property(self, "current_spread", current_spread, 4)
+	spread_tween.tween_property(self, "current_spread", current_max_spread, current_firerate*current_max_ammo)
 	$firerate.start()
 
 func stop_fire():
