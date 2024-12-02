@@ -5,11 +5,6 @@ res://obj/bodies/player.tscn
 res://obj/components/gun_base.tscn
 res://obj/components/facade.tscn
 res://obj/proj/fmj.tscn
-res://obj/parts/guns/PPsH.tres
-res://obj/parts/item.gd
-res://obj/components/gun_component.gd
-res://obj/parts/guns/akm.tres
-res://obj/parts/mags/akmag.tres
-res://obj/parts/barrels/AK_barrel.tres
-res://obj/parts/mags/PPsH_mag.tres
-res://obj/parts/barrels/PPsH_barrel.tres
+res://obj/parts/guns/MG.tres
+res://obj/parts/barrels/MG_barrel.tres
+res://obj/parts/mags/MG_mag.tres

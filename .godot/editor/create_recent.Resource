@@ -1,4 +1,4 @@
-Barrel
 Mag
+Barrel
 GunReciever
 Resource
