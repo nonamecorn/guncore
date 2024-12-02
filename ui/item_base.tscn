@@ -3,5 +3,5 @@
 [ext_resource type="Script" path="res://ui/item_base.gd" id="1_d0eus"]
 
 [node name="Item_base" type="TextureRect"]
-stretch_mode = 2
+stretch_mode = 3
 script = ExtResource("1_d0eus")

@@ -6,8 +6,9 @@ func _ready() -> void:
 	$Marker2D.position.x = hand_length
 
 var flipped = false
-
-func _physics_process(_delta: float) -> void:
+var follow = true
+func _physics_process(_delta):
+	if !follow: return
 	if Input.is_action_just_pressed("ui_left_mouse"):
 		$Marker2D.get_child(0).start_fire()
 	if Input.is_action_just_released("ui_left_mouse"):

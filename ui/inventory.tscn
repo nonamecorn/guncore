@@ -9,7 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://um5hrhigv7dp" path="res://img/ui/inventory_1slot.png" id="6_uhxew"]
 [ext_resource type="Script" path="res://ui/collector.gd" id="7_suxgo"]
 
-[node name="Inventory" type="Control" node_paths=PackedStringArray("grid_bkpk", "eq_slots", "collector")]
+[node name="Inventory" type="Control" node_paths=PackedStringArray("grid_bkpk", "collector")]
+process_mode = 3
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -18,10 +19,10 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vc4ge")
 grid_bkpk = NodePath("grid_backpack")
-eq_slots = NodePath("equipment_shaite")
 collector = NodePath("collector")
 
 [node name="mockup" type="ColorRect" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
@@ -29,20 +30,20 @@ color = Color(0.625676, 0.128878, 0.24422, 1)
 
 [node name="grid_backpack" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 148.0
-offset_top = 208.0
-offset_right = 468.0
-offset_bottom = 336.0
+offset_left = 171.0
+offset_top = 194.0
+offset_right = 491.0
+offset_bottom = 322.0
 texture = ExtResource("2_am81f")
 stretch_mode = 2
 script = ExtResource("2_gjxwj")
 
 [node name="collector" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 12.0
-offset_top = 13.0
-offset_right = 140.0
-offset_bottom = 333.0
+offset_left = 25.0
+offset_top = 8.0
+offset_right = 153.0
+offset_bottom = 328.0
 texture = ExtResource("6_lojmw")
 script = ExtResource("7_suxgo")
 

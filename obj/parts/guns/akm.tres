@@ -7,8 +7,8 @@
 script = ExtResource("1_l073p")
 base_firerate = 0.1
 number_of_mods = 0
-ver_recoil = 10.0
-hor_recoil = 5.0
+ver_recoil = 3.0
+hor_recoil = 3.0
 sprite = ExtResource("1_4ha3i")
 previev = ExtResource("1_4ha3i")
 slot = "RECIEVER"

@@ -3,7 +3,8 @@ extends NinePatchRect
 @onready var slots = get_children()
 var items = {}
  
-signal change
+signal assemble(parts)
+signal dissassemble
 
 func _ready():
 	for slot in slots:
@@ -21,7 +22,7 @@ func insert_item(item):
 		return false
 	items[item_slot] = item
 	item.global_position = slot.global_position + slot.size / 2 - item.size / 2
-	change.emit()
+	check_assembly()
 	return true
  
 func grab_item(pos):
@@ -31,7 +32,7 @@ func grab_item(pos):
  
 	var item_slot = item.item_resource.slot
 	items[item_slot] = null
-	change.emit()
+	check_dissassembly()
 	return item
  
 func get_slot_under_pos(pos):
@@ -46,7 +47,26 @@ func get_thing_under_pos(arr, pos):
 			return thing
 	return null
 
+func check_assembly():
+	if items["RECIEVER"] and items["BARREL"] and items["MAG"]:
+		assemble.emit(get_parts())
+
+func check_dissassembly():
+	if items["RECIEVER"] and items["BARREL"] and items["MAG"]:
+		return
+	dissassemble.emit()
+
 func get_parts():
-	var parts = {}
+	
+	var parts = {
+		"RECIEVER": null,
+		"BARREL": null,
+		"MAG": null,
+		"MUZZLE": null,
+		"MOD1": null,
+		"MOD2": null,
+	}
 	for part in items:
-		parts[part.name] = part.item_resource
+		if !items[part]: continue
+		parts[part] = items[part].item_resource
+	return parts

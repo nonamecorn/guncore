@@ -23,6 +23,15 @@ func _ready():
 #	print(movement_target)
 	rng.randomize()
 	randomnum = rng.randf()
+	var parts = {
+		"RECIEVER": load("res://obj/parts/guns/akm.tres"),
+		"BARREL": load("res://obj/parts/barrels/long_barrel.tres"),
+		"MAG": load("res://obj/parts/mags/akmag.tres"),
+		"MUZZLE": null,
+		"MOD1": null,
+		"MOD2": null,
+	}
+	$enemy_hand_component/Marker2D/gun_base.asseble_gun(parts)
 
 func set_movement_target(target_point: Vector2):
 	nav_agent.target_position = target_point

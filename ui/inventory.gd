@@ -3,7 +3,7 @@ extends Control
 const item_base = preload("res://ui/item_base.tscn")
  
 @export var grid_bkpk : Node
-@export var eq_slots : Node
+@export var eq_slot : Node
 @export var collector : Node
 
 var item_held = null
@@ -14,8 +14,9 @@ var last_pos = Vector2()
 func _ready():
 	pickup_item(load("res://obj/parts/guns/akm.tres"))
 	pickup_item(load("res://obj/parts/barrels/long_barrel.tres"))
+	pickup_item(load("res://obj/parts/mags/akmag.tres"))
  
-func _process(_delta):
+func _physics_process(_delta):
 	var cursor_pos = get_global_mouse_position()
 	if Input.is_action_just_pressed("ui_left_mouse"):
 		grab(cursor_pos)
@@ -23,11 +24,6 @@ func _process(_delta):
 		release(cursor_pos)
 	if item_held != null:
 		item_held.global_position = cursor_pos + item_offset
-		if Input.is_action_just_released("reload"):
-			item_held.global_position = cursor_pos
-			item_held.rotate()
-			item_offset = Vector2(item_held.size.x, item_held.size.y)
-			#item_held.global_position = cursor_pos #+ Vector2(item_held.size.x, item_held.size.y)
  
 func grab(cursor_pos):
 	var c = get_container_under_cursor(cursor_pos)
@@ -55,9 +51,9 @@ func release(cursor_pos):
  
  
 func get_container_under_cursor(cursor_pos):
-	var containers = [grid_bkpk, eq_slots, collector]
+	var containers = [grid_bkpk, eq_slot, collector]
 	for c in containers:
-		if c.get_rect().has_point(cursor_pos):
+		if c.get_global_rect().has_point(cursor_pos):
 			return c
 	return null
  

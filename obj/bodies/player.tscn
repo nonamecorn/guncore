@@ -58,19 +58,8 @@ shape = SubResource("CapsuleShape2D_mx0ab")
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 visible = false
 
-[node name="Inventory" parent="CanvasLayer" instance=ExtResource("8_wsalq")]
-
-[node name="grid_backpack" parent="CanvasLayer/Inventory" index="1"]
-offset_left = 14.0
-offset_top = 176.0
-offset_right = 334.0
-offset_bottom = 304.0
-
-[node name="equipment_shaite" parent="CanvasLayer/Inventory" index="3"]
-offset_left = 372.0
-offset_top = 104.0
-offset_right = 548.0
-offset_bottom = 302.0
+[node name="Inventory" parent="CanvasLayer" node_paths=PackedStringArray("eq_slot") instance=ExtResource("8_wsalq")]
+eq_slot = NodePath("equipment_shaite")
 
 [editable path="player_hand_component"]
 [editable path="CanvasLayer/Inventory"]

@@ -1,65 +1,106 @@
 extends Node2D
 
-var bullet_obj = preload("res://obj/proj/fmj.tscn")
+var facade = preload("res://obj/components/facade.tscn")
+var gun_parts
 var point_of_shooting = Vector2(0,0)
-@export var base_range = 0.0
-@export var base_max_ammo = 0
-@export var base_spread = 0.0
-@export var number_of_mods = 0
-
-var current_max_ammo
-var current_ammo
-var current_spread
-var current_range
-
-@export var num_of_bullets = 10
-@export var ver_recoil = 10
-@export var hor_recoil = 10
+var spread_tween
+@onready var rng = RandomNumberGenerator.new()
 @export var player_handled = false
+var current_ammo
 
-var tween
+var state = STOP
 
+enum {
+	FIRE,
+	STOP,
+}
 signal empty
 
-@onready var rng = RandomNumberGenerator.new()
+var current_bullet_obj
+var current_firerate
+var current_max_ammo
+var current_spread
+var current_range
+var current_num_of_bullets
+var current_ver_recoil
+var current_hor_recoil
+
 func _ready() -> void:
-	current_max_ammo = base_max_ammo
-	current_ammo = base_max_ammo
-	current_spread = 0
-	current_range = base_range
 	rng.randomize()
 
-func update():
-	pass
+func check_point_of_fire() -> Vector2:
+	return $MUZZLE.global_position
+
+func spawn_facade(part):
+	var facade_inst = facade.instantiate()
+	facade_inst.texture = part.sprite
+	var slot = find_child(part.slot)
+	slot.add_child(facade_inst)
+	slot.position = part.sprite_offset
+
+func dispawn_facade(part_name):
+	var slot = find_child(part_name)
+	slot.get_child(0).queue_free()
+	slot.position = Vector2.ZERO
+
+func asseble_gun(parts : Dictionary):
+	gun_parts = parts
+	spawn_facade(parts.RECIEVER)
+	spawn_facade(parts.BARREL)
+	spawn_facade(parts.MAG)
+	
+	current_firerate = parts.RECIEVER.base_firerate
+	current_spread = parts.BARREL.spread
+	current_range = parts.BARREL.range_in_secs
+	current_max_ammo = parts.MAG.capacity
+	current_ammo = parts.MAG.capacity
+	current_bullet_obj = parts.MAG.projectile
+	current_num_of_bullets = 1
+	current_ver_recoil = parts.RECIEVER.ver_recoil
+	current_hor_recoil = parts.RECIEVER.hor_recoil
+	$MUZZLE.position = parts.BARREL.muzzle_position
+	
+	$firerate.wait_time = current_firerate
+	state = FIRE
+
+func dissassemble_gun():
+	dispawn_facade("RECIEVER")
+	dispawn_facade("BARREL")
+	dispawn_facade("MAG")
+	state = STOP
 
 func start_fire():
+	if state: return
 	if current_ammo <= 0: return
 	fire()
-	if tween: tween.kill()
-	tween = create_tween()
-	tween.tween_property(self, "current_spread", base_spread, 3)
+	if spread_tween: spread_tween.kill()
+	spread_tween = create_tween()
+	spread_tween.tween_property(self, "current_spread", current_spread, current_max_ammo*current_firerate)
 	$firerate.start()
 
 func stop_fire():
-	if tween: tween.kill()
-	tween = create_tween()
-	tween.tween_property(self, "current_spread", 0, 1)
+	if state: return
+	if spread_tween: spread_tween.kill()
+	spread_tween = create_tween()
+	spread_tween.tween_property(self, "current_spread", 0, 1)
 	$firerate.stop()
-#
+
 func reload():
 	current_spread = 0
-	current_ammo = base_max_ammo
+	current_ammo = current_max_ammo
 func fire():
-	for i in num_of_bullets:
-		if current_ammo > 0:
-			current_ammo -= 1
-			if  player_handled:
-				var vievscale = get_viewport_transform().get_scale()
-				Input.warp_mouse(get_viewport().get_mouse_position()*vievscale + Vector2(-ver_recoil,randf_range(-hor_recoil, hor_recoil)).rotated(global_rotation)*vievscale)
-			var bullet_inst = bullet_obj.instantiate()
-			bullet_inst.global_position = $mods_markers.check_point_of_fire()
-			bullet_inst.global_rotation_degrees = global_rotation_degrees + rng.randf_range(-current_spread, current_spread)
-			get_tree().current_scene.call_deferred("add_child",bullet_inst) 
-			bullet_inst.init(get_parent().get_parent().get_parent().velocity, base_range)
-		else: empty.emit()
-	
+	if state: return
+	for i in current_num_of_bullets:
+		if current_ammo <= 0: 
+			empty.emit()
+			return
+		current_ammo -= 1
+		if  player_handled:
+			var vievscale = get_viewport_transform().get_scale()
+			var recoil_vector = Vector2(-current_ver_recoil,randf_range(-current_hor_recoil, current_hor_recoil)).rotated(global_rotation)
+			Input.warp_mouse(get_viewport().get_mouse_position()*vievscale + recoil_vector*vievscale)
+		var bullet_inst = current_bullet_obj.instantiate()
+		bullet_inst.global_position = check_point_of_fire()
+		bullet_inst.global_rotation_degrees = global_rotation_degrees + rng.randf_range(-current_spread, current_spread)
+		get_tree().current_scene.call_deferred("add_child",bullet_inst) 
+		bullet_inst.init(get_parent().get_parent().get_parent().velocity, current_range)
