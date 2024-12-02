@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Muzzle" load_steps=7 format=3 uid="uid://dpxujm56a3xhd"]
+[gd_resource type="Resource" script_class="Muzzle" load_steps=8 format=3 uid="uid://dpxujm56a3xhd"]
 
 [ext_resource type="Script" path="res://obj/parts/muzzle.gd" id="1_7q3vf"]
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_r5f0n"]
@@ -14,15 +14,22 @@ is_set = false
 [sub_resource type="Resource" id="Resource_be1ss"]
 script = ExtResource("1_r5f0n")
 stat_name = "current_max_spread"
-value_of_stat = 40.0
+value_of_stat = 30.0
 mult = false
 is_set = false
 
 [sub_resource type="Resource" id="Resource_1nden"]
 script = ExtResource("1_r5f0n")
 stat_name = "current_min_spread"
-value_of_stat = 40.0
+value_of_stat = 30.0
 mult = false
+is_set = false
+
+[sub_resource type="Resource" id="Resource_m2apx"]
+script = ExtResource("1_r5f0n")
+stat_name = "current_ver_recoil"
+value_of_stat = 2.0
+mult = true
 is_set = false
 
 [resource]
@@ -30,4 +37,4 @@ script = ExtResource("1_7q3vf")
 bullet_vector = Vector2(8, 0)
 sprite = ExtResource("2_5vsxe")
 sprite_offset = Vector2(2, 0)
-changes = Array[ExtResource("1_r5f0n")]([SubResource("Resource_gbklh"), SubResource("Resource_be1ss"), SubResource("Resource_1nden")])
+changes = Array[ExtResource("1_r5f0n")]([SubResource("Resource_gbklh"), SubResource("Resource_be1ss"), SubResource("Resource_1nden"), SubResource("Resource_m2apx")])

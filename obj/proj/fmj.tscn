@@ -59,6 +59,7 @@ animations = [{
 
 [node name="fmj" instance=ExtResource("1_ub8af")]
 collision_layer = 2
+speed = 715
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CapsuleShape2D_qy0bh")

@@ -9,6 +9,7 @@
 script = ExtResource("1_4qlor")
 capacity = 30
 projectile = ExtResource("2_44mwl")
+reload_time = 2
 sprite = ExtResource("1_51pky")
 sprite_offset = Vector2(3, 4)
 changes = Array[ExtResource("1_c5x6n")]([])

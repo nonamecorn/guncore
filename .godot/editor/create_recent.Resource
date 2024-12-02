@@ -1,5 +1,6 @@
-Resource
-Muzzle
-Mag
 Barrel
+Mod
+Muzzle
+Resource
+Mag
 GunReciever

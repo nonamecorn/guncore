@@ -26,6 +26,8 @@ var current_range
 var current_num_of_bullets
 var current_ver_recoil
 var current_hor_recoil
+var current_add_spd
+var current_reload_time
 
 func _ready() -> void:
 	rng.randomize()
@@ -47,6 +49,7 @@ func dispawn_facade(part_name):
 	slot.position = Vector2.ZERO
 
 func asseble_gun(parts : Dictionary):
+	dissassemble_gun()
 	gun_parts = parts
 	spawn_facade(parts.RECIEVER, Vector2.ZERO)
 	spawn_facade(parts.BARREL, parts.RECIEVER.barrel_position+parts.BARREL.sprite_offset)
@@ -63,6 +66,8 @@ func asseble_gun(parts : Dictionary):
 	current_num_of_bullets = 1
 	current_ver_recoil = parts.RECIEVER.ver_recoil
 	current_hor_recoil = parts.RECIEVER.hor_recoil
+	current_add_spd = parts.BARREL.add_spd
+	current_reload_time = parts.MAG.reload_time
 	$MUZZLE.position = parts.BARREL.muzzle_position + parts.RECIEVER.barrel_position
 	$pos.position = $MUZZLE.position
 	if parts.MUZZLE != null:
@@ -72,11 +77,12 @@ func asseble_gun(parts : Dictionary):
 	for part_name in parts:
 		if parts[part_name] == null: continue
 		for change in parts[part_name].changes:
-			if change.set:
+			if change.is_set:
 				set_stat(change.stat_name, change.value_of_stat)
 				continue
 			change_stat(change.stat_name, change.value_of_stat, change.mult)
 	$firerate.wait_time = current_firerate
+	$reload.wait_time = current_reload_time
 	show()
 	state = FIRE
 
@@ -114,9 +120,18 @@ func stop_fire():
 	spread_tween.tween_property(self, "current_spread", current_min_spread, 1)
 	$firerate.stop()
 
-func reload():
-	current_spread = current_min_spread
+func _on_reload_timeout():
 	current_ammo = current_max_ammo
+	$MAG.show()
+	state = FIRE
+
+func reload():
+	state = STOP
+	$reload.start()
+	$MAG.hide()
+	current_spread = current_min_spread
+
+
 func fire():
 	if state: return
 	for i in current_num_of_bullets:
@@ -132,4 +147,4 @@ func fire():
 		bullet_inst.global_position = check_point_of_fire()
 		bullet_inst.global_rotation_degrees = global_rotation_degrees + rng.randf_range(-current_spread, current_spread)
 		get_tree().current_scene.call_deferred("add_child",bullet_inst) 
-		bullet_inst.init(get_parent().get_parent().get_parent().velocity, current_range)
+		bullet_inst.init(get_parent().get_parent().get_parent().velocity, current_range, current_add_spd)

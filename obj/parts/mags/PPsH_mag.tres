@@ -9,6 +9,7 @@
 script = ExtResource("2_odm2g")
 capacity = 71
 projectile = ExtResource("1_ociy0")
+reload_time = 4
 sprite = ExtResource("1_22v56")
-sprite_offset = Vector2(4, 1)
+sprite_offset = Vector2(2, 2)
 changes = Array[ExtResource("1_gkyod")]([])

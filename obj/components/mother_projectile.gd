@@ -12,7 +12,8 @@ var rng = RandomNumberGenerator.new()
 func _ready():
 	rng.randomize()
 	
-func init(vec: Vector2, range_sec):
+func init(vec: Vector2, range_sec, add_spd):
+	speed+=add_spd
 	mod_vec = vec
 	move_vec = Vector2.RIGHT
 	move_vec = move_vec.rotated(global_rotation)

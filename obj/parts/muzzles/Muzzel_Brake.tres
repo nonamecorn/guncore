@@ -1,0 +1,26 @@
+[gd_resource type="Resource" script_class="Muzzle" load_steps=6 format=3 uid="uid://cioo56b3pjui3"]
+
+[ext_resource type="Script" path="res://obj/components/change.gd" id="1_1gbqs"]
+[ext_resource type="Script" path="res://obj/parts/muzzle.gd" id="2_7mp8e"]
+[ext_resource type="Texture2D" uid="uid://cbrth5bwye402" path="res://img/parts/MuzzleBrake.png" id="3_1q8a4"]
+
+[sub_resource type="Resource" id="Resource_mj266"]
+script = ExtResource("1_1gbqs")
+stat_name = "current_ver_recoil"
+value_of_stat = 0.5
+mult = true
+is_set = false
+
+[sub_resource type="Resource" id="Resource_gnytl"]
+script = ExtResource("1_1gbqs")
+stat_name = "current_hor_recoil"
+value_of_stat = 0.75
+mult = true
+is_set = false
+
+[resource]
+script = ExtResource("2_7mp8e")
+bullet_vector = Vector2(8, 0)
+sprite = ExtResource("3_1q8a4")
+sprite_offset = Vector2(4, 0)
+changes = Array[ExtResource("1_1gbqs")]([SubResource("Resource_mj266"), SubResource("Resource_gnytl")])

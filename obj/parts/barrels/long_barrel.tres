@@ -1,8 +1,22 @@
-[gd_resource type="Resource" script_class="Barrel" load_steps=4 format=3 uid="uid://cjup8q63xpmgt"]
+[gd_resource type="Resource" script_class="Barrel" load_steps=6 format=3 uid="uid://cjup8q63xpmgt"]
 
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_cun8x"]
 [ext_resource type="Texture2D" uid="uid://bp5iwu0ty8arn" path="res://img/parts/LongBarrel.png" id="1_nv6u6"]
 [ext_resource type="Script" path="res://obj/parts/barrel.gd" id="1_xn5q3"]
+
+[sub_resource type="Resource" id="Resource_ra645"]
+script = ExtResource("1_cun8x")
+stat_name = "current_ver_recoil"
+value_of_stat = 0.8
+mult = true
+is_set = false
+
+[sub_resource type="Resource" id="Resource_4xagf"]
+script = ExtResource("1_cun8x")
+stat_name = "current_hor_recoil"
+value_of_stat = 0.99
+mult = false
+is_set = false
 
 [resource]
 script = ExtResource("1_xn5q3")
@@ -10,6 +24,7 @@ range_in_secs = 5.0
 max_spread = 1.0
 min_spread = 1.0
 muzzle_position = Vector2(58, 0)
+add_spd = 50.0
 sprite = ExtResource("1_nv6u6")
 sprite_offset = Vector2(29, 0)
-changes = Array[ExtResource("1_cun8x")]([])
+changes = Array[ExtResource("1_cun8x")]([SubResource("Resource_ra645"), SubResource("Resource_4xagf")])

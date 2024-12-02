@@ -1,9 +1,10 @@
-res://obj/components
+res://obj/parts/barrels
+res://obj/parts/mods
 res://obj/parts/muzzles
+res://obj/components
 res://img/misc
 res://obj/parts/mags
 res://ui
-res://obj/parts/barrels
 res://obj/parts/guns
 res://others
 res://lvls/misc

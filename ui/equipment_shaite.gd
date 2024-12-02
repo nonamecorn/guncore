@@ -52,9 +52,11 @@ func check_assembly():
 		assemble.emit(get_parts())
 
 func check_dissassembly():
-	if items["RECIEVER"] and items["BARREL"] and items["MAG"]:
+	if !items["RECIEVER"] or !items["BARREL"] or !items["MAG"]:
+		dissassemble.emit()
 		return
-	dissassemble.emit()
+	assemble.emit(get_parts())
+	
 
 func get_parts():
 	

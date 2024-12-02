@@ -4,4 +4,5 @@ class_name Barrel
 @export var max_spread : float
 @export var min_spread : float
 @export var muzzle_position : Vector2
+@export var add_spd : float
 var slot : String = "BARREL"
