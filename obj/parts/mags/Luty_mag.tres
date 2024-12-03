@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Mag" load_steps=5 format=3 uid="uid://dgqebvxwlyg3g"]
+
+[ext_resource type="Script" path="res://obj/components/change.gd" id="1_xf3kg"]
+[ext_resource type="PackedScene" uid="uid://b4qvivbnt8oim" path="res://obj/proj/PP_fmj.tscn" id="2_leerk"]
+[ext_resource type="Script" path="res://obj/parts/mag.gd" id="3_essug"]
+[ext_resource type="Texture2D" uid="uid://cykuf6khtn2er" path="res://img/parts/Luty_mag.png" id="4_cnp8u"]
+
+[resource]
+script = ExtResource("3_essug")
+capacity = 30
+projectile = ExtResource("2_leerk")
+reload_time = 3
+sprite = ExtResource("4_cnp8u")
+sprite_offset = Vector2(2, 3)
+changes = Array[ExtResource("1_xf3kg")]([])

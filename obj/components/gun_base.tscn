@@ -8,11 +8,12 @@ script = ExtResource("1_it1k3")
 [node name="RECIEVER" type="Marker2D" parent="."]
 
 [node name="BARREL" type="Marker2D" parent="."]
+position = Vector2(3, 0)
 
 [node name="MUZZLE" type="Marker2D" parent="."]
 
 [node name="MAG" type="Marker2D" parent="."]
-position = Vector2(-4, 3)
+position = Vector2(-2, 3)
 
 [node name="pos" type="Marker2D" parent="."]
 

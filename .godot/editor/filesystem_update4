@@ -1,8 +1,4 @@
 res://ui/inventory.tscn
-res://obj/parts/guns/shotgun.tres
-res://obj/parts/barrels/shotgun_barrel.tres
-res://obj/parts/mags/shotgun_mag.tres
-res://ui/inventory.gd
 res://obj/bodies/enemies/enemy.tscn
 res://ui/item_base.tscn
 res://obj/bodies/player.tscn
@@ -12,5 +8,10 @@ res://obj/proj/fmj.tscn
 res://obj/proj/PP_fmj.tscn
 res://obj/components/mother_projectile.tscn
 res://obj/proj/spark.tscn
-res://obj/parts/muzzles/grater.tres
-res://obj/parts/barrels/GausBarrel.tres
+res://obj/parts/guns/Luty.tres
+res://obj/parts/barrels/Luty_barrel.tres
+res://obj/parts/mags/Luty_mag.tres
+res://ui/inventory.gd
+res://obj/parts/guns/PipeRifle.tres
+res://obj/parts/barrels/PipeRifle_barrel.tres
+res://obj/parts/mags/PipeRifle_mag.tres
