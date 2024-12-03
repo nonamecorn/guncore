@@ -9,7 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://um5hrhigv7dp" path="res://img/ui/inventory_1slot.png" id="6_uhxew"]
 [ext_resource type="Script" path="res://ui/collector.gd" id="7_suxgo"]
 
-[node name="Inventory" type="Control" node_paths=PackedStringArray("grid_bkpk", "collector")]
+[node name="Inventory" type="Control" node_paths=PackedStringArray("grid_bkpk", "eq_slot", "collector")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -19,6 +19,7 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vc4ge")
 grid_bkpk = NodePath("grid_backpack")
+eq_slot = NodePath("equipment_shaite")
 collector = NodePath("collector")
 
 [node name="mockup" type="ColorRect" parent="."]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c3jo85so338er"]
+[gd_scene load_steps=9 format=3 uid="uid://c3jo85so338er"]
 
 [ext_resource type="Script" path="res://obj/bodies/enemies/enemy.gd" id="1_qbvdd"]
 [ext_resource type="Texture2D" uid="uid://dwejiqbyarwxw" path="res://img/enemy.png" id="2_fn425"]
@@ -13,9 +13,6 @@ radius = 259.002
 radius = 7.0
 height = 18.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_4s33i"]
-radius = 322.126
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ykghs"]
 radius = 7.0
 height = 26.0
@@ -28,6 +25,8 @@ nav_agent = NodePath("NavigationAgent2D")
 [node name="agro_zone" type="Area2D" parent="."]
 collision_layer = 0
 collision_mask = 4
+monitoring = false
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="agro_zone"]
 shape = SubResource("CircleShape2D_5x2qx")
@@ -45,13 +44,20 @@ hand_length = 16
 
 [node name="gun_base" parent="enemy_hand_component/Marker2D" index="0" instance=ExtResource("4_ohoj0")]
 
+[node name="burst_duration" type="Timer" parent="enemy_hand_component"]
+wait_time = 0.5
+one_shot = true
+
+[node name="look_around" type="Timer" parent="enemy_hand_component"]
+wait_time = 3.0
+autostart = true
+
 [node name="sight" type="Area2D" parent="enemy_hand_component"]
 collision_layer = 0
 collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="enemy_hand_component/sight"]
-shape = SubResource("CircleShape2D_4s33i")
-debug_color = Color(0.981067, 0.115127, 0.195213, 0.0196078)
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="enemy_hand_component/sight"]
+polygon = PackedVector2Array(-38, 0, 256, -128, 256, 128)
 
 [node name="change_position" type="Timer" parent="."]
 wait_time = 2.0
@@ -68,6 +74,8 @@ wait_time = 0.5
 shape = SubResource("CapsuleShape2D_ykghs")
 
 [connection signal="body_entered" from="agro_zone" to="." method="_on_agro_zone_body_entered"]
+[connection signal="timeout" from="enemy_hand_component/burst_duration" to="enemy_hand_component" method="_on_burst_duration_timeout"]
+[connection signal="timeout" from="enemy_hand_component/look_around" to="enemy_hand_component" method="_on_look_around_timeout"]
 [connection signal="body_entered" from="enemy_hand_component/sight" to="." method="_on_sight_body_entered"]
 [connection signal="body_entered" from="enemy_hand_component/sight" to="enemy_hand_component" method="_on_sight_body_entered"]
 [connection signal="body_exited" from="enemy_hand_component/sight" to="." method="_on_sight_body_exited"]

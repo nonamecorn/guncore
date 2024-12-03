@@ -1,3 +1,4 @@
+res://others
 res://obj/components
 res://obj/parts/scripts
 res://obj/proj
@@ -9,7 +10,6 @@ res://obj/parts/mods
 res://obj/parts/muzzles
 res://img/misc
 res://ui
-res://others
 res://lvls/misc
 res://obj/bodies/enemies
 res://img

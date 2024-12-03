@@ -33,12 +33,11 @@ func grab_item(pos):
 	var item = get_item_under_pos(pos)
 	if item == null:
 		return null
- 
 	var item_pos = item.global_position + Vector2(cell_size / 2, cell_size / 2)
 	var g_pos = pos_to_grid_coord(item_pos)
 	var item_size = get_grid_size(item)
 	set_grid_space(g_pos.x, g_pos.y, item_size.x, item_size.y, false)
- 
+	item.item_resource.pick_up()
 	items.pop_at(items.find(item))
 	return item
  
@@ -77,7 +76,16 @@ func get_item_under_pos(pos):
 		if item.get_global_rect().has_point(pos):
 			return item
 	return null
- 
+
+func flush():
+	for item in items:
+		item.queue_free()
+	items = []
+	for x in range(grid_width):
+		grid[x] = {}
+		for y in range(grid_height):
+			grid[x][y] = false
+
 func insert_item_at_first_available_spot(item):
 	for y in range(grid_height):
 		for x in range(grid_width):

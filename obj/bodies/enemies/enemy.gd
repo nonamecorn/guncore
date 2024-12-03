@@ -4,13 +4,16 @@ const MAX_SPEED = 110
 const ACCELERATION = 700
 const FRICTION = 700
 
+@onready var item_base = load("res://obj/components/item_ground_base.tscn")
+
 var randomnum
 var bodies = []
 var dead = false
 enum {
 	SURROUND,
 	CHASE,
-	IDLE
+	IDLE,
+	RUN
 }
 var bug = false
 var health = 50
@@ -18,20 +21,26 @@ var state = IDLE
 var rng = RandomNumberGenerator.new()
 var player = null
 @export var nav_agent: NavigationAgent2D
+var flipped = false
+
+var parts = {
+		"RECIEVER": load("res://obj/parts/guns/Luty.tres"),
+		"BARREL": load("res://obj/parts/barrels/Luty_barrel.tres"),
+		"MAG": load("res://obj/parts/mags/Luty_mag.tres"),
+		"MUZZLE": null,
+		"MOD1": null,
+		"MOD2": null,
+	}
 
 func _ready():
 #	print(movement_target)
 	rng.randomize()
 	randomnum = rng.randf()
-	var parts = {
-		"RECIEVER": load("res://obj/parts/guns/akm.tres"),
-		"BARREL": load("res://obj/parts/barrels/long_barrel.tres"),
-		"MAG": load("res://obj/parts/mags/akmag.tres"),
-		"MUZZLE": null,
-		"MOD1": null,
-		"MOD2": null,
-	}
 	$enemy_hand_component/Marker2D/gun_base.asseble_gun(parts)
+
+func flip():
+	flipped = !flipped
+	$Sprite2D.scale.x *= -1
 
 func set_movement_target(target_point: Vector2):
 	nav_agent.target_position = target_point
@@ -43,6 +52,23 @@ func _physics_process(delta):
 			surround(get_circle_position(randomnum), delta)
 		CHASE:
 			move(delta)
+		RUN:
+			run(delta)
+
+
+func run(delta):
+	var direction = (get_self_circle_position(randomnum) - global_position).normalized() 
+	velocity = velocity.move_toward(direction * MAX_SPEED,delta * ACCELERATION)
+	move_and_slide()
+
+func get_self_circle_position(random):
+	var kill_circle_centre = global_position
+	var radius = 20
+#	Distance from center to circumference of circle
+	var angle = random * PI * 2;
+	var x = kill_circle_centre.x + cos(angle) * radius;
+	var y = kill_circle_centre.y + sin(angle) * radius;
+	return(Vector2(x,y))
 
 func move(delta):
 	if nav_agent.is_navigation_finished():
@@ -70,6 +96,12 @@ func get_circle_position(random):
 	var x = kill_circle_centre.x + cos(angle) * radius;
 	var y = kill_circle_centre.y + sin(angle) * radius;
 	return(Vector2(x,y))
+
+func drop(item : Item):
+	var item_inst = item_base.instantiate()
+	item_inst.global_position = global_position
+	get_tree().current_scene.find_child("items").call_deferred("add_child",item_inst) 
+	item_inst.init(item)
 
 func _on_makepath_timeout():
 	if !dead and !bug:
@@ -101,6 +133,8 @@ func hurt(value):
 	health -= value
 	if health <= 0:
 		call_deferred("die")
+	if state == IDLE:
+		state = RUN
 	
 
 func die():
@@ -112,6 +146,9 @@ func die():
 	$enemy_hand_component.queue_free()
 #	movement_target = null
 	$Sprite2D.rotation_degrees = 90
+	for part in parts:
+		if parts[part]:
+			drop(parts[part])
 
 func _on_agro_zone_body_entered(body: Node2D) -> void:
 	if !body.is_in_group("player") or dead:

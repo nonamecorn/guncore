@@ -4,9 +4,10 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_6qyq3"]
 
-[node name="item_ground_base" type="StaticBody2D"]
+[node name="item_ground_base" type="Area2D"]
 collision_layer = 8
 collision_mask = 0
+monitoring = false
 script = ExtResource("1_kv0x3")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]

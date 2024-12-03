@@ -111,11 +111,15 @@ func drop_item():
 	drop.emit(item_held.item_resource)
 	item_held.queue_free()
 	item_held = null
- 
+
 func return_item():
 	item_held.global_position = last_pos
-	last_container.insert_item(item_held)
+	if last_container.has_method("insert_item"):
+		last_container.insert_item(item_held)
+	else:
+		drop_item()
 	item_held = null
+	
  
 func pickup_item(item_res : Item):
 	var item = item_base.instantiate()
@@ -123,6 +127,16 @@ func pickup_item(item_res : Item):
 	item.texture = item_res.sprite
 	add_child(item)
 	if !grid_bkpk.insert_item_at_first_available_spot(item):
+		item.queue_free()
+		return false
+	return true
+
+func pickup_collector(item_res : Item):
+	var item = item_base.instantiate()
+	item.item_resource = item_res
+	item.texture = item_res.sprite
+	add_child(item)
+	if !collector.insert_item_at_first_available_spot(item):
 		item.queue_free()
 		return false
 	return true

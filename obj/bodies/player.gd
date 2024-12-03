@@ -46,6 +46,7 @@ func get_input_dir():
 
 func move_state(delta):
 	if Input.is_action_just_pressed("ui_tab"):
+		get_items()
 		$CanvasLayer/Inventory.show()
 		$Camera2D.follow = false
 		$player_hand_component.follow = false
@@ -80,11 +81,19 @@ func hurt(amnt):
 func drop(item : Item):
 	var item_inst = item_base.instantiate()
 	item_inst.global_position = global_position
-	get_tree().current_scene.call_deferred("add_child",item_inst) 
+	get_tree().current_scene.find_child("items").call_deferred("add_child",item_inst) 
 	item_inst.init(item)
+
+func get_items():
+	$CanvasLayer/Inventory.collector.flush()
+	for item in $collector.get_overlapping_areas():
+		$CanvasLayer/Inventory.pickup_collector(item.pickup())
 
 func on_assemble(parts):
 	$player_hand_component/Marker2D/gun_base.asseble_gun(parts)
 
 func on_dissassemble():
 	$player_hand_component/Marker2D/gun_base.dissassemble_gun()
+
+func _on_collector_area_entered(_area: Area2D) -> void:
+	pass
