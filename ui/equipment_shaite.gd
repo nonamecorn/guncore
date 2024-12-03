@@ -25,6 +25,16 @@ func insert_item(item):
 	check_assembly()
 	return true
  
+func occupied(item):
+	var item_pos = item.global_position + item.size / 2
+	var slot = get_slot_under_pos(item_pos)
+	if slot == null:
+		return false
+	var item_slot = item.item_resource.slot
+	if items[item_slot] != null:
+		return true
+	return false
+
 func grab_item(pos):
 	var item = get_item_under_pos(pos)
 	if item == null:

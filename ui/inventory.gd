@@ -10,7 +10,7 @@ var item_held = null
 var item_offset = Vector2()
 var last_container = null
 var last_pos = Vector2()
- 
+
 func _ready():
 	pickup_item(load("res://obj/parts/guns/akm.tres"))
 	pickup_item(load("res://obj/parts/barrels/long_barrel.tres"))
@@ -70,6 +70,8 @@ func release(cursor_pos):
 	var c = get_container_under_cursor(cursor_pos)
 	if c == null:
 		drop_item()
+	elif c.has_method("occupied") and c.occupied(item_held):
+		swap(c, cursor_pos)
 	elif c.has_method("insert_item"):
 		if c.insert_item(item_held):
 			item_held = null
@@ -77,8 +79,20 @@ func release(cursor_pos):
 			return_item()
 	else:
 		return_item()
- 
- 
+
+func swap(c2, cursor_pos):
+	var temp_item_held = c2.grab_item(cursor_pos)
+	if c2.insert_item(item_held):
+		item_held = null
+		pickup_item(temp_item_held.item_resource)
+		temp_item_held.queue_free()
+	else:
+		temp_item_held.global_position = last_pos
+		c2.insert_item(temp_item_held)
+		return_item()
+
+
+
 func get_container_under_cursor(cursor_pos):
 	var containers = [grid_bkpk, eq_slot, collector]
 	for c in containers:
