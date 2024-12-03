@@ -62,9 +62,9 @@ position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_mx0ab")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
-visible = false
 
 [node name="Inventory" parent="CanvasLayer" node_paths=PackedStringArray("eq_slot") instance=ExtResource("8_wsalq")]
+visible = false
 eq_slot = NodePath("equipment_shaite")
 
 [node name="hurt_box" parent="." instance=ExtResource("9_3vqfx")]

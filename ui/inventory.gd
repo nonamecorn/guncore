@@ -46,6 +46,7 @@ func _ready():
 
  
 func _physics_process(_delta):
+	if !visible: return
 	var cursor_pos = get_global_mouse_position()
 	if Input.is_action_just_pressed("ui_left_mouse"):
 		grab(cursor_pos)

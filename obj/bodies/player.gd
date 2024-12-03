@@ -31,7 +31,7 @@ func _physics_process(delta):
 
 func tab_state():
 	if Input.is_action_just_pressed("ui_tab"):
-		$CanvasLayer.hide()
+		$CanvasLayer/Inventory.hide()
 		$player_hand_component.follow = true
 		$Camera2D.follow = true
 		state = MOVE
@@ -44,7 +44,7 @@ func get_input_dir():
 
 func move_state(delta):
 	if Input.is_action_just_pressed("ui_tab"):
-		$CanvasLayer.show()
+		$CanvasLayer/Inventory.show()
 		$Camera2D.follow = false
 		$player_hand_component.follow = false
 		state = TAB_MENU
