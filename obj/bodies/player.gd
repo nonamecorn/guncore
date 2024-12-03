@@ -1,10 +1,11 @@
 extends  CharacterBody2D
 
 @onready var gun = $player_hand_component
+@onready var item_base = load("res://obj/components/item_ground_base.tscn")
 const MAX_SPEED = 160
 const ACCELERATION = 1000
 const FRICTION = 1000
-var health = 1000
+var health : int = 1000
 var flipped = false
 signal died
 enum {
@@ -17,6 +18,7 @@ var tween : Tween
 
 func _ready() -> void:
 	$hurt_box.damaged.connect(hurt)
+	$CanvasLayer/Inventory.drop.connect(drop)
 	$CanvasLayer/Inventory.eq_slot.assemble.connect(on_assemble)
 	$CanvasLayer/Inventory.eq_slot.dissassemble.connect(on_dissassemble)
 
@@ -75,6 +77,11 @@ func hurt(amnt):
 	if health == 0:
 		call_deferred("death")
 
+func drop(item : Item):
+	var item_inst = item_base.instantiate()
+	item_inst.global_position = global_position
+	get_tree().current_scene.call_deferred("add_child",item_inst) 
+	item_inst.init(item)
 
 func on_assemble(parts):
 	$player_hand_component/Marker2D/gun_base.asseble_gun(parts)

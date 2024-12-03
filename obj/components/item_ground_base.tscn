@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://dwkosv8uer85e"]
+
+[ext_resource type="Script" path="res://obj/components/item_ground_base.gd" id="1_kv0x3"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6qyq3"]
+
+[node name="item_ground_base" type="StaticBody2D"]
+collision_layer = 8
+collision_mask = 0
+script = ExtResource("1_kv0x3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_6qyq3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]

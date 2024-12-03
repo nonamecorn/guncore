@@ -1,9 +1,11 @@
+Node2D
+Sprite2D
 CollisionShape2D
+StaticBody2D
 Area2D
 AnimatedSprite2D
 Marker2D
 ColorRect
-Sprite2D
 PanelContainer
 MarginContainer
 GridContainer
@@ -11,4 +13,3 @@ TextureRect
 NinePatchRect
 CanvasLayer
 Panel
-AnimationPlayer

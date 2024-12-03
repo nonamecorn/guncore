@@ -17,7 +17,7 @@ func _ready():
 		for y in range(grid_height):
 			grid[x][y] = false
  
-func insert_item(item):
+func insert_item_iternal(item):
 	var item_pos = item.global_position + Vector2(cell_size / 2, cell_size / 2)
 	var g_pos = pos_to_grid_coord(item_pos)
 	var item_size = get_grid_size(item)
@@ -83,6 +83,6 @@ func insert_item_at_first_available_spot(item):
 		for x in range(grid_width):
 			if !grid[x][y]:
 				item.global_position = global_position + Vector2(x, y) * cell_size
-				if insert_item(item):
+				if insert_item_iternal(item):
 					return true
 	return false

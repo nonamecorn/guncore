@@ -11,6 +11,8 @@ var item_offset = Vector2()
 var last_container = null
 var last_pos = Vector2()
 
+signal drop(item)
+
 func _ready():
 	pickup_item(load("res://obj/parts/guns/akm.tres"))
 	pickup_item(load("res://obj/parts/barrels/long_barrel.tres"))
@@ -83,12 +85,16 @@ func release(cursor_pos):
 
 func swap(c2, cursor_pos):
 	var temp_item_held = c2.grab_item(cursor_pos)
+	if temp_item_held == null: 
+		return_item()
+		return
+	var temp_last_pos = temp_item_held.global_position
 	if c2.insert_item(item_held):
 		item_held = null
 		pickup_item(temp_item_held.item_resource)
 		temp_item_held.queue_free()
 	else:
-		temp_item_held.global_position = last_pos
+		temp_item_held.global_position = temp_last_pos
 		c2.insert_item(temp_item_held)
 		return_item()
 
@@ -102,6 +108,7 @@ func get_container_under_cursor(cursor_pos):
 	return null
  
 func drop_item():
+	drop.emit(item_held.item_resource)
 	item_held.queue_free()
 	item_held = null
  
