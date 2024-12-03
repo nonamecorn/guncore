@@ -2,8 +2,9 @@
 
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_kairg"]
 [ext_resource type="PackedScene" uid="uid://ce5unulp5hnlx" path="res://obj/proj/fmj.tscn" id="2_6hs0k"]
-[ext_resource type="Script" path="res://obj/parts/mag.gd" id="3_40fup"]
+[ext_resource type="Script" path="res://obj/parts/scripts/mag.gd" id="3_40fup"]
 [ext_resource type="Texture2D" uid="uid://ccmugi5gylcis" path="res://img/parts/SKS_mag.png" id="4_hnugq"]
+
 
 [resource]
 script = ExtResource("3_40fup")

@@ -7,9 +7,7 @@ radius = 2.0
 height = 10.0
 
 [node name="fmj" instance=ExtResource("1_ub8af")]
-collision_layer = 2
 speed = 715
-damage = 2
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CapsuleShape2D_qy0bh")

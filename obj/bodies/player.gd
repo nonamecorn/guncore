@@ -4,7 +4,7 @@ extends  CharacterBody2D
 const MAX_SPEED = 160
 const ACCELERATION = 1000
 const FRICTION = 1000
-var health = 100
+var health = 1000
 var flipped = false
 signal died
 enum {
@@ -16,6 +16,7 @@ var state = MOVE
 var tween : Tween
 
 func _ready() -> void:
+	$hurt_box.damaged.connect(hurt)
 	$CanvasLayer/Inventory.eq_slot.assemble.connect(on_assemble)
 	$CanvasLayer/Inventory.eq_slot.dissassemble.connect(on_dissassemble)
 

@@ -4,7 +4,7 @@ var spark = preload("res://obj/proj/spark.tscn")
 @export var speed = 500
 var move_vec : Vector2
 var mod_vec : Vector2
-@export var damage : int = 1
+@export var damage : int = 20
 var active = true
 
 var rng = RandomNumberGenerator.new()

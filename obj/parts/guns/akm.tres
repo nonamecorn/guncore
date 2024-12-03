@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="GunReciever" load_steps=3 format=3 uid="uid://b5rd5btpp6jhi"]
 
-[ext_resource type="Script" path="res://obj/parts/reciever.gd" id="1_l073p"]
+[ext_resource type="Script" path="res://obj/parts/scripts/reciever.gd" id="1_l073p"]
 [ext_resource type="Texture2D" uid="uid://drpu04r5h6iuq" path="res://img/parts/AK.png" id="1_nd3wi"]
 
 [resource]

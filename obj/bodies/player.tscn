@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://btw10scl5f85a"]
+[gd_scene load_steps=14 format=3 uid="uid://btw10scl5f85a"]
 
 [ext_resource type="Script" path="res://obj/bodies/player.gd" id="1_6n3fv"]
 [ext_resource type="Texture2D" uid="uid://du0org7i4d6mq" path="res://img/GG.png" id="1_e2wcx"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://wxsgj06q1u6r" path="res://img/light232.png" id="5_t0nkv"]
 [ext_resource type="PackedScene" uid="uid://ctrbcy5h47qqw" path="res://obj/components/gun_base.tscn" id="6_m4fya"]
 [ext_resource type="PackedScene" uid="uid://d0ex485qfg6qx" path="res://ui/inventory.tscn" id="8_wsalq"]
+[ext_resource type="PackedScene" uid="uid://b4ifd4nn31mq8" path="res://obj/components/hurt_box.tscn" id="9_3vqfx"]
+[ext_resource type="Script" path="res://obj/components/hurt_box.gd" id="10_frvst"]
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_27y6e"]
 diffuse_texture = ExtResource("1_e2wcx")
@@ -17,8 +19,12 @@ normal_texture = ExtResource("3_scge0")
 radius = 5.0
 height = 12.0
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5x7ft"]
+radius = 6.0
+height = 24.0
+
 [node name="Player" type="CharacterBody2D" groups=["player"]]
-collision_layer = 2
+collision_layer = 4
 script = ExtResource("1_6n3fv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -61,5 +67,12 @@ visible = false
 [node name="Inventory" parent="CanvasLayer" node_paths=PackedStringArray("eq_slot") instance=ExtResource("8_wsalq")]
 eq_slot = NodePath("equipment_shaite")
 
+[node name="hurt_box" parent="." instance=ExtResource("9_3vqfx")]
+script = ExtResource("10_frvst")
+
+[node name="CollisionShape2D" parent="hurt_box" index="0"]
+shape = SubResource("CapsuleShape2D_5x7ft")
+
 [editable path="player_hand_component"]
 [editable path="CanvasLayer/Inventory"]
+[editable path="hurt_box"]

@@ -1,8 +1,9 @@
 [gd_resource type="Resource" script_class="Barrel" load_steps=4 format=3 uid="uid://bcfjwfheulta0"]
 
-[ext_resource type="Script" path="res://obj/parts/barrel.gd" id="1_dc7kp"]
+[ext_resource type="Script" path="res://obj/parts/scripts/barrel.gd" id="1_dc7kp"]
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_imxsv"]
 [ext_resource type="Texture2D" uid="uid://cv2hdljwaw5eb" path="res://img/parts/PPsH_Barrel.png" id="1_xwq3i"]
+
 
 [resource]
 script = ExtResource("1_dc7kp")

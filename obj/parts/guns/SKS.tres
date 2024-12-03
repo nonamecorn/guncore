@@ -1,8 +1,9 @@
 [gd_resource type="Resource" script_class="GunReciever" load_steps=4 format=3 uid="uid://dw4gcagkkan4i"]
 
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_lof4l"]
-[ext_resource type="Script" path="res://obj/parts/reciever.gd" id="2_xfaux"]
+[ext_resource type="Script" path="res://obj/parts/scripts/reciever.gd" id="2_xfaux"]
 [ext_resource type="Texture2D" uid="uid://rh2wap0yokn" path="res://img/parts/SKS.png" id="3_l8um5"]
+
 
 [resource]
 script = ExtResource("2_xfaux")

@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Muzzle" load_steps=8 format=3 uid="uid://dpxujm56a3xhd"]
 
-[ext_resource type="Script" path="res://obj/parts/muzzle.gd" id="1_7q3vf"]
+[ext_resource type="Script" path="res://obj/parts/scripts/muzzle.gd" id="1_7q3vf"]
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_r5f0n"]
 [ext_resource type="Texture2D" uid="uid://cd51phae7kqn8" path="res://img/parts/Terka.png" id="2_5vsxe"]
 

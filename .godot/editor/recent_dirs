@@ -1,9 +1,10 @@
-res://obj/proj
+res://obj/parts/scripts
 res://obj/components
+res://obj/proj
+res://img/bullets
 res://obj/parts/mags
 res://obj/parts/barrels
 res://obj/parts/guns
-res://img/bullets
 res://obj/parts/mods
 res://obj/parts/muzzles
 res://img/misc
