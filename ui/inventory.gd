@@ -39,6 +39,9 @@ func _ready():
 	pickup_item(load("res://obj/parts/guns/PipeRifle.tres"))
 	pickup_item(load("res://obj/parts/mags/PipeRifle_mag.tres"))
 	pickup_item(load("res://obj/parts/barrels/PipeRifle_barrel.tres"))
+	pickup_item(load("res://obj/parts/guns/PauzaP50.tres"))
+	pickup_item(load("res://obj/parts/mags/PauzaP50_mag.tres"))
+	pickup_item(load("res://obj/parts/barrels/PauzaP50_barrel.tres"))
 
 
  

@@ -1,4 +1,9 @@
 res://ui/inventory.tscn
+res://obj/parts/guns/PauzaP50.tres
+res://obj/parts/barrels/PauzaP50_barrel.tres
+res://obj/parts/mags/PauzaP50_mag.tres
+res://obj/parts/barrels/long_barrel.tres
+res://ui/inventory.gd
 res://obj/bodies/enemies/enemy.tscn
 res://ui/item_base.tscn
 res://obj/bodies/player.tscn
@@ -8,10 +13,7 @@ res://obj/proj/fmj.tscn
 res://obj/proj/PP_fmj.tscn
 res://obj/components/mother_projectile.tscn
 res://obj/proj/spark.tscn
-res://obj/parts/guns/Luty.tres
-res://obj/parts/barrels/Luty_barrel.tres
-res://obj/parts/mags/Luty_mag.tres
-res://ui/inventory.gd
-res://obj/parts/guns/PipeRifle.tres
-res://obj/parts/barrels/PipeRifle_barrel.tres
-res://obj/parts/mags/PipeRifle_mag.tres
+res://obj/components/gun_component.gd
+res://50bmg.gd
+res://obj/proj/50bmg.tscn
+res://obj/bodies/enemies/enemy.gd
