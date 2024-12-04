@@ -1,11 +1,8 @@
-[gd_scene load_steps=30 format=3 uid="uid://dma1u48bdqnkr"]
+[gd_scene load_steps=27 format=3 uid="uid://dma1u48bdqnkr"]
 
 [ext_resource type="Texture2D" uid="uid://dc8a4t31rpabc" path="res://img/ceiling_tileset.png" id="1_rdfju"]
-[ext_resource type="Texture2D" uid="uid://gdpj72nmkgx0" path="res://img/ceiling_normal_map.png" id="2_3b74e"]
 [ext_resource type="Texture2D" uid="uid://bsb1psjr02fy6" path="res://img/walls_and_floor.png" id="2_w8q5r"]
 [ext_resource type="Texture2D" uid="uid://ccatf65ercyxu" path="res://img/pipelins.png" id="3_js76o"]
-[ext_resource type="Texture2D" uid="uid://tbixeiqjuwl7" path="res://img/pipelins_n.png" id="4_euagf"]
-[ext_resource type="Texture2D" uid="uid://bcxw1gsa45vlq" path="res://img/walls_n.png" id="6_rnvli"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_x70df"]
 polygon = PackedVector2Array(0.375, 0.25, 16, 0.25, 16, 16, 0.375, 16)
@@ -54,7 +51,6 @@ polygon = PackedVector2Array(0.125, 16, -16, 16, -16, 0.25, 0.125, 0.25, 0.125, 
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_o0llm"]
 diffuse_texture = ExtResource("1_rdfju")
-normal_texture = ExtResource("2_3b74e")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2skcn"]
 texture = SubResource("CanvasTexture_o0llm")
@@ -167,7 +163,6 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_y5iom"]
 diffuse_texture = ExtResource("3_js76o")
-normal_texture = ExtResource("4_euagf")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ky0b2"]
 texture = SubResource("CanvasTexture_y5iom")
@@ -202,7 +197,6 @@ polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_mvkv0"]
 diffuse_texture = ExtResource("2_w8q5r")
-normal_texture = ExtResource("6_rnvli")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_36bdp"]
 texture = SubResource("CanvasTexture_mvkv0")

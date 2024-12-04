@@ -2,14 +2,7 @@ res://ui/inventory.tscn
 res://obj/bodies/enemies/enemy.tscn
 res://ui/item_base.tscn
 res://obj/bodies/player.tscn
-res://obj/bodies/player.gd
-res://ui/collector.gd
 res://obj/components/item_ground_base.tscn
-res://obj/components/item_ground_base.gd
-res://ui/inventory.gd
-res://ui/item_base.gd
-res://obj/parts/scripts/item.gd
-res://obj/bodies/enemies/enemy.gd
-res://others/id_giver.gd
-res://obj/components/enemy_hand_component.gd
 res://obj/components/gun_base.tscn
+res://lvls/layers.tscn
+res://lvls/world_1.tscn
