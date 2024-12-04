@@ -27,3 +27,12 @@ res://ui/inventory.gd
 res://obj/components/gun_component.gd
 res://others/id_giver.gd
 res://obj/components/item_ground_base.gd
+res://obj/parts/scripts/mag.gd
+res://obj/parts/mags/akmag.tres
+res://obj/parts/mags/Luty_mag.tres
+res://obj/parts/mags/MG_mag.tres
+res://obj/parts/mags/PauzaP50_mag.tres
+res://obj/parts/mags/PipeRifle_mag.tres
+res://obj/parts/mags/PPsH_mag.tres
+res://obj/parts/mags/shotgun_mag.tres
+res://obj/parts/mags/SKS_mag.tres

@@ -163,6 +163,7 @@ func hurt(value):
 func die():
 	dead = true
 	state = IDLE
+	$death.play()
 	$change_position.stop()
 	$makepath.stop()
 	$CollisionShape2D.disabled = true

@@ -66,6 +66,7 @@ func grab(cursor_pos):
 	if c != null and c.has_method("grab_item"):
 		item_held = c.grab_item(cursor_pos)
 		if item_held != null:
+			$grab.play()
 			last_container = c
 			last_pos = item_held.global_position
 			item_offset = item_held.global_position - cursor_pos
@@ -81,6 +82,7 @@ func release(cursor_pos):
 		swap(c, cursor_pos)
 	elif c.has_method("insert_item"):
 		if c.insert_item(item_held):
+			$release.play()
 			item_held = null
 		else:
 			return_item()
@@ -94,6 +96,7 @@ func swap(c2, cursor_pos):
 		return
 	var temp_last_pos = temp_item_held.global_position
 	if c2.insert_item(item_held):
+		$release.play()
 		item_held = null
 		pickup_item(temp_item_held.item_resource)
 		temp_item_held.queue_free()

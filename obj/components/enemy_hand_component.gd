@@ -31,7 +31,8 @@ func _process(_delta):
 		flip()
 	if look_vec.x >= 0 and flipped:
 		flip()
-	global_rotation = lerp(global_rotation, atan2(look_vec.y, look_vec.x), 0.1) 
+	global_rotation = atan2(look_vec.y, look_vec.x)
+
 
 func _on_sight_body_entered(body):
 	if body.is_in_group("player"):

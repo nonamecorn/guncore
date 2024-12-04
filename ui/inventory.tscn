@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://d0ex485qfg6qx"]
+[gd_scene load_steps=11 format=3 uid="uid://d0ex485qfg6qx"]
 
 [ext_resource type="Script" path="res://ui/inventory.gd" id="1_vc4ge"]
 [ext_resource type="Texture2D" uid="uid://dgjymf07d6bpr" path="res://img/ui/inventory.png" id="2_am81f"]
@@ -8,6 +8,8 @@
 [ext_resource type="Texture2D" uid="uid://byntmay2jgfoj" path="res://img/ui/Pull.png" id="6_lojmw"]
 [ext_resource type="Texture2D" uid="uid://um5hrhigv7dp" path="res://img/ui/inventory_1slot.png" id="6_uhxew"]
 [ext_resource type="Script" path="res://ui/collector.gd" id="7_suxgo"]
+[ext_resource type="AudioStream" uid="uid://blk3vp6wlyhm" path="res://snd/sfx/pickup.wav" id="9_7nj7r"]
+[ext_resource type="AudioStream" uid="uid://dnq0utya1mtcx" path="res://snd/sfx/put.wav" id="10_4wjgb"]
 
 [node name="Inventory" type="Control" node_paths=PackedStringArray("grid_bkpk", "eq_slot", "collector")]
 process_mode = 3
@@ -114,3 +116,9 @@ offset_right = 119.0
 offset_bottom = 83.0
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
+
+[node name="grab" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_7nj7r")
+
+[node name="release" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("10_4wjgb")

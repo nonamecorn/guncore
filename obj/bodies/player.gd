@@ -70,6 +70,7 @@ func death():
 	velocity = Vector2.ZERO
 	died.emit()
 	state = IDLE
+	$death.play()
 	$CollisionShape2D.disabled = true
 	$Sprite2D.rotation_degrees = 90
 

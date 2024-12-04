@@ -68,6 +68,7 @@ func asseble_gun(parts : Dictionary):
 	current_hor_recoil = parts.RECIEVER.hor_recoil
 	current_add_spd = parts.BARREL.add_spd
 	current_reload_time = parts.MAG.reload_time
+	$audio/shoting.stream = parts.MAG.sound
 	$MUZZLE.position = parts.BARREL.muzzle_position + parts.RECIEVER.barrel_position
 	$pos.position = $MUZZLE.position
 	if parts.MUZZLE != null:
@@ -124,11 +125,15 @@ func stop_fire():
 
 func _on_reload_timeout():
 	current_ammo = current_max_ammo
+	if player_handled: $audio/reload_end_cue.play()
 	$MAG.show()
 	state = FIRE
 
 func reload():
+	if !$MAG.visible: return
 	state = STOP
+	if player_handled:
+		$audio/reload_start_cue.play()
 	$reload.start()
 	$MAG.hide()
 	current_spread = current_min_spread
@@ -141,6 +146,7 @@ func fire():
 			empty.emit()
 			return
 		current_ammo -= 1
+		$audio/shoting.play()
 		if  player_handled:
 			var vievscale = get_viewport_transform().get_scale()
 			var recoil_vector = Vector2(-current_ver_recoil,randf_range(-current_hor_recoil, current_hor_recoil)).rotated(global_rotation)

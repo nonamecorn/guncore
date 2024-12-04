@@ -1,15 +1,17 @@
-[gd_resource type="Resource" script_class="Mag" load_steps=5 format=3 uid="uid://c6lj4qaio5050"]
+[gd_resource type="Resource" script_class="Mag" load_steps=6 format=3 uid="uid://c6lj4qaio5050"]
 
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_xf3kg"]
 [ext_resource type="PackedScene" uid="uid://b4qvivbnt8oim" path="res://obj/proj/PP_fmj.tscn" id="2_leerk"]
 [ext_resource type="Script" path="res://obj/parts/scripts/mag.gd" id="3_uu35d"]
 [ext_resource type="Texture2D" uid="uid://cykuf6khtn2er" path="res://img/parts/Luty_mag.png" id="4_cnp8u"]
+[ext_resource type="AudioStream" uid="uid://bc6jww2l3klia" path="res://snd/sfx/smgfire.wav" id="4_h8qqb"]
 
 [resource]
 script = ExtResource("3_uu35d")
 capacity = 30
 projectile = ExtResource("2_leerk")
 reload_time = 3
+sound = ExtResource("4_h8qqb")
 sprite = ExtResource("4_cnp8u")
 sprite_offset = Vector2(2, 3)
 changes = Array[ExtResource("1_xf3kg")]([])

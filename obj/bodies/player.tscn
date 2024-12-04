@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=3 uid="uid://btw10scl5f85a"]
+[gd_scene load_steps=15 format=3 uid="uid://btw10scl5f85a"]
 
 [ext_resource type="Script" path="res://obj/bodies/player.gd" id="1_6n3fv"]
 [ext_resource type="Texture2D" uid="uid://du0org7i4d6mq" path="res://img/GG.png" id="1_e2wcx"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://d0ex485qfg6qx" path="res://ui/inventory.tscn" id="8_wsalq"]
 [ext_resource type="PackedScene" uid="uid://b4ifd4nn31mq8" path="res://obj/components/hurt_box.tscn" id="9_3vqfx"]
 [ext_resource type="Script" path="res://obj/components/hurt_box.gd" id="10_frvst"]
+[ext_resource type="AudioStream" uid="uid://31xvcqxgens0" path="res://snd/sfx/scream.wav" id="10_ti353"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xlh8"]
 radius = 47.0
@@ -85,6 +86,9 @@ current = true
 
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("8_wsalq")]
 visible = false
+
+[node name="death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_ti353")
 
 [connection signal="area_entered" from="collector" to="." method="_on_collector_area_entered"]
 
