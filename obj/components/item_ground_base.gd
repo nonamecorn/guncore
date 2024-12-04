@@ -12,5 +12,4 @@ func pickup() -> Item:
 	return(item_resource)
 
 func destroy():
-	print(item_resource.id)
 	queue_free()

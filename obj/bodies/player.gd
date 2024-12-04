@@ -5,7 +5,7 @@ extends  CharacterBody2D
 const MAX_SPEED = 160
 const ACCELERATION = 1000
 const FRICTION = 1000
-var health : int = 1000
+var health : int = 200
 var flipped = false
 signal died
 enum {
@@ -71,11 +71,12 @@ func death():
 	died.emit()
 	state = IDLE
 	$CollisionShape2D.disabled = true
+	$Sprite2D.rotation_degrees = 90
 
 func hurt(amnt):
 	health -= amnt
 	print(health)
-	if health == 0:
+	if health <= 0:
 		call_deferred("death")
 
 func drop(item : Item):

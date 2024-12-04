@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=4 uid="uid://cbnubkovsyayl"]
+[gd_scene load_steps=5 format=4 uid="uid://cbnubkovsyayl"]
 
 [ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="1_hbpm8"]
 [ext_resource type="Script" path="res://lvls/corridors/corridor.gd" id="1_twc2g"]
 [ext_resource type="PackedScene" uid="uid://bf65xavyr0pes" path="res://others/other_components/module_connector.tscn" id="2_2hsb8"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_hws4s"]
+vertices = PackedVector2Array(38, 22, -398, 22, -398, -22, 38, -22)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-408, -32, 48, -32, 48, 32, -408, 32)])
 
 [node name="HorisontCorr" type="Node2D"]
 script = ExtResource("1_twc2g")
@@ -19,5 +24,8 @@ tile_map_data = PackedByteArray("AAD//wAAAAABAAEAAAD/////AAABAAEAAAD///7/AAABAAE
 
 [node name="Walls" parent="layers" index="1"]
 tile_map_data = PackedByteArray("AAD///7/AgACAAEAAAD+//7/AgABAAEAAAD9//7/AgABAAEAAAD8//7/AgABAAEAAAD7//7/AgABAAEAAAD6//7/AgABAAEAAAD5//7/AgABAAEAAAD4//7/AgABAAEAAAD3//7/AgABAAEAAAD2//7/AgABAAEAAAD1//7/AgABAAEAAAD0//7/AgAAAAEAAAA=")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_hws4s")
 
 [editable path="layers"]

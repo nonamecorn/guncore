@@ -25,6 +25,7 @@ radius = 6.0
 height = 24.0
 
 [node name="Player" type="CharacterBody2D" groups=["player"]]
+top_level = true
 collision_layer = 4
 script = ExtResource("1_6n3fv")
 
@@ -71,11 +72,6 @@ texture = ExtResource("5_t0nkv")
 position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_mx0ab")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="Inventory" parent="CanvasLayer" instance=ExtResource("8_wsalq")]
-visible = false
-
 [node name="hurt_box" parent="." instance=ExtResource("9_3vqfx")]
 script = ExtResource("10_frvst")
 
@@ -83,9 +79,15 @@ script = ExtResource("10_frvst")
 shape = SubResource("CapsuleShape2D_5x7ft")
 
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
+current = true
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Inventory" parent="CanvasLayer" instance=ExtResource("8_wsalq")]
+visible = false
 
 [connection signal="area_entered" from="collector" to="." method="_on_collector_area_entered"]
 
 [editable path="player_hand_component"]
-[editable path="CanvasLayer/Inventory"]
 [editable path="hurt_box"]
+[editable path="CanvasLayer/Inventory"]

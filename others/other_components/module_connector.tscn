@@ -1,6 +1,60 @@
-[gd_scene load_steps=2 format=3 uid="uid://bf65xavyr0pes"]
+[gd_scene load_steps=3 format=3 uid="uid://bf65xavyr0pes"]
 
 [ext_resource type="Script" path="res://module_connector.gd" id="1_4gpo4"]
+[ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="2_o5j33"]
 
 [node name="module_connector" type="Marker2D" groups=["connector"]]
 script = ExtResource("1_4gpo4")
+
+[node name="layers" parent="." instance=ExtResource("2_o5j33")]
+
+[node name="Ceiling" parent="layers" index="0"]
+tile_map_data = PackedByteArray(0, 0, 255, 255, 255, 255, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 1, 0, 0, 0, 0, 0, 254, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 255, 255, 0, 0, 2, 0, 0, 0, 0, 0)
+enabled = false
+
+[node name="Walls" parent="layers" index="1"]
+enabled = false
+
+[node name="Decorations" parent="layers" index="2"]
+enabled = false
+
+[node name="layers2" parent="." instance=ExtResource("2_o5j33")]
+
+[node name="Ceiling" parent="layers2" index="0"]
+tile_map_data = PackedByteArray(0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 255, 255, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 255, 255, 254, 255, 0, 0, 0, 0, 1, 0, 0, 0, 255, 255, 253, 255, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 1, 0, 0, 0)
+enabled = false
+
+[node name="Walls" parent="layers2" index="1"]
+enabled = false
+
+[node name="Decorations" parent="layers2" index="2"]
+enabled = false
+
+[node name="layers3" parent="." instance=ExtResource("2_o5j33")]
+
+[node name="Ceiling" parent="layers3" index="0"]
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 254, 255, 0, 0, 2, 0, 1, 0, 0, 0, 0, 0, 253, 255, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 2, 0, 1, 0, 0, 0)
+enabled = false
+
+[node name="Walls" parent="layers3" index="1"]
+enabled = false
+
+[node name="Decorations" parent="layers3" index="2"]
+enabled = false
+
+[node name="layers4" parent="." instance=ExtResource("2_o5j33")]
+
+[node name="Ceiling" parent="layers4" index="0"]
+tile_map_data = PackedByteArray(0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 255, 255, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0)
+enabled = false
+
+[node name="Walls" parent="layers4" index="1"]
+enabled = false
+
+[node name="Decorations" parent="layers4" index="2"]
+enabled = false
+
+[editable path="layers"]
+[editable path="layers2"]
+[editable path="layers3"]
+[editable path="layers4"]

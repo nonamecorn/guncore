@@ -6,7 +6,8 @@ var state = IDLE
 var look_vec = Vector2.ZERO
 enum {
 	FIRING,
-	IDLE
+	IDLE,
+	RUN
 }
 
 var rng = RandomNumberGenerator.new()
@@ -24,6 +25,8 @@ func _process(_delta):
 			pass
 		FIRING:
 			look_vec = bodies[0].global_position - global_position
+		RUN:
+			look_vec = get_parent().direction
 	if look_vec.x < 0 and !flipped:
 		flip()
 	if look_vec.x >= 0 and flipped:

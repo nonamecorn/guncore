@@ -85,7 +85,7 @@ func asseble_gun(parts : Dictionary):
 		$firerate.wait_time = current_firerate
 	$reload.wait_time = current_reload_time
 	show()
-	state = FIRE
+	reload()
 
 func change_stat(name_of_stat : String, value_of_stat, mult: bool):
 	var temp = get(name_of_stat)

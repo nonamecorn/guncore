@@ -20,23 +20,37 @@ var health = 50
 var state = IDLE
 var rng = RandomNumberGenerator.new()
 var player = null
+var direction = Vector2.ZERO
+
 @export var nav_agent: NavigationAgent2D
 var flipped = false
 
 var parts = {
-		"RECIEVER": load("res://obj/parts/guns/Luty.tres"),
-		"BARREL": load("res://obj/parts/barrels/Luty_barrel.tres"),
-		"MAG": load("res://obj/parts/mags/Luty_mag.tres"),
+		"RECIEVER": null,
+		"BARREL": null,
+		"MAG": null,
 		"MUZZLE": null,
 		"MOD1": null,
 		"MOD2": null,
 	}
 
+var new_parts = {
+		"RECIEVER": null,
+		"BARREL": null,
+		"MAG": null,
+		"MUZZLE": null,
+		"MOD1": null,
+		"MOD2": null,
+	}
 func _ready():
 #	print(movement_target)
 	rng.randomize()
 	randomnum = rng.randf()
-	$enemy_hand_component/Marker2D/gun_base.asseble_gun(parts)
+	parts = Randogunser.get_gun()
+	for part in new_parts:
+		if parts[part]:
+			new_parts[part] = load(parts[part])
+	$enemy_hand_component/Marker2D/gun_base.asseble_gun(new_parts)
 
 func flip():
 	flipped = !flipped
@@ -57,7 +71,7 @@ func _physics_process(delta):
 
 
 func run(delta):
-	var direction = (get_self_circle_position(randomnum) - global_position).normalized() 
+	direction = (get_self_circle_position(randomnum) - global_position).normalized() 
 	velocity = velocity.move_toward(direction * MAX_SPEED,delta * ACCELERATION)
 	move_and_slide()
 
@@ -73,18 +87,19 @@ func get_self_circle_position(random):
 func move(delta):
 	if nav_agent.is_navigation_finished():
 		return
-	if $enemy_hand_component.bodies.size() > 0:
-		state = SURROUND
 	var current_pos = global_position
 	var next_path = nav_agent.get_next_path_position()
 	var new_velocity = (next_path - current_pos).normalized()
-	
 	velocity = velocity.move_toward(new_velocity * MAX_SPEED,delta * ACCELERATION)
 	move_and_slide()
 
-func surround(target,delta):
-	var direction = (target - global_position).normalized() 
-	velocity = velocity.move_toward(direction * MAX_SPEED,delta * ACCELERATION)
+func surround(_target,delta):
+	if nav_agent.is_navigation_finished():
+		return
+	var current_pos = global_position
+	var next_path = nav_agent.get_next_path_position()
+	var new_velocity = (next_path - current_pos).normalized()
+	velocity = velocity.move_toward(new_velocity * MAX_SPEED,delta * ACCELERATION)
 	move_and_slide()
 
 func get_circle_position(random):
@@ -95,30 +110,36 @@ func get_circle_position(random):
 	var angle = random * PI * 2;
 	var x = kill_circle_centre.x + cos(angle) * radius;
 	var y = kill_circle_centre.y + sin(angle) * radius;
-	return(Vector2(x,y))
+	set_movement_target(Vector2(x,y))
 
 func drop(item : Item):
 	var item_inst = item_base.instantiate()
 	item_inst.global_position = global_position
-	get_tree().current_scene.find_child("items").call_deferred("add_child",item_inst) 
+	get_tree().current_scene.find_child("items").call_deferred("add_child",item_inst)
 	item_inst.init(item)
 
 func _on_makepath_timeout():
 	if !dead and !bug:
-		set_movement_target(bodies[0].position)
+		if state == CHASE:
+			set_movement_target(bodies[0].position)
+		else:
+			get_circle_position(randomnum)
 
 func _on_sight_body_entered(body):
-	if body.is_in_group("player") and !dead:
-		bodies.append(body)
-		state = SURROUND
-		
-
+	if !body.is_in_group("player") or dead:
+		return
+	if player == null:
+		body.died.connect(fucking_shit)
+	player = body
+	$makepath.start()
+	bodies.append(body)
+	state = SURROUND
+	$change_position.wait_time = 2
+	set_movement_target(body.position)
 
 func _on_sight_body_exited(body):
 	if body in bodies and !dead:
 		state = CHASE
-		bodies.erase(body)
-		
 
 func fucking_shit():
 	state = IDLE
@@ -135,7 +156,9 @@ func hurt(value):
 		call_deferred("die")
 	if state == IDLE:
 		state = RUN
-	
+		$change_position.wait_time = 0.5
+		$enemy_hand_component.state = 2
+		
 
 func die():
 	dead = true
@@ -146,17 +169,6 @@ func die():
 	$enemy_hand_component.queue_free()
 #	movement_target = null
 	$Sprite2D.rotation_degrees = 90
-	for part in parts:
-		if parts[part]:
-			drop(parts[part])
-
-func _on_agro_zone_body_entered(body: Node2D) -> void:
-	if !body.is_in_group("player") or dead:
-		return
-	if player == null:
-		body.died.connect(fucking_shit)
-	player = body
-	$makepath.start()
-	bodies.append(body)
-	state = CHASE
-	set_movement_target(body.position)
+	for part in new_parts:
+		if new_parts[part]:
+			drop(new_parts[part])

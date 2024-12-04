@@ -1,0 +1,69 @@
+[gd_scene load_steps=8 format=4 uid="uid://dvcnhgwr7agkk"]
+
+[ext_resource type="Script" path="res://lvls/rooms/basic_room.gd" id="1_pqmjd"]
+[ext_resource type="PackedScene" uid="uid://bf65xavyr0pes" path="res://others/other_components/module_connector.tscn" id="2_wnxa4"]
+[ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="3_vg2ur"]
+[ext_resource type="Script" path="res://lvls/rooms/area_2d.gd" id="4_7xhqj"]
+[ext_resource type="Texture2D" uid="uid://dgwbdcsg0jmfu" path="res://img/levels/luk.png" id="4_declp"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_oq0ca"]
+vertices = PackedVector2Array(22, 138, 118, 138, 118, 202, -182, 246, 142, 202, 142, 246, 118, 246, 118, 374, 86, 374, 86, 438, 42, 438, 42, 374, -182, 374, -214, 246, -214, 202, -182, 202, -182, 138, -22, 138, -22, 74, 22, 74)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3), PackedInt32Array(2, 4, 5, 6), PackedInt32Array(6, 7, 8), PackedInt32Array(8, 9, 10, 11), PackedInt32Array(6, 11, 12, 3, 2), PackedInt32Array(3, 13, 14, 15), PackedInt32Array(15, 16, 17), PackedInt32Array(17, 18, 19, 0), PackedInt32Array(6, 8, 11), PackedInt32Array(17, 0, 3, 15)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(-192, 128, -32, 128, -32, 64, 32, 64, 32, 128, 128, 128, 128, 192, 152, 192, 152, 256, 128, 256, 128, 384, 96, 384, 96, 448, 32, 448, 32, 384, -192, 384, -192, 256, -224, 256, -224, 192, -192, 192)])
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_xl4bq"]
+radius = 32.0
+
+[node name="BasicRoom" type="Node2D"]
+script = ExtResource("1_pqmjd")
+
+[node name="markers" type="Node2D" parent="."]
+
+[node name="module_connector3" parent="markers" instance=ExtResource("2_wnxa4")]
+position = Vector2(0, 64)
+type = 1
+
+[node name="module_connector" parent="markers" instance=ExtResource("2_wnxa4")]
+position = Vector2(-224, 224)
+type = 1
+orientation = 1
+
+[node name="module_connector4" parent="markers" instance=ExtResource("2_wnxa4")]
+position = Vector2(160, 224)
+type = 1
+orientation = 2
+
+[node name="module_connector2" parent="markers" instance=ExtResource("2_wnxa4")]
+position = Vector2(64, 416)
+type = 1
+orientation = 3
+
+[node name="layers" parent="." instance=ExtResource("3_vg2ur")]
+
+[node name="Ceiling" parent="layers" index="0"]
+tile_map_data = PackedByteArray("AAADAAgAAAABAAEAAAADAAcAAAABAAEAAAADAAYAAAABAAEAAAADAAUAAAABAAEAAAADAAQAAAABAAEAAAADAAMAAAABAAEAAAACAAgAAAABAAEAAAACAAcAAAABAAEAAAACAAYAAAABAAEAAAACAAUAAAABAAEAAAACAAQAAAABAAEAAAACAAMAAAABAAEAAAABAAgAAAABAAEAAAABAAcAAAABAAEAAAABAAYAAAABAAEAAAABAAUAAAABAAEAAAABAAQAAAABAAEAAAABAAMAAAABAAEAAAAAAAgAAAABAAEAAAAAAAcAAAABAAEAAAAAAAYAAAABAAEAAAAAAAUAAAABAAEAAAAAAAQAAAABAAEAAAAAAAMAAAABAAEAAAD//wgAAAABAAEAAAD//wcAAAABAAEAAAD//wYAAAABAAEAAAD//wUAAAABAAEAAAD//wQAAAABAAEAAAD//wMAAAABAAEAAAD+/wgAAAABAAEAAAD+/wcAAAABAAEAAAD+/wYAAAABAAEAAAD+/wUAAAABAAEAAAD+/wQAAAABAAEAAAD+/wMAAAABAAEAAAD9/wgAAAABAAEAAAD9/wcAAAABAAEAAAD9/wYAAAABAAEAAAD9/wUAAAABAAEAAAD9/wQAAAABAAEAAAD9/wMAAAABAAEAAAD8/wQAAAABAAEAAAD8/wMAAAABAAEAAAD8/wIAAAABAAAAAAD9/wIAAAABAAAAAAD+/wIAAAAEAAEAAAD8/wUAAAABAAEAAAD8/wYAAAABAAEAAAD8/wcAAAABAAEAAAD8/wgAAAABAAEAAAD+/wkAAAABAAEAAAD9/wkAAAABAAEAAAD8/wkAAAABAAEAAAD//wIAAAABAAEAAAD//wkAAAABAAEAAAAAAAIAAAABAAEAAAAAAAkAAAABAAEAAAABAAIAAAADAAEAAAABAAkAAAABAAEAAAACAAIAAAABAAAAAAACAAkAAAABAAEAAAADAAIAAAABAAAAAAADAAkAAAABAAEAAAAEAAMAAAACAAEAAAAEAAQAAAADAAEAAAAEAAIAAAACAAAAAAAEAAUAAAABAAEAAAAEAAYAAAABAAEAAAAEAAcAAAABAAEAAAAEAAgAAAADAAAAAAAEAAkAAAACAAEAAAD+/wsAAAABAAEAAAD+/woAAAABAAEAAAD9/wsAAAABAAEAAAD9/woAAAABAAEAAAD8/wsAAAABAAEAAAD8/woAAAABAAEAAAD7/wsAAAABAAEAAAD7/woAAAABAAEAAAD7/wkAAAABAAEAAAD7/wgAAAABAAEAAAD7/wcAAAABAAEAAAD7/wYAAAABAAEAAAD7/wUAAAABAAEAAAD6/wsAAAABAAEAAAD6/woAAAABAAEAAAD6/wkAAAABAAEAAAD6/wgAAAABAAEAAAD6/wcAAAABAAEAAAD6/wYAAAABAAEAAAD6/wUAAAABAAEAAAD5/wYAAAABAAEAAAD5/wUAAAABAAEAAAD5/wQAAAAEAAEAAAD6/wQAAAABAAEAAAD7/wQAAAABAAEAAAD5/wcAAAABAAEAAAD5/wgAAAAEAAAAAAD5/wkAAAAAAAEAAAD5/woAAAAAAAEAAAD5/wsAAAAAAAEAAAD7/wwAAAABAAIAAAD6/wwAAAABAAIAAAD5/wwAAAAAAAIAAAD8/wwAAAABAAIAAAD9/wwAAAABAAIAAAD+/wwAAAABAAIAAAD//woAAAABAAEAAAD//wsAAAABAAEAAAD//wwAAAABAAIAAAADAAsAAAABAAEAAAADAAoAAAABAAEAAAACAAsAAAABAAEAAAACAAoAAAABAAEAAAABAAsAAAABAAEAAAABAAoAAAABAAEAAAAAAAsAAAABAAEAAAAAAAoAAAABAAEAAAAAAAwAAAAEAAAAAAABAAwAAAABAAEAAAACAAwAAAABAAEAAAADAAwAAAADAAAAAAAEAAoAAAACAAEAAAAEAAsAAAACAAEAAAAEAAwAAAACAAIAAAD7/wMAAAABAAEAAAD6/wMAAAABAAEAAAD5/wMAAAAAAAEAAAD5/wIAAAAAAAAAAAD6/wIAAAABAAAAAAD7/wIAAAABAAAAAAA=")
+
+[node name="Walls" parent="layers" index="1"]
+tile_map_data = PackedByteArray("AAD5/wUAAgACAAEAAAD+/wMAAgACAAEAAAD9/wMAAgABAAEAAAD8/wMAAgABAAEAAAD7/wMAAgABAAEAAAD6/wMAAgAAAAEAAAADAAMAAgACAAEAAAACAAMAAgABAAEAAAABAAMAAgAAAAEAAAAEAAUAAgAAAAEAAAA=")
+
+[node name="decor" type="Node2D" parent="."]
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+visible = false
+navigation_polygon = SubResource("NavigationPolygon_oq0ca")
+
+[node name="exit" type="Area2D" parent="."]
+position = Vector2(-32, 240)
+collision_layer = 0
+collision_mask = 4
+script = ExtResource("4_7xhqj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="exit"]
+shape = SubResource("CircleShape2D_xl4bq")
+
+[node name="Sprite2D" type="Sprite2D" parent="exit"]
+texture = ExtResource("4_declp")
+
+[connection signal="body_entered" from="exit" to="exit" method="_on_body_entered"]
+
+[editable path="layers"]

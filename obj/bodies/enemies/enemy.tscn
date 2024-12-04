@@ -1,13 +1,10 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3jo85so338er"]
+[gd_scene load_steps=8 format=3 uid="uid://c3jo85so338er"]
 
 [ext_resource type="Script" path="res://obj/bodies/enemies/enemy.gd" id="1_qbvdd"]
 [ext_resource type="Texture2D" uid="uid://dwejiqbyarwxw" path="res://img/enemy.png" id="2_fn425"]
 [ext_resource type="PackedScene" uid="uid://df3di7rm5cgei" path="res://obj/components/enemy_hand_component.tscn" id="2_vctv7"]
 [ext_resource type="PackedScene" uid="uid://ctrbcy5h47qqw" path="res://obj/components/gun_base.tscn" id="4_ohoj0"]
 [ext_resource type="PackedScene" uid="uid://b4ifd4nn31mq8" path="res://obj/components/hurt_box.tscn" id="5_eclwk"]
-
-[sub_resource type="CircleShape2D" id="CircleShape2D_5x2qx"]
-radius = 259.002
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_egrxt"]
 radius = 7.0
@@ -21,16 +18,6 @@ height = 26.0
 collision_layer = 4
 script = ExtResource("1_qbvdd")
 nav_agent = NodePath("NavigationAgent2D")
-
-[node name="agro_zone" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 4
-monitoring = false
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="agro_zone"]
-shape = SubResource("CircleShape2D_5x2qx")
-debug_color = Color(0.982069, 0.0184689, 0.35369, 0.0196078)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 5)
@@ -73,7 +60,9 @@ wait_time = 0.5
 [node name="CollisionShape2D" parent="hurt_box" index="0"]
 shape = SubResource("CapsuleShape2D_ykghs")
 
-[connection signal="body_entered" from="agro_zone" to="." method="_on_agro_zone_body_entered"]
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(256, 0)
+
 [connection signal="timeout" from="enemy_hand_component/burst_duration" to="enemy_hand_component" method="_on_burst_duration_timeout"]
 [connection signal="timeout" from="enemy_hand_component/look_around" to="enemy_hand_component" method="_on_look_around_timeout"]
 [connection signal="body_entered" from="enemy_hand_component/sight" to="." method="_on_sight_body_entered"]

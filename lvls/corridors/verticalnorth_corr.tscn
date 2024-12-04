@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=4 uid="uid://dw1nsu8hsvgh3"]
+[gd_scene load_steps=5 format=4 uid="uid://dw1nsu8hsvgh3"]
 
 [ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="1_8clau"]
 [ext_resource type="Script" path="res://lvls/corridors/corridor.gd" id="1_gxdlv"]
 [ext_resource type="PackedScene" uid="uid://bf65xavyr0pes" path="res://others/other_components/module_connector.tscn" id="2_ujg4n"]
+
+[sub_resource type="NavigationPolygon" id="NavigationPolygon_w36ef"]
+vertices = PackedVector2Array(22, 14, -22, 14, -22, -334, 22, -334)
+polygons = Array[PackedInt32Array]([PackedInt32Array(0, 1, 2, 3)])
+outlines = Array[PackedVector2Array]([PackedVector2Array(32, -344, 32, 24, -32, 24, -32, -344)])
 
 [node name="vertical_corr" type="Node2D"]
 script = ExtResource("1_gxdlv")
@@ -16,5 +21,8 @@ position = Vector2(0, -320)
 
 [node name="Ceiling" parent="layers" index="0"]
 tile_map_data = PackedByteArray("AAAAAP//AAABAAEAAAAAAP7/AAABAAEAAAAAAP3/AAABAAEAAAAAAPz/AAABAAEAAAAAAPv/AAABAAEAAAAAAPr/AAABAAEAAAAAAPn/AAABAAEAAAAAAPj/AAABAAEAAAAAAPf/AAABAAEAAAAAAPb/AAABAAEAAAD/////AAABAAEAAAD///7/AAABAAEAAAD///3/AAABAAEAAAD///z/AAABAAEAAAD///v/AAABAAEAAAD///r/AAABAAEAAAD///n/AAABAAEAAAD///j/AAABAAEAAAD///f/AAABAAEAAAD///b/AAABAAEAAAD+//f/AAAAAAEAAAD+//b/AAAAAAEAAAD+//j/AAAAAAEAAAD+//n/AAAAAAEAAAD+//r/AAAAAAEAAAD+//v/AAAAAAEAAAD+//z/AAAAAAEAAAD+//3/AAAAAAEAAAD+//7/AAAAAAEAAAD+////AAAAAAEAAAABAPb/AAACAAEAAAABAPf/AAACAAEAAAABAPj/AAACAAEAAAABAPn/AAACAAEAAAABAPr/AAACAAEAAAABAPv/AAACAAEAAAABAPz/AAACAAEAAAABAP3/AAACAAEAAAABAP7/AAACAAEAAAABAP//AAACAAEAAAA=")
+
+[node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
+navigation_polygon = SubResource("NavigationPolygon_w36ef")
 
 [editable path="layers"]
