@@ -1,11 +1,11 @@
-[gd_scene load_steps=5 format=4 uid="uid://b720un0jadula"]
+[gd_scene load_steps=4 format=4 uid="uid://b720un0jadula"]
 
 [ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="1_cvnqd"]
 [ext_resource type="Script" path="res://lvls/rooms/starting_room.gd" id="1_ytocs"]
 [ext_resource type="PackedScene" uid="uid://bf65xavyr0pes" path="res://others/other_components/module_connector.tscn" id="2_jwvtk"]
-[ext_resource type="PackedScene" uid="uid://cygteh1bpl375" path="res://lvls/misc/light.tscn" id="4_mncok"]
 
 [node name="starting room" type="Node2D"]
+position = Vector2(0, -2)
 script = ExtResource("1_ytocs")
 
 [node name="layers" parent="." instance=ExtResource("1_cvnqd")]
@@ -25,8 +25,5 @@ tile_map_data = PackedByteArray("AAAQAAoAAQAAAAEAAAARAAoAAQAAAAAAAAASAAoAAQAAAAA
 position = Vector2(640, 768)
 type = 1
 orientation = 3
-
-[node name="light" parent="." instance=ExtResource("4_mncok")]
-position = Vector2(653, 519)
 
 [editable path="layers"]

@@ -4,5 +4,10 @@ res://ui/item_base.tscn
 res://obj/bodies/player.tscn
 res://obj/components/item_ground_base.tscn
 res://obj/components/gun_base.tscn
-res://lvls/layers.tscn
 res://lvls/world_1.tscn
+res://lvls/rooms/starting_room.tscn
+res://lvls/misc/light.tscn
+res://lvls/layers.tscn
+res://lvls/world_1.gdshader
+res://lvls/rooms/light_manager.gd
+res://lvls/rooms/basic_room.tscn

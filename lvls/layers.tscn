@@ -1,8 +1,9 @@
-[gd_scene load_steps=27 format=3 uid="uid://dma1u48bdqnkr"]
+[gd_scene load_steps=28 format=3 uid="uid://dma1u48bdqnkr"]
 
 [ext_resource type="Texture2D" uid="uid://dc8a4t31rpabc" path="res://img/ceiling_tileset.png" id="1_rdfju"]
 [ext_resource type="Texture2D" uid="uid://bsb1psjr02fy6" path="res://img/walls_and_floor.png" id="2_w8q5r"]
 [ext_resource type="Texture2D" uid="uid://ccatf65ercyxu" path="res://img/pipelins.png" id="3_js76o"]
+[ext_resource type="Texture2D" uid="uid://bcxw1gsa45vlq" path="res://img/walls_n.png" id="6_rnvli"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_x70df"]
 polygon = PackedVector2Array(0.375, 0.25, 16, 0.25, 16, 16, 0.375, 16)
@@ -197,6 +198,7 @@ polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_mvkv0"]
 diffuse_texture = ExtResource("2_w8q5r")
+normal_texture = ExtResource("6_rnvli")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_36bdp"]
 texture = SubResource("CanvasTexture_mvkv0")
@@ -253,6 +255,8 @@ terrain_set_0/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
 terrain_set_1/mode = 2
 terrain_set_1/terrain_0/name = "walls"
 terrain_set_1/terrain_0/color = Color(0.5, 0.34375, 0.25, 1)
+custom_data_layer_0/name = "set_Z"
+custom_data_layer_0/type = 25
 sources/0 = SubResource("TileSetAtlasSource_2skcn")
 sources/2 = SubResource("TileSetAtlasSource_36bdp")
 sources/1 = SubResource("TileSetAtlasSource_ky0b2")

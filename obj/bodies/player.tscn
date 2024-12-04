@@ -82,6 +82,8 @@ script = ExtResource("10_frvst")
 [node name="CollisionShape2D" parent="hurt_box" index="0"]
 shape = SubResource("CapsuleShape2D_5x7ft")
 
+[node name="AudioListener2D" type="AudioListener2D" parent="."]
+
 [connection signal="area_entered" from="collector" to="." method="_on_collector_area_entered"]
 
 [editable path="player_hand_component"]
