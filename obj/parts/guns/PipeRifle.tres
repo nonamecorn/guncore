@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_s4r2r"]
 [ext_resource type="Script" path="res://obj/parts/scripts/reciever.gd" id="2_vvj63"]
-[ext_resource type="Texture2D" uid="uid://e2rynx75f774" path="res://img/parts/PipeRifle.png" id="3_eosth"]
+[ext_resource type="Texture2D" path="res://img/parts/PipeRifle.png" id="3_eosth"]
 
 
 [resource]

@@ -2,7 +2,8 @@
 
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_5nps4"]
 [ext_resource type="Script" path="res://obj/parts/scripts/barrel.gd" id="2_85mr3"]
-[ext_resource type="Texture2D" uid="uid://csnt6o7nooloq" path="res://img/parts/Coils.png" id="3_4v7y1"]
+[ext_resource type="Texture2D" path="res://img/parts/Coils.png" id="3_4v7y1"]
+
 
 [sub_resource type="Resource" id="Resource_c4tdn"]
 script = ExtResource("1_5nps4")

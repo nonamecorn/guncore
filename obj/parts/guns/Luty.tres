@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://obj/parts/scripts/reciever.gd" id="2_uykjs"]
 [ext_resource type="Texture2D" uid="uid://hs7de13gasw7" path="res://img/parts/Luty.png" id="3_0kduy"]
 
+
 [resource]
 script = ExtResource("2_uykjs")
 base_firerate = 0.1

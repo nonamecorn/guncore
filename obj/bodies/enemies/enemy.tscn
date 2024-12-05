@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://b4ifd4nn31mq8" path="res://obj/components/hurt_box.tscn" id="5_eclwk"]
 [ext_resource type="AudioStream" uid="uid://cq5moh8342387" path="res://snd/sfx/enemydeath.wav" id="6_qqgv7"]
 
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_egrxt"]
 radius = 7.0
 height = 18.0

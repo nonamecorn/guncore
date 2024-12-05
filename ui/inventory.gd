@@ -15,7 +15,7 @@ var last_pos = Vector2()
 signal drop(item)
 
 func _ready():
-	var gun = Randogunser.get_gun()
+	var _gun = Randogunser.get_gun()
 	#pickup_item(load(gun.RECIEVER))
 	#pickup_item(load(gun.MAG))
 	#pickup_item(load(gun.BARREL))

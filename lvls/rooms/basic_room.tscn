@@ -2,7 +2,8 @@
 
 [ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="1_0qsy7"]
 [ext_resource type="Script" path="res://lvls/rooms/basic_room.gd" id="1_ygdka"]
-[ext_resource type="PackedScene" uid="uid://bf65xavyr0pes" path="res://others/other_components/module_connector.tscn" id="3_uvqw5"]
+[ext_resource type="PackedScene" uid="uid://bf65xavyr0pes" path="res://lvls/misc/module_connector.tscn" id="3_uvqw5"]
+
 
 [node name="BasicRoom" type="Node2D"]
 script = ExtResource("1_ygdka")

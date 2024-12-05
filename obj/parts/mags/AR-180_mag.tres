@@ -6,6 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://bseru4wnpe0hh" path="res://snd/sfx/ar_fire.wav" id="4_yyxgo"]
 [ext_resource type="Texture2D" uid="uid://c2n3mrufc3cwk" path="res://img/parts/AR-180_mag.png" id="5_xuioy"]
 
+
 [resource]
 script = ExtResource("3_s8o55")
 capacity = 40

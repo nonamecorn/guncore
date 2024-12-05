@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://dym28ep8vp4kg" path="res://img/parts/PauzaP50_mag.png" id="4_4sgpk"]
 [ext_resource type="AudioStream" uid="uid://jrit8ythk2v3" path="res://snd/sfx/sniper_fire.wav" id="4_ls4in"]
 
+
 [sub_resource type="Resource" id="Resource_yqqof"]
 script = ExtResource("1_mchcw")
 stat_name = "current_ver_recoil"

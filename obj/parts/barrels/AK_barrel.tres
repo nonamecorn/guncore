@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Barrel" load_steps=4 format=3 uid="uid://knr31207p64p"]
 
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_00eg8"]
-[ext_resource type="Texture2D" uid="uid://b6gqhd6ec20ea" path="res://img/parts/AK_Barrel.png" id="1_5su8h"]
+[ext_resource type="Texture2D" path="res://img/parts/AK_Barrel.png" id="1_5su8h"]
 [ext_resource type="Script" path="res://obj/parts/scripts/barrel.gd" id="1_a1wfo"]
 
 [resource]
