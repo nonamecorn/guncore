@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://iw57ifc4wp2y"
-path="res://.godot/imported/walls_and_floor_n.png-0577cfc45cbfd235a7400d37cce7afa1.ctex"
+uid="uid://0seydykdeb47"
+path="res://.godot/imported/pipelins.png-3c0653a16135f530f20765e59ac2b852.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/walls_and_floor_n.png"
-dest_files=["res://.godot/imported/walls_and_floor_n.png-0577cfc45cbfd235a7400d37cce7afa1.ctex"]
+source_file="res://img/levels/pipelins.png"
+dest_files=["res://.godot/imported/pipelins.png-3c0653a16135f530f20765e59ac2b852.ctex"]
 
 [params]
 

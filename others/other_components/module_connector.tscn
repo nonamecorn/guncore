@@ -1,4 +1,4 @@
-[gd_scene load_steps=3 format=3 uid="uid://bf65xavyr0pes"]
+[gd_scene load_steps=3 format=4 uid="uid://bf65xavyr0pes"]
 
 [ext_resource type="Script" path="res://module_connector.gd" id="1_4gpo4"]
 [ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="2_o5j33"]
@@ -9,50 +9,81 @@ script = ExtResource("1_4gpo4")
 [node name="layers" parent="." instance=ExtResource("2_o5j33")]
 
 [node name="Ceiling" parent="layers" index="0"]
-tile_map_data = PackedByteArray(0, 0, 255, 255, 255, 255, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 1, 0, 0, 0, 0, 0, 254, 255, 255, 255, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 255, 255, 0, 0, 2, 0, 0, 0, 0, 0)
+tile_map_data = PackedByteArray("AAD/////AAABAAEAAAAAAP//AAABAAEAAAD+////AAABAAEAAAABAP//AAABAAEAAAD9////AAABAAEAAAACAP//AAABAAEAAAD8////AAAAAAEAAAD8//7/AAAAAAAAAAD9//7/AAABAAAAAAD+//7/AAABAAAAAAD///7/AAABAAAAAAAAAP7/AAABAAAAAAABAP7/AAABAAAAAAACAP7/AAABAAAAAAADAP//AAACAAEAAAADAP7/AAACAAAAAAA=")
 enabled = false
 
-[node name="Walls" parent="layers" index="1"]
+[node name="wota" parent="layers" index="1"]
+tile_map_data = PackedByteArray("AAD+////BAAAAAAAAAD/////BAAAAAAAAAAAAP//BAAAAAAAAAABAP//BAAAAAAAAAA=")
 enabled = false
 
-[node name="Decorations" parent="layers" index="2"]
+[node name="Walls" parent="layers" index="2"]
+tile_map_data = PackedByteArray("AAD+////AwAEAAAAAAD/////AwAFAAAAAAAAAP//AwAFAAAAAAABAP//AwAGAAAAAAD9////AQAAAAEAAAACAP//AQACAAEAAAA=")
+enabled = false
+
+[node name="floor" parent="layers" index="3"]
+enabled = false
+
+[node name="Decorations" parent="layers" index="4"]
 enabled = false
 
 [node name="layers2" parent="." instance=ExtResource("2_o5j33")]
 
 [node name="Ceiling" parent="layers2" index="0"]
-tile_map_data = PackedByteArray(0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 255, 255, 1, 0, 0, 0, 0, 0, 2, 0, 0, 0, 255, 255, 254, 255, 0, 0, 0, 0, 1, 0, 0, 0, 255, 255, 253, 255, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 1, 0, 0, 0)
+tile_map_data = PackedByteArray("AAD//wAAAAAAAAEAAAD//wEAAAAAAAEAAAD///7/AAAAAAEAAAD///3/AAAAAAEAAAD/////AAAAAAEAAAD//wIAAAAAAAEAAAD//wMAAAAAAAIAAAD///z/AAAAAAEAAAD///v/AAAAAAAAAAA=")
 enabled = false
 
-[node name="Walls" parent="layers2" index="1"]
+[node name="wota" parent="layers2" index="1"]
 enabled = false
 
-[node name="Decorations" parent="layers2" index="2"]
+[node name="Walls" parent="layers2" index="2"]
+enabled = false
+
+[node name="floor" parent="layers2" index="3"]
+enabled = false
+
+[node name="Decorations" parent="layers2" index="4"]
 enabled = false
 
 [node name="layers3" parent="." instance=ExtResource("2_o5j33")]
 
 [node name="Ceiling" parent="layers3" index="0"]
-tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 2, 0, 1, 0, 0, 0, 0, 0, 1, 0, 0, 0, 2, 0, 2, 0, 0, 0, 0, 0, 254, 255, 0, 0, 2, 0, 1, 0, 0, 0, 0, 0, 253, 255, 0, 0, 2, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 2, 0, 1, 0, 0, 0)
+tile_map_data = PackedByteArray("AAAAAAAAAAACAAEAAAAAAAEAAAACAAEAAAAAAP7/AAACAAEAAAAAAP3/AAACAAEAAAAAAP//AAACAAEAAAAAAPz/AAACAAEAAAAAAPv/AAACAAAAAAAAAAIAAAACAAEAAAAAAAMAAAACAAIAAAA=")
 enabled = false
 
-[node name="Walls" parent="layers3" index="1"]
+[node name="wota" parent="layers3" index="1"]
 enabled = false
 
-[node name="Decorations" parent="layers3" index="2"]
+[node name="Walls" parent="layers3" index="2"]
+enabled = false
+
+[node name="floor" parent="layers3" index="3"]
+enabled = false
+
+[node name="Decorations" parent="layers3" index="4"]
 enabled = false
 
 [node name="layers4" parent="." instance=ExtResource("2_o5j33")]
 
 [node name="Ceiling" parent="layers4" index="0"]
-tile_map_data = PackedByteArray(0, 0, 254, 255, 0, 0, 0, 0, 0, 0, 2, 0, 0, 0, 255, 255, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 2, 0, 0, 0, 1, 0, 0, 0, 0, 0, 2, 0, 2, 0, 0, 0)
+tile_map_data = PackedByteArray("AAD+/wAAAAABAAIAAAD//wAAAAABAAIAAAAAAAAAAAABAAIAAAABAAAAAAABAAIAAAD9/wAAAAABAAIAAAD8/wAAAAAAAAIAAAACAAAAAAABAAIAAAADAAAAAAACAAIAAAA=")
 enabled = false
 
-[node name="Walls" parent="layers4" index="1"]
+[node name="wota" parent="layers4" index="1"]
 enabled = false
 
-[node name="Decorations" parent="layers4" index="2"]
+[node name="Walls" parent="layers4" index="2"]
 enabled = false
+
+[node name="floor" parent="layers4" index="3"]
+enabled = false
+
+[node name="Decorations" parent="layers4" index="4"]
+enabled = false
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
+color = Color(0.941176, 0, 0, 1)
+polygon = PackedVector2Array(0, -35, 44, 1, 0, 32)
 
 [editable path="layers"]
 [editable path="layers2"]

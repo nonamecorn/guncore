@@ -5,7 +5,7 @@ extends  CharacterBody2D
 const MAX_SPEED = 160
 const ACCELERATION = 1000
 const FRICTION = 1000
-var health : int = 200
+var health : int = 2000
 var flipped = false
 signal died
 enum {

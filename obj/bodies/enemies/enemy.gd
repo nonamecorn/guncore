@@ -90,6 +90,7 @@ func move(delta):
 	var current_pos = global_position
 	var next_path = nav_agent.get_next_path_position()
 	var new_velocity = (next_path - current_pos).normalized()
+	direction = new_velocity
 	velocity = velocity.move_toward(new_velocity * MAX_SPEED,delta * ACCELERATION)
 	move_and_slide()
 
@@ -139,6 +140,7 @@ func _on_sight_body_entered(body):
 
 func _on_sight_body_exited(body):
 	if body in bodies and !dead:
+		$enemy_hand_component.state = 2
 		state = CHASE
 
 func fucking_shit():
