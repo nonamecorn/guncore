@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="Mag" load_steps=8 format=3 uid="uid://bvg06o71a00gi"]
 
-[ext_resource type="Texture2D" uid="uid://bjanld43ent65" path="res://img/parts/PPsH_Mag.png" id="1_22v56"]
+[ext_resource type="Texture2D" uid="uid://bknaax03eqtyi" path="res://img/parts/PPsH_Mag.png" id="1_22v56"]
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_gkyod"]
 [ext_resource type="Script" path="res://obj/parts/scripts/mag.gd" id="2_odm2g"]
 [ext_resource type="PackedScene" uid="uid://b4qvivbnt8oim" path="res://obj/proj/PP_fmj.tscn" id="2_rs0s7"]

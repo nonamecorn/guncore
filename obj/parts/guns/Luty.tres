@@ -2,14 +2,13 @@
 
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_sfpbj"]
 [ext_resource type="Script" path="res://obj/parts/scripts/reciever.gd" id="2_uykjs"]
-[ext_resource type="Texture2D" uid="uid://5kvo72vp5ebo" path="res://img/parts/Luty.png" id="3_0kduy"]
-
+[ext_resource type="Texture2D" uid="uid://hs7de13gasw7" path="res://img/parts/Luty.png" id="3_0kduy"]
 
 [resource]
 script = ExtResource("2_uykjs")
 base_firerate = 0.1
-ver_recoil = 7.0
-hor_recoil = 4.0
+ver_recoil = 5.0
+hor_recoil = 6.0
 mag_position = Vector2(-4, 3)
 barrel_position = Vector2(0, 0)
 sprite = ExtResource("3_0kduy")

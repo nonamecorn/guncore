@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_mchcw"]
 [ext_resource type="PackedScene" uid="uid://prlkd7eelypq" path="res://obj/proj/50bmg.tscn" id="2_dcuin"]
 [ext_resource type="Script" path="res://obj/parts/scripts/mag.gd" id="3_ros4v"]
-[ext_resource type="Texture2D" uid="uid://bi5pg0k7h6ox7" path="res://img/parts/PauzaP50_mag.png" id="4_4sgpk"]
+[ext_resource type="Texture2D" uid="uid://dym28ep8vp4kg" path="res://img/parts/PauzaP50_mag.png" id="4_4sgpk"]
 [ext_resource type="AudioStream" uid="uid://jrit8ythk2v3" path="res://snd/sfx/sniper_fire.wav" id="4_ls4in"]
 
 [sub_resource type="Resource" id="Resource_yqqof"]
@@ -24,7 +24,7 @@ is_set = false
 script = ExtResource("3_ros4v")
 capacity = 5
 projectile = ExtResource("2_dcuin")
-reload_time = 5
+reload_time = 4
 sound = ExtResource("4_ls4in")
 sprite = ExtResource("4_4sgpk")
 sprite_offset = Vector2(2, 2)

@@ -10,7 +10,7 @@
 script = ExtResource("3_52elb")
 capacity = 30
 projectile = ExtResource("2_gw1fa")
-reload_time = 1
+reload_time = 2
 sound = ExtResource("4_il5h1")
 sprite = ExtResource("5_lnwct")
 sprite_offset = Vector2(1, 1)
