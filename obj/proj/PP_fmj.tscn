@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://b4qvivbnt8oim"]
 
 [ext_resource type="PackedScene" uid="uid://chohchm3nmbw8" path="res://obj/components/mother_projectile.tscn" id="1_fcwy0"]
-[ext_resource type="Texture2D" uid="uid://utbtc8xabiyo" path="res://img/bullets/bullet_small.png" id="2_mig7x"]
+[ext_resource type="Texture2D" uid="uid://c7h7i2je2y351" path="res://img/bullets/bullet_small.png" id="2_mig7x"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qb4s6"]
 radius = 2.0
