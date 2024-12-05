@@ -1,5 +1,5 @@
-Mag
 Barrel
+Mag
 GunReciever
 Mod
 Muzzle

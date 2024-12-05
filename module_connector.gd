@@ -28,6 +28,8 @@ func close():
 	match orientation:
 		0:
 			get_child(0).get_child(0).enabled = true
+			get_child(0).get_child(1).enabled = true
+			get_child(0).get_child(2).enabled = true
 		1:
 			get_child(1).get_child(0).enabled = true
 		2:

@@ -1,10 +1,10 @@
 [gd_scene load_steps=15 format=3 uid="uid://btw10scl5f85a"]
 
 [ext_resource type="Script" path="res://obj/bodies/player.gd" id="1_6n3fv"]
-[ext_resource type="Texture2D" uid="uid://dm4jkgd82wllk" path="res://img/GG.png" id="1_e2wcx"]
+[ext_resource type="Texture2D" uid="uid://330n6jomc16m" path="res://img/bodys/GG.png" id="1_e2wcx"]
 [ext_resource type="PackedScene" uid="uid://du82m8s6amvuo" path="res://obj/components/player_hand_component.tscn" id="3_nq5y6"]
 [ext_resource type="Script" path="res://obj/bodies/camera_2d.gd" id="4_6xs1v"]
-[ext_resource type="Texture2D" uid="uid://0uxly7fg3da8" path="res://img/light232.png" id="5_t0nkv"]
+[ext_resource type="Texture2D" uid="uid://cy2eud5lve0j5" path="res://img/light232.png" id="5_t0nkv"]
 [ext_resource type="PackedScene" uid="uid://ctrbcy5h47qqw" path="res://obj/components/gun_base.tscn" id="6_m4fya"]
 [ext_resource type="PackedScene" uid="uid://d0ex485qfg6qx" path="res://ui/inventory.tscn" id="8_wsalq"]
 [ext_resource type="PackedScene" uid="uid://b4ifd4nn31mq8" path="res://obj/components/hurt_box.tscn" id="9_3vqfx"]

@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Mag" load_steps=6 format=3 uid="uid://bnbmkb8n34y75"]
 
 [ext_resource type="Script" path="res://obj/parts/scripts/mag.gd" id="1_4qlor"]
-[ext_resource type="Texture2D" uid="uid://cageco7x6ob6a" path="res://img/parts/AK_Mag.png" id="1_51pky"]
+[ext_resource type="Texture2D" uid="uid://bbvmwcguamenp" path="res://img/parts/AK_Mag.png" id="1_51pky"]
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_c5x6n"]
 [ext_resource type="PackedScene" uid="uid://ce5unulp5hnlx" path="res://obj/proj/fmj.tscn" id="2_44mwl"]
 [ext_resource type="AudioStream" uid="uid://bseru4wnpe0hh" path="res://snd/sfx/ar_fire.wav" id="4_x0m4p"]

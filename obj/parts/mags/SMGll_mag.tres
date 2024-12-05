@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Mag" load_steps=6 format=3 uid="uid://b5fcw8hnl0k5d"]
+
+[ext_resource type="Script" path="res://obj/components/change.gd" id="1_gi1mc"]
+[ext_resource type="PackedScene" uid="uid://b4qvivbnt8oim" path="res://obj/proj/PP_fmj.tscn" id="2_gw1fa"]
+[ext_resource type="Script" path="res://obj/parts/scripts/mag.gd" id="3_52elb"]
+[ext_resource type="AudioStream" uid="uid://bc6jww2l3klia" path="res://snd/sfx/smgfire.wav" id="4_il5h1"]
+[ext_resource type="Texture2D" uid="uid://blvf01w427fh0" path="res://img/parts/SMGll_mag.png" id="5_lnwct"]
+
+[resource]
+script = ExtResource("3_52elb")
+capacity = 30
+projectile = ExtResource("2_gw1fa")
+reload_time = 1
+sound = ExtResource("4_il5h1")
+sprite = ExtResource("5_lnwct")
+sprite_offset = Vector2(1, 1)
+changes = Array[ExtResource("1_gi1mc")]([])

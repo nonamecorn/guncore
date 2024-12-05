@@ -1,29 +1,21 @@
-[gd_scene load_steps=6 format=3 uid="uid://dma1u48bdqnkr"]
+[gd_scene load_steps=2 format=3 uid="uid://dma1u48bdqnkr"]
 
-[sub_resource type="TileSet" id="TileSet_tyjsr"]
-
-[sub_resource type="TileSet" id="TileSet_wk4sj"]
-
-[sub_resource type="TileSet" id="TileSet_mwcjg"]
-
-[sub_resource type="TileSet" id="TileSet_fnqp4"]
-
-[sub_resource type="TileSet" id="TileSet_5b673"]
+[ext_resource type="TileSet" uid="uid://6c0up61qo7l2" path="res://lvls/general_tileset.tres" id="1_dwe3r"]
 
 [node name="layers" type="Node2D"]
 
 [node name="Ceiling" type="TileMapLayer" parent="."]
 light_mask = 2
-tile_set = SubResource("TileSet_tyjsr")
+tile_set = ExtResource("1_dwe3r")
 
 [node name="wota" type="TileMapLayer" parent="."]
-tile_set = SubResource("TileSet_wk4sj")
+tile_set = ExtResource("1_dwe3r")
 
 [node name="Walls" type="TileMapLayer" parent="."]
-tile_set = SubResource("TileSet_mwcjg")
+tile_set = ExtResource("1_dwe3r")
 
 [node name="floor" type="TileMapLayer" parent="."]
-tile_set = SubResource("TileSet_fnqp4")
+tile_set = ExtResource("1_dwe3r")
 
 [node name="Decorations" type="TileMapLayer" parent="."]
-tile_set = SubResource("TileSet_5b673")
+tile_set = ExtResource("1_dwe3r")

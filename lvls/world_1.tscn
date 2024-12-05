@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://lvls/world_1.gd" id="1_ki535"]
 [ext_resource type="Script" path="res://others/camera_2d.gd" id="3_5hpog"]
 [ext_resource type="PackedScene" uid="uid://btw10scl5f85a" path="res://obj/bodies/player.tscn" id="4_22ug0"]
-[ext_resource type="Texture2D" uid="uid://0uxly7fg3da8" path="res://img/light232.png" id="5_jgcgt"]
+[ext_resource type="Texture2D" uid="uid://cy2eud5lve0j5" path="res://img/light232.png" id="5_jgcgt"]
 
 [node name="world1" type="Node2D"]
 script = ExtResource("1_ki535")
@@ -32,7 +32,7 @@ script = ExtResource("3_5hpog")
 [node name="items" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("4_22ug0")]
-position = Vector2(433, 567)
+position = Vector2(508, 98)
 
 [node name="light" type="Node2D" parent="Player"]
 

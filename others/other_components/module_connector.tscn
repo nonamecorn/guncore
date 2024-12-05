@@ -9,15 +9,15 @@ script = ExtResource("1_4gpo4")
 [node name="layers" parent="." instance=ExtResource("2_o5j33")]
 
 [node name="Ceiling" parent="layers" index="0"]
-tile_map_data = PackedByteArray("AAD/////AAABAAEAAAAAAP//AAABAAEAAAD+////AAABAAEAAAABAP//AAABAAEAAAD9////AAABAAEAAAACAP//AAABAAEAAAD8////AAAAAAEAAAD8//7/AAAAAAAAAAD9//7/AAABAAAAAAD+//7/AAABAAAAAAD///7/AAABAAAAAAAAAP7/AAABAAAAAAABAP7/AAABAAAAAAACAP7/AAABAAAAAAADAP//AAACAAEAAAADAP7/AAACAAAAAAA=")
+tile_map_data = PackedByteArray("AAD9//7/AQAAAAAAAAD+//7/AQABAAAAAAD///7/AQABAAAAAAAAAP7/AQABAAAAAAABAP7/AQABAAAAAAACAP7/AQABAAAAAAD9////AQAAAAEAAAADAP7/AQACAAAAAAADAP//AQACAAEAAAA=")
 enabled = false
 
 [node name="wota" parent="layers" index="1"]
-tile_map_data = PackedByteArray("AAD+////BAAAAAAAAAD/////BAAAAAAAAAAAAP//BAAAAAAAAAABAP//BAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD/////BQAAAAAAAAAAAP//BQAAAAAAAAABAP//BQAAAAAAAAA=")
 enabled = false
 
 [node name="Walls" parent="layers" index="2"]
-tile_map_data = PackedByteArray("AAD+////AwAEAAAAAAD/////AwAFAAAAAAAAAP//AwAFAAAAAAABAP//AwAGAAAAAAD9////AQAAAAEAAAACAP//AQACAAEAAAA=")
+tile_map_data = PackedByteArray("AAACAP//BgACAAEAAAD+////BgAAAAEAAAD/////BAAEAAAAAAAAAP//BAAFAAAAAAABAP//BAAGAAAAAAA=")
 enabled = false
 
 [node name="floor" parent="layers" index="3"]
@@ -29,7 +29,7 @@ enabled = false
 [node name="layers2" parent="." instance=ExtResource("2_o5j33")]
 
 [node name="Ceiling" parent="layers2" index="0"]
-tile_map_data = PackedByteArray("AAD//wAAAAAAAAEAAAD//wEAAAAAAAEAAAD///7/AAAAAAEAAAD///3/AAAAAAEAAAD/////AAAAAAEAAAD//wIAAAAAAAEAAAD//wMAAAAAAAIAAAD///z/AAAAAAEAAAD///v/AAAAAAAAAAA=")
+tile_map_data = PackedByteArray("AAD///3/AQAAAAEAAAD///7/AQAAAAEAAAD///z/AQAAAAAAAAD/////AQAAAAEAAAD//wAAAQAAAAEAAAD//wEAAQAAAAEAAAD//wIAAQAAAAEAAAD//wMAAQAAAAIAAAA=")
 enabled = false
 
 [node name="wota" parent="layers2" index="1"]
@@ -47,7 +47,7 @@ enabled = false
 [node name="layers3" parent="." instance=ExtResource("2_o5j33")]
 
 [node name="Ceiling" parent="layers3" index="0"]
-tile_map_data = PackedByteArray("AAAAAAAAAAACAAEAAAAAAAEAAAACAAEAAAAAAP7/AAACAAEAAAAAAP3/AAACAAEAAAAAAP//AAACAAEAAAAAAPz/AAACAAEAAAAAAPv/AAACAAAAAAAAAAIAAAACAAEAAAAAAAMAAAACAAIAAAA=")
+tile_map_data = PackedByteArray("AAAAAP3/AQACAAEAAAAAAP7/AQACAAEAAAAAAPz/AQACAAAAAAAAAP//AQACAAEAAAAAAAAAAQACAAEAAAAAAAEAAQACAAEAAAAAAAIAAQACAAEAAAAAAAMAAQACAAIAAAA=")
 enabled = false
 
 [node name="wota" parent="layers3" index="1"]
@@ -65,7 +65,7 @@ enabled = false
 [node name="layers4" parent="." instance=ExtResource("2_o5j33")]
 
 [node name="Ceiling" parent="layers4" index="0"]
-tile_map_data = PackedByteArray("AAD+/wAAAAABAAIAAAD//wAAAAABAAIAAAAAAAAAAAABAAIAAAABAAAAAAABAAIAAAD9/wAAAAABAAIAAAD8/wAAAAAAAAIAAAACAAAAAAABAAIAAAADAAAAAAACAAIAAAA=")
+tile_map_data = PackedByteArray("AAD9/wAAAQAAAAIAAAD+/wAAAQABAAIAAAD//wAAAQABAAIAAAAAAAAAAQABAAIAAAABAAAAAQABAAIAAAACAAAAAQABAAIAAAADAAAAAQACAAIAAAA=")
 enabled = false
 
 [node name="wota" parent="layers4" index="1"]

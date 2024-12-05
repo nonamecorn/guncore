@@ -1,11 +1,13 @@
+res://obj/parts/barrels
+res://obj/parts/mags
+res://obj/parts/guns
+res://img/bodys
+res://lvls
 res://others
 res://obj/components
 res://obj/parts/scripts
 res://obj/proj
 res://img/bullets
-res://obj/parts/mags
-res://obj/parts/barrels
-res://obj/parts/guns
 res://obj/parts/mods
 res://obj/parts/muzzles
 res://img/misc
@@ -15,6 +17,5 @@ res://obj/bodies/enemies
 res://img
 res://others/other_components
 res://lvls/corridors
-res://lvls
 res://lvls/rooms
 res://obj/bodies

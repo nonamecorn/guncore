@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Barrel" load_steps=6 format=3 uid="uid://cjup8q63xpmgt"]
 
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_cun8x"]
-[ext_resource type="Texture2D" uid="uid://bp5iwu0ty8arn" path="res://img/parts/LongBarrel.png" id="1_nv6u6"]
+[ext_resource type="Texture2D" uid="uid://c7aryhug1s2ce" path="res://img/parts/LongBarrel.png" id="1_nv6u6"]
 [ext_resource type="Script" path="res://obj/parts/scripts/barrel.gd" id="1_xn5q3"]
 
 [sub_resource type="Resource" id="Resource_ra645"]
