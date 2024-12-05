@@ -3,7 +3,8 @@ extends Control
 const item_base = preload("res://ui/item_base.tscn")
  
 @export var grid_bkpk : Node
-@export var eq_slot : Node
+@export var eq_slot1 : Node
+@export var eq_slot2 : Node
 @export var collector : Node
 
 var item_held = null
@@ -108,7 +109,7 @@ func swap(c2, cursor_pos):
 
 
 func get_container_under_cursor(cursor_pos):
-	var containers = [grid_bkpk, eq_slot, collector]
+	var containers = [grid_bkpk, eq_slot1, eq_slot2, collector]
 	for c in containers:
 		if c.get_global_rect().has_point(cursor_pos):
 			return c

@@ -54,6 +54,10 @@ hand_length = 9
 [node name="gun_base" parent="player_hand_component/Marker2D" index="0" instance=ExtResource("6_m4fya")]
 player_handled = true
 
+[node name="gun_base2" parent="player_hand_component/Marker2D" index="1" instance=ExtResource("6_m4fya")]
+visible = false
+player_handled = true
+
 [node name="light_center" type="Marker2D" parent="."]
 position = Vector2(0, 4)
 

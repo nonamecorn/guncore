@@ -85,7 +85,6 @@ func asseble_gun(parts : Dictionary):
 	if current_firerate != 0:
 		$firerate.wait_time = current_firerate
 	$reload.wait_time = current_reload_time
-	show()
 	reload()
 
 func change_stat(name_of_stat : String, value_of_stat, mult: bool):
@@ -103,7 +102,6 @@ func dissassemble_gun():
 	dispawn_facade("BARREL")
 	dispawn_facade("MAG")
 	dispawn_facade("MUZZLE")
-	hide()
 	state = STOP
 
 func start_fire():

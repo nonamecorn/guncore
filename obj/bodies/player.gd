@@ -19,8 +19,10 @@ var tween : Tween
 func _ready() -> void:
 	$hurt_box.damaged.connect(hurt)
 	$CanvasLayer/Inventory.drop.connect(drop)
-	$CanvasLayer/Inventory.eq_slot.assemble.connect(on_assemble)
-	$CanvasLayer/Inventory.eq_slot.dissassemble.connect(on_dissassemble)
+	$CanvasLayer/Inventory.eq_slot1.assemble.connect(on_assemble)
+	$CanvasLayer/Inventory.eq_slot1.dissassemble.connect(on_dissassemble)
+	$CanvasLayer/Inventory.eq_slot2.assemble.connect(on_assemble2)
+	$CanvasLayer/Inventory.eq_slot2.dissassemble.connect(on_dissassemble2)
 
 func _physics_process(delta):
 	match state:
@@ -96,6 +98,13 @@ func on_assemble(parts):
 
 func on_dissassemble():
 	$player_hand_component/Marker2D/gun_base.dissassemble_gun()
+
+func on_assemble2(parts):
+	$player_hand_component/Marker2D/gun_base2.asseble_gun(parts)
+
+func on_dissassemble2():
+	$player_hand_component/Marker2D/gun_base2.dissassemble_gun()
+
 
 func _on_collector_area_entered(_area: Area2D) -> void:
 	pass
