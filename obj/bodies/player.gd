@@ -1,4 +1,5 @@
 extends  CharacterBody2D
+#hmmm
 
 @onready var gun = $player_hand_component
 @onready var item_base = load("res://obj/components/item_ground_base.tscn")

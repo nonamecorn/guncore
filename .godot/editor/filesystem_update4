@@ -7,3 +7,4 @@ res://lvls/corridors/horisonteast_corr.tscn
 res://lvls/rooms/starting_room.tscn
 res://lvls/corridors/verticalnorth_corr.tscn
 res://lvls/corridors/verticalsouth_corr.tscn
+res://obj/bodies/player.gd
