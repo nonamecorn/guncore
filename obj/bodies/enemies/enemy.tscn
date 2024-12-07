@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://c3jo85so338er"]
+[gd_scene load_steps=10 format=3 uid="uid://c3jo85so338er"]
 
 [ext_resource type="Script" path="res://obj/bodies/enemies/enemy.gd" id="1_qbvdd"]
 [ext_resource type="Texture2D" uid="uid://emrwjki1a5h0" path="res://img/bodys/enemy.png" id="2_fn425"]
@@ -15,7 +15,10 @@ height = 18.0
 radius = 7.0
 height = 26.0
 
-[node name="enemy" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent")]
+[sub_resource type="CircleShape2D" id="CircleShape2D_qhfwq"]
+radius = 600.0
+
+[node name="enemy" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent") groups=["cultist"]]
 collision_layer = 4
 script = ExtResource("1_qbvdd")
 nav_agent = NodePath("NavigationAgent2D")
@@ -27,29 +30,15 @@ shape = SubResource("CapsuleShape2D_egrxt")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("2_fn425")
 
-[node name="enemy_hand_component" parent="." instance=ExtResource("2_vctv7")]
+[node name="enemy_hand_component" parent="." node_paths=PackedStringArray("ray") instance=ExtResource("2_vctv7")]
 hand_length = 16
+ray = NodePath("../RayCast2D")
 
 [node name="gun_base" parent="enemy_hand_component/Marker2D" index="0" instance=ExtResource("4_ohoj0")]
 
 [node name="burst_duration" type="Timer" parent="enemy_hand_component"]
 wait_time = 0.5
 one_shot = true
-
-[node name="look_around" type="Timer" parent="enemy_hand_component"]
-wait_time = 3.0
-autostart = true
-
-[node name="sight" type="Area2D" parent="enemy_hand_component"]
-collision_layer = 0
-collision_mask = 4
-
-[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="enemy_hand_component/sight"]
-polygon = PackedVector2Array(-24, -40, 0, -24, -8, 56, -32, 56)
-
-[node name="RayCast2D" type="RayCast2D" parent="enemy_hand_component"]
-target_position = Vector2(632, 0)
-collision_mask = 5
 
 [node name="change_position" type="Timer" parent="."]
 wait_time = 2.0
@@ -68,14 +57,25 @@ shape = SubResource("CapsuleShape2D_ykghs")
 [node name="death" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_qqgv7")
 
+[node name="body_manager" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="body_manager"]
+shape = SubResource("CircleShape2D_qhfwq")
+debug_color = Color(0, 0.6, 0.701961, 0)
+
+[node name="RayCast2D" type="RayCast2D" parent="."]
+target_position = Vector2(632, 0)
+collision_mask = 5
+
 [connection signal="timeout" from="enemy_hand_component/burst_duration" to="enemy_hand_component" method="_on_burst_duration_timeout"]
-[connection signal="timeout" from="enemy_hand_component/look_around" to="enemy_hand_component" method="_on_look_around_timeout"]
-[connection signal="body_entered" from="enemy_hand_component/sight" to="." method="_on_sight_body_entered"]
-[connection signal="body_entered" from="enemy_hand_component/sight" to="enemy_hand_component" method="_on_sight_body_entered"]
-[connection signal="body_exited" from="enemy_hand_component/sight" to="." method="_on_sight_body_exited"]
-[connection signal="body_exited" from="enemy_hand_component/sight" to="enemy_hand_component" method="_on_sight_body_exited"]
 [connection signal="timeout" from="change_position" to="." method="_on_change_position_timeout"]
 [connection signal="timeout" from="makepath" to="." method="_on_makepath_timeout"]
+[connection signal="body_entered" from="body_manager" to="." method="_on_body_manager_body_entered"]
+[connection signal="body_exited" from="body_manager" to="." method="_on_body_manager_body_exited"]
 
 [editable path="enemy_hand_component"]
 [editable path="hurt_box"]

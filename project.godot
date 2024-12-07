@@ -36,6 +36,7 @@ window/custom_image=""
 
 connector="used for room generation"
 player=""
+cultist=""
 
 [input]
 

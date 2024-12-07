@@ -1,12 +1,13 @@
 extends Node2D
 
 @export var hand_length = 80
-var bodies = []
 var state = IDLE
 var look_vec = Vector2.ZERO
-var angle_cone_of_vission = deg_to_rad(70)
-var angle_between_rays = deg_to_rad(10)
+var angle_cone_of_vission = 30
+var angle_between_rays = 10
 var max_viev_distance = 600
+var current_target
+@export var ray : Node 
 enum {
 	FIRING,
 	IDLE,
@@ -22,53 +23,45 @@ func _ready() -> void:
 
 var flipped = false
 
-func _process(_delta):
-	
-	
+func _physics_process(delta: float) -> void:
+	current_target = get_parent().current_target
+	if !current_target or !is_instance_valid(current_target):
+		return
 	match state:
 		IDLE:
-			var cast_count = int(angle_cone_of_vission / angle_between_rays) + 1
-			for index in cast_count:
-				var cast_vector = (
-					max_viev_distance *
-					Vector2.RIGHT.rotated(angle_between_rays * (index - cast_count / 2.0))
-				)
-				$RayCast2D.target_position = cast_vector
-				$RayCast2D.force_raycast_update()
-				if $RayCast2D.is_colliding() and $RayCast2D.get_collider().is_in_group("player"):
-					print("huh")
-					bodies.append($RayCast2D.get_collider())
-					state = FIRING
-					$attack.start()
-					$Marker2D.get_child(0).fire()
-					get_parent()._on_sight_body_entered($RayCast2D.get_collider())
-					break
+			idle_state()
 		FIRING:
-			look_vec = bodies[0].global_position - global_position
-			$RayCast2D.target_position = max_viev_distance * look_vec.normalized()
-			$RayCast2D.force_raycast_update()
-			if $RayCast2D.is_colliding() and !$RayCast2D.get_collider().is_in_group("player"):
-				state = IDLE
-				$attack.stop()
+			firing_state()
 		RUN:
-			look_vec = get_parent().direction
+			run_state()
 	if look_vec.x < 0 and !flipped:
 		flip()
 	if look_vec.x >= 0 and flipped:
 		flip()
 	global_rotation = atan2(look_vec.y, look_vec.x)
 
+func firing_state():
+	look_vec = (current_target.global_position - global_position).normalized()
+	if !_in_vision_cone(current_target.global_position) or !has_los():
+		state = RUN
+		get_parent().start_chasin()
+		$attack.stop()
 
-func _on_sight_body_entered(body):
-	pass
+func idle_state():
+	look_vec = get_parent().direction
+	if _in_vision_cone(current_target.global_position) and has_los():
+		state = FIRING
+		$attack.start()
+		$Marker2D.get_child(0).fire()
+		get_parent().start_blastin()
 
-func _on_sight_body_exited(body):
-	pass
-	#if body in bodies:
-		#bodies.erase(body)
-		#if bodies.size() == 0:
-			#state = IDLE
-			#$attack.stop()
+func run_state():
+	look_vec = get_parent().direction
+	if _in_vision_cone(current_target.global_position) and has_los():
+		state = FIRING
+		$attack.start()
+		$Marker2D.get_child(0).fire()
+		get_parent().start_blastin()
 
 func get_self_circle_position():
 	var kill_circle_centre = Vector2.ZERO
@@ -78,6 +71,18 @@ func get_self_circle_position():
 	var x = kill_circle_centre.x + cos(angle) * radius;
 	var y = kill_circle_centre.y + sin(angle) * radius;
 	return(Vector2(x,y))
+
+func _in_vision_cone(point):
+	var forward = ($Marker2D.global_position - global_position).normalized()
+	var dir_to_point = point - global_position
+	return rad_to_deg(dir_to_point.angle_to(forward)) <= angle_cone_of_vission
+
+func has_los():
+	ray.target_position = current_target.global_position - global_position
+	ray.force_raycast_update()
+	if ray.is_colliding() and ray.get_collider() == get_parent().current_target:
+		return true
+	return false
 
 func flip():
 	get_parent().flip()
@@ -102,10 +107,3 @@ func _on_attack_timeout() -> void:
 
 func _on_burst_duration_timeout() -> void:
 	$Marker2D.get_child(0).stop_fire()
-
-func _on_look_around_timeout() -> void:
-	match state:
-		IDLE:
-			look_vec = get_self_circle_position()
-		FIRING:
-			pass
