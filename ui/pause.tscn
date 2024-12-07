@@ -1,0 +1,43 @@
+[gd_scene load_steps=3 format=3 uid="uid://clebifn20pbo5"]
+
+[ext_resource type="Script" path="res://ui/pause.gd" id="1_ye7m4"]
+[ext_resource type="Texture2D" uid="uid://faonagr4q8jo" path="res://img/ui/UI.png" id="2_hmej1"]
+
+[node name="pause" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ye7m4")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+offset_left = 167.0
+offset_top = 87.0
+offset_right = 389.0
+offset_bottom = 270.0
+texture = ExtResource("2_hmej1")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="Label" type="Label" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 29.0
+offset_right = 97.0
+offset_bottom = 52.0
+text = "fullscreen:"
+
+[node name="CheckBox" type="CheckBox" parent="NinePatchRect"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 31.0
+offset_right = 124.0
+offset_bottom = 55.0
+
+[connection signal="toggled" from="NinePatchRect/CheckBox" to="." method="_on_fulcreen_toggled"]

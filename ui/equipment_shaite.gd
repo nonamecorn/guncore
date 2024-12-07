@@ -5,10 +5,12 @@ var items = {}
  
 signal assemble(parts)
 signal dissassemble
+@export var slot_id : int
 
 func _ready():
 	for slot in slots:
 		items[slot.name] = null
+	
 
 func insert_item(item):
 	var item_pos = item.global_position + item.size / 2
@@ -21,10 +23,24 @@ func insert_item(item):
 	if items[item_slot] != null:
 		return false
 	items[item_slot] = item
-	item.global_position = slot.global_position + slot.size / 2 - item.size / 2
 	check_assembly()
+	item.item_resource.equipslot(slot_id)
+	item.global_position = slot.global_position + slot.size / 2 - item.size / 2
 	return true
  
+func insert_item_at_spot(item, slot):
+	if slot == null:
+		return false
+	var item_slot = item.item_resource.slot
+	if item_slot != slot:
+		return false
+	if items[item_slot] != null:
+		return false
+	items[item_slot] = item
+	check_assembly()
+	item.global_position = find_child(slot).global_position + find_child(slot).size / 2 - item.size / 2
+	return true
+
 func occupied(item):
 	var item_pos = item.global_position + item.size / 2
 	var slot = get_slot_under_pos(item_pos)
@@ -37,6 +53,7 @@ func occupied(item):
 
 func grab_item(pos):
 	var item = get_item_under_pos(pos)
+	item.item_resource.unequipslot(slot_id)
 	if item == null:
 		return null
  

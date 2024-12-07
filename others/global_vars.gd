@@ -45,5 +45,8 @@ var items = [
 	#load("res://obj/parts/guns/SMGll.tres"),
 	#load("res://obj/parts/mags/SMGll_mag.tres"),
 ]
-var slot1 = {}
-var slot2 = {}
+var slot = [
+	[],
+	[],
+	[]
+]

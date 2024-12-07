@@ -25,9 +25,9 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vc4ge")
 grid_bkpk = NodePath("grid_backpack")
-eq_slot1 = NodePath("equipment_shaite")
-eq_slot2 = NodePath("equipment_shaite2")
-augs = NodePath("equipment_shaite3")
+eq_slot1 = NodePath("equipments/equipment_shaite")
+eq_slot2 = NodePath("equipments/equipment_shaite2")
+augs = NodePath("equipments/equipment_shaite3")
 collector = NodePath("collector")
 safe_net = NodePath("safety_net")
 shop = NodePath("shop_backpack2")
@@ -61,7 +61,12 @@ offset_bottom = 336.0
 texture = ExtResource("6_lojmw")
 script = ExtResource("7_suxgo")
 
-[node name="equipment_shaite" type="NinePatchRect" parent="."]
+[node name="equipments" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="equipment_shaite" type="NinePatchRect" parent="equipments"]
 layout_mode = 2
 offset_left = 488.0
 offset_top = 16.0
@@ -74,7 +79,7 @@ patch_margin_right = 10
 patch_margin_bottom = 10
 script = ExtResource("4_xef72")
 
-[node name="RECIEVER" type="TextureRect" parent="equipment_shaite"]
+[node name="RECIEVER" type="TextureRect" parent="equipments/equipment_shaite"]
 layout_mode = 2
 offset_left = 15.0
 offset_top = 15.0
@@ -83,7 +88,7 @@ offset_bottom = 47.0
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
-[node name="BARREL" type="TextureRect" parent="equipment_shaite"]
+[node name="BARREL" type="TextureRect" parent="equipments/equipment_shaite"]
 layout_mode = 2
 offset_left = 87.0
 offset_top = 15.0
@@ -92,7 +97,7 @@ offset_bottom = 47.0
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
-[node name="MUZZLE" type="TextureRect" parent="equipment_shaite"]
+[node name="MUZZLE" type="TextureRect" parent="equipments/equipment_shaite"]
 layout_mode = 2
 offset_left = 15.0
 offset_top = 51.0
@@ -101,7 +106,7 @@ offset_bottom = 83.0
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
-[node name="MAG" type="TextureRect" parent="equipment_shaite"]
+[node name="MAG" type="TextureRect" parent="equipments/equipment_shaite"]
 layout_mode = 2
 offset_left = 51.0
 offset_top = 15.0
@@ -110,7 +115,7 @@ offset_bottom = 47.0
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
-[node name="ATTACH" type="TextureRect" parent="equipment_shaite"]
+[node name="ATTACH" type="TextureRect" parent="equipments/equipment_shaite"]
 layout_mode = 2
 offset_left = 51.0
 offset_top = 51.0
@@ -119,7 +124,7 @@ offset_bottom = 83.0
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
-[node name="GUTS" type="TextureRect" parent="equipment_shaite"]
+[node name="GUTS" type="TextureRect" parent="equipments/equipment_shaite"]
 layout_mode = 2
 offset_left = 87.0
 offset_top = 51.0
@@ -128,7 +133,7 @@ offset_bottom = 83.0
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
-[node name="equipment_shaite2" type="NinePatchRect" parent="."]
+[node name="equipment_shaite2" type="NinePatchRect" parent="equipments"]
 layout_mode = 2
 offset_left = 488.0
 offset_top = 128.0
@@ -140,8 +145,9 @@ patch_margin_top = 10
 patch_margin_right = 10
 patch_margin_bottom = 10
 script = ExtResource("4_xef72")
+slot_id = 1
 
-[node name="RECIEVER" type="TextureRect" parent="equipment_shaite2"]
+[node name="RECIEVER" type="TextureRect" parent="equipments/equipment_shaite2"]
 layout_mode = 2
 offset_left = 15.0
 offset_top = 15.0
@@ -150,7 +156,7 @@ offset_bottom = 47.0
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
-[node name="BARREL" type="TextureRect" parent="equipment_shaite2"]
+[node name="BARREL" type="TextureRect" parent="equipments/equipment_shaite2"]
 layout_mode = 2
 offset_left = 87.0
 offset_top = 15.0
@@ -159,7 +165,7 @@ offset_bottom = 47.0
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
-[node name="MUZZLE" type="TextureRect" parent="equipment_shaite2"]
+[node name="MUZZLE" type="TextureRect" parent="equipments/equipment_shaite2"]
 layout_mode = 2
 offset_left = 15.0
 offset_top = 51.0
@@ -168,7 +174,7 @@ offset_bottom = 83.0
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
-[node name="MAG" type="TextureRect" parent="equipment_shaite2"]
+[node name="MAG" type="TextureRect" parent="equipments/equipment_shaite2"]
 layout_mode = 2
 offset_left = 51.0
 offset_top = 15.0
@@ -177,7 +183,7 @@ offset_bottom = 47.0
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
-[node name="ATTACH" type="TextureRect" parent="equipment_shaite2"]
+[node name="ATTACH" type="TextureRect" parent="equipments/equipment_shaite2"]
 layout_mode = 2
 offset_left = 51.0
 offset_top = 51.0
@@ -186,7 +192,7 @@ offset_bottom = 83.0
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
-[node name="GUTS" type="TextureRect" parent="equipment_shaite2"]
+[node name="GUTS" type="TextureRect" parent="equipments/equipment_shaite2"]
 layout_mode = 2
 offset_left = 87.0
 offset_top = 51.0
@@ -195,7 +201,7 @@ offset_bottom = 83.0
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
-[node name="equipment_shaite3" type="NinePatchRect" parent="."]
+[node name="equipment_shaite3" type="NinePatchRect" parent="equipments"]
 layout_mode = 2
 offset_left = 488.0
 offset_top = 240.0
@@ -207,8 +213,9 @@ patch_margin_top = 10
 patch_margin_right = 10
 patch_margin_bottom = 10
 script = ExtResource("9_t4cni")
+slot_id = 2
 
-[node name="0" type="TextureRect" parent="equipment_shaite3"]
+[node name="0" type="TextureRect" parent="equipments/equipment_shaite3"]
 layout_mode = 2
 offset_left = 15.0
 offset_top = 15.0
@@ -217,7 +224,7 @@ offset_bottom = 47.0
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
-[node name="1" type="TextureRect" parent="equipment_shaite3"]
+[node name="1" type="TextureRect" parent="equipments/equipment_shaite3"]
 layout_mode = 2
 offset_left = 87.0
 offset_top = 15.0
@@ -226,7 +233,7 @@ offset_bottom = 47.0
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
-[node name="2" type="TextureRect" parent="equipment_shaite3"]
+[node name="2" type="TextureRect" parent="equipments/equipment_shaite3"]
 layout_mode = 2
 offset_left = 15.0
 offset_top = 51.0
@@ -235,7 +242,7 @@ offset_bottom = 83.0
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
-[node name="3" type="TextureRect" parent="equipment_shaite3"]
+[node name="3" type="TextureRect" parent="equipments/equipment_shaite3"]
 layout_mode = 2
 offset_left = 51.0
 offset_top = 15.0
@@ -244,7 +251,7 @@ offset_bottom = 47.0
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
-[node name="4" type="TextureRect" parent="equipment_shaite3"]
+[node name="4" type="TextureRect" parent="equipments/equipment_shaite3"]
 layout_mode = 2
 offset_left = 51.0
 offset_top = 51.0
@@ -253,7 +260,7 @@ offset_bottom = 83.0
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
-[node name="5" type="TextureRect" parent="equipment_shaite3"]
+[node name="5" type="TextureRect" parent="equipments/equipment_shaite3"]
 layout_mode = 2
 offset_left = 87.0
 offset_top = 51.0

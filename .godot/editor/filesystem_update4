@@ -38,3 +38,9 @@ res://obj/bodies/enemies/enemy.gd
 res://obj/components/gun_component.gd
 res://lvls/rooms/exit.gd
 res://obj/components/enemy_hand_component.gd
+res://ui/pause.tscn
+res://ui/pause.gd
+res://obj/parts/scripts/mag.gd
+res://obj/parts/scripts/muzzle.gd
+res://obj/parts/scripts/reciever.gd
+res://ui/equipment_shaite.gd

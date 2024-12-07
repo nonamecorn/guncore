@@ -9,7 +9,7 @@ var items = {
 	"4": null,
 	"5": null,
 }
- 
+@export var slot_id : int
 signal change
 
 func _ready():

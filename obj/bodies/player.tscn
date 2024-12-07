@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=3 uid="uid://btw10scl5f85a"]
+[gd_scene load_steps=16 format=3 uid="uid://btw10scl5f85a"]
 
 [ext_resource type="Script" path="res://obj/bodies/player.gd" id="1_6n3fv"]
 [ext_resource type="Texture2D" uid="uid://330n6jomc16m" path="res://img/bodys/GG.png" id="1_e2wcx"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://b4ifd4nn31mq8" path="res://obj/components/hurt_box.tscn" id="9_3vqfx"]
 [ext_resource type="Script" path="res://obj/components/hurt_box.gd" id="10_frvst"]
 [ext_resource type="AudioStream" uid="uid://31xvcqxgens0" path="res://snd/sfx/scream.wav" id="10_ti353"]
+[ext_resource type="PackedScene" uid="uid://clebifn20pbo5" path="res://ui/pause.tscn" id="11_heitk"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xlh8"]
 radius = 47.0
@@ -49,7 +50,10 @@ script = ExtResource("4_6xs1v")
 
 [node name="player_hand_component" parent="." instance=ExtResource("3_nq5y6")]
 position = Vector2(0, 3)
-hand_length = 9
+hand_length = 12
+
+[node name="Marker2D" parent="player_hand_component" index="0"]
+position = Vector2(9, 0)
 
 [node name="gun_base" parent="player_hand_component/Marker2D" index="0" instance=ExtResource("6_m4fya")]
 player_handled = true
@@ -100,6 +104,9 @@ offset_top = 302.0
 offset_right = 82.0
 offset_bottom = 325.0
 text = "200"
+
+[node name="pause" parent="CanvasLayer" instance=ExtResource("11_heitk")]
+visible = false
 
 [connection signal="area_entered" from="collector" to="." method="_on_collector_area_entered"]
 

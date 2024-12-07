@@ -16,3 +16,11 @@ signal pickup
 func pick_up():
 	GlobalVars.items.append(self)
 	pickup.emit()
+
+func equipslot(slot):
+	GlobalVars.slot[slot].append(self)
+	GlobalVars.items.erase(self)
+
+func unequipslot(slot):
+	GlobalVars.slot[slot].append(self)
+	GlobalVars.items.erase(self)

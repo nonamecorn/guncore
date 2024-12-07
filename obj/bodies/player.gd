@@ -25,6 +25,7 @@ func _ready() -> void:
 	$CanvasLayer/Inventory.eq_slot1.dissassemble.connect(on_dissassemble)
 	$CanvasLayer/Inventory.eq_slot2.assemble.connect(on_assemble2)
 	$CanvasLayer/Inventory.eq_slot2.dissassemble.connect(on_dissassemble2)
+	$CanvasLayer/Inventory.load_save()
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("special_button"):

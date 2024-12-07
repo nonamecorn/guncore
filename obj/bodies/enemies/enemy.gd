@@ -29,15 +29,15 @@ var move_position
 @export var nav_agent: NavigationAgent2D
 var flipped = false
 
-var parts = {
+var parts = {}
+var unique_parts = {
 		"RECIEVER": null,
 		"BARREL": null,
 		"MAG": null,
 		"MUZZLE": null,
-		"MOD1": null,
-		"MOD2": null,
+		"GUTS": null,
+		"ATTACH": null,
 	}
-
 func _ready():
 #	print(movement_target)
 	rng.randomize()
@@ -45,8 +45,8 @@ func _ready():
 	parts = Randogunser.get_gun()
 	for part in parts:
 		if parts[part]:
-			parts[part] = load(parts[part])
-	$enemy_hand_component/Marker2D/gun_base.asseble_gun(parts)
+			unique_parts[part] = load(parts[part])
+	$enemy_hand_component/Marker2D/gun_base.asseble_gun(unique_parts)
 
 func flip():
 	flipped = !flipped
@@ -154,10 +154,10 @@ func drop(item : Item):
 	get_tree().current_scene.find_child("items").call_deferred("add_child",item_inst)
 	item_inst.init(item)
 
-func _on_body_manager_body_entered(body: Node2D) -> void:
+func _on_body_manager_body_entered(_body: Node2D) -> void:
 	update_current_target()
 
-func _on_body_manager_body_exited(body: Node2D) -> void:
+func _on_body_manager_body_exited(_body: Node2D) -> void:
 	update_current_target()
 
 func update_nearby_npcs():
@@ -202,6 +202,6 @@ func die():
 	$enemy_hand_component.queue_free()
 #	movement_target = null
 	$Sprite2D.rotation_degrees = 90
-	for part in parts:
-		if parts[part]:
-			drop(parts[part])
+	for part in unique_parts:
+		if unique_parts[part]:
+			drop(unique_parts[part])

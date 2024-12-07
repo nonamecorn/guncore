@@ -23,7 +23,7 @@ func _ready() -> void:
 
 var flipped = false
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	current_target = get_parent().current_target
 	if !current_target or !is_instance_valid(current_target):
 		return

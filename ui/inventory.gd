@@ -25,14 +25,21 @@ var last_pos = Vector2()
 
 signal drop(item)
 
+func load_save():
+	for le_item in GlobalVars.items:
+		pickup_item(le_item)
+	for arrind in GlobalVars.slot.size():
+		for item in GlobalVars.slot[arrind]:
+			equip_item(item, arrind)
+
 func _ready():
+	pass
 	#var gun = Randogunser.get_gun()
 	#GlobalVars.items.append(load(gun.RECIEVER))
 	#GlobalVars.items.append(load(gun.MAG))
 	#GlobalVars.items.append(load(gun.BARREL))
 	
-	for le_item in GlobalVars.items:
-		pickup_item(le_item)
+	
 
 func hide_popup():
 	var items = $items.get_children()
@@ -139,15 +146,15 @@ func return_item():
 	item_held = null
 	
 
-#func equip_item(item_res : Item):
-	#var item = item_base.instantiate()
-	#item.item_resource = item_res
-	#item.texture = item_res.sprite
-	#$items.add_child(item)
-	#if !grid_bkpk.insert_item_at_first_available_spot(item):
-		#item.queue_free()
-		#return false
-	#return true
+func equip_item(item_res : Item, ind):
+	var item = item_base.instantiate()
+	item.item_resource = item_res
+	item.texture = item_res.sprite
+	$items.add_child(item)
+	if !$equipments.get_child(ind).insert_item_at_spot(item, item_res.slot):
+		item.queue_free()
+		return false
+	return true
 
 func pickup_item(item_res : Item):
 	var item = item_base.instantiate()
