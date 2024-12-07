@@ -22,6 +22,11 @@ func insert_item(item):
 	var g_pos = pos_to_grid_coord(item_pos)
 	var item_size = get_grid_size(item)
 	if is_grid_space_available(g_pos.x, g_pos.y, item_size.x, item_size.y):
+		if item.item_resource.from_shop:
+			if  GlobalVars.money >= item.item_resource.cost:
+				item.item_resource.pick_up()
+				get_parent().buy_item()
+			else: return false
 		set_grid_space(g_pos.x, g_pos.y, item_size.x, item_size.y, true)
 		item.global_position = global_position + Vector2(g_pos.x, g_pos.y) * cell_size
 		items.append(item)

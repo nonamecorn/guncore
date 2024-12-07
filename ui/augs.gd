@@ -27,6 +27,10 @@ func insert_item(item):
 	var slot_num = slot.get_index()
 	if items[slot_num] != null:
 		return false
+	if item.item_resource.from_shop:
+		if  GlobalVars.money >= item.item_resource.cost:
+			get_parent().get_parent().buy_item()
+		else: return false
 	items[slot_num] = item
 	item.global_position = slot.global_position + slot.size / 2 - item.size / 2
 	change.emit(get_parts())

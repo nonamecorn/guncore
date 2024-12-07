@@ -24,6 +24,7 @@ var last_container = null
 var last_pos = Vector2()
 
 signal drop(item)
+signal money_changed
 
 func load_save():
 	for le_item in GlobalVars.items:
@@ -40,9 +41,13 @@ func _ready():
 	#GlobalVars.items.append(load(gun.BARREL))
 	
 	
+func hide_properly():
+	$shop_backpack2.flush_shop()
+	hide_popup()
+	hide()
 
 func hide_popup():
-	var items = $items.get_children()
+	var items = $items.get_children() + $shop_items.get_children()
 	for c in items:
 		c._on_mouse_exited()
 
@@ -115,7 +120,7 @@ func swap(c2, cursor_pos):
 		return_item()
 
 func check_popup(cursor_pos):
-	var items = $items.get_children()
+	var items = $items.get_children() + $shop_items.get_children()
 	for c in items:
 		if c.get_global_rect().has_point(cursor_pos):
 			c._on_mouse_entered()
@@ -145,6 +150,25 @@ func return_item():
 		drop_item()
 	item_held = null
 	
+
+func buy_item():
+	print(GlobalVars.items)
+	if !item_held: return
+	GlobalVars.shop.erase(item_held.item_resource)
+	item_held.item_resource.from_shop = false
+	item_held.reparent($items)
+	var cost = item_held.item_resource.cost
+	GlobalVars.money -= cost
+	money_changed.emit()
+
+func sell_item():
+	if !item_held: return
+	GlobalVars.shop.append(item_held.item_resource)
+	item_held.item_resource.from_shop = true
+	item_held.reparent($shop_items)
+	var cost = item_held.item_resource.cost
+	GlobalVars.money += cost/2
+	money_changed.emit()
 
 func equip_item(item_res : Item, ind):
 	var item = item_base.instantiate()

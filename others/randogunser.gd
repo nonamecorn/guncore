@@ -52,3 +52,11 @@ func get_gun() -> Dictionary:
 	gun_preset.BARREL = barrels[0]
 	gun_preset.MAG = mags[0]
 	return gun_preset
+
+func get_shop() -> Array:
+	var shop = []
+	for i in 4:
+		var gun = get_gun()
+		for part in gun:
+			shop.append(gun[part])
+	return shop

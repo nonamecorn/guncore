@@ -6,8 +6,10 @@ var grid = {}
 var cell_size = 32.0
 var grid_width = 0.0
 var grid_height = 0.0
- 
+
+const item_base = preload("res://ui/item_base.tscn")
 @export var popup : Node
+@export var shop_items_ctrl : Node
 
 func _ready():
 	var s = get_grid_size(self)
@@ -18,9 +20,30 @@ func _ready():
 		grid[x] = {}
 		for y in range(grid_height):
 			grid[x][y] = false
- 
+	
+	
+
+func load_shop():
+	for item in GlobalVars.shop:
+		if !item: continue
+		var item_res = item
+		item_res.duplicate()
+		item_res.from_shop = true
+		var item_inst = item_base.instantiate()
+		item_inst.item_resource = item_res
+		item_inst.texture = item_res.sprite
+		shop_items_ctrl.add_child(item_inst)
+		insert_item_at_first_available_spot(item_inst)
+
+func flush_shop():
+	for x in range(grid_width):
+		grid[x] = {}
+		for y in range(grid_height):
+			grid[x][y] = false
+	for child in shop_items_ctrl.get_children():
+		child.queue_free()
+
 func insert_item(item):
-	popup.popup()
 	var item_pos = item.global_position + Vector2(cell_size / 2, cell_size / 2)
 	var g_pos = pos_to_grid_coord(item_pos)
 	var item_size = get_grid_size(item)
@@ -28,12 +51,14 @@ func insert_item(item):
 		set_grid_space(g_pos.x, g_pos.y, item_size.x, item_size.y, true)
 		item.global_position = global_position + Vector2(g_pos.x, g_pos.y) * cell_size
 		items.append(item)
+		GlobalVars.items.erase(item.item_resource)
+		if !item.item_resource.from_shop:
+			get_parent().sell_item()
 		return true
 	else:
 		return false
  
 func grab_item(pos):
-	popup.popup()
 	var item = get_item_under_pos(pos)
 	if item == null:
 		return null
@@ -78,6 +103,7 @@ func set_grid_space(x, y, w, h, state):
  
 func get_item_under_pos(pos):
 	for item in items:
+		if !is_instance_valid(item): continue
 		if item.get_global_rect().has_point(pos):
 			return item
 	return null

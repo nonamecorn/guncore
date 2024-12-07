@@ -22,6 +22,10 @@ func insert_item(item):
 		return false
 	if items[item_slot] != null:
 		return false
+	if item.item_resource.from_shop:
+		if  GlobalVars.money >= item.item_resource.cost:
+			get_parent().get_parent().buy_item()
+		else: return false
 	items[item_slot] = item
 	check_assembly()
 	item.item_resource.equipslot(slot_id)
@@ -54,6 +58,7 @@ func occupied(item):
 func grab_item(pos):
 	var item = get_item_under_pos(pos)
 	item.item_resource.unequipslot(slot_id)
+	print(GlobalVars.items)
 	if item == null:
 		return null
  

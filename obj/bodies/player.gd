@@ -19,7 +19,9 @@ var tween : Tween
 
 func _ready() -> void:
 	hurt(0)
+	refresh()
 	$hurt_box.damaged.connect(hurt)
+	$CanvasLayer/Inventory.money_changed.connect(refresh)
 	$CanvasLayer/Inventory.drop.connect(drop)
 	$CanvasLayer/Inventory.eq_slot1.assemble.connect(on_assemble)
 	$CanvasLayer/Inventory.eq_slot1.dissassemble.connect(on_dissassemble)
@@ -42,9 +44,7 @@ func _physics_process(delta):
 
 func tab_state():
 	if Input.is_action_just_pressed("ui_tab"):
-		$CanvasLayer/hp.show()
-		$CanvasLayer/Inventory.hide()
-		$CanvasLayer/Inventory.hide_popup()
+		$CanvasLayer/Inventory.hide_properly()
 		$CanvasLayer/Inventory.switch_to_inventory()
 		$player_hand_component.follow = true
 		$Camera2D.follow = true
@@ -52,9 +52,9 @@ func tab_state():
 
 func open_shop():
 	$CanvasLayer/Inventory.switch_to_shop()
-	$CanvasLayer/hp.hide()
 	get_items()
 	$CanvasLayer/Inventory.show()
+	$CanvasLayer/Inventory/shop_backpack2.load_shop()
 	$Camera2D.follow = false
 	$player_hand_component.follow = false
 	state = TAB_MENU
@@ -67,7 +67,6 @@ func get_input_dir():
 
 func move_state(delta):
 	if Input.is_action_just_pressed("ui_tab"):
-		$CanvasLayer/hp.hide()
 		get_items()
 		$CanvasLayer/Inventory.show()
 		$Camera2D.follow = false
@@ -87,6 +86,9 @@ func play():
 func flip():
 	flipped = !flipped
 	$Sprite2D.scale.x *= -1
+
+func refresh():
+	$CanvasLayer/money.text = str(GlobalVars.money)+"$"
 
 func death():
 	velocity = Vector2.ZERO
