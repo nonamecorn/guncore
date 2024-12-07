@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://b4ifd4nn31mq8" path="res://obj/components/hurt_box.tscn" id="5_eclwk"]
 [ext_resource type="AudioStream" uid="uid://cq5moh8342387" path="res://snd/sfx/enemydeath.wav" id="6_qqgv7"]
 
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_egrxt"]
 radius = 7.0
 height = 18.0
@@ -46,7 +45,11 @@ collision_layer = 0
 collision_mask = 4
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="enemy_hand_component/sight"]
-polygon = PackedVector2Array(-38, 0, 256, -128, 256, 128)
+polygon = PackedVector2Array(-24, -40, 0, -24, -8, 56, -32, 56)
+
+[node name="RayCast2D" type="RayCast2D" parent="enemy_hand_component"]
+target_position = Vector2(632, 0)
+collision_mask = 5
 
 [node name="change_position" type="Timer" parent="."]
 wait_time = 2.0
@@ -61,9 +64,6 @@ wait_time = 0.5
 
 [node name="CollisionShape2D" parent="hurt_box" index="0"]
 shape = SubResource("CapsuleShape2D_ykghs")
-
-[node name="RayCast2D" type="RayCast2D" parent="."]
-target_position = Vector2(256, 0)
 
 [node name="death" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("6_qqgv7")

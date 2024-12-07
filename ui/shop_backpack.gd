@@ -6,6 +6,8 @@ var grid = {}
 var cell_size = 32.0
 var grid_width = 0.0
 var grid_height = 0.0
+ 
+@export var popup : Node
 
 func _ready():
 	var s = get_grid_size(self)
@@ -18,6 +20,7 @@ func _ready():
 			grid[x][y] = false
  
 func insert_item(item):
+	popup.popup()
 	var item_pos = item.global_position + Vector2(cell_size / 2, cell_size / 2)
 	var g_pos = pos_to_grid_coord(item_pos)
 	var item_size = get_grid_size(item)
@@ -30,13 +33,16 @@ func insert_item(item):
 		return false
  
 func grab_item(pos):
+	popup.popup()
 	var item = get_item_under_pos(pos)
 	if item == null:
 		return null
+ 
 	var item_pos = item.global_position + Vector2(cell_size / 2, cell_size / 2)
 	var g_pos = pos_to_grid_coord(item_pos)
 	var item_size = get_grid_size(item)
 	set_grid_space(g_pos.x, g_pos.y, item_size.x, item_size.y, false)
+ 
 	items.pop_at(items.find(item))
 	return item
  

@@ -32,7 +32,7 @@ script = ExtResource("3_5hpog")
 [node name="items" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("4_22ug0")]
-position = Vector2(508, 98)
+position = Vector2(551, 400)
 
 [node name="light" type="Node2D" parent="Player"]
 

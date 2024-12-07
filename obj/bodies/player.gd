@@ -6,7 +6,7 @@ extends  CharacterBody2D
 const MAX_SPEED = 160
 const ACCELERATION = 1000
 const FRICTION = 1000
-var health : int = 2000
+var health : int = 200
 var flipped = false
 signal died
 enum {
@@ -18,6 +18,7 @@ var state = MOVE
 var tween : Tween
 
 func _ready() -> void:
+	hurt(0)
 	$hurt_box.damaged.connect(hurt)
 	$CanvasLayer/Inventory.drop.connect(drop)
 	$CanvasLayer/Inventory.eq_slot1.assemble.connect(on_assemble)
@@ -26,20 +27,36 @@ func _ready() -> void:
 	$CanvasLayer/Inventory.eq_slot2.dissassemble.connect(on_dissassemble2)
 
 func _physics_process(delta):
-	match state:
-			MOVE:
-				move_state(delta)
-			IDLE:
-				pass
-			TAB_MENU:
-				tab_state()
+	if Input.is_action_just_pressed("special_button"):
+		get_tree().reload_current_scene()
+	else:
+		match state:
+				MOVE:
+					move_state(delta)
+				IDLE:
+					pass
+				TAB_MENU:
+					tab_state()
+		
 
 func tab_state():
 	if Input.is_action_just_pressed("ui_tab"):
+		$CanvasLayer/hp.show()
 		$CanvasLayer/Inventory.hide()
+		$CanvasLayer/Inventory.hide_popup()
+		$CanvasLayer/Inventory.switch_to_inventory()
 		$player_hand_component.follow = true
 		$Camera2D.follow = true
 		state = MOVE
+
+func open_shop():
+	$CanvasLayer/Inventory.switch_to_shop()
+	$CanvasLayer/hp.hide()
+	get_items()
+	$CanvasLayer/Inventory.show()
+	$Camera2D.follow = false
+	$player_hand_component.follow = false
+	state = TAB_MENU
 
 func get_input_dir():
 	return Vector2(
@@ -49,6 +66,7 @@ func get_input_dir():
 
 func move_state(delta):
 	if Input.is_action_just_pressed("ui_tab"):
+		$CanvasLayer/hp.hide()
 		get_items()
 		$CanvasLayer/Inventory.show()
 		$Camera2D.follow = false
@@ -79,11 +97,12 @@ func death():
 
 func hurt(amnt):
 	health -= amnt
-	print(health)
+	$CanvasLayer/hp.text = str(health)
 	if health <= 0:
 		call_deferred("death")
 
 func drop(item : Item):
+	GlobalVars.items.erase(item)
 	var item_inst = item_base.instantiate()
 	item_inst.global_position = global_position
 	get_tree().current_scene.find_child("items").call_deferred("add_child",item_inst) 

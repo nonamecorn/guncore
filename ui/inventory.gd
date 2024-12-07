@@ -1,11 +1,22 @@
 extends Control
  
+
+#
+# INVENTORY
+#
+
+
 const item_base = preload("res://ui/item_base.tscn")
  
 @export var grid_bkpk : Node
 @export var eq_slot1 : Node
 @export var eq_slot2 : Node
+@export var augs : Node
 @export var collector : Node
+@export var safe_net : Node
+@export var shop : Node
+@export var shop_dil : Node
+#var containers = [grid_bkpk, eq_slot1, eq_slot2, collector, augs, safe_net]
 
 var item_held = null
 var item_offset = Vector2()
@@ -15,53 +26,34 @@ var last_pos = Vector2()
 signal drop(item)
 
 func _ready():
-	var _gun = Randogunser.get_gun()
-	#pickup_item(load(gun.RECIEVER))
-	#pickup_item(load(gun.MAG))
-	#pickup_item(load(gun.BARREL))
-	pickup_item(load("res://obj/parts/guns/akm.tres"))
-	pickup_item(load("res://obj/parts/barrels/long_barrel.tres"))
-	pickup_item(load("res://obj/parts/mags/akmag.tres"))
-	pickup_item(load("res://obj/parts/guns/PPsH.tres"))
-	pickup_item(load("res://obj/parts/mags/PPsH_mag.tres"))
-	pickup_item(load("res://obj/parts/barrels/AK_barrel.tres"))
-	pickup_item(load("res://obj/parts/barrels/PPsH_barrel.tres"))
-	pickup_item(load("res://obj/parts/barrels/MG_barrel.tres"))
-	pickup_item(load("res://obj/parts/guns/MG.tres"))
-	pickup_item(load("res://obj/parts/mags/MG_mag.tres"))
-	pickup_item(load("res://obj/parts/muzzles/grater.tres"))
-	pickup_item(load("res://obj/parts/muzzles/Muzzel_Brake.tres"))
-	pickup_item(load("res://obj/parts/mods/HomeMadeFCG.tres"))
-	pickup_item(load("res://obj/parts/barrels/GausBarrel.tres"))
-	pickup_item(load("res://obj/parts/guns/SKS.tres"))
-	pickup_item(load("res://obj/parts/barrels/SKS_barrel.tres"))
-	pickup_item(load("res://obj/parts/mags/SKS_mag.tres"))
-	pickup_item(load("res://obj/parts/guns/shotgun.tres"))
-	pickup_item(load("res://obj/parts/mags/shotgun_mag.tres"))
-	pickup_item(load("res://obj/parts/barrels/shotgun_barrel.tres"))
-	pickup_item(load("res://obj/parts/guns/Luty.tres"))
-	pickup_item(load("res://obj/parts/mags/Luty_mag.tres"))
-	pickup_item(load("res://obj/parts/barrels/Luty_barrel.tres"))
-	pickup_item(load("res://obj/parts/guns/PipeRifle.tres"))
-	pickup_item(load("res://obj/parts/mags/PipeRifle_mag.tres"))
-	pickup_item(load("res://obj/parts/barrels/PipeRifle_barrel.tres"))
-	pickup_item(load("res://obj/parts/guns/PauzaP50.tres"))
-	pickup_item(load("res://obj/parts/mags/PauzaP50_mag.tres"))
-	pickup_item(load("res://obj/parts/barrels/PauzaP50_barrel.tres"))
-	pickup_item(load("res://obj/parts/barrels/AR-180_barrel.tres"))
-	pickup_item(load("res://obj/parts/guns/AR-180.tres"))
-	pickup_item(load("res://obj/parts/mags/AR-180_mag.tres"))
-	pickup_item(load("res://obj/parts/barrels/CAWS_barrel.tres"))
-	pickup_item(load("res://obj/parts/guns/CAWS.tres"))
-	pickup_item(load("res://obj/parts/mags/CAWS_mag.tres"))
-	pickup_item(load("res://obj/parts/barrels/SMGll_barrel.tres"))
-	pickup_item(load("res://obj/parts/guns/SMGll.tres"))
-	pickup_item(load("res://obj/parts/mags/SMGll_mag.tres"))
+	#var gun = Randogunser.get_gun()
+	#GlobalVars.items.append(load(gun.RECIEVER))
+	#GlobalVars.items.append(load(gun.MAG))
+	#GlobalVars.items.append(load(gun.BARREL))
+	
+	for le_item in GlobalVars.items:
+		pickup_item(le_item)
 
+func hide_popup():
+	var items = $items.get_children()
+	for c in items:
+		c._on_mouse_exited()
 
- 
+func switch_to_shop():
+	collector.hide()
+	safe_net.show()
+	shop.show()
+	shop_dil.show()
+
+func switch_to_inventory():
+	collector.show()
+	safe_net.hide()
+	shop.hide()
+	shop_dil.hide()
+
 func _physics_process(_delta):
-	if !visible: return
+	if !visible: 
+		return
 	var cursor_pos = get_global_mouse_position()
 	if Input.is_action_just_pressed("ui_left_mouse"):
 		grab(cursor_pos)
@@ -69,17 +61,18 @@ func _physics_process(_delta):
 		release(cursor_pos)
 	if item_held != null:
 		item_held.global_position = cursor_pos + item_offset
+	check_popup(cursor_pos)
+	
  
 func grab(cursor_pos):
 	var c = get_container_under_cursor(cursor_pos)
 	if c != null and c.has_method("grab_item"):
 		item_held = c.grab_item(cursor_pos)
 		if item_held != null:
-			$grab.play()
+			$audio/grab.play()
 			last_container = c
 			last_pos = item_held.global_position
 			item_offset = item_held.global_position - cursor_pos
-			move_child(item_held, get_child_count())
  
 func release(cursor_pos):
 	if item_held == null:
@@ -91,7 +84,7 @@ func release(cursor_pos):
 		swap(c, cursor_pos)
 	elif c.has_method("insert_item"):
 		if c.insert_item(item_held):
-			$release.play()
+			$audio/grab.play()
 			item_held = null
 		else:
 			return_item()
@@ -105,7 +98,7 @@ func swap(c2, cursor_pos):
 		return
 	var temp_last_pos = temp_item_held.global_position
 	if c2.insert_item(item_held):
-		$release.play()
+		$audio/grab.play()
 		item_held = null
 		pickup_item(temp_item_held.item_resource)
 		temp_item_held.queue_free()
@@ -114,11 +107,20 @@ func swap(c2, cursor_pos):
 		c2.insert_item(temp_item_held)
 		return_item()
 
-
+func check_popup(cursor_pos):
+	var items = $items.get_children()
+	for c in items:
+		if c.get_global_rect().has_point(cursor_pos):
+			c._on_mouse_entered()
+		else:
+			c._on_mouse_exited()
 
 func get_container_under_cursor(cursor_pos):
-	var containers = [grid_bkpk, eq_slot1, eq_slot2, collector]
-	for c in containers:
+	var active_containers = [grid_bkpk,
+	 eq_slot1, eq_slot2,
+	 collector, augs, shop,
+	 safe_net].filter(func(thing): return thing.visible)
+	for c in active_containers:
 		if c.get_global_rect().has_point(cursor_pos):
 			return c
 	return null
@@ -136,12 +138,22 @@ func return_item():
 		drop_item()
 	item_held = null
 	
- 
+
+#func equip_item(item_res : Item):
+	#var item = item_base.instantiate()
+	#item.item_resource = item_res
+	#item.texture = item_res.sprite
+	#$items.add_child(item)
+	#if !grid_bkpk.insert_item_at_first_available_spot(item):
+		#item.queue_free()
+		#return false
+	#return true
+
 func pickup_item(item_res : Item):
 	var item = item_base.instantiate()
 	item.item_resource = item_res
 	item.texture = item_res.sprite
-	add_child(item)
+	$items.add_child(item)
 	if !grid_bkpk.insert_item_at_first_available_spot(item):
 		item.queue_free()
 		return false
@@ -151,7 +163,7 @@ func pickup_collector(item_res : Item):
 	var item = item_base.instantiate()
 	item.item_resource = item_res
 	item.texture = item_res.sprite
-	add_child(item)
+	$items.add_child(item)
 	if !collector.insert_item_at_first_available_spot(item):
 		item.queue_free()
 		return false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0ex485qfg6qx"]
+[gd_scene load_steps=15 format=3 uid="uid://d0ex485qfg6qx"]
 
 [ext_resource type="Script" path="res://ui/inventory.gd" id="1_vc4ge"]
 [ext_resource type="Texture2D" uid="uid://b4anek45w5w7p" path="res://img/ui/inventory.png" id="2_am81f"]
@@ -9,10 +9,13 @@
 [ext_resource type="Texture2D" uid="uid://cxm8l442in7mi" path="res://img/ui/inventory_1slot.png" id="6_uhxew"]
 [ext_resource type="Script" path="res://ui/collector.gd" id="7_suxgo"]
 [ext_resource type="AudioStream" uid="uid://blk3vp6wlyhm" path="res://snd/sfx/pickup.wav" id="9_7nj7r"]
+[ext_resource type="Script" path="res://ui/augs.gd" id="9_t4cni"]
 [ext_resource type="AudioStream" uid="uid://dnq0utya1mtcx" path="res://snd/sfx/put.wav" id="10_4wjgb"]
+[ext_resource type="Script" path="res://ui/shop_backpack.gd" id="10_50eua"]
+[ext_resource type="Script" path="res://ui/shop.gd" id="11_6lbvg"]
+[ext_resource type="Texture2D" uid="uid://dgxnwxf4yokhn" path="res://img/big_art/girl.png" id="12_225he"]
 
-
-[node name="Inventory" type="Control" node_paths=PackedStringArray("grid_bkpk", "eq_slot1", "eq_slot2", "collector")]
+[node name="Inventory" type="Control" node_paths=PackedStringArray("grid_bkpk", "eq_slot1", "eq_slot2", "augs", "collector", "safe_net", "shop", "shop_dil")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -24,21 +27,27 @@ script = ExtResource("1_vc4ge")
 grid_bkpk = NodePath("grid_backpack")
 eq_slot1 = NodePath("equipment_shaite")
 eq_slot2 = NodePath("equipment_shaite2")
+augs = NodePath("equipment_shaite3")
 collector = NodePath("collector")
+safe_net = NodePath("safety_net")
+shop = NodePath("shop_backpack2")
+shop_dil = NodePath("Shop")
 
-[node name="mockup" type="ColorRect" parent="."]
+[node name="safety_net" type="ColorRect" parent="."]
 visible = false
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
+mouse_filter = 2
 color = Color(0.625676, 0.128878, 0.24422, 1)
 
 [node name="grid_backpack" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 155.0
+offset_left = 152.0
 offset_top = 208.0
-offset_right = 475.0
+offset_right = 472.0
 offset_bottom = 336.0
+mouse_filter = 2
 texture = ExtResource("2_am81f")
 stretch_mode = 2
 script = ExtResource("2_gjxwj")
@@ -186,8 +195,162 @@ offset_bottom = 83.0
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
-[node name="grab" type="AudioStreamPlayer" parent="."]
+[node name="equipment_shaite3" type="NinePatchRect" parent="."]
+layout_mode = 2
+offset_left = 488.0
+offset_top = 240.0
+offset_right = 622.0
+offset_bottom = 338.0
+texture = ExtResource("4_2lq67")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+script = ExtResource("9_t4cni")
+
+[node name="0" type="TextureRect" parent="equipment_shaite3"]
+layout_mode = 2
+offset_left = 15.0
+offset_top = 15.0
+offset_right = 47.0
+offset_bottom = 47.0
+texture = ExtResource("6_uhxew")
+stretch_mode = 2
+
+[node name="1" type="TextureRect" parent="equipment_shaite3"]
+layout_mode = 2
+offset_left = 87.0
+offset_top = 15.0
+offset_right = 119.0
+offset_bottom = 47.0
+texture = ExtResource("6_uhxew")
+stretch_mode = 2
+
+[node name="2" type="TextureRect" parent="equipment_shaite3"]
+layout_mode = 2
+offset_left = 15.0
+offset_top = 51.0
+offset_right = 47.0
+offset_bottom = 83.0
+texture = ExtResource("6_uhxew")
+stretch_mode = 2
+
+[node name="3" type="TextureRect" parent="equipment_shaite3"]
+layout_mode = 2
+offset_left = 51.0
+offset_top = 15.0
+offset_right = 83.0
+offset_bottom = 47.0
+texture = ExtResource("6_uhxew")
+stretch_mode = 2
+
+[node name="4" type="TextureRect" parent="equipment_shaite3"]
+layout_mode = 2
+offset_left = 51.0
+offset_top = 51.0
+offset_right = 83.0
+offset_bottom = 83.0
+texture = ExtResource("6_uhxew")
+stretch_mode = 2
+
+[node name="5" type="TextureRect" parent="equipment_shaite3"]
+layout_mode = 2
+offset_left = 87.0
+offset_top = 51.0
+offset_right = 119.0
+offset_bottom = 83.0
+texture = ExtResource("6_uhxew")
+stretch_mode = 2
+
+[node name="shop_backpack2" type="TextureRect" parent="." node_paths=PackedStringArray("popup")]
+visible = false
+layout_mode = 0
+offset_left = 152.0
+offset_top = 72.0
+offset_right = 472.0
+offset_bottom = 200.0
+texture = ExtResource("2_am81f")
+stretch_mode = 2
+script = ExtResource("10_50eua")
+popup = NodePath("../PopupMenu")
+
+[node name="items" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Shop" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 0
+script = ExtResource("11_6lbvg")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="Shop"]
+layout_mode = 0
+offset_left = 8.0
+offset_top = 8.0
+offset_right = 144.0
+offset_bottom = 344.0
+texture = ExtResource("4_2lq67")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="TextureRect" type="TextureRect" parent="Shop"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 24.0
+offset_right = 124.0
+offset_bottom = 124.0
+texture = ExtResource("12_225he")
+stretch_mode = 2
+
+[node name="RichTextLabel" type="RichTextLabel" parent="Shop"]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 128.0
+offset_right = 135.0
+offset_bottom = 296.0
+text = "Bella:
+Now... Dont make any sudden moves."
+
+[node name="talk_button" type="Button" parent="Shop"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 304.0
+offset_right = 64.0
+offset_bottom = 335.0
+text = "Talk"
+
+[node name="Panel" type="Panel" parent="Shop"]
+layout_mode = 0
+offset_left = 352.0
+offset_top = 8.0
+offset_right = 448.0
+offset_bottom = 64.0
+
+[node name="Label" type="Label" parent="Shop/Panel"]
+layout_mode = 0
+offset_left = 24.0
+offset_top = 16.0
+offset_right = 64.0
+offset_bottom = 39.0
+text = "SELL"
+
+[node name="audio" type="Node" parent="."]
+
+[node name="grab" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource("9_7nj7r")
 
-[node name="release" type="AudioStreamPlayer" parent="."]
+[node name="release" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource("10_4wjgb")
+
+[node name="PopupMenu" type="PopupMenu" parent="."]
+title = "would you like to buy/sell it?"
+item_count = 2
+item_0/text = "yes"
+item_1/text = "no"
+item_1/id = 1
+
+[connection signal="pressed" from="Shop/talk_button" to="Shop" method="_on_talk_button_pressed"]

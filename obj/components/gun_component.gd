@@ -122,6 +122,7 @@ func stop_fire():
 	$firerate.stop()
 
 func _on_reload_timeout():
+	stop_fire()
 	current_ammo = current_max_ammo
 	if player_handled: $audio/reload_end_cue.play()
 	$MAG.show()
@@ -129,6 +130,7 @@ func _on_reload_timeout():
 
 func reload():
 	if !$MAG.visible: return
+	stop_fire()
 	state = STOP
 	if player_handled:
 		$audio/reload_start_cue.play()
@@ -146,6 +148,9 @@ func fire():
 		current_ammo -= 1
 		$audio/shoting.play()
 		if  player_handled:
+			for body in $noise_alert.get_overlapping_bodies():
+				if body.has_method("alert"):
+					body.alert(global_position)
 			var vievscale = get_viewport_transform().get_scale()
 			var recoil_vector = Vector2(-current_ver_recoil,randf_range(-current_hor_recoil, current_hor_recoil)).rotated(global_rotation)
 			Input.warp_mouse(get_viewport().get_mouse_position()*vievscale + recoil_vector*vievscale)

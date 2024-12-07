@@ -1,0 +1,49 @@
+extends Node
+
+func _ready() -> void:
+	var gun = Randogunser.get_gun()
+	items.append(load(gun.RECIEVER))
+	items.append(load(gun.MAG))
+	items.append(load(gun.BARREL))
+
+var items = [
+	#load("res://obj/parts/guns/akm.tres"),
+	#load("res://obj/parts/barrels/long_barrel.tres"),
+	#load("res://obj/parts/mags/akmag.tres"),
+	#load("res://obj/parts/guns/PPsH.tres"),
+	#load("res://obj/parts/mags/PPsH_mag.tres"),
+	#load("res://obj/parts/barrels/AK_barrel.tres"),
+	#load("res://obj/parts/barrels/PPsH_barrel.tres"),
+	#load("res://obj/parts/barrels/MG_barrel.tres"),
+	#load("res://obj/parts/guns/MG.tres"),
+	#load("res://obj/parts/mags/MG_mag.tres"),
+	#load("res://obj/parts/muzzles/grater.tres"),
+	#load("res://obj/parts/muzzles/Muzzel_Brake.tres"),
+	#load("res://obj/parts/barrels/GausBarrel.tres"),
+	#load("res://obj/parts/guns/SKS.tres"),
+	#load("res://obj/parts/barrels/SKS_barrel.tres"),
+	#load("res://obj/parts/mags/SKS_mag.tres"),
+	#load("res://obj/parts/guns/shotgun.tres"),
+	#load("res://obj/parts/mags/shotgun_mag.tres"),
+	#load("res://obj/parts/barrels/shotgun_barrel.tres"),
+	#load("res://obj/parts/guns/Luty.tres"),
+	#load("res://obj/parts/mags/Luty_mag.tres"),
+	#load("res://obj/parts/barrels/Luty_barrel.tres"),
+	#load("res://obj/parts/guns/PipeRifle.tres"),
+	#load("res://obj/parts/mags/PipeRifle_mag.tres"),
+	#load("res://obj/parts/barrels/PipeRifle_barrel.tres"),
+	#load("res://obj/parts/guns/PauzaP50.tres"),
+	#load("res://obj/parts/mags/PauzaP50_mag.tres"),
+	#load("res://obj/parts/barrels/PauzaP50_barrel.tres"),
+	#load("res://obj/parts/barrels/AR-180_barrel.tres"),
+	#load("res://obj/parts/guns/AR-180.tres"),
+	#load("res://obj/parts/mags/AR-180_mag.tres"),
+	#load("res://obj/parts/barrels/CAWS_barrel.tres"),
+	#load("res://obj/parts/guns/CAWS.tres"),
+	#load("res://obj/parts/mags/CAWS_mag.tres"),
+	#load("res://obj/parts/barrels/SMGll_barrel.tres"),
+	#load("res://obj/parts/guns/SMGll.tres"),
+	#load("res://obj/parts/mags/SMGll_mag.tres"),
+]
+var slot1 = {}
+var slot2 = {}

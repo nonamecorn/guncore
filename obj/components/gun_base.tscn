@@ -1,8 +1,11 @@
-[gd_scene load_steps=4 format=3 uid="uid://ctrbcy5h47qqw"]
+[gd_scene load_steps=5 format=3 uid="uid://ctrbcy5h47qqw"]
 
 [ext_resource type="Script" path="res://obj/components/gun_component.gd" id="1_it1k3"]
 [ext_resource type="AudioStream" uid="uid://bxglm1lbr2kpf" path="res://snd/sfx/reloadend.wav" id="2_aqcxo"]
 [ext_resource type="AudioStream" uid="uid://grfe1fyigyx8" path="res://snd/sfx/reloadstart.wav" id="3_6g14y"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_y8kdb"]
+radius = 412.001
 
 [node name="gun_base" type="Node2D"]
 script = ExtResource("1_it1k3")
@@ -35,6 +38,16 @@ volume_db = -15.0
 [node name="reload_start_cue" type="AudioStreamPlayer2D" parent="audio"]
 stream = ExtResource("3_6g14y")
 volume_db = -15.0
+
+[node name="noise_alert" type="Area2D" parent="."]
+visible = false
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="noise_alert"]
+shape = SubResource("CircleShape2D_y8kdb")
+debug_color = Color(0.992157, 0, 0.278431, 0)
 
 [connection signal="timeout" from="firerate" to="." method="fire"]
 [connection signal="timeout" from="reload" to="." method="_on_reload_timeout"]

@@ -21,6 +21,7 @@ var state = IDLE
 var rng = RandomNumberGenerator.new()
 var player = null
 var direction = Vector2.ZERO
+var move_position
 
 @export var nav_agent: NavigationAgent2D
 var flipped = false
@@ -142,6 +143,7 @@ func _on_sight_body_exited(body):
 	if body in bodies and !dead:
 		$enemy_hand_component.state = 2
 		state = CHASE
+		$enemy_hand_component.state = 2
 
 func fucking_shit():
 	state = IDLE
@@ -151,6 +153,13 @@ func fucking_shit():
 
 func _on_change_position_timeout():
 	randomnum = rng.randf()
+
+func alert(alert_position):
+	if dead: return
+	state = CHASE
+	$enemy_hand_component.state = 2
+	$change_position.wait_time = 2
+	set_movement_target(alert_position)
 
 func hurt(value):
 	health -= value

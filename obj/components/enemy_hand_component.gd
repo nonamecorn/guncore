@@ -4,6 +4,9 @@ extends Node2D
 var bodies = []
 var state = IDLE
 var look_vec = Vector2.ZERO
+var angle_cone_of_vission = deg_to_rad(70)
+var angle_between_rays = deg_to_rad(10)
+var max_viev_distance = 600
 enum {
 	FIRING,
 	IDLE,
@@ -20,11 +23,33 @@ func _ready() -> void:
 var flipped = false
 
 func _process(_delta):
+	
+	
 	match state:
 		IDLE:
-			pass
+			var cast_count = int(angle_cone_of_vission / angle_between_rays) + 1
+			for index in cast_count:
+				var cast_vector = (
+					max_viev_distance *
+					Vector2.RIGHT.rotated(angle_between_rays * (index - cast_count / 2.0))
+				)
+				$RayCast2D.target_position = cast_vector
+				$RayCast2D.force_raycast_update()
+				if $RayCast2D.is_colliding() and $RayCast2D.get_collider().is_in_group("player"):
+					print("huh")
+					bodies.append($RayCast2D.get_collider())
+					state = FIRING
+					$attack.start()
+					$Marker2D.get_child(0).fire()
+					get_parent()._on_sight_body_entered($RayCast2D.get_collider())
+					break
 		FIRING:
 			look_vec = bodies[0].global_position - global_position
+			$RayCast2D.target_position = max_viev_distance * look_vec.normalized()
+			$RayCast2D.force_raycast_update()
+			if $RayCast2D.is_colliding() and !$RayCast2D.get_collider().is_in_group("player"):
+				state = IDLE
+				$attack.stop()
 		RUN:
 			look_vec = get_parent().direction
 	if look_vec.x < 0 and !flipped:
@@ -35,18 +60,15 @@ func _process(_delta):
 
 
 func _on_sight_body_entered(body):
-	if body.is_in_group("player"):
-		bodies.append(body)
-		state = FIRING
-		$attack.start()
-		$Marker2D.get_child(0).fire()
+	pass
 
 func _on_sight_body_exited(body):
-	if body in bodies:
-		bodies.erase(body)
-		if bodies.size() == 0:
-			state = IDLE
-			$attack.stop()
+	pass
+	#if body in bodies:
+		#bodies.erase(body)
+		#if bodies.size() == 0:
+			#state = IDLE
+			#$attack.stop()
 
 func get_self_circle_position():
 	var kill_circle_centre = Vector2.ZERO

@@ -11,7 +11,6 @@
 [ext_resource type="Script" path="res://obj/components/hurt_box.gd" id="10_frvst"]
 [ext_resource type="AudioStream" uid="uid://31xvcqxgens0" path="res://snd/sfx/scream.wav" id="10_ti353"]
 
-
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xlh8"]
 radius = 47.0
 
@@ -78,6 +77,9 @@ texture = ExtResource("5_t0nkv")
 position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_mx0ab")
 
+[node name="death" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("10_ti353")
+
 [node name="hurt_box" parent="." instance=ExtResource("9_3vqfx")]
 script = ExtResource("10_frvst")
 
@@ -92,8 +94,12 @@ current = true
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("8_wsalq")]
 visible = false
 
-[node name="death" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource("10_ti353")
+[node name="hp" type="Label" parent="CanvasLayer"]
+offset_left = 42.0
+offset_top = 302.0
+offset_right = 82.0
+offset_bottom = 325.0
+text = "200"
 
 [connection signal="area_entered" from="collector" to="." method="_on_collector_area_entered"]
 
