@@ -6,7 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://b4qvivbnt8oim" path="res://obj/proj/PP_fmj.tscn" id="2_rs0s7"]
 [ext_resource type="AudioStream" uid="uid://bc6jww2l3klia" path="res://snd/sfx/smgfire.wav" id="4_ma4bv"]
 
-
 [sub_resource type="Resource" id="Resource_swhl1"]
 script = ExtResource("1_gkyod")
 stat_name = "current_ver_recoil"
@@ -27,6 +26,9 @@ capacity = 71
 projectile = ExtResource("2_rs0s7")
 reload_time = 4
 sound = ExtResource("4_ma4bv")
+item_name = "PPsH drum"
+item_description = ""
+cost = 5
 sprite = ExtResource("1_22v56")
 sprite_offset = Vector2(2, 2)
 changes = Array[ExtResource("1_gkyod")]([SubResource("Resource_swhl1"), SubResource("Resource_ljnyj")])

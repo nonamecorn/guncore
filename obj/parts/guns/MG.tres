@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_l3y30"]
 [ext_resource type="Texture2D" uid="uid://cfmchtyfsl0mb" path="res://img/parts/MG.png" id="2_3nx22"]
 
-
 [resource]
 script = ExtResource("1_8pcku")
 base_firerate = 0.08
@@ -12,6 +11,9 @@ ver_recoil = 8.0
 hor_recoil = 8.0
 mag_position = Vector2(2, 2)
 barrel_position = Vector2(8, 0)
+item_name = "MG"
+item_description = ""
+cost = 5
 sprite = ExtResource("2_3nx22")
 sprite_offset = Vector2(0, 0)
 changes = Array[ExtResource("1_l3y30")]([])

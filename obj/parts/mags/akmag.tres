@@ -6,13 +6,15 @@
 [ext_resource type="PackedScene" uid="uid://ce5unulp5hnlx" path="res://obj/proj/fmj.tscn" id="2_44mwl"]
 [ext_resource type="AudioStream" uid="uid://bseru4wnpe0hh" path="res://snd/sfx/ar_fire.wav" id="4_x0m4p"]
 
-
 [resource]
 script = ExtResource("1_4qlor")
 capacity = 30
 projectile = ExtResource("2_44mwl")
 reload_time = 2
 sound = ExtResource("4_x0m4p")
+item_name = "AK mag"
+item_description = ""
+cost = 5
 sprite = ExtResource("1_51pky")
 sprite_offset = Vector2(3, 4)
 changes = Array[ExtResource("1_c5x6n")]([])

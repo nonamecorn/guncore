@@ -2,8 +2,7 @@
 
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_s4r2r"]
 [ext_resource type="Script" path="res://obj/parts/scripts/reciever.gd" id="2_vvj63"]
-[ext_resource type="Texture2D" path="res://img/parts/PipeRifle.png" id="3_eosth"]
-
+[ext_resource type="Texture2D" uid="uid://cqst42ii7we3f" path="res://img/parts/PipeRifle.png" id="3_eosth"]
 
 [resource]
 script = ExtResource("2_vvj63")
@@ -12,6 +11,9 @@ ver_recoil = 9.0
 hor_recoil = 9.0
 mag_position = Vector2(-2, 3)
 barrel_position = Vector2(3, 0)
+item_name = "Piperifle"
+item_description = ""
+cost = 5
 sprite = ExtResource("3_eosth")
 sprite_offset = Vector2(0, 0)
 changes = Array[ExtResource("1_s4r2r")]([])

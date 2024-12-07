@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://obj/parts/scripts/reciever.gd" id="2_2n77c"]
 [ext_resource type="Texture2D" uid="uid://bonis6di8cwv7" path="res://img/parts/CAWS.png" id="3_lcsi6"]
 
-
 [resource]
 script = ExtResource("2_2n77c")
 base_firerate = 0.15
@@ -12,6 +11,9 @@ ver_recoil = 5.0
 hor_recoil = 4.0
 mag_position = Vector2(-10, 5)
 barrel_position = Vector2(10, 0)
+item_name = "JAWS Auto shotgun"
+item_description = ""
+cost = 5
 sprite = ExtResource("3_lcsi6")
 sprite_offset = Vector2(0, 0)
 changes = Array[ExtResource("1_t24w5")]([])

@@ -4,7 +4,6 @@
 [ext_resource type="Texture2D" uid="uid://bp7s1f1nvrf7h" path="res://img/parts/PPsH.png" id="1_10x7f"]
 [ext_resource type="Script" path="res://obj/parts/scripts/reciever.gd" id="1_nlil8"]
 
-
 [resource]
 script = ExtResource("1_nlil8")
 base_firerate = 0.06
@@ -12,6 +11,9 @@ ver_recoil = 6.0
 hor_recoil = 5.0
 mag_position = Vector2(-1, 1)
 barrel_position = Vector2(4, 0)
+item_name = "PPsH"
+item_description = ""
+cost = 5
 sprite = ExtResource("1_10x7f")
 sprite_offset = Vector2(0, 0)
 changes = Array[ExtResource("1_0vevy")]([])

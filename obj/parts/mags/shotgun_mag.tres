@@ -6,7 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://dgx3iqg0qvlql" path="res://snd/sfx/shotgun_fire.wav" id="4_ctcjj"]
 [ext_resource type="Texture2D" uid="uid://cmp4orrfva3te" path="res://img/parts/shotgun_mag.png" id="4_okpfe"]
 
-
 [sub_resource type="Resource" id="Resource_7xlcd"]
 script = ExtResource("1_237dl")
 stat_name = "current_num_of_bullets"
@@ -41,6 +40,9 @@ capacity = 50
 projectile = ExtResource("2_vbayn")
 reload_time = 2
 sound = ExtResource("4_ctcjj")
+item_name = "Shotgun mag"
+item_description = ""
+cost = 5
 sprite = ExtResource("4_okpfe")
 sprite_offset = Vector2(2, 2)
 changes = Array[ExtResource("1_237dl")]([SubResource("Resource_7xlcd"), SubResource("Resource_dgm67"), SubResource("Resource_74d1m"), SubResource("Resource_hl8oi")])

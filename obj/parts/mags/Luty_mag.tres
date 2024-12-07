@@ -6,13 +6,15 @@
 [ext_resource type="Texture2D" uid="uid://djlytxic53v0u" path="res://img/parts/Luty_mag.png" id="4_cnp8u"]
 [ext_resource type="AudioStream" uid="uid://bc6jww2l3klia" path="res://snd/sfx/smgfire.wav" id="4_h8qqb"]
 
-
 [resource]
 script = ExtResource("3_uu35d")
 capacity = 20
 projectile = ExtResource("2_leerk")
 reload_time = 2
 sound = ExtResource("4_h8qqb")
+item_name = "Luty mag"
+item_description = ""
+cost = 5
 sprite = ExtResource("4_cnp8u")
 sprite_offset = Vector2(2, 3)
 changes = Array[ExtResource("1_xf3kg")]([])

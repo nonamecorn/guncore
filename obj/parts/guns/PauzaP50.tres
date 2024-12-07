@@ -2,8 +2,7 @@
 
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_i4ba2"]
 [ext_resource type="Script" path="res://obj/parts/scripts/reciever.gd" id="2_7wmay"]
-[ext_resource type="Texture2D" path="res://img/parts/PauzaP50.png" id="3_idtr0"]
-
+[ext_resource type="Texture2D" uid="uid://cry7ciyklfffy" path="res://img/parts/PauzaP50.png" id="3_idtr0"]
 
 [resource]
 script = ExtResource("2_7wmay")
@@ -12,6 +11,9 @@ ver_recoil = 7.0
 hor_recoil = 7.0
 mag_position = Vector2(0, 1)
 barrel_position = Vector2(8, 0)
+item_name = "Rauza R50"
+item_description = ""
+cost = 5
 sprite = ExtResource("3_idtr0")
 sprite_offset = Vector2(0, 0)
 changes = Array[ExtResource("1_i4ba2")]([])
