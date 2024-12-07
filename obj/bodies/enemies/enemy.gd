@@ -149,6 +149,7 @@ func _on_makepath_timeout():
 			set_movement_target(current_target.global_position)
 
 func drop(item : Item):
+	if dead: return
 	var item_inst = item_base.instantiate()
 	item_inst.global_position = global_position
 	get_tree().current_scene.find_child("items").call_deferred("add_child",item_inst)
@@ -193,6 +194,9 @@ func hurt(value):
 		$enemy_hand_component.state = 2
 
 func die():
+	for part in unique_parts:
+		if unique_parts[part]:
+			drop(unique_parts[part])
 	dead = true
 	state = IDLE
 	$death.play()
@@ -202,6 +206,4 @@ func die():
 	$enemy_hand_component.queue_free()
 #	movement_target = null
 	$Sprite2D.rotation_degrees = 90
-	for part in unique_parts:
-		if unique_parts[part]:
-			drop(unique_parts[part])
+	

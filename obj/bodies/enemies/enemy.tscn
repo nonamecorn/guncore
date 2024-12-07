@@ -28,6 +28,7 @@ position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_egrxt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 2
 texture = ExtResource("2_fn425")
 
 [node name="enemy_hand_component" parent="." node_paths=PackedStringArray("ray") instance=ExtResource("2_vctv7")]

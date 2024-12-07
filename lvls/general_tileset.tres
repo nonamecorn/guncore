@@ -313,6 +313,7 @@ texture_region_size = Vector2i(32, 32)
 texture = ExtResource("6_galtf")
 texture_region_size = Vector2i(32, 32)
 0:0/animation_columns = 3
+0:0/animation_speed = 3.0
 0:0/animation_frame_0/duration = 1.0
 0:0/animation_frame_1/duration = 1.0
 0:0/animation_frame_2/duration = 1.0

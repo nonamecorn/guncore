@@ -11,6 +11,7 @@ item_nametag = NodePath("PopupPanel/MarginContainer/VBoxContainer/Label")
 item_desctag = NodePath("PopupPanel/MarginContainer/VBoxContainer/RichTextLabel")
 
 [node name="PopupPanel" type="PopupPanel" parent="."]
+visible = true
 
 [node name="NinePatchRect" type="NinePatchRect" parent="PopupPanel"]
 offset_left = 4.0
@@ -43,4 +44,5 @@ text = "name"
 
 [node name="RichTextLabel" type="RichTextLabel" parent="PopupPanel/MarginContainer/VBoxContainer"]
 layout_mode = 2
+size_flags_vertical = 3
 text = "small"

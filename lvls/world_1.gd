@@ -9,6 +9,7 @@ var corr_west_obj = preload("res://lvls/corridors/horisontwest_corr.tscn")
 var corr_east_obj = preload("res://lvls/corridors/horisonteast_corr.tscn")
 var corr_south_obj = preload("res://lvls/corridors/verticalsouth_corr.tscn")
 @export var roomcount = 3
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	rects.append($"modules/starting room".get_rect())
