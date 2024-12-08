@@ -54,6 +54,7 @@ func open_shop():
 	$CanvasLayer/Inventory.switch_to_shop()
 	get_items()
 	$CanvasLayer/Inventory.show()
+	$CanvasLayer/money.show()
 	$CanvasLayer/Inventory/shop_backpack2.load_shop()
 	$Camera2D.follow = false
 	$player_hand_component.follow = false

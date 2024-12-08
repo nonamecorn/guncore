@@ -69,9 +69,9 @@ offset_bottom = 40.0
 [node name="equipment_shaite" type="NinePatchRect" parent="equipments"]
 layout_mode = 2
 offset_left = 488.0
-offset_top = 16.0
+offset_top = 8.0
 offset_right = 622.0
-offset_bottom = 114.0
+offset_bottom = 106.0
 texture = ExtResource("4_2lq67")
 patch_margin_left = 10
 patch_margin_top = 10
@@ -136,9 +136,9 @@ stretch_mode = 2
 [node name="equipment_shaite2" type="NinePatchRect" parent="equipments"]
 layout_mode = 2
 offset_left = 488.0
-offset_top = 128.0
+offset_top = 112.0
 offset_right = 622.0
-offset_bottom = 226.0
+offset_bottom = 210.0
 texture = ExtResource("4_2lq67")
 patch_margin_left = 10
 patch_margin_top = 10
@@ -204,9 +204,9 @@ stretch_mode = 2
 [node name="equipment_shaite3" type="NinePatchRect" parent="equipments"]
 layout_mode = 2
 offset_left = 488.0
-offset_top = 240.0
+offset_top = 216.0
 offset_right = 622.0
-offset_bottom = 338.0
+offset_bottom = 314.0
 texture = ExtResource("4_2lq67")
 patch_margin_left = 10
 patch_margin_top = 10
