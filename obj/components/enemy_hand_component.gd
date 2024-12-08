@@ -41,23 +41,26 @@ func _physics_process(_delta: float) -> void:
 	global_rotation = atan2(look_vec.y, look_vec.x)
 
 func firing_state():
+	
 	look_vec = (current_target.global_position - global_position).normalized()
-	if !_in_vision_cone(current_target.global_position) or !has_los():
+	if !_in_vision_cone(current_target.global_position) or !has_los(current_target.global_position):
+		#print("runnin")
 		state = RUN
 		get_parent().start_chasin()
-		$attack.stop()
 
 func idle_state():
 	look_vec = get_parent().direction
-	if _in_vision_cone(current_target.global_position) and has_los():
+	if _in_vision_cone(current_target.global_position) and has_los(current_target.global_position):
+		#print("blastin")
 		state = FIRING
 		$attack.start()
 		$Marker2D.get_child(0).fire()
 		get_parent().start_blastin()
 
 func run_state():
-	look_vec = get_parent().direction
-	if _in_vision_cone(current_target.global_position) and has_los():
+	look_vec = (current_target.global_position - global_position).normalized()
+	if _in_vision_cone(current_target.global_position) and has_los(current_target.global_position):
+		#print("blastin")
 		state = FIRING
 		$attack.start()
 		$Marker2D.get_child(0).fire()
@@ -75,10 +78,10 @@ func get_self_circle_position():
 func _in_vision_cone(point):
 	var forward = ($Marker2D.global_position - global_position).normalized()
 	var dir_to_point = point - global_position
-	return rad_to_deg(dir_to_point.angle_to(forward)) <= angle_cone_of_vission
+	return abs(rad_to_deg(dir_to_point.angle_to(forward))) <= angle_cone_of_vission
 
-func has_los():
-	ray.target_position = current_target.global_position - global_position
+func has_los(point):
+	ray.target_position = point - global_position
 	ray.force_raycast_update()
 	if ray.is_colliding() and ray.get_collider() == get_parent().current_target:
 		return true
@@ -101,8 +104,13 @@ func reload():
 	$Marker2D.get_child(0).reload()
 
 func _on_attack_timeout() -> void:
-	$Marker2D.get_child(0).start_fire()
-	$burst_duration.start()
+	#print("check")
+	if !current_target or !is_instance_valid(current_target): return
+	if _in_vision_cone(current_target.global_position) and has_los(current_target.global_position):
+		#print("gud")
+		$Marker2D.get_child(0).start_fire()
+		$burst_duration.start()
+	#print("bad ", _in_vision_cone(current_target.global_position), has_los(current_target.global_position))
 
 
 func _on_burst_duration_timeout() -> void:

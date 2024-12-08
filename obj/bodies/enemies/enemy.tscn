@@ -70,7 +70,7 @@ debug_color = Color(0, 0.6, 0.701961, 0)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
 target_position = Vector2(632, 0)
-collision_mask = 5
+collision_mask = 6
 
 [connection signal="timeout" from="enemy_hand_component/burst_duration" to="enemy_hand_component" method="_on_burst_duration_timeout"]
 [connection signal="timeout" from="change_position" to="." method="_on_change_position_timeout"]

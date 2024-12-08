@@ -25,12 +25,13 @@ height = 12.0
 radius = 6.0
 height = 24.0
 
-[node name="Player" type="CharacterBody2D" groups=["cultist", "player"]]
+[node name="Player" type="CharacterBody2D" groups=["player"]]
 top_level = true
 collision_layer = 4
 script = ExtResource("1_6n3fv")
 
 [node name="collector" type="Area2D" parent="."]
+position = Vector2(0, -6)
 collision_layer = 0
 collision_mask = 8
 monitorable = false
@@ -40,6 +41,7 @@ shape = SubResource("CircleShape2D_0xlh8")
 debug_color = Color(0.448094, 0.413853, 0.530235, 0.42)
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -9)
 texture = SubResource("CanvasTexture_27y6e")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -48,7 +50,7 @@ position_smoothing_enabled = true
 script = ExtResource("4_6xs1v")
 
 [node name="player_hand_component" parent="." instance=ExtResource("3_nq5y6")]
-position = Vector2(0, 3)
+position = Vector2(0, -6)
 hand_length = 12
 
 [node name="Marker2D" parent="player_hand_component" index="0"]
@@ -62,13 +64,13 @@ visible = false
 player_handled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 6)
 shape = SubResource("CapsuleShape2D_mx0ab")
 
 [node name="death" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("10_ti353")
 
 [node name="hurt_box" parent="." instance=ExtResource("9_3vqfx")]
+position = Vector2(0, -6)
 script = ExtResource("10_frvst")
 
 [node name="CollisionShape2D" parent="hurt_box" index="0"]

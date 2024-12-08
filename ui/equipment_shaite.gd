@@ -58,7 +58,6 @@ func occupied(item):
 func grab_item(pos):
 	var item = get_item_under_pos(pos)
 	item.item_resource.unequipslot(slot_id)
-	print(GlobalVars.items)
 	if item == null:
 		return null
  

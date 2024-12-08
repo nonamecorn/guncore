@@ -152,7 +152,6 @@ func return_item():
 	
 
 func buy_item():
-	print(GlobalVars.items)
 	if !item_held: return
 	GlobalVars.shop.erase(item_held.item_resource)
 	item_held.item_resource.from_shop = false

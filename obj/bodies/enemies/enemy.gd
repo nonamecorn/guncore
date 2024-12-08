@@ -13,7 +13,6 @@ var current_target = null
 var dead = false
 enum {
 	SURROUND,
-	CHASE,
 	IDLE,
 	RUN,
 	IVESTIGATE
@@ -70,8 +69,6 @@ func _physics_process(delta):
 			move(delta)
 		RUN:
 			run(delta)
-		CHASE:
-			move(delta)
 func start_blastin():
 	$makepath.start()
 	set_movement_target(current_target.global_position)
@@ -79,7 +76,7 @@ func start_blastin():
 
 func start_chasin():
 	set_movement_target(current_target.global_position)
-	state = CHASE
+	state = IVESTIGATE
 
 func surround(delta):
 	if nav_agent.is_navigation_finished():
@@ -136,17 +133,7 @@ func _on_change_position_timeout():
 func _on_makepath_timeout():
 	if dead or !is_instance_valid(current_target):
 		return
-	match state:
-		IDLE:
-			get_circle_position(randomnum)
-		SURROUND:
-			get_circle_position(randomnum)
-		IVESTIGATE:
-			pass
-		RUN:
-			pass
-		CHASE:
-			set_movement_target(current_target.global_position)
+	get_circle_position(randomnum)
 
 func drop(item : Item):
 	if dead: return
