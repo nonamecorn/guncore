@@ -7,7 +7,7 @@ func _ready() -> void:
 	items.append(load(gun.BARREL))
 	var shop_strs = Randogunser.get_shop()
 	for path in shop_strs:
-		if !path: return
+		if !path: continue
 		var shop_res = load(path)
 		shop.append(shop_res)
 
@@ -55,7 +55,7 @@ var items = [
 	#load("res://obj/parts/mags/SMGll_mag.tres"),
 ]
 var fullscreen = false
-var money = 10
+var money = 100
 var slot = [
 	[],
 	[],

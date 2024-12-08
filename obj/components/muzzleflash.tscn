@@ -1,0 +1,9 @@
+[gd_scene load_steps=3 format=3 uid="uid://dk15yn20pad8s"]
+
+[ext_resource type="Texture2D" uid="uid://c2oetjbpktnno" path="res://img/misc/MuzzleFlash.png" id="1_lfbi8"]
+[ext_resource type="PackedScene" uid="uid://ddfo6c5nx4m8h" path="res://lvls/misc/light.tscn" id="2_dbdid"]
+
+[node name="muzzleflash" type="Sprite2D"]
+texture = ExtResource("1_lfbi8")
+
+[node name="light" parent="." instance=ExtResource("2_dbdid")]

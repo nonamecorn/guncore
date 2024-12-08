@@ -28,6 +28,7 @@ var current_ver_recoil
 var current_hor_recoil
 var current_add_spd
 var current_reload_time
+var alert_distance
 
 func _ready() -> void:
 	rng.randomize()
@@ -68,9 +69,10 @@ func asseble_gun(parts : Dictionary):
 	current_hor_recoil = parts.RECIEVER.hor_recoil
 	current_add_spd = parts.BARREL.add_spd
 	current_reload_time = parts.MAG.reload_time
+	alert_distance = parts.MAG.loud_dist
 	$audio/shoting.stream = parts.MAG.sound
 	$MUZZLE.position = parts.BARREL.muzzle_position + parts.RECIEVER.barrel_position
-	$pos.position = $MUZZLE.position + Vector2.RIGHT * 10
+	$pos.position = $MUZZLE.position + Vector2.RIGHT * 5
 	if parts.MUZZLE != null:
 		spawn_facade(parts.MUZZLE, $MUZZLE.position + parts.MUZZLE.sprite_offset)
 		$pos.position += parts.MUZZLE.bullet_vector
@@ -82,9 +84,11 @@ func asseble_gun(parts : Dictionary):
 				set_stat(change.stat_name, change.value_of_stat)
 				continue
 			change_stat(change.stat_name, change.value_of_stat, change.mult)
+	
 	if current_firerate != 0:
 		$firerate.wait_time = current_firerate
 	$reload.wait_time = current_reload_time
+	$noise_alert/CollisionShape2D.shape.radius = alert_distance
 	reload()
 
 func change_stat(name_of_stat : String, value_of_stat, mult: bool):
@@ -146,6 +150,7 @@ func fire():
 			empty.emit()
 			return
 		current_ammo -= 1
+		$AnimationPlayer.play("fire")
 		$audio/shoting.play()
 		if  player_handled:
 			for body in $noise_alert.get_overlapping_bodies():

@@ -12,6 +12,7 @@ capacity = 20
 projectile = ExtResource("2_leerk")
 reload_time = 2
 sound = ExtResource("4_h8qqb")
+loud_dist = 400
 item_name = "Luty mag"
 item_description = ""
 cost = 5

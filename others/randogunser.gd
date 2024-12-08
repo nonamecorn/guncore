@@ -44,6 +44,22 @@ var gun_preset = {
 	"MOD2": null,
 	}
 
+var shop_pool = [
+	"res://obj/parts/muzzles/Muzzel_Brake.tres",
+	"res://obj/parts/muzzles/grater.tres",
+	"res://obj/parts/guns/CAWS.tres",
+	"res://obj/parts/guns/AR-180.tres",
+	"res://obj/parts/guns/PauzaP50.tres",
+	"res://obj/parts/guns/SMGll.tres",
+	"res://obj/parts/mags/CAWS_mag.tres",
+	"res://obj/parts/mags/AR-180_mag.tres",
+	"res://obj/parts/mags/SMGll_mag.tres",
+	"res://obj/parts/mags/PauzaP50_mag.tres",
+	"res://obj/parts/barrels/AR-180_barrel.tres",
+	"res://obj/parts/barrels/CAWS_barrel.tres",
+	"res://obj/parts/barrels/SMGll_barrel.tres",
+]
+
 func get_gun() -> Dictionary:
 	recievers.shuffle()
 	mags.shuffle()
@@ -54,9 +70,11 @@ func get_gun() -> Dictionary:
 	return gun_preset
 
 func get_shop() -> Array:
-	var shop = []
-	for i in 4:
-		var gun = get_gun()
-		for part in gun:
-			shop.append(gun[part])
-	return shop
+	#var shop = []
+	#for i in 4:
+		#var gun = get_gun()
+		#for part in gun:
+			#shop.append(gun[part])
+	#print(shop)
+	return shop_pool
+	

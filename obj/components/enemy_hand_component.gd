@@ -41,7 +41,6 @@ func _physics_process(_delta: float) -> void:
 	global_rotation = atan2(look_vec.y, look_vec.x)
 
 func firing_state():
-	
 	look_vec = (current_target.global_position - global_position).normalized()
 	if !_in_vision_cone(current_target.global_position) or !has_los(current_target.global_position):
 		#print("runnin")
@@ -54,7 +53,6 @@ func idle_state():
 		#print("blastin")
 		state = FIRING
 		$attack.start()
-		$Marker2D.get_child(0).fire()
 		get_parent().start_blastin()
 
 func run_state():
@@ -63,7 +61,6 @@ func run_state():
 		#print("blastin")
 		state = FIRING
 		$attack.start()
-		$Marker2D.get_child(0).fire()
 		get_parent().start_blastin()
 
 func get_self_circle_position():
@@ -104,13 +101,13 @@ func reload():
 	$Marker2D.get_child(0).reload()
 
 func _on_attack_timeout() -> void:
-	#print("check")
+	print("check")
 	if !current_target or !is_instance_valid(current_target): return
 	if _in_vision_cone(current_target.global_position) and has_los(current_target.global_position):
 		#print("gud")
 		$Marker2D.get_child(0).start_fire()
 		$burst_duration.start()
-	#print("bad ", _in_vision_cone(current_target.global_position), has_los(current_target.global_position))
+	print("bad ", _in_vision_cone(current_target.global_position), has_los(current_target.global_position))
 
 
 func _on_burst_duration_timeout() -> void:

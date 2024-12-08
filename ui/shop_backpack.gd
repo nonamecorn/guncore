@@ -25,7 +25,7 @@ func _ready():
 
 func load_shop():
 	for item in GlobalVars.shop:
-		if !item: continue
+		if !item: print("ses"); continue
 		var item_res = item
 		item_res.duplicate()
 		item_res.from_shop = true

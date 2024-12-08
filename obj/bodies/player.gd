@@ -50,6 +50,8 @@ func tab_state():
 		$Camera2D.follow = true
 		state = MOVE
 
+
+
 func open_shop():
 	$CanvasLayer/Inventory.switch_to_shop()
 	get_items()

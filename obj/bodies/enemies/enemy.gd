@@ -81,6 +81,7 @@ func start_chasin():
 func surround(delta):
 	if nav_agent.is_navigation_finished():
 		return
+	get_circle_position(randomnum)
 	var current_pos = global_position
 	var next_path = nav_agent.get_next_path_position()
 	var new_velocity = (next_path - current_pos).normalized()
