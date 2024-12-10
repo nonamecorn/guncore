@@ -1,9 +1,21 @@
 [gd_scene load_steps=3 format=3 uid="uid://dk15yn20pad8s"]
 
 [ext_resource type="Texture2D" uid="uid://c2oetjbpktnno" path="res://img/misc/MuzzleFlash.png" id="1_lfbi8"]
-[ext_resource type="PackedScene" uid="uid://ddfo6c5nx4m8h" path="res://lvls/misc/light.tscn" id="2_dbdid"]
+[ext_resource type="Texture2D" uid="uid://cc8mgdlatnw31" path="res://img/misc/MuzzleFlashLight.png" id="2_61doj"]
 
 [node name="muzzleflash" type="Sprite2D"]
 texture = ExtResource("1_lfbi8")
 
-[node name="light" parent="." instance=ExtResource("2_dbdid")]
+[node name="light" type="Node2D" parent="."]
+
+[node name="PointLight2D" type="PointLight2D" parent="light"]
+shadow_enabled = true
+shadow_item_cull_mask = 2
+texture = ExtResource("2_61doj")
+texture_scale = 4.0
+
+[node name="shadowlight" type="PointLight2D" parent="light"]
+range_item_cull_mask = 2
+shadow_enabled = true
+texture = ExtResource("2_61doj")
+texture_scale = 4.0

@@ -11,9 +11,7 @@ item_nametag = NodePath("PopupPanel/MarginContainer2/MarginContainer/VBoxContain
 item_desctag = NodePath("PopupPanel/MarginContainer2/MarginContainer/VBoxContainer/RichTextLabel")
 
 [node name="PopupPanel" type="PopupPanel" parent="."]
-transparent_bg = true
 size = Vector2i(119, 100)
-transparent = true
 
 [node name="MarginContainer2" type="MarginContainer" parent="PopupPanel"]
 offset_left = 4.0

@@ -101,13 +101,12 @@ func reload():
 	$Marker2D.get_child(0).reload()
 
 func _on_attack_timeout() -> void:
-	print("check")
 	if !current_target or !is_instance_valid(current_target): return
 	if _in_vision_cone(current_target.global_position) and has_los(current_target.global_position):
 		#print("gud")
 		$Marker2D.get_child(0).start_fire()
 		$burst_duration.start()
-	print("bad ", _in_vision_cone(current_target.global_position), has_los(current_target.global_position))
+	#print("bad ", _in_vision_cone(current_target.global_position), has_los(current_target.global_position))
 
 
 func _on_burst_duration_timeout() -> void:

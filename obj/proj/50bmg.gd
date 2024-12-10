@@ -24,6 +24,8 @@ func _physics_process(delta):
 	var coll = move_and_collide((move_vec * speed + mod_vec) * delta)
 	if !active: return
 	if coll:
+		if coll.get_collider().has_method("hurt"):
+			coll.get_collider().hurt(damage)
 		active = false
 		$Sprite2D.hide()
 		create_spark()

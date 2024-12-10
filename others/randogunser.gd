@@ -60,6 +60,23 @@ var shop_pool = [
 	"res://obj/parts/barrels/SMGll_barrel.tres",
 ]
 
+var corp_guns = [
+	"res://obj/parts/guns/CAWS.tres",
+	"res://obj/parts/guns/AR-180.tres",
+	"res://obj/parts/guns/SMGll.tres",
+]
+var corp_mags = [
+	"res://obj/parts/mags/AR-180_mag.tres",
+	"res://obj/parts/mags/CAWS_mag.tres",
+	"res://obj/parts/mags/SMGll_mag.tres",
+]
+var corp_barrels = [
+	"res://obj/parts/barrels/AR-180_barrel.tres",
+	"res://obj/parts/barrels/CAWS_barrel.tres",
+	"res://obj/parts/barrels/SMGll_barrel.tres",
+]
+
+
 func get_gun() -> Dictionary:
 	recievers.shuffle()
 	mags.shuffle()
@@ -67,6 +84,16 @@ func get_gun() -> Dictionary:
 	gun_preset.RECIEVER = recievers[0]
 	gun_preset.BARREL = barrels[0]
 	gun_preset.MAG = mags[0]
+	return gun_preset
+
+
+func get_corp_gun() -> Dictionary:
+	corp_guns.shuffle()
+	corp_mags.shuffle()
+	corp_barrels.shuffle()
+	gun_preset.RECIEVER = corp_guns[0]
+	gun_preset.BARREL = corp_barrels[0]
+	gun_preset.MAG = corp_mags[0]
 	return gun_preset
 
 func get_shop() -> Array:

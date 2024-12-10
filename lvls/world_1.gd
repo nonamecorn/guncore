@@ -8,7 +8,11 @@ var corr_north_obj = preload("res://lvls/corridors/verticalnorth_corr.tscn")
 var corr_west_obj = preload("res://lvls/corridors/horisontwest_corr.tscn")
 var corr_east_obj = preload("res://lvls/corridors/horisonteast_corr.tscn")
 var corr_south_obj = preload("res://lvls/corridors/verticalsouth_corr.tscn")
-@export var roomcount = 3
+var rooms = [
+	"res://lvls/rooms/basic_room.tscn",
+	"res://lvls/rooms/combat_room.tscn"
+]
+@export var roomcount = 5
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -88,4 +92,5 @@ func _on_make_room_timeout() -> void:
 		$make_room.stop()
 		stop_spawnin()
 		return
-	spawn_room(room_obj_path)
+	rooms.shuffle()
+	spawn_room(rooms[0])

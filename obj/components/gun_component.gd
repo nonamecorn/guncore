@@ -152,10 +152,10 @@ func fire():
 		current_ammo -= 1
 		$AnimationPlayer.play("fire")
 		$audio/shoting.play()
-		if  player_handled:
-			for body in $noise_alert.get_overlapping_bodies():
+		for body in $noise_alert.get_overlapping_bodies():
 				if body.has_method("alert"):
 					body.alert(global_position)
+		if  player_handled:
 			var vievscale = get_viewport_transform().get_scale()
 			var recoil_vector = Vector2(-current_ver_recoil,randf_range(-current_hor_recoil, current_hor_recoil)).rotated(global_rotation)
 			Input.warp_mouse(get_viewport().get_mouse_position()*vievscale + recoil_vector*vievscale)

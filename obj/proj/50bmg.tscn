@@ -4,7 +4,6 @@
 [ext_resource type="Script" path="res://obj/proj/50bmg.gd" id="2_p1ett"]
 [ext_resource type="Texture2D" uid="uid://dgj71k7wsfsra" path="res://img/bullets/.50BMG.png" id="3_sqr0f"]
 
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ljja1"]
 radius = 3.0
 height = 9.99999

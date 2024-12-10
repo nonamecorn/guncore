@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name Enemy
 
 const MAX_SPEED = 110
 const ACCELERATION = 700
@@ -17,14 +18,13 @@ enum {
 	RUN,
 	IVESTIGATE
 }
-var health = 50
+@export var health = 50
 var state = IDLE
 var rng = RandomNumberGenerator.new()
-var player = null
 var direction = Vector2.ZERO
 var move_position
 
-@export var group : String = "cultist"
+@export var group : String
 @export var nav_agent: NavigationAgent2D
 var flipped = false
 
@@ -175,6 +175,7 @@ func get_closest(array):
 func hurt(value):
 	health -= value
 	if health <= 0:
+		
 		call_deferred("die")
 	if state == IDLE:
 		state = RUN

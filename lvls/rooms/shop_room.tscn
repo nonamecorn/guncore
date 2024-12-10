@@ -3,12 +3,12 @@
 [ext_resource type="Script" path="res://lvls/rooms/starting_room.gd" id="1_8435x"]
 [ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="2_o1o1j"]
 [ext_resource type="Script" path="res://lvls/rooms/shop_area.gd" id="3_s8k6d"]
-[ext_resource type="Texture2D" uid="uid://b30kmpcde48gc" path="res://img/levels/shop_placeholder.png" id="4_pe34c"]
-[ext_resource type="Texture2D" uid="uid://b74va0hypg3w3" path="res://img/levels/luk.png" id="5_aisc3"]
+[ext_resource type="Texture2D" uid="uid://brmf3ey1nsbk4" path="res://img/levels/shop.png" id="4_iu0jg"]
 [ext_resource type="Script" path="res://lvls/rooms/exit.gd" id="5_qjsor"]
+[ext_resource type="Texture2D" uid="uid://sdso0p2h0m1g" path="res://img/levels/Lift.png" id="6_1368m"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v2n3q"]
-size = Vector2(122, 44)
+size = Vector2(86, 21)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_301ny"]
 radius = 24.0
@@ -41,10 +41,11 @@ monitorable = false
 script = ExtResource("3_s8k6d")
 
 [node name="Sprite2D" type="Sprite2D" parent="shop_area"]
-texture = ExtResource("4_pe34c")
+position = Vector2(0, -1)
+texture = ExtResource("4_iu0jg")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="shop_area"]
-position = Vector2(1, 37)
+position = Vector2(-17, 25.5)
 shape = SubResource("RectangleShape2D_v2n3q")
 
 [node name="exit" type="Area2D" parent="."]
@@ -55,9 +56,10 @@ monitorable = false
 script = ExtResource("5_qjsor")
 
 [node name="Sprite2D" type="Sprite2D" parent="exit"]
-texture = ExtResource("5_aisc3")
+texture = ExtResource("6_1368m")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="exit"]
+position = Vector2(0, 23)
 shape = SubResource("CircleShape2D_301ny")
 
 [connection signal="body_entered" from="shop_area" to="shop_area" method="_on_body_entered"]

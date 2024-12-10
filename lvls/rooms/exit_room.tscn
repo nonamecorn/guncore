@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://bf65xavyr0pes" path="res://lvls/misc/module_connector.tscn" id="2_wnxa4"]
 [ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="3_vg2ur"]
 [ext_resource type="Script" path="res://lvls/rooms/elevator.gd" id="4_fluc2"]
-[ext_resource type="Texture2D" uid="uid://b74va0hypg3w3" path="res://img/levels/luk.png" id="4_qyvf2"]
+[ext_resource type="Texture2D" uid="uid://sdso0p2h0m1g" path="res://img/levels/Lift.png" id="5_n0jsl"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d6y5v"]
 radius = 24.0
@@ -59,9 +59,10 @@ monitorable = false
 script = ExtResource("4_fluc2")
 
 [node name="Sprite2D" type="Sprite2D" parent="decor/elevator"]
-texture = ExtResource("4_qyvf2")
+texture = ExtResource("5_n0jsl")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="decor/elevator"]
+position = Vector2(0, 24)
 shape = SubResource("CircleShape2D_d6y5v")
 
 [connection signal="body_entered" from="decor/elevator" to="decor/elevator" method="_on_body_entered"]
