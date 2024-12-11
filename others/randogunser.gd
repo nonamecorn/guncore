@@ -58,6 +58,7 @@ var shop_pool = [
 	"res://obj/parts/barrels/AR-180_barrel.tres",
 	"res://obj/parts/barrels/CAWS_barrel.tres",
 	"res://obj/parts/barrels/SMGll_barrel.tres",
+	"res://obj/parts/barrels/Autoaim_barrel.tres"
 ]
 
 var corp_guns = [

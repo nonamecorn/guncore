@@ -3,12 +3,12 @@ class_name Item
 
 
 @export var item_name : String = ""
-@export var item_description : String = ""
+@export_multiline var item_description : String = ''
 @export var cost : int = 5
 @export var sprite : Texture2D
 @export var sprite_offset : Vector2
-@export var bullet_strategy : BasicBulletStrategy
-@export var firing_strategy : BasicBulletStrategy
+@export var bullet_strategies : Array[BasicBulletStrategy]
+@export var firing_strategies : Array[BasicBulletStrategy]
 @export var changes : Array[Change]
 
 var from_shop = false

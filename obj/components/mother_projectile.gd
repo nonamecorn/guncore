@@ -6,6 +6,8 @@ var move_vec : Vector2
 var mod_vec : Vector2
 @export var damage : int = 20
 var active = true
+var strategies = []
+var strategy_dic = {}
 
 var rng = RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
@@ -13,6 +15,9 @@ func _ready():
 	rng.randomize()
 	
 func init(vec: Vector2, range_sec, add_spd):
+	if strategies:
+		for strategy in strategies:
+			strategy.init_strategy(self)
 	speed+=add_spd
 	mod_vec = vec
 	move_vec = Vector2.RIGHT
@@ -30,6 +35,9 @@ func _physics_process(delta):
 		$Sprite2D.hide()
 		create_spark()
 		queue_free()
+	if !strategies: return
+	for strategy in strategies:
+		strategy.move_strategy(self)
 
 func _on_timer_timeout():
 	$Sprite2D.hide()

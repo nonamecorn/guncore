@@ -38,6 +38,7 @@ connector="used for room generation"
 player=""
 cultist=""
 corp=""
+targetable=""
 
 [input]
 

@@ -29,6 +29,8 @@ var current_hor_recoil
 var current_add_spd
 var current_reload_time
 var alert_distance
+var firing_strategies = []
+var bullet_strategies = []
 
 func _ready() -> void:
 	rng.randomize()
@@ -84,11 +86,18 @@ func asseble_gun(parts : Dictionary):
 				set_stat(change.stat_name, change.value_of_stat)
 				continue
 			change_stat(change.stat_name, change.value_of_stat, change.mult)
+		
+		for stratagy in parts[part_name].bullet_strategies:
+			bullet_strategies.append(stratagy)
+		for stratagy in parts[part_name].firing_strategies:
+			firing_strategies.append(stratagy)
 	
 	if current_firerate != 0:
 		$firerate.wait_time = current_firerate
 	$reload.wait_time = current_reload_time
-	$noise_alert/CollisionShape2D.shape.radius = alert_distance
+	var alert_shape = CircleShape2D.new()
+	alert_shape.radius = alert_distance
+	$noise_alert/CollisionShape2D.shape = alert_shape
 	reload()
 
 func change_stat(name_of_stat : String, value_of_stat, mult: bool):
@@ -162,5 +171,11 @@ func fire():
 		var bullet_inst = current_bullet_obj.instantiate()
 		bullet_inst.global_position = check_point_of_fire()
 		bullet_inst.global_rotation_degrees = global_rotation_degrees + rng.randf_range(-current_spread, current_spread)
-		get_tree().current_scene.call_deferred("add_child",bullet_inst) 
+		
+		for strategy in firing_strategies:
+			strategy.apply_strategy(bullet_inst)
+		for strategy in bullet_strategies:
+			bullet_inst.strategies.append(strategy)
+		
+		get_tree().current_scene.call_deferred("add_child",bullet_inst)
 		bullet_inst.init(get_parent().get_parent().get_parent().velocity, current_range, current_add_spd)
