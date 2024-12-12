@@ -9,6 +9,7 @@ class_name Item
 @export var sprite_offset : Vector2
 @export var bullet_strategies : Array[BasicBulletStrategy]
 @export var firing_strategies : Array[BasicBulletStrategy]
+@export var player_strategies : Array[BasicPlayerStrategy]
 @export var changes : Array[Change]
 
 var from_shop = false

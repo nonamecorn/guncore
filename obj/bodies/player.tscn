@@ -85,6 +85,69 @@ current = true
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("8_wsalq")]
 visible = false
 
+[node name="RECIEVERCOVER" parent="CanvasLayer/Inventory/equipments/equipment_shaite2" index="6"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="BARRELCOVER" parent="CanvasLayer/Inventory/equipments/equipment_shaite2" index="7"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="MUZZLECOVER" parent="CanvasLayer/Inventory/equipments/equipment_shaite2" index="8"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="MAGCOVER" parent="CanvasLayer/Inventory/equipments/equipment_shaite2" index="9"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="ATTACHCOVER" parent="CanvasLayer/Inventory/equipments/equipment_shaite2" index="10"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="GUTSCOVER" parent="CanvasLayer/Inventory/equipments/equipment_shaite2" index="11"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="HEADCOVER" parent="CanvasLayer/Inventory/equipments/equipment_shaite3" index="3"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="BODYCOVER" parent="CanvasLayer/Inventory/equipments/equipment_shaite3" index="4"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 32.0
+offset_bottom = 32.0
+
+[node name="HANDCOVER" parent="CanvasLayer/Inventory/equipments/equipment_shaite3" index="5"]
+layout_mode = 0
+offset_left = 0.0
+offset_top = 0.0
+offset_right = 32.0
+offset_bottom = 32.0
+
 [node name="hp" type="Label" parent="CanvasLayer"]
 offset_left = 504.0
 offset_top = 328.0

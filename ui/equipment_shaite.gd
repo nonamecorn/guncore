@@ -39,7 +39,7 @@ func insert_item(item):
 	item.item_resource.eq_index = get_index()
 	item.item_resource.pick_up()
 	item.global_position = slot.global_position + slot.size / 2 - item.size / 2
-	find_child(item_slot+"COVER").show()
+	find_child(item_slot+"COVER"+str(get_index())).show()
 	return true
  
 func insert_item_at_spot(item, slot):
@@ -59,7 +59,7 @@ func insert_item_at_spot(item, slot):
 	item.item_resource.eq_index = get_index()
 	item.item_resource.pick_up()
 	item.global_position = find_child(slot).global_position + find_child(slot).size / 2 - item.size / 2
-	find_child(item_slot+"COVER").show()
+	find_child(item_slot+"COVER"+str(get_index())).show()
 	return true
 
 func occupied(item):
@@ -83,7 +83,7 @@ func grab_item(pos):
 		check_dissassembly()
 	else:
 		change.emit()
-	find_child(item_slot+"COVER").hide()
+	find_child(item_slot+"COVER"+str(get_index())).hide()
 	return item
  
 func get_slot_under_pos(pos):

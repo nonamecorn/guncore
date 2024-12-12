@@ -27,9 +27,8 @@
 [node name="Inventory" type="Control" node_paths=PackedStringArray("grid_bkpk", "eq_slot1", "eq_slot2", "eq_slot3", "augs", "collector", "safe_net", "shop", "shop_dil")]
 process_mode = 3
 layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchor_right = 0.5
+anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_vc4ge")
@@ -73,15 +72,17 @@ script = ExtResource("7_suxgo")
 
 [node name="equipments" type="Control" parent="."]
 anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
+offset_left = 464.0
+offset_top = 88.0
+offset_right = 464.0
+offset_bottom = 88.0
 
 [node name="equipment_shaite" type="NinePatchRect" parent="equipments"]
 layout_mode = 2
-offset_left = 488.0
-offset_top = 16.0
-offset_right = 616.0
-offset_bottom = 108.0
+offset_left = 24.0
+offset_top = -72.0
+offset_right = 152.0
+offset_bottom = 16.0
 texture = ExtResource("4_2lq67")
 patch_margin_left = 10
 patch_margin_top = 10
@@ -143,7 +144,7 @@ offset_bottom = 80.0
 texture = ExtResource("13_35cpt")
 stretch_mode = 2
 
-[node name="RECIEVERCOVER" type="TextureRect" parent="equipments/equipment_shaite"]
+[node name="RECIEVERCOVER0" type="TextureRect" parent="equipments/equipment_shaite"]
 visible = false
 layout_mode = 2
 offset_left = 12.0
@@ -154,7 +155,7 @@ mouse_filter = 2
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
-[node name="BARRELCOVER" type="TextureRect" parent="equipments/equipment_shaite"]
+[node name="BARRELCOVER0" type="TextureRect" parent="equipments/equipment_shaite"]
 visible = false
 layout_mode = 2
 offset_left = 84.0
@@ -165,7 +166,7 @@ mouse_filter = 2
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
-[node name="MUZZLECOVER" type="TextureRect" parent="equipments/equipment_shaite"]
+[node name="MUZZLECOVER0" type="TextureRect" parent="equipments/equipment_shaite"]
 visible = false
 layout_mode = 2
 offset_left = 12.0
@@ -176,7 +177,7 @@ mouse_filter = 2
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
-[node name="MAGCOVER" type="TextureRect" parent="equipments/equipment_shaite"]
+[node name="MAGCOVER0" type="TextureRect" parent="equipments/equipment_shaite"]
 visible = false
 layout_mode = 2
 offset_left = 48.0
@@ -187,7 +188,7 @@ mouse_filter = 2
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
-[node name="ATTACHCOVER" type="TextureRect" parent="equipments/equipment_shaite"]
+[node name="ATTACHCOVER0" type="TextureRect" parent="equipments/equipment_shaite"]
 visible = false
 layout_mode = 2
 offset_left = 48.0
@@ -198,7 +199,7 @@ mouse_filter = 2
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
-[node name="GUTSCOVER" type="TextureRect" parent="equipments/equipment_shaite"]
+[node name="GUTSCOVER0" type="TextureRect" parent="equipments/equipment_shaite"]
 visible = false
 layout_mode = 2
 offset_left = 84.0
@@ -211,17 +212,16 @@ stretch_mode = 2
 
 [node name="equipment_shaite2" type="NinePatchRect" parent="equipments"]
 layout_mode = 2
-offset_left = 488.0
-offset_top = 112.0
-offset_right = 616.0
-offset_bottom = 204.0
+offset_left = 24.0
+offset_top = 32.0
+offset_right = 152.0
+offset_bottom = 120.0
 texture = ExtResource("4_2lq67")
 patch_margin_left = 10
 patch_margin_top = 10
 patch_margin_right = 10
 patch_margin_bottom = 10
 script = ExtResource("4_xef72")
-slot_id = 1
 
 [node name="RECIEVER" type="TextureRect" parent="equipments/equipment_shaite2"]
 layout_mode = 2
@@ -277,8 +277,10 @@ offset_bottom = 80.0
 texture = ExtResource("13_35cpt")
 stretch_mode = 2
 
-[node name="RECIEVERCOVER" type="TextureRect" parent="equipments/equipment_shaite2"]
+[node name="RECIEVERCOVER1" type="TextureRect" parent="equipments/equipment_shaite2"]
 visible = false
+layout_direction = 2
+layout_mode = 0
 offset_left = 12.0
 offset_top = 12.0
 offset_right = 44.0
@@ -287,8 +289,10 @@ mouse_filter = 2
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
-[node name="BARRELCOVER" type="TextureRect" parent="equipments/equipment_shaite2"]
+[node name="BARRELCOVER1" type="TextureRect" parent="equipments/equipment_shaite2"]
 visible = false
+layout_direction = 2
+layout_mode = 0
 offset_left = 84.0
 offset_top = 12.0
 offset_right = 116.0
@@ -297,8 +301,10 @@ mouse_filter = 2
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
-[node name="MUZZLECOVER" type="TextureRect" parent="equipments/equipment_shaite2"]
+[node name="MUZZLECOVER1" type="TextureRect" parent="equipments/equipment_shaite2"]
 visible = false
+layout_direction = 2
+layout_mode = 0
 offset_left = 12.0
 offset_top = 48.0
 offset_right = 44.0
@@ -307,8 +313,10 @@ mouse_filter = 2
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
-[node name="MAGCOVER" type="TextureRect" parent="equipments/equipment_shaite2"]
+[node name="MAGCOVER1" type="TextureRect" parent="equipments/equipment_shaite2"]
 visible = false
+layout_direction = 2
+layout_mode = 0
 offset_left = 48.0
 offset_top = 12.0
 offset_right = 80.0
@@ -317,8 +325,10 @@ mouse_filter = 2
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
-[node name="ATTACHCOVER" type="TextureRect" parent="equipments/equipment_shaite2"]
+[node name="ATTACHCOVER1" type="TextureRect" parent="equipments/equipment_shaite2"]
 visible = false
+layout_direction = 2
+layout_mode = 0
 offset_left = 48.0
 offset_top = 48.0
 offset_right = 80.0
@@ -327,8 +337,10 @@ mouse_filter = 2
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
-[node name="GUTSCOVER" type="TextureRect" parent="equipments/equipment_shaite2"]
+[node name="GUTSCOVER1" type="TextureRect" parent="equipments/equipment_shaite2"]
 visible = false
+layout_direction = 2
+layout_mode = 0
 offset_left = 84.0
 offset_top = 48.0
 offset_right = 116.0
@@ -339,16 +351,17 @@ stretch_mode = 2
 
 [node name="equipment_shaite3" type="NinePatchRect" parent="equipments"]
 layout_mode = 2
-offset_left = 488.0
-offset_top = 208.0
-offset_right = 616.0
-offset_bottom = 264.0
+offset_left = 24.0
+offset_top = 128.0
+offset_right = 152.0
+offset_bottom = 184.0
 texture = ExtResource("4_2lq67")
 patch_margin_left = 10
 patch_margin_top = 10
 patch_margin_right = 10
 patch_margin_bottom = 10
 script = ExtResource("4_xef72")
+gun = false
 
 [node name="HEAD" type="TextureRect" parent="equipments/equipment_shaite3"]
 layout_mode = 2
@@ -377,8 +390,9 @@ offset_bottom = 44.0
 texture = ExtResource("16_7ox2p")
 stretch_mode = 2
 
-[node name="HEADCOVER" type="TextureRect" parent="equipments/equipment_shaite3"]
+[node name="HEADCOVER2" type="TextureRect" parent="equipments/equipment_shaite3"]
 visible = false
+layout_mode = 1
 offset_left = 12.0
 offset_top = 12.0
 offset_right = 44.0
@@ -387,8 +401,9 @@ mouse_filter = 2
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
-[node name="BODYCOVER" type="TextureRect" parent="equipments/equipment_shaite3"]
+[node name="BODYCOVER2" type="TextureRect" parent="equipments/equipment_shaite3"]
 visible = false
+layout_mode = 1
 offset_left = 48.0
 offset_top = 12.0
 offset_right = 80.0
@@ -397,8 +412,9 @@ mouse_filter = 2
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
-[node name="HANDCOVER" type="TextureRect" parent="equipments/equipment_shaite3"]
+[node name="HANDCOVER2" type="TextureRect" parent="equipments/equipment_shaite3"]
 visible = false
+layout_mode = 0
 offset_left = 84.0
 offset_top = 12.0
 offset_right = 116.0

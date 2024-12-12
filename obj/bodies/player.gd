@@ -19,6 +19,8 @@ enum {
 }
 var state = MOVE
 var tween : Tween
+var strategies = []
+var strategy_dic = {}
 
 func _ready() -> void:
 	hurt(0,false)
@@ -31,7 +33,6 @@ func _ready() -> void:
 	$CanvasLayer/Inventory.eq_slot2.assemble.connect(on_assemble2)
 	$CanvasLayer/Inventory.eq_slot2.dissassemble.connect(on_dissassemble2)
 	$CanvasLayer/Inventory.eq_slot3.change.connect(on_augs_change)
-	
 	$CanvasLayer/Inventory.load_save()
 
 func _physics_process(delta):
@@ -107,6 +108,9 @@ func death():
 	$Sprite2D.rotation_degrees = 90
 
 func hurt(amnt, ap):
+	if strategies:
+		for strategy in strategies:
+			strategy.init_strategy(self)
 	if !ap and armor != 0:
 		return
 	elif ap and armor != 0:
