@@ -37,7 +37,6 @@ func grab_item(pos):
 	var g_pos = pos_to_grid_coord(item_pos)
 	var item_size = get_grid_size(item)
 	set_grid_space(g_pos.x, g_pos.y, item_size.x, item_size.y, false)
-	item.item_resource.pick_up()
 	items.pop_at(items.find(item))
 	return item
  

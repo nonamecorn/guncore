@@ -8,6 +8,7 @@ var mod_vec : Vector2
 var active = true
 var strategies = []
 var strategy_dic = {}
+@export var ap : bool = false
 
 var rng = RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
@@ -31,7 +32,7 @@ func _physics_process(delta):
 	if coll:
 		active = false
 		if coll.get_collider().has_method("hurt"):
-			coll.get_collider().hurt(damage)
+			coll.get_collider().hurt(damage, ap)
 		$Sprite2D.hide()
 		create_spark()
 		queue_free()

@@ -18,6 +18,7 @@ enum {
 	RUN,
 	IVESTIGATE
 }
+@export var armor = 0
 @export var health = 50
 var state = IDLE
 var rng = RandomNumberGenerator.new()
@@ -172,15 +173,24 @@ func get_closest(array):
 			smallest_distance = dist_to_body
 	return closest
 
-func hurt(value):
-	health -= value
-	if health <= 0:
-		
-		call_deferred("die")
-	if state == IDLE:
-		state = RUN
-		$change_position.wait_time = 0.5
-		$enemy_hand_component.state = 2
+
+func hurt(amnt, ap):
+	if !ap and armor != 0:
+		return
+	elif ap and armor != 0:
+		var difference = armor - amnt
+		if difference < 0:
+			armor = 0
+		else:
+			armor = difference
+	else:
+		health -= amnt
+		if health <= 0:
+			call_deferred("die")
+		if state == IDLE:
+			state = RUN
+			$change_position.wait_time = 0.5
+			$enemy_hand_component.state = 2
 
 func die():
 	for part in unique_parts:

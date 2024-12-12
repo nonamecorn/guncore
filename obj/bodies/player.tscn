@@ -102,8 +102,6 @@ text = "200$"
 [node name="pause" parent="CanvasLayer" instance=ExtResource("11_heitk")]
 visible = false
 
-[connection signal="area_entered" from="collector" to="." method="_on_collector_area_entered"]
-
 [editable path="player_hand_component"]
 [editable path="hurt_box"]
 [editable path="CanvasLayer/Inventory"]

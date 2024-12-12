@@ -11,6 +11,7 @@ const item_base = preload("res://ui/item_base.tscn")
 @export var grid_bkpk : Node
 @export var eq_slot1 : Node
 @export var eq_slot2 : Node
+@export var eq_slot3 : Node
 @export var augs : Node
 @export var collector : Node
 @export var safe_net : Node
@@ -28,10 +29,12 @@ signal money_changed
 
 func load_save():
 	for le_item in GlobalVars.items:
-		pickup_item(le_item)
-	for arrind in GlobalVars.slot.size():
-		for item in GlobalVars.slot[arrind]:
-			equip_item(item, arrind)
+		
+		if !le_item.eq:
+			
+			pickup_item(le_item)
+		else:
+			equip_item(le_item, le_item.eq_index)
 
 func _ready():
 	pass
@@ -67,14 +70,38 @@ func _physics_process(_delta):
 	if !visible: 
 		return
 	var cursor_pos = get_global_mouse_position()
-	if Input.is_action_just_pressed("ui_left_mouse"):
+	if Input.is_action_just_pressed("quick_grab"):
+		quick_grab(cursor_pos)
+	elif Input.is_action_just_pressed("ui_left_mouse"):
 		grab(cursor_pos)
-	if Input.is_action_just_released("ui_left_mouse"):
+	elif Input.is_action_just_released("ui_left_mouse"):
 		release(cursor_pos)
 	if item_held != null:
 		item_held.global_position = cursor_pos + item_offset
 	check_popup(cursor_pos)
-	
+
+func quick_grab(cursor_pos):
+	var c = get_container_under_cursor(cursor_pos)
+	if c != null and c.has_method("grab_item"):
+		item_held = c.grab_item(cursor_pos)
+		if item_held != null:
+			$audio/grab.play()
+			last_container = c
+			last_pos = item_held.global_position
+			item_offset = item_held.global_position - cursor_pos
+			if c.name == "grid_backpack":
+				for i in $equipments.get_child_count() - 1:
+					if $equipments.get_child(i).insert_item_at_spot(
+						item_held,item_held.item_resource.slot):
+						item_held = null
+						return
+				return_item()
+			else:
+				if grid_bkpk.insert_item_at_first_available_spot(item_held):
+					item_held = null
+				else:
+					return_item()
+
  
 func grab(cursor_pos):
 	var c = get_container_under_cursor(cursor_pos)
@@ -96,7 +123,7 @@ func release(cursor_pos):
 		swap(c, cursor_pos)
 	elif c.has_method("insert_item"):
 		if c.insert_item(item_held):
-			$audio/grab.play()
+			$audio/release.play()
 			item_held = null
 		else:
 			return_item()
@@ -110,6 +137,7 @@ func swap(c2, cursor_pos):
 		return
 	var temp_last_pos = temp_item_held.global_position
 	if c2.insert_item(item_held):
+		item_held.item_resource.pick_up()
 		$audio/grab.play()
 		item_held = null
 		pickup_item(temp_item_held.item_resource)
@@ -138,14 +166,22 @@ func get_container_under_cursor(cursor_pos):
 	return null
  
 func drop_item():
+	item_held.item_resource.pickup.emit()
 	drop.emit(item_held.item_resource)
 	item_held.queue_free()
 	item_held = null
+
+func drop_resource(res):
+	res.pickup.emit()
+	drop.emit(res)
+
 
 func return_item():
 	item_held.global_position = last_pos
 	if last_container.has_method("insert_item"):
 		last_container.insert_item(item_held)
+	elif last_container.has_method("insert_item_iternal"):
+		last_container.insert_item_iternal(item_held)
 	else:
 		drop_item()
 	item_held = null
@@ -169,7 +205,7 @@ func sell_item():
 	GlobalVars.money += cost/2
 	money_changed.emit()
 
-func equip_item(item_res : Item, ind):
+func equip_item(item_res : Item, ind : int) -> bool:
 	var item = item_base.instantiate()
 	item.item_resource = item_res
 	item.texture = item_res.sprite
@@ -185,6 +221,7 @@ func pickup_item(item_res : Item):
 	item.texture = item_res.sprite
 	$items.add_child(item)
 	if !grid_bkpk.insert_item_at_first_available_spot(item):
+		drop_resource(item_res)
 		item.queue_free()
 		return false
 	return true

@@ -3,12 +3,12 @@ extends StaticBody2D
 @export var damage : int = 300
 var exploded = false
 
-func hurt(_amnt):
+func hurt(_amnt, _ap):
 	if exploded: return
 	exploded = true
 	for body in $HurtArea2D.get_overlapping_bodies():
 		if body.has_method("hurt"):
-			body.hurt(damage)
+			body.hurt(damage, true)
 	$AudioStreamPlayer2D.play()
 	$AnimatedSprite2D.show()
 	$AnimatedSprite2D.play()

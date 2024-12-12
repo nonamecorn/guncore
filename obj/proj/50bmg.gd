@@ -6,6 +6,9 @@ var move_vec : Vector2
 var mod_vec : Vector2
 @export var damage : int = 100
 var active = true
+var strategies = []
+var strategy_dic = {}
+@export var ap : bool = true
 
 var rng = RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
@@ -13,6 +16,9 @@ func _ready():
 	rng.randomize()
 	
 func init(vec: Vector2, range_sec, add_spd):
+	if strategies:
+		for strategy in strategies:
+			strategy.init_strategy(self)
 	speed+=add_spd
 	mod_vec = vec
 	move_vec = Vector2.RIGHT
@@ -44,4 +50,4 @@ func create_spark():
 
 func _on_area_2d_body_entered(body):
 	if body.has_method("hurt"):
-		body.hurt(damage)
+		body.hurt(damage, ap)

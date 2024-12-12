@@ -2,6 +2,12 @@ extends Node
 
 func _ready() -> void:
 	var gun = Randogunser.get_gun()
+	var t1 = load(gun.RECIEVER)
+	t1.picked_up = true
+	var t2 = load(gun.MAG)
+	t2.picked_up = true
+	var t3 = load(gun.BARREL)
+	t3.picked_up = true
 	items.append(load(gun.RECIEVER))
 	items.append(load(gun.MAG))
 	items.append(load(gun.BARREL))
@@ -10,6 +16,7 @@ func _ready() -> void:
 		if !path: continue
 		var shop_res = load(path)
 		shop.append(shop_res)
+
 
 const item_base = preload("res://ui/item_base.tscn")
 
@@ -56,9 +63,4 @@ var items = [
 ]
 var fullscreen = false
 var money = 100
-var slot = [
-	[],
-	[],
-	[]
-]
 var shop = []

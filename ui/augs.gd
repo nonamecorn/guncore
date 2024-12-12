@@ -31,6 +31,7 @@ func insert_item(item):
 		if  GlobalVars.money >= item.item_resource.cost:
 			get_parent().get_parent().buy_item()
 		else: return false
+	item.item_resource.pickup.emit()
 	items[slot_num] = item
 	item.global_position = slot.global_position + slot.size / 2 - item.size / 2
 	change.emit(get_parts())

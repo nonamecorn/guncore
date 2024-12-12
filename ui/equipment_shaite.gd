@@ -5,6 +5,9 @@ var items = {}
  
 signal assemble(parts)
 signal dissassemble
+signal change(parts)
+
+@export var gun = true
 @export var slot_id : int
 
 func _ready():
@@ -26,10 +29,17 @@ func insert_item(item):
 		if  GlobalVars.money >= item.item_resource.cost:
 			get_parent().get_parent().buy_item()
 		else: return false
+	item.item_resource.pickup.emit()
 	items[item_slot] = item
-	check_assembly()
-	item.item_resource.equipslot(slot_id)
+	if gun:
+		check_assembly()
+	else:
+		change.emit()
+	item.item_resource.eq = true
+	item.item_resource.eq_index = get_index()
+	item.item_resource.pick_up()
 	item.global_position = slot.global_position + slot.size / 2 - item.size / 2
+	find_child(item_slot+"COVER").show()
 	return true
  
 func insert_item_at_spot(item, slot):
@@ -41,8 +51,15 @@ func insert_item_at_spot(item, slot):
 	if items[item_slot] != null:
 		return false
 	items[item_slot] = item
-	check_assembly()
+	if gun:
+		check_assembly()
+	else:
+		change.emit()
+	item.item_resource.eq = true
+	item.item_resource.eq_index = get_index()
+	item.item_resource.pick_up()
 	item.global_position = find_child(slot).global_position + find_child(slot).size / 2 - item.size / 2
+	find_child(item_slot+"COVER").show()
 	return true
 
 func occupied(item):
@@ -51,19 +68,22 @@ func occupied(item):
 	if slot == null:
 		return false
 	var item_slot = item.item_resource.slot
-	if items[item_slot] != null:
+	if items.has(item_slot) and items[item_slot] != null:
 		return true
 	return false
 
 func grab_item(pos):
 	var item = get_item_under_pos(pos)
-	item.item_resource.unequipslot(slot_id)
 	if item == null:
 		return null
- 
+	item.item_resource.eq = false
 	var item_slot = item.item_resource.slot
 	items[item_slot] = null
-	check_dissassembly()
+	if gun:
+		check_dissassembly()
+	else:
+		change.emit()
+	find_child(item_slot+"COVER").hide()
 	return item
  
 func get_slot_under_pos(pos):

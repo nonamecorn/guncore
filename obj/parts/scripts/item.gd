@@ -14,15 +14,12 @@ class_name Item
 var from_shop = false
 var id : int
 signal pickup
+var eq = false
+var eq_index = null
+var picked_up = false
 
 func pick_up():
+	if picked_up: return
+	picked_up = true
 	GlobalVars.items.append(self)
 	pickup.emit()
-
-func equipslot(slot):
-	GlobalVars.slot[slot].append(self)
-	GlobalVars.items.erase(self)
-
-func unequipslot(slot):
-	GlobalVars.slot[slot].erase(self)
-	GlobalVars.items.append(self)

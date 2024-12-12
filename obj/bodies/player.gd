@@ -3,10 +3,13 @@ extends  CharacterBody2D
 
 @onready var gun = $player_hand_component
 @onready var item_base = load("res://obj/components/item_ground_base.tscn")
-const MAX_SPEED = 160
-const ACCELERATION = 1000
-const FRICTION = 1000
+
+var MAX_SPEED = 160
+var ACCELERATION = 1000
+var FRICTION = 1000
 var health : int = 200
+var armor : int = 0
+
 var flipped = false
 signal died
 enum {
@@ -18,7 +21,7 @@ var state = MOVE
 var tween : Tween
 
 func _ready() -> void:
-	hurt(0)
+	hurt(0,false)
 	refresh()
 	$hurt_box.damaged.connect(hurt)
 	$CanvasLayer/Inventory.money_changed.connect(refresh)
@@ -27,6 +30,8 @@ func _ready() -> void:
 	$CanvasLayer/Inventory.eq_slot1.dissassemble.connect(on_dissassemble)
 	$CanvasLayer/Inventory.eq_slot2.assemble.connect(on_assemble2)
 	$CanvasLayer/Inventory.eq_slot2.dissassemble.connect(on_dissassemble2)
+	$CanvasLayer/Inventory.eq_slot3.change.connect(on_augs_change)
+	
 	$CanvasLayer/Inventory.load_save()
 
 func _physics_process(delta):
@@ -101,11 +106,20 @@ func death():
 	$CollisionShape2D.disabled = true
 	$Sprite2D.rotation_degrees = 90
 
-func hurt(amnt):
-	health -= amnt
-	$CanvasLayer/hp.text = str(health)
-	if health <= 0:
-		call_deferred("death")
+func hurt(amnt, ap):
+	if !ap and armor != 0:
+		return
+	elif ap and armor != 0:
+		var difference = armor - amnt
+		if difference < 0:
+			armor = 0
+		else:
+			armor = difference
+	else:
+		health -= amnt
+		$CanvasLayer/hp.text = str(health)
+		if health <= 0:
+			call_deferred("death")
 
 func drop(item : Item):
 	GlobalVars.items.erase(item)
@@ -131,6 +145,19 @@ func on_assemble2(parts):
 func on_dissassemble2():
 	$player_hand_component/Marker2D/gun_base2.dissassemble_gun()
 
-
-func _on_collector_area_entered(_area: Area2D) -> void:
-	pass
+func on_augs_change(parts : Dictionary):
+	for part_name in parts:
+		if parts[part_name] == null: continue
+		for change in parts[part_name].changes:
+			if change.is_set:
+				set_stat(change.stat_name, change.value_of_stat)
+				continue
+			change_stat(change.stat_name, change.value_of_stat, change.mult)
+func change_stat(name_of_stat : String, value_of_stat, mult: bool):
+	var temp = get(name_of_stat)
+	if mult:
+		set(name_of_stat, temp*value_of_stat)
+		return
+	set(name_of_stat, temp+value_of_stat)
+func set_stat(name_of_stat : String, value_of_stat):
+	set(name_of_stat, value_of_stat)
