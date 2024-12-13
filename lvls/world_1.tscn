@@ -47,6 +47,6 @@ shadow_enabled = true
 texture = ExtResource("5_jgcgt")
 
 [node name="make_room" type="Timer" parent="."]
-wait_time = 0.05
+wait_time = 0.001
 
 [connection signal="timeout" from="make_room" to="." method="_on_make_room_timeout"]

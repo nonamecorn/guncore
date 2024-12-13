@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="Attachment" load_steps=8 format=3 uid="uid://cbcf2lhkp8krk"]
+
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_6363m"]
+[ext_resource type="Script" path="res://obj/components/change.gd" id="2_5iokx"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_drpap"]
+[ext_resource type="Script" path="res://obj/parts/scripts/attachment.gd" id="4_vmlkn"]
+[ext_resource type="Texture2D" uid="uid://b287607slbrhq" path="res://img/parts/Smart_Scope.png" id="5_hiewr"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="5_makya"]
+[ext_resource type="Resource" uid="uid://cwnvus7i0mq4t" path="res://obj/parts/strategies/Airburst.tres" id="6_pl1m6"]
+
+[resource]
+script = ExtResource("4_vmlkn")
+item_name = "AirBurst Control Node"
+item_description = "See Elysium (not Disco).
+Recomended to use with 
+airburst bullets."
+cost = 60
+sprite = ExtResource("5_hiewr")
+sprite_offset = Vector2(0, -3)
+bullet_strategies = Array[ExtResource("1_6363m")]([])
+player_strategies = Array[ExtResource("3_drpap")]([])
+shootin_strategies = Array[ExtResource("5_makya")]([ExtResource("6_pl1m6")])
+changes = Array[ExtResource("2_5iokx")]([])

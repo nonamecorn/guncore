@@ -1,13 +1,15 @@
-[gd_scene load_steps=24 format=3 uid="uid://d0ex485qfg6qx"]
+[gd_scene load_steps=26 format=3 uid="uid://d0ex485qfg6qx"]
 
 [ext_resource type="Script" path="res://ui/inventory.gd" id="1_vc4ge"]
 [ext_resource type="Texture2D" uid="uid://b4anek45w5w7p" path="res://img/ui/inventory.png" id="2_am81f"]
 [ext_resource type="Script" path="res://ui/texture_rect.gd" id="2_gjxwj"]
 [ext_resource type="Texture2D" uid="uid://bl5o8lhl8assn" path="res://img/ui/inventory3.png" id="2_uegg3"]
+[ext_resource type="Texture2D" uid="uid://bpp86byvrxopq" path="res://img/ui/inventory_cover.png" id="4_0csks"]
 [ext_resource type="Texture2D" uid="uid://faonagr4q8jo" path="res://img/ui/UI.png" id="4_2lq67"]
 [ext_resource type="Script" path="res://ui/equipment_shaite.gd" id="4_xef72"]
 [ext_resource type="Texture2D" uid="uid://dhaleribd0wp7" path="res://img/ui/Pull.png" id="6_lojmw"]
 [ext_resource type="Texture2D" uid="uid://cxm8l442in7mi" path="res://img/ui/inventory_1slot.png" id="6_uhxew"]
+[ext_resource type="Texture2D" uid="uid://cbajf8yubuqvh" path="res://img/ui/Pull_cover.png" id="7_5ii2v"]
 [ext_resource type="Script" path="res://ui/collector.gd" id="7_suxgo"]
 [ext_resource type="Texture2D" uid="uid://l2j5j658rxuy" path="res://img/ui/Reciver.png" id="8_ek5p5"]
 [ext_resource type="Texture2D" uid="uid://os7v6mlrkik6" path="res://img/ui/Barrel.png" id="9_2shbn"]
@@ -53,13 +55,21 @@ color = Color(0.625676, 0.128878, 0.24422, 1)
 [node name="grid_backpack" type="TextureRect" parent="."]
 layout_mode = 0
 offset_left = 224.0
-offset_top = 256.0
+offset_top = 240.0
 offset_right = 384.0
-offset_bottom = 320.0
+offset_bottom = 336.0
 mouse_filter = 2
 texture = ExtResource("2_uegg3")
 stretch_mode = 2
 script = ExtResource("2_gjxwj")
+
+[node name="TextureRect" type="TextureRect" parent="grid_backpack"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 176.0
+offset_bottom = 112.0
+texture = ExtResource("4_0csks")
 
 [node name="collector" type="TextureRect" parent="."]
 layout_mode = 0
@@ -69,6 +79,14 @@ offset_right = 144.0
 offset_bottom = 336.0
 texture = ExtResource("6_lojmw")
 script = ExtResource("7_suxgo")
+
+[node name="TextureRect" type="TextureRect" parent="collector"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 144.0
+offset_bottom = 336.0
+texture = ExtResource("7_5ii2v")
 
 [node name="equipments" type="Control" parent="."]
 anchors_preset = 0

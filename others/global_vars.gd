@@ -62,5 +62,5 @@ var items = [
 	#load("res://obj/parts/mags/SMGll_mag.tres"),
 ]
 var fullscreen = false
-var money = 100
+var money = 1000
 var shop = []

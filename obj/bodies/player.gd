@@ -21,10 +21,12 @@ var state = MOVE
 var tween : Tween
 var strategies = []
 var strategy_dic = {}
+var active_gun : int = 0
 
 func _ready() -> void:
 	hurt(0,false)
 	refresh()
+	on_ammo_change(null,null,0)
 	$hurt_box.damaged.connect(hurt)
 	$CanvasLayer/Inventory.money_changed.connect(refresh)
 	$CanvasLayer/Inventory.drop.connect(drop)
@@ -34,6 +36,8 @@ func _ready() -> void:
 	$CanvasLayer/Inventory.eq_slot2.dissassemble.connect(on_dissassemble2)
 	$CanvasLayer/Inventory.eq_slot3.change.connect(on_augs_change)
 	$CanvasLayer/Inventory.load_save()
+	$player_hand_component/Marker2D/gun_base.ammo_changed.connect(on_ammo_change)
+	$player_hand_component/Marker2D/gun_base2.ammo_changed.connect(on_ammo_change)
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("special_button"):
@@ -148,6 +152,13 @@ func on_assemble2(parts):
 
 func on_dissassemble2():
 	$player_hand_component/Marker2D/gun_base2.dissassemble_gun()
+
+func on_ammo_change(curr_mmo,max_mmo,ind):
+	if $player_hand_component.active_base != ind: return
+	if curr_mmo == null or max_mmo == null:
+		$CanvasLayer/ammo.text = ""
+	else:
+		$CanvasLayer/ammo.text = str(curr_mmo)+"/"+str(max_mmo)
 
 func on_augs_change(parts : Dictionary):
 	for part_name in parts:

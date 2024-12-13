@@ -137,11 +137,26 @@ func swap(c2, cursor_pos):
 		return
 	var temp_last_pos = temp_item_held.global_position
 	if c2.insert_item(item_held):
+		$audio/release.play()
 		item_held.item_resource.pick_up()
-		$audio/grab.play()
-		item_held = null
-		pickup_item(temp_item_held.item_resource)
-		temp_item_held.queue_free()
+		if last_container.name == "grid_backpack" or last_container.name == "collector" or last_container.name == "shop_backpack2":
+			if !grid_bkpk.insert_item_at_first_available_spot(temp_item_held):
+				if last_container.name == "shop_backpack2":
+					item_held = temp_item_held
+					shop.insert_item_at_first_available_spot(temp_item_held)
+					item_held = null
+					return
+				item_held = temp_item_held
+				drop_item()
+				return
+			item_held = null
+		else:
+			for i in $equipments.get_child_count() - 1:
+				if $equipments.get_child(i).insert_item_at_spot(
+					temp_item_held,temp_item_held.item_resource.slot):
+					item_held = null
+					return
+			return_item()
 	else:
 		temp_item_held.global_position = temp_last_pos
 		c2.insert_item(temp_item_held)
@@ -193,6 +208,7 @@ func buy_item():
 	item_held.item_resource.from_shop = false
 	item_held.reparent($items)
 	var cost = item_held.item_resource.cost
+
 	GlobalVars.money -= cost
 	money_changed.emit()
 
@@ -201,6 +217,7 @@ func sell_item():
 	GlobalVars.shop.append(item_held.item_resource)
 	item_held.item_resource.from_shop = true
 	item_held.reparent($shop_items)
+	item_held.item_resource.picked_up = false
 	var cost = item_held.item_resource.cost
 	GlobalVars.money += cost/2
 	money_changed.emit()

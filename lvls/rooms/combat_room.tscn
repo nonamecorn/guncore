@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=4 uid="uid://b7oj8pql257pe"]
+[gd_scene load_steps=6 format=4 uid="uid://b7oj8pql257pe"]
 
 [ext_resource type="Script" path="res://lvls/rooms/basic_room.gd" id="1_7koly"]
 [ext_resource type="PackedScene" uid="uid://bf65xavyr0pes" path="res://lvls/misc/module_connector.tscn" id="2_cjjcc"]
 [ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="3_2wwxc"]
+[ext_resource type="PackedScene" uid="uid://ddfo6c5nx4m8h" path="res://lvls/misc/light.tscn" id="4_0sap0"]
 [ext_resource type="PackedScene" uid="uid://dww7vxteobmel" path="res://obj/env/explosive_barrel.tscn" id="4_bwa8p"]
 
 [node name="BasicRoom" type="Node2D"]
@@ -46,6 +47,18 @@ tile_map_data = PackedByteArray("AADx/wsABAABAAAAAADy/wsABAABAAAAAADz/wsABAABAAA
 tile_map_data = PackedByteArray("AAADAAkAAwABAAIAAAD9/wkAAwAAAAIAAAD+/wkAAwAAAAAAAAD//wkAAwAAAAAAAAAAAAkAAwAAAAAAAAABAAkAAwAAAAAAAAACAAkAAwAAAAAAAAD6/wkAAwABAAIAAAD5/wkAAwAAAAAAAAD4/wkAAwACAAIAAAD4/wcAAwAEAAIAAAD4/wgAAwADAAAAAAD4/wYAAwADAAEAAAAGAAkAAwAAAAIAAAAHAAkAAwADAAIAAAAHAAgAAwADAAAAAAAHAAcAAwAEAAIAAAAEAAYAAwAAAAIAAAAHAAYAAwADAAEAAAAGAAYAAwACAAAAAAAFAAYAAwAAAAAAAAD4/w8AAwAAAAAAAAD5/w8AAwAAAAAAAAD6/w8AAwABAAIAAAD9/w8AAwAAAAIAAAD+/w8AAwAAAAAAAAD//w8AAwAAAAAAAAAAAA8AAwABAAAAAAABAA8AAwAAAAAAAAACAA8AAwAAAAAAAAADAA8AAwABAAIAAAAGAA8AAwAAAAIAAAAHAA8AAwADAAEAAAAHABAAAwAEAAEAAAAHABEAAwADAAAAAAAHABIAAwAEAAIAAAD6/wYAAwAAAAIAAAD7/wYAAwABAAAAAAD8/wYAAwABAAIAAAD5/xIAAwAAAAIAAAD6/xIAAwABAAAAAAD7/xIAAwABAAIAAAD3/w8AAwAAAAIAAAD3/wYAAwAAAAIAAAA=")
 
 [node name="decor" type="Node2D" parent="."]
+
+[node name="light" parent="decor" instance=ExtResource("4_0sap0")]
+position = Vector2(27, 117)
+
+[node name="light2" parent="decor" instance=ExtResource("4_0sap0")]
+position = Vector2(-421, 387)
+
+[node name="light3" parent="decor" instance=ExtResource("4_0sap0")]
+position = Vector2(6, 643)
+
+[node name="light4" parent="decor" instance=ExtResource("4_0sap0")]
+position = Vector2(507, 412)
 
 [node name="enemies" type="Node2D" parent="."]
 

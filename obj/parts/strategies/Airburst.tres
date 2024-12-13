@@ -1,0 +1,6 @@
+[gd_resource type="Resource" script_class="Airburst" load_steps=2 format=3 uid="uid://cwnvus7i0mq4t"]
+
+[ext_resource type="Script" path="res://obj/parts/strategies/airburststrgy.gd" id="1_nr3px"]
+
+[resource]
+script = ExtResource("1_nr3px")

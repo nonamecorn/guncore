@@ -16,11 +16,13 @@ func _physics_process(_delta):
 		active_base = 0
 		$Marker2D/gun_base.show()
 		$Marker2D/gun_base2.hide()
+		$Marker2D/gun_base.display_ammo()
 	if Input.is_action_just_pressed("2"):
 		$Marker2D.get_child(active_base).stop_fire()
 		active_base = 1
 		$Marker2D/gun_base.hide()
 		$Marker2D/gun_base2.show()
+		$Marker2D/gun_base2.display_ammo()
 	if Input.is_action_just_pressed("ui_left_mouse"):
 		$Marker2D.get_child(active_base).start_fire()
 	if Input.is_action_just_released("ui_left_mouse"):

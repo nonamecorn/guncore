@@ -1,4 +1,5 @@
 extends CharacterBody2D
+class_name BasicProjectile
 
 var spark = preload("res://obj/proj/spark.tscn")
 @export var speed = 500
@@ -8,42 +9,45 @@ var mod_vec : Vector2
 var active = true
 var strategies = []
 var strategy_dic = {}
+var mpos = Vector2.ZERO
 @export var ap : bool = false
 
 var rng = RandomNumberGenerator.new()
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	mpos = get_global_mouse_position()
 	rng.randomize()
 	
 func init(vec: Vector2, range_sec, add_spd):
-	if strategies:
-		for strategy in strategies:
-			strategy.init_strategy(self)
 	speed+=add_spd
 	mod_vec = vec
 	move_vec = Vector2.RIGHT
 	move_vec = move_vec.rotated(global_rotation)
 	$Timer.wait_time = range_sec
+	if strategies:
+		for strategy in strategies:
+			strategy.init_strategy(self)
 	
 
 func _physics_process(delta):
-	var coll = move_and_collide((move_vec * speed + mod_vec) * delta)
 	if !active: return
+	var coll = move_and_collide((move_vec * speed + mod_vec) * delta)
 	if coll:
-		active = false
-		if coll.get_collider().has_method("hurt"):
-			coll.get_collider().hurt(damage, ap)
-		$Sprite2D.hide()
-		create_spark()
-		queue_free()
+		on_collision(coll)
 	if !strategies: return
 	for strategy in strategies:
 		strategy.move_strategy(self)
 
-func _on_timer_timeout():
+func on_collision(collider):
+	if collider and collider.get_collider().has_method("hurt"):
+		collider.get_collider().hurt(damage, ap)
+	active = false
 	$Sprite2D.hide()
 	create_spark()
 	queue_free()
+
+func _on_timer_timeout():
+	on_collision(null)
 
 func create_spark():
 	var spark_inst = spark.instantiate()

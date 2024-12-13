@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=4 uid="uid://c3pgbdnfobaqo"]
+[gd_scene load_steps=6 format=4 uid="uid://c3pgbdnfobaqo"]
 
 [ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="1_0qsy7"]
 [ext_resource type="Script" path="res://lvls/rooms/basic_room.gd" id="1_ygdka"]
 [ext_resource type="PackedScene" uid="uid://bf65xavyr0pes" path="res://lvls/misc/module_connector.tscn" id="3_uvqw5"]
+[ext_resource type="PackedScene" uid="uid://ddfo6c5nx4m8h" path="res://lvls/misc/light.tscn" id="4_2mub7"]
 [ext_resource type="PackedScene" uid="uid://dww7vxteobmel" path="res://obj/env/explosive_barrel.tscn" id="4_lmxnw"]
 
 [node name="BasicRoom" type="Node2D"]
@@ -46,6 +47,18 @@ tile_map_data = PackedByteArray("AADx/wsABAABAAAAAADy/wsABAABAAAAAADz/wsABAABAAA
 tile_map_data = PackedByteArray("AAADAAkAAwABAAIAAAD9/wkAAwAAAAIAAAD+/wkAAwAAAAAAAAD//wkAAwAAAAAAAAAAAAkAAwAAAAAAAAABAAkAAwAAAAAAAAACAAkAAwAAAAAAAAD6/wkAAwABAAIAAAD5/wkAAwAAAAAAAAD4/wkAAwACAAIAAAD4/wcAAwAEAAIAAAD4/wgAAwADAAAAAAD4/wYAAwADAAEAAAAGAAkAAwAAAAIAAAAHAAkAAwADAAIAAAAHAAgAAwADAAAAAAAHAAcAAwAEAAIAAAAEAAYAAwAAAAIAAAAHAAYAAwADAAEAAAAGAAYAAwACAAAAAAAFAAYAAwAAAAAAAAD4/w8AAwAAAAAAAAD5/w8AAwAAAAAAAAD6/w8AAwABAAIAAAD9/w8AAwAAAAIAAAD+/w8AAwAAAAAAAAD//w8AAwAAAAAAAAAAAA8AAwABAAAAAAABAA8AAwAAAAAAAAACAA8AAwAAAAAAAAADAA8AAwABAAIAAAAGAA8AAwAAAAIAAAAHAA8AAwADAAEAAAAHABAAAwAEAAEAAAAHABEAAwADAAAAAAAHABIAAwAEAAIAAAD6/wYAAwAAAAIAAAD7/wYAAwABAAAAAAD8/wYAAwABAAIAAAD5/xIAAwAAAAIAAAD6/xIAAwABAAAAAAD7/xIAAwABAAIAAAA=")
 
 [node name="decor" type="Node2D" parent="."]
+
+[node name="light" parent="decor" instance=ExtResource("4_2mub7")]
+position = Vector2(21, 602)
+
+[node name="light2" parent="decor" instance=ExtResource("4_2mub7")]
+position = Vector2(508, 391)
+
+[node name="light3" parent="decor" instance=ExtResource("4_2mub7")]
+position = Vector2(-358, 354)
+
+[node name="light4" parent="decor" instance=ExtResource("4_2mub7")]
+position = Vector2(12, 79)
 
 [node name="enemies" type="Node2D" parent="."]
 

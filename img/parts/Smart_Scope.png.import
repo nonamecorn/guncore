@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dmssj5jod5loc"
-path="res://.godot/imported/GL_nade.png-85da5bd7474b06cdbb58272dd8942f9a.ctex"
+uid="uid://b287607slbrhq"
+path="res://.godot/imported/Smart_Scope.png-6559a4b3226f64d7c33b1b60e4fb5081.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://img/parts/GL_nade.png"
-dest_files=["res://.godot/imported/GL_nade.png-85da5bd7474b06cdbb58272dd8942f9a.ctex"]
+source_file="res://img/parts/Smart_Scope.png"
+dest_files=["res://.godot/imported/Smart_Scope.png-6559a4b3226f64d7c33b1b60e4fb5081.ctex"]
 
 [params]
 

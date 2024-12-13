@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="GunReciever" load_steps=4 format=3 uid="uid://binmcxgmesfbh"]
+[gd_resource type="Resource" script_class="GunReciever" load_steps=6 format=3 uid="uid://binmcxgmesfbh"]
 
 [ext_resource type="Script" path="res://obj/parts/scripts/reciever.gd" id="1_8pcku"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_evb57"]
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_l3y30"]
 [ext_resource type="Texture2D" uid="uid://cfmchtyfsl0mb" path="res://img/parts/MG.png" id="2_3nx22"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_u5663"]
 
 [resource]
 script = ExtResource("1_8pcku")
@@ -11,9 +13,13 @@ ver_recoil = 8.0
 hor_recoil = 8.0
 mag_position = Vector2(2, 2)
 barrel_position = Vector2(8, 0)
+attach_position = Vector2(2, -3)
 item_name = "MG"
 item_description = ""
 cost = 25
 sprite = ExtResource("2_3nx22")
 sprite_offset = Vector2(0, 0)
+bullet_strategies = Array[ExtResource("1_evb57")]([])
+firing_strategies = Array[ExtResource("1_evb57")]([])
+player_strategies = Array[ExtResource("3_u5663")]([])
 changes = Array[ExtResource("1_l3y30")]([])

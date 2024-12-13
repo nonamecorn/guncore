@@ -15,6 +15,7 @@ var active = true
 
 func deactivate():
 	active = false
+	#$Polygon2D.show()
 
 func wft():
 	deactivate()

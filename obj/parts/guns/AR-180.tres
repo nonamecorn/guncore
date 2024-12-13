@@ -1,8 +1,10 @@
-[gd_resource type="Resource" script_class="GunReciever" load_steps=4 format=3 uid="uid://gis3gxijahkm"]
+[gd_resource type="Resource" script_class="GunReciever" load_steps=6 format=3 uid="uid://gis3gxijahkm"]
 
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_5y7yf"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_ogic2"]
 [ext_resource type="Script" path="res://obj/parts/scripts/reciever.gd" id="2_s3h2p"]
 [ext_resource type="Texture2D" uid="uid://c2l7pecgvas78" path="res://img/parts/AR-180.png" id="3_4wdy8"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_ghgu6"]
 
 [resource]
 script = ExtResource("2_s3h2p")
@@ -11,9 +13,13 @@ ver_recoil = 8.0
 hor_recoil = 5.0
 mag_position = Vector2(1, 3)
 barrel_position = Vector2(6, 0)
+attach_position = Vector2(1, -3)
 item_name = "RAR-180"
 item_description = ""
 cost = 50
 sprite = ExtResource("3_4wdy8")
 sprite_offset = Vector2(0, 0)
+bullet_strategies = Array[ExtResource("1_ogic2")]([])
+firing_strategies = Array[ExtResource("1_ogic2")]([])
+player_strategies = Array[ExtResource("3_ghgu6")]([])
 changes = Array[ExtResource("1_5y7yf")]([])

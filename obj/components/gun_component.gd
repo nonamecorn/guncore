@@ -8,7 +8,7 @@ var spread_tween
 @export var player_handled = false
 var current_ammo
 var current_spread = 0
-
+var added_velocity : Vector2
 var state = STOP
 
 enum {
@@ -16,6 +16,7 @@ enum {
 	STOP,
 }
 signal empty
+signal ammo_changed(current,max,ind)
 
 var current_bullet_obj
 var current_firerate
@@ -57,6 +58,8 @@ func asseble_gun(parts : Dictionary):
 	spawn_facade(parts.RECIEVER, Vector2.ZERO)
 	spawn_facade(parts.BARREL, parts.RECIEVER.barrel_position+parts.BARREL.sprite_offset)
 	spawn_facade(parts.MAG, parts.RECIEVER.mag_position+parts.MAG.sprite_offset)
+	if parts.has("ATTACH") and parts.ATTACH:
+		spawn_facade(parts.ATTACH, parts.RECIEVER.attach_position+parts.ATTACH.sprite_offset)
 	
 	current_firerate = parts.RECIEVER.base_firerate
 	current_max_spread = parts.BARREL.max_spread
@@ -89,7 +92,7 @@ func asseble_gun(parts : Dictionary):
 		
 		for stratagy in parts[part_name].bullet_strategies:
 			bullet_strategies.append(stratagy)
-		for stratagy in parts[part_name].firing_strategies:
+		for stratagy in parts[part_name].shootin_strategies:
 			firing_strategies.append(stratagy)
 	
 	if current_firerate != 0:
@@ -98,6 +101,7 @@ func asseble_gun(parts : Dictionary):
 	var alert_shape = CircleShape2D.new()
 	alert_shape.radius = alert_distance
 	$noise_alert/CollisionShape2D.shape = alert_shape
+	display_ammo()
 	reload()
 
 func change_stat(name_of_stat : String, value_of_stat, mult: bool):
@@ -137,6 +141,7 @@ func stop_fire():
 func _on_reload_timeout():
 	stop_fire()
 	current_ammo = current_max_ammo
+	display_ammo()
 	if player_handled: $audio/reload_end_cue.play()
 	$MAG.show()
 	state = FIRE
@@ -151,6 +156,8 @@ func reload():
 	$MAG.hide()
 	current_spread = current_min_spread
 
+func display_ammo():
+	ammo_changed.emit(current_ammo,current_max_ammo,get_index())
 
 func fire():
 	if state: return
@@ -159,6 +166,7 @@ func fire():
 			empty.emit()
 			return
 		current_ammo -= 1
+		display_ammo()
 		$AnimationPlayer.play("fire")
 		$audio/shoting.play()
 		for body in $noise_alert.get_overlapping_bodies():
@@ -171,11 +179,12 @@ func fire():
 		var bullet_inst = current_bullet_obj.instantiate()
 		bullet_inst.global_position = check_point_of_fire()
 		bullet_inst.global_rotation_degrees = global_rotation_degrees + rng.randf_range(-current_spread, current_spread)
+		added_velocity = get_parent().get_parent().get_parent().velocity
 		
-		for strategy in firing_strategies:
-			strategy.apply_strategy(bullet_inst)
+		
 		for strategy in bullet_strategies:
 			bullet_inst.strategies.append(strategy)
-		
+		for strategy in firing_strategies:
+			strategy.apply_strategy(bullet_inst, self)
 		get_tree().current_scene.call_deferred("add_child",bullet_inst)
-		bullet_inst.init(get_parent().get_parent().get_parent().velocity, current_range, current_add_spd)
+		bullet_inst.init(added_velocity, current_range, current_add_spd)
