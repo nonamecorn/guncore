@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://cy2eud5lve0j5" path="res://img/light232.png" id="5_jgcgt"]
 
 [node name="world1" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_ki535")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -28,10 +29,13 @@ position = Vector2(605, 629)
 script = ExtResource("3_5hpog")
 
 [node name="enemies" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="items" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("4_22ug0")]
+y_sort_enabled = true
 position = Vector2(541, 307)
 
 [node name="light" type="Node2D" parent="Player"]

@@ -49,7 +49,8 @@ func spawn_facade(part,offset):
 func dispawn_facade(part_name):
 	var slot = find_child(part_name)
 	if slot.get_child_count() == 0: return
-	slot.get_child(0).queue_free()
+	for child in slot.get_children():
+		child.queue_free()
 	slot.position = Vector2.ZERO
 
 func asseble_gun(parts : Dictionary):
@@ -119,6 +120,7 @@ func dissassemble_gun():
 	dispawn_facade("BARREL")
 	dispawn_facade("MAG")
 	dispawn_facade("MUZZLE")
+	dispawn_facade("ATTACH")
 	state = STOP
 
 func start_fire():

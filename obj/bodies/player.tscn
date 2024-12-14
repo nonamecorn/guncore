@@ -29,6 +29,9 @@ height = 24.0
 top_level = true
 collision_layer = 4
 script = ExtResource("1_6n3fv")
+MAX_SPEED = 180
+ACCELERATION = 1500
+FRICTION = 1500
 
 [node name="collector" type="Area2D" parent="."]
 position = Vector2(0, -6)

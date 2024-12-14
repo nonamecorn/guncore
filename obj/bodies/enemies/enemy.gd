@@ -135,6 +135,7 @@ func _on_change_position_timeout():
 func _on_makepath_timeout():
 	if dead or !is_instance_valid(current_target):
 		return
+	update_current_target()
 	get_circle_position(randomnum)
 
 func drop(item : Item):
