@@ -5,6 +5,8 @@ extends Node2D
 @onready var enemy = load("res://obj/bodies/enemies/enemy.tscn")
 @onready var corp = load("res://obj/bodies/enemies/corp_grunt.tscn")
 
+var activated = false
+
 func init():
 	if has_node("enemies"):
 		for marker in $enemies.get_children():
@@ -42,3 +44,10 @@ func align(aligment) ->void:
 		2:inv_allign = 1
 		3:inv_allign = 0
 	position -= markers[inv_allign].position
+
+
+func _on_trigger_body_entered(body: Node2D) -> void:
+	if activated: return
+	activated = true
+	if body.is_in_group("player"):
+		init()

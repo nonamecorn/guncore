@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=4 uid="uid://b7oj8pql257pe"]
+[gd_scene load_steps=7 format=4 uid="uid://b7oj8pql257pe"]
 
 [ext_resource type="Script" path="res://lvls/rooms/basic_room.gd" id="1_7koly"]
 [ext_resource type="PackedScene" uid="uid://bf65xavyr0pes" path="res://lvls/misc/module_connector.tscn" id="2_cjjcc"]
 [ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="3_2wwxc"]
 [ext_resource type="PackedScene" uid="uid://ddfo6c5nx4m8h" path="res://lvls/misc/light.tscn" id="4_0sap0"]
 [ext_resource type="PackedScene" uid="uid://dww7vxteobmel" path="res://obj/env/explosive_barrel.tscn" id="4_bwa8p"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vfr7w"]
+size = Vector2(1039, 409)
 
 [node name="BasicRoom" type="Node2D"]
 script = ExtResource("1_7koly")
@@ -95,5 +98,17 @@ position = Vector2(136, 330)
 
 [node name="explosive_barrel3" parent="env" instance=ExtResource("4_bwa8p")]
 position = Vector2(-55, 467)
+
+[node name="Trigger" type="Area2D" parent="."]
+position = Vector2(8, 401)
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Trigger"]
+position = Vector2(38.5, -4.5)
+shape = SubResource("RectangleShape2D_vfr7w")
+
+[connection signal="body_entered" from="Trigger" to="." method="_on_trigger_body_entered"]
 
 [editable path="layers"]

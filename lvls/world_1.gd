@@ -47,8 +47,10 @@ func stop_spawnin():
 
 func spawn_room(room : String):
 	get_exits()
-	exits.shuffle()
-	var connector = exits[0]
+	exits.reverse()
+	var head = exits.slice(0,3)
+	head.shuffle()
+	var connector = head[0]
 	var connector_info = connector.get_info()
 	var corr_inst
 	var connector_to_destroy
@@ -77,8 +79,8 @@ func spawn_room(room : String):
 	var corr_rect = corr_inst.get_rect()
 	if room_fits(room_rect,corr_rect):
 		room_inst.get_child(0).get_child(connector_to_destroy).queue_free()
-		if room_inst.has_method("init"):
-			room_inst.init()
+		#if room_inst.has_method("init"):
+			#room_inst.init()
 		connector.queue_free()
 		rects.append_array([room_rect, corr_rect])
 		roomcount -= 1
