@@ -26,7 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://c1lee8a3t06tt" path="res://img/ui/ArmorSlot.png" id="15_isfqa"]
 [ext_resource type="Texture2D" uid="uid://ds0gmt5dgnqnp" path="res://img/ui/Hand.png" id="16_7ox2p"]
 
-[node name="Inventory" type="Control" node_paths=PackedStringArray("grid_bkpk", "eq_slot1", "eq_slot2", "eq_slot3", "augs", "collector", "safe_net", "shop", "shop_dil")]
+[node name="Inventory" type="Control" node_paths=PackedStringArray("grid_bkpk", "eq_slot1", "eq_slot2", "eq_slot3", "augs", "collector", "safe_net", "shop", "shop_dil", "le_items", "shop_items")]
 process_mode = 3
 layout_mode = 3
 anchor_right = 0.5
@@ -43,6 +43,8 @@ collector = NodePath("collector")
 safe_net = NodePath("safety_net")
 shop = NodePath("shop_backpack2")
 shop_dil = NodePath("Shop")
+le_items = NodePath("le_items")
+shop_items = NodePath("shop_items")
 
 [node name="safety_net" type="ColorRect" parent="."]
 visible = false
@@ -454,7 +456,7 @@ script = ExtResource("10_50eua")
 popup = NodePath("../dialogue")
 shop_items_ctrl = NodePath("../shop_items")
 
-[node name="items" type="Control" parent="."]
+[node name="le_items" type="Control" parent="."]
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0

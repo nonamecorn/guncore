@@ -20,6 +20,7 @@ config/icon="res://icon.svg"
 IdGiver="*res://others/id_giver.gd"
 Randogunser="*res://others/randogunser.gd"
 GlobalVars="*res://others/global_vars.gd"
+OstManager="*res://others/ost_manager.tscn"
 
 [display]
 

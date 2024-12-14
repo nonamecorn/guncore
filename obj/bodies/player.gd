@@ -53,6 +53,8 @@ func _physics_process(delta):
 		
 
 func tab_state():
+	$Sprite2D/IdleAnimation.show()
+	$Sprite2D/RunninAnnimation.hide()
 	if Input.is_action_just_pressed("ui_tab"):
 		$CanvasLayer/Inventory.hide_properly()
 		$CanvasLayer/Inventory.switch_to_inventory()
@@ -80,6 +82,7 @@ func get_input_dir():
 
 func move_state(delta):
 	if Input.is_action_just_pressed("ui_tab"):
+		
 		get_items()
 		$CanvasLayer/Inventory.show()
 		$Camera2D.follow = false
@@ -87,8 +90,12 @@ func move_state(delta):
 		state = TAB_MENU
 	var input_vector = get_input_dir()
 	if input_vector != Vector2.ZERO:
+		$Sprite2D/IdleAnimation.hide()
+		$Sprite2D/RunninAnnimation.show()
 		velocity = velocity.move_toward(input_vector * MAX_SPEED,delta * ACCELERATION)
 	else:
+		$Sprite2D/IdleAnimation.show()
+		$Sprite2D/RunninAnnimation.hide()
 		velocity = velocity.move_toward(Vector2.ZERO, delta * FRICTION)
 	move_and_slide()
 
@@ -110,6 +117,9 @@ func death():
 	$death.play()
 	$CollisionShape2D.disabled = true
 	$Sprite2D.rotation_degrees = 90
+	$Sprite2D/IdleAnimation.show()
+	$Sprite2D/IdleAnimation.stop()
+	$Sprite2D/RunninAnnimation.hide()
 
 func hurt(amnt, ap):
 	if strategies:

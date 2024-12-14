@@ -25,14 +25,16 @@ group = "cultist"
 nav_agent = NodePath("NavigationAgent2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 5)
+position = Vector2(0, -3)
 shape = SubResource("CapsuleShape2D_egrxt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 light_mask = 2
+position = Vector2(0, -8)
 texture = ExtResource("2_fn425")
 
 [node name="enemy_hand_component" parent="." node_paths=PackedStringArray("ray") instance=ExtResource("2_vctv7")]
+position = Vector2(0, -8)
 hand_length = 16
 ray = NodePath("../RayCast2D")
 
@@ -52,6 +54,7 @@ wait_time = 0.5
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
 [node name="hurt_box" parent="." instance=ExtResource("5_eclwk")]
+position = Vector2(0, -8)
 
 [node name="CollisionShape2D" parent="hurt_box" index="0"]
 shape = SubResource("CapsuleShape2D_ykghs")
@@ -60,6 +63,7 @@ shape = SubResource("CapsuleShape2D_ykghs")
 stream = ExtResource("6_qqgv7")
 
 [node name="body_manager" type="Area2D" parent="."]
+position = Vector2(0, -8)
 collision_layer = 0
 collision_mask = 4
 monitorable = false
@@ -69,6 +73,7 @@ shape = SubResource("CircleShape2D_qhfwq")
 debug_color = Color(0, 0.6, 0.701961, 0)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
+position = Vector2(0, -8)
 target_position = Vector2(632, 0)
 collision_mask = 6
 

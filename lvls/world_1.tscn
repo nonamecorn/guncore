@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://cy2eud5lve0j5" path="res://img/light232.png" id="5_jgcgt"]
 
 [node name="world1" type="Node2D"]
-y_sort_enabled = true
 script = ExtResource("1_ki535")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -25,30 +24,35 @@ color = Color(0.168627, 0.0784314, 0.141176, 1)
 [node name="starting room" parent="modules" instance=ExtResource("1_08hws")]
 
 [node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(605, 629)
+position = Vector2(524, 159)
 script = ExtResource("3_5hpog")
 
-[node name="enemies" type="Node2D" parent="."]
+[node name="ysort" type="Node2D" parent="."]
 y_sort_enabled = true
 
-[node name="items" type="Node2D" parent="."]
+[node name="enemies" type="Node2D" parent="ysort"]
 y_sort_enabled = true
 
-[node name="Player" parent="." instance=ExtResource("4_22ug0")]
-y_sort_enabled = true
-position = Vector2(541, 307)
+[node name="Player" parent="ysort/enemies" instance=ExtResource("4_22ug0")]
+top_level = false
+position = Vector2(534, 332)
 
-[node name="light" type="Node2D" parent="Player"]
+[node name="light" type="Node2D" parent="ysort/enemies/Player"]
 
-[node name="walls" type="PointLight2D" parent="Player/light"]
+[node name="walls" type="PointLight2D" parent="ysort/enemies/Player/light"]
 shadow_enabled = true
 shadow_item_cull_mask = 2
 texture = ExtResource("5_jgcgt")
 
-[node name="shadow" type="PointLight2D" parent="Player/light"]
+[node name="shadow" type="PointLight2D" parent="ysort/enemies/Player/light"]
 range_item_cull_mask = 2
 shadow_enabled = true
 texture = ExtResource("5_jgcgt")
+
+[node name="items" type="Node2D" parent="ysort"]
+y_sort_enabled = true
+
+[node name="environment" type="Node2D" parent="ysort"]
 
 [node name="make_room" type="Timer" parent="."]
 wait_time = 0.001

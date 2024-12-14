@@ -39,7 +39,7 @@ func stop_spawnin():
 	while roomcount == 0:
 		spawn_room(exit_obj_path)
 	$Camera2D.enabled = false
-	$Player/Camera2D.enabled = true
+	$ysort/enemies/Player/Camera2D.enabled = true
 	
 	get_closing_exits()
 	for exit in exits:

@@ -1,0 +1,14 @@
+[gd_scene load_steps=4 format=3 uid="uid://d1h5lojq6r4g6"]
+
+[ext_resource type="PackedScene" uid="uid://chohchm3nmbw8" path="res://obj/components/mother_projectile.tscn" id="1_t0gys"]
+[ext_resource type="Script" path="res://obj/proj/airburst_bullet.gd" id="2_swgto"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_faqcy"]
+radius = 3.0
+height = 12.0
+
+[node name="airburst_bullet" instance=ExtResource("1_t0gys")]
+script = ExtResource("2_swgto")
+
+[node name="CollisionShape2D" parent="." index="1"]
+shape = SubResource("CapsuleShape2D_faqcy")
