@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=39 format=3 uid="uid://6c0up61qo7l2"]
+[gd_resource type="TileSet" load_steps=41 format=3 uid="uid://6c0up61qo7l2"]
 
 [ext_resource type="Texture2D" uid="uid://cfv7m5boehwdu" path="res://img/levels/ceiling_tileset.png" id="1_etbpj"]
 [ext_resource type="Texture2D" uid="uid://dpghkg3bb01ux" path="res://img/levels/MOST.png" id="2_0okir"]
@@ -325,6 +325,12 @@ polygon = PackedVector2Array(-16, -16, -13.875, -16, -13.875, 16, -16, 16)
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_nbyl7"]
 polygon = PackedVector2Array(13.625, -16, 16, -16, 16, 16, 14.125, 16)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_0hpov"]
+polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_tx6qv"]
+polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
+
 [sub_resource type="CanvasTexture" id="CanvasTexture_krwfs"]
 diffuse_texture = ExtResource("7_wpu8x")
 normal_texture = ExtResource("8_4snno")
@@ -344,6 +350,7 @@ texture_region_size = Vector2i(32, 32)
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 3:0/0 = 0
+3:0/0/occlusion_layer_1/polygon = SubResource("OccluderPolygon2D_0hpov")
 3:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 3:0/0/physics_layer_1/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 0:1/0 = 0
@@ -358,6 +365,7 @@ texture_region_size = Vector2i(32, 32)
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 2:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 3:1/0 = 0
+3:1/0/occlusion_layer_1/polygon = SubResource("OccluderPolygon2D_tx6qv")
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 3:1/0/physics_layer_1/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 1:2/0 = 0

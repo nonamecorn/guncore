@@ -3,8 +3,8 @@
 [ext_resource type="Script" path="res://lvls/rooms/basic_room.gd" id="1_7koly"]
 [ext_resource type="PackedScene" uid="uid://bf65xavyr0pes" path="res://lvls/misc/module_connector.tscn" id="2_cjjcc"]
 [ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="3_2wwxc"]
-[ext_resource type="PackedScene" uid="uid://ddfo6c5nx4m8h" path="res://lvls/misc/light.tscn" id="4_0sap0"]
 [ext_resource type="PackedScene" uid="uid://dww7vxteobmel" path="res://obj/env/explosive_barrel.tscn" id="4_bwa8p"]
+[ext_resource type="PackedScene" uid="uid://cmowt08tkhfxs" path="res://lvls/misc/bi_light_occluder_2d.tscn" id="5_uumab"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vfr7w"]
 size = Vector2(1039, 409)
@@ -51,17 +51,12 @@ tile_map_data = PackedByteArray("AAADAAkAAwABAAIAAAD9/wkAAwAAAAIAAAD+/wkAAwAAAAA
 
 [node name="decor" type="Node2D" parent="."]
 
-[node name="light" parent="decor" instance=ExtResource("4_0sap0")]
-position = Vector2(27, 117)
+[node name="BiLightOccluder2D" parent="decor" instance=ExtResource("5_uumab")]
+position = Vector2(-482, 320)
 
-[node name="light2" parent="decor" instance=ExtResource("4_0sap0")]
-position = Vector2(-421, 387)
-
-[node name="light3" parent="decor" instance=ExtResource("4_0sap0")]
-position = Vector2(6, 643)
-
-[node name="light4" parent="decor" instance=ExtResource("4_0sap0")]
-position = Vector2(507, 412)
+[node name="BiLightOccluder2D2" parent="decor" instance=ExtResource("5_uumab")]
+position = Vector2(576, 320)
+left = true
 
 [node name="enemies" type="Node2D" parent="."]
 

@@ -4,7 +4,8 @@
 [ext_resource type="Script" path="res://lvls/world_1.gd" id="1_ki535"]
 [ext_resource type="Script" path="res://others/camera_2d.gd" id="3_5hpog"]
 [ext_resource type="PackedScene" uid="uid://btw10scl5f85a" path="res://obj/bodies/player.tscn" id="4_22ug0"]
-[ext_resource type="Texture2D" uid="uid://cy2eud5lve0j5" path="res://img/light232.png" id="5_jgcgt"]
+
+[sub_resource type="Environment" id="Environment_rwc8n"]
 
 [node name="world1" type="Node2D"]
 script = ExtResource("1_ki535")
@@ -35,19 +36,7 @@ y_sort_enabled = true
 
 [node name="Player" parent="ysort/enemies" instance=ExtResource("4_22ug0")]
 top_level = false
-position = Vector2(534, 332)
-
-[node name="light" type="Node2D" parent="ysort/enemies/Player"]
-
-[node name="walls" type="PointLight2D" parent="ysort/enemies/Player/light"]
-shadow_enabled = true
-shadow_item_cull_mask = 2
-texture = ExtResource("5_jgcgt")
-
-[node name="shadow" type="PointLight2D" parent="ysort/enemies/Player/light"]
-range_item_cull_mask = 2
-shadow_enabled = true
-texture = ExtResource("5_jgcgt")
+position = Vector2(513, 145)
 
 [node name="items" type="Node2D" parent="ysort"]
 y_sort_enabled = true
@@ -56,5 +45,8 @@ y_sort_enabled = true
 
 [node name="make_room" type="Timer" parent="."]
 wait_time = 0.001
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource("Environment_rwc8n")
 
 [connection signal="timeout" from="make_room" to="." method="_on_make_room_timeout"]

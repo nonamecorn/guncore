@@ -5,20 +5,17 @@
 [node name="layers" type="Node2D"]
 
 [node name="Ceiling" type="TileMapLayer" parent="."]
-light_mask = 2
 tile_set = ExtResource("1_dwe3r")
 
 [node name="wota" type="TileMapLayer" parent="."]
-light_mask = 2
 tile_set = ExtResource("1_dwe3r")
 
 [node name="Walls" type="TileMapLayer" parent="."]
+light_mask = 2
 tile_set = ExtResource("1_dwe3r")
 
 [node name="floor" type="TileMapLayer" parent="."]
-light_mask = 2
 tile_set = ExtResource("1_dwe3r")
 
 [node name="Decorations" type="TileMapLayer" parent="."]
-light_mask = 2
 tile_set = ExtResource("1_dwe3r")

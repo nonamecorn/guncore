@@ -1,8 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://so4co8sk7w75"]
+[gd_scene load_steps=3 format=3 uid="uid://so4co8sk7w75"]
 
 [ext_resource type="PackedScene" uid="uid://8c8ht7qy60rp" path="res://lvls/rooms/shop_room.tscn" id="1_mul21"]
 [ext_resource type="PackedScene" uid="uid://btw10scl5f85a" path="res://obj/bodies/player.tscn" id="4_1ehtl"]
-[ext_resource type="Texture2D" uid="uid://cy2eud5lve0j5" path="res://img/light232.png" id="5_yqswq"]
 
 [node name="world1" type="Node2D"]
 
@@ -26,14 +25,3 @@ color = Color(0.168627, 0.0784314, 0.141176, 1)
 
 [node name="Player" parent="." instance=ExtResource("4_1ehtl")]
 position = Vector2(527, 323)
-
-[node name="light" type="Node2D" parent="Player"]
-
-[node name="sprite" type="PointLight2D" parent="Player/light"]
-shadow_item_cull_mask = 2
-texture = ExtResource("5_yqswq")
-
-[node name="shadow" type="PointLight2D" parent="Player/light"]
-range_item_cull_mask = 2
-shadow_enabled = true
-texture = ExtResource("5_yqswq")
