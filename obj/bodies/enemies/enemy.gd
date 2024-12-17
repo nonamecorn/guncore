@@ -39,6 +39,7 @@ var unique_parts = {
 		"ATTACH": null,
 	}
 func _ready():
+	
 #	print(movement_target)
 	rng.randomize()
 	randomnum = rng.randf()
@@ -206,4 +207,8 @@ func die():
 	$enemy_hand_component.queue_free()
 #	movement_target = null
 	$Sprite2D.rotation_degrees = 90
+	$Sprite2D.set_light_mask(1)
+	$Sprite2D.set_visibility_layer(1)
+	$Sprite2D.material = null
+	print($Sprite2D.get_visibility_layer())
 	

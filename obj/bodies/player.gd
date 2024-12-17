@@ -24,6 +24,7 @@ var strategy_dic = {}
 var active_gun : int = 0
 
 func _ready() -> void:
+	
 	hurt(0,false)
 	refresh()
 	on_ammo_change(null,null,0)

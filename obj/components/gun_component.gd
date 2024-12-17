@@ -1,6 +1,7 @@
 extends Node2D
 
 var facade = preload("res://obj/components/facade.tscn")
+var p_facade = preload("res://obj/components/p_facade.tscn")
 var gun_parts
 var point_of_shooting = Vector2(0,0)
 var spread_tween
@@ -40,7 +41,11 @@ func check_point_of_fire() -> Vector2:
 	return $pos.global_position
 
 func spawn_facade(part,offset):
-	var facade_inst = facade.instantiate()
+	var facade_inst
+	if player_handled:
+		facade_inst = p_facade.instantiate()
+	else:
+		facade_inst = facade.instantiate()
 	facade_inst.texture = part.sprite
 	var slot = find_child(part.slot)
 	slot.add_child(facade_inst)
