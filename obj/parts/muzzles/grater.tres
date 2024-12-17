@@ -1,8 +1,11 @@
-[gd_resource type="Resource" script_class="Muzzle" load_steps=8 format=3 uid="uid://dpxujm56a3xhd"]
+[gd_resource type="Resource" script_class="Muzzle" load_steps=11 format=3 uid="uid://dpxujm56a3xhd"]
 
 [ext_resource type="Script" path="res://obj/parts/scripts/muzzle.gd" id="1_7q3vf"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_pp8yk"]
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_r5f0n"]
 [ext_resource type="Texture2D" uid="uid://hhsbn0wxqmji" path="res://img/parts/Terka.png" id="2_5vsxe"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_nxqka"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="5_kw4y1"]
 
 [sub_resource type="Resource" id="Resource_gbklh"]
 script = ExtResource("1_r5f0n")
@@ -40,4 +43,7 @@ item_description = ""
 cost = 60
 sprite = ExtResource("2_5vsxe")
 sprite_offset = Vector2(2, 0)
+bullet_strategies = Array[ExtResource("1_pp8yk")]([])
+player_strategies = Array[ExtResource("3_nxqka")]([])
+shootin_strategies = Array[ExtResource("5_kw4y1")]([])
 changes = Array[ExtResource("1_r5f0n")]([SubResource("Resource_gbklh"), SubResource("Resource_be1ss"), SubResource("Resource_1nden"), SubResource("Resource_m2apx")])

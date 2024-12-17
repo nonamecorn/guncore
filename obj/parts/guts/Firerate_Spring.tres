@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="Guts" load_steps=8 format=3 uid="uid://cv44qfhx53q5d"]
+
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_uxljf"]
+[ext_resource type="Script" path="res://obj/components/change.gd" id="2_yt68s"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_xqsgp"]
+[ext_resource type="Script" path="res://obj/parts/scripts/mod_guts.gd" id="4_3qbrs"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="5_id862"]
+[ext_resource type="Texture2D" uid="uid://dd6ekil8ocvml" path="res://img/parts/firerateSpring.png" id="6_hgt6g"]
+
+[sub_resource type="Resource" id="Resource_t5ea2"]
+script = ExtResource("2_yt68s")
+stat_name = "current_firerate"
+value_of_stat = 0.75
+mult = true
+is_set = false
+
+[resource]
+script = ExtResource("4_3qbrs")
+item_name = "Firerate spring"
+item_description = ""
+cost = 100
+sprite = ExtResource("6_hgt6g")
+sprite_offset = Vector2(0, 0)
+bullet_strategies = Array[ExtResource("1_uxljf")]([])
+player_strategies = Array[ExtResource("3_xqsgp")]([])
+shootin_strategies = Array[ExtResource("5_id862")]([])
+changes = Array[ExtResource("2_yt68s")]([SubResource("Resource_t5ea2")])

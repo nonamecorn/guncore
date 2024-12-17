@@ -1,0 +1,42 @@
+[gd_resource type="Resource" script_class="Muzzle" load_steps=10 format=3 uid="uid://dyrm53mjli02u"]
+
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_dwpc5"]
+[ext_resource type="Script" path="res://obj/components/change.gd" id="2_f8dnu"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_e6afs"]
+[ext_resource type="Script" path="res://obj/parts/scripts/muzzle.gd" id="4_jj67x"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="5_rklbg"]
+[ext_resource type="Texture2D" uid="uid://dptxua5xehvq6" path="res://img/parts/Silencer.png" id="6_utsma"]
+
+[sub_resource type="Resource" id="Resource_72icd"]
+script = ExtResource("2_f8dnu")
+stat_name = "alert_distance"
+value_of_stat = 0.5
+mult = true
+is_set = false
+
+[sub_resource type="Resource" id="Resource_eb0h0"]
+script = ExtResource("2_f8dnu")
+stat_name = "current_ver_recoil"
+value_of_stat = 0.75
+mult = false
+is_set = false
+
+[sub_resource type="Resource" id="Resource_r3g33"]
+script = ExtResource("2_f8dnu")
+stat_name = "current_add_spd"
+value_of_stat = 20.0
+mult = false
+is_set = false
+
+[resource]
+script = ExtResource("4_jj67x")
+bullet_vector = Vector2(0, 0)
+item_name = "Silencer"
+item_description = ""
+cost = 60
+sprite = ExtResource("6_utsma")
+sprite_offset = Vector2(4, 0)
+bullet_strategies = Array[ExtResource("1_dwpc5")]([])
+player_strategies = Array[ExtResource("3_e6afs")]([])
+shootin_strategies = Array[ExtResource("5_rklbg")]([])
+changes = Array[ExtResource("2_f8dnu")]([SubResource("Resource_72icd"), SubResource("Resource_eb0h0"), SubResource("Resource_r3g33")])

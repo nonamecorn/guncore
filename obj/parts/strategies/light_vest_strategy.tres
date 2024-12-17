@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="BodyArmorStrategy" load_steps=2 format=3 uid="uid://cycdtch0hyy05"]
+
+[ext_resource type="Script" path="res://obj/parts/strategies/bodyarmor_strategy.gd" id="1_yaamo"]
+
+[resource]
+script = ExtResource("1_yaamo")
+damage_absorbtion = 10

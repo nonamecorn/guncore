@@ -124,9 +124,10 @@ func death():
 
 func hurt(amnt, ap):
 	if strategies:
+		print("хуй")
 		for strategy in strategies:
 			strategy.init_strategy(self)
-	if !ap and armor != 0:
+	elif !ap and armor != 0:
 		return
 	elif ap and armor != 0:
 		var difference = armor - amnt
@@ -136,9 +137,9 @@ func hurt(amnt, ap):
 			armor = difference
 	else:
 		health -= amnt
-		$CanvasLayer/hp.text = str(health)
-		if health <= 0:
-			call_deferred("death")
+	$CanvasLayer/hp.text = str(health)
+	if health <= 0:
+		call_deferred("death")
 
 func drop(item : Item):
 	GlobalVars.items.erase(item)

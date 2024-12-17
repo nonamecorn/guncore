@@ -34,7 +34,7 @@ func insert_item(item):
 	if gun:
 		check_assembly()
 	else:
-		change.emit()
+		change.emit(get_gear())
 	item.item_resource.eq = true
 	item.item_resource.eq_index = get_index()
 	item.item_resource.pick_up()
@@ -43,18 +43,18 @@ func insert_item(item):
 	return true
  
 func insert_item_at_spot(item, slot):
-	if slot == null:
+	if slot == null or !find_child(slot):
 		return false
 	var item_slot = item.item_resource.slot
 	if item_slot != slot:
 		return false
-	if items[item_slot] != null:
+	if items.has(item_slot) and items[item_slot] != null:
 		return false
 	items[item_slot] = item
 	if gun:
 		check_assembly()
 	else:
-		change.emit()
+		change.emit(get_gear())
 	item.item_resource.eq = true
 	item.item_resource.eq_index = get_index()
 	item.item_resource.pick_up()
@@ -82,7 +82,7 @@ func grab_item(pos):
 	if gun:
 		check_dissassembly()
 	else:
-		change.emit()
+		change.emit(get_gear())
 	find_child(item_slot+"COVER"+str(get_index())).hide()
 	return item
  
@@ -118,6 +118,18 @@ func get_parts():
 		"MUZZLE": null,
 		"MOD1": null,
 		"MOD2": null,
+	}
+	for part in items:
+		if !items[part]: continue
+		parts[part] = items[part].item_resource
+	return parts
+	
+func get_gear():
+	
+	var parts = {
+		"BODY": null,
+		"HEAD": null,
+		"HAND": null,
 	}
 	for part in items:
 		if !items[part]: continue
