@@ -12,7 +12,7 @@ var lmask
 func _ready() -> void:
 	lmask = occluder_light_mask
 
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	if !left:
 		if active and player.global_position.x > da_x:
 			switch()

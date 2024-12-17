@@ -5,6 +5,7 @@
 [node name="light" type="Node2D"]
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+range_item_cull_mask = 5
 shadow_enabled = true
 texture = ExtResource("1_hooxg")
 

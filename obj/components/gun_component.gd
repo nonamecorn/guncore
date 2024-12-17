@@ -121,6 +121,8 @@ func dissassemble_gun():
 	dispawn_facade("MAG")
 	dispawn_facade("MUZZLE")
 	dispawn_facade("ATTACH")
+	firing_strategies = []
+	bullet_strategies = []
 	state = STOP
 
 func start_fire():

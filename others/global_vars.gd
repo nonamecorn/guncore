@@ -2,19 +2,19 @@ extends Node
 
 func _ready() -> void:
 	var gun = Randogunser.get_gun()
-	var t1 = load(gun.RECIEVER)
+	var t1 = load(gun.RECIEVER).duplicate()
 	t1.picked_up = true
-	var t2 = load(gun.MAG)
+	var t2 = load(gun.MAG).duplicate()
 	t2.picked_up = true
-	var t3 = load(gun.BARREL)
+	var t3 = load(gun.BARREL).duplicate()
 	t3.picked_up = true
-	items.append(load(gun.RECIEVER))
-	items.append(load(gun.MAG))
-	items.append(load(gun.BARREL))
+	items.append(t1)
+	items.append(t2)
+	items.append(t3)
 	var shop_strs = Randogunser.get_shop()
 	for path in shop_strs:
 		if !path: continue
-		var shop_res = load(path)
+		var shop_res = load(path).duplicate()
 		shop.append(shop_res)
 
 

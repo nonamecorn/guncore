@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://c3jo85so338er"]
+[gd_scene load_steps=11 format=3 uid="uid://c3jo85so338er"]
 
 [ext_resource type="Script" path="res://obj/bodies/enemies/enemy.gd" id="1_qbvdd"]
 [ext_resource type="Texture2D" uid="uid://emrwjki1a5h0" path="res://img/bodys/enemy.png" id="2_fn425"]
@@ -10,6 +10,9 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_egrxt"]
 radius = 7.0
 height = 18.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_x7umt"]
+light_mode = 2
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ykghs"]
 radius = 7.0
@@ -29,6 +32,9 @@ position = Vector2(0, -3)
 shape = SubResource("CapsuleShape2D_egrxt")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+light_mask = 4
+visibility_layer = 4
+material = SubResource("CanvasItemMaterial_x7umt")
 position = Vector2(0, -8)
 texture = ExtResource("2_fn425")
 
