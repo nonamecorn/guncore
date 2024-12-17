@@ -33,6 +33,10 @@ mouse_cursor/custom_image="res://img/misc/crosshair.png"
 mouse_cursor/custom_image_hotspot=Vector2(16, 16)
 window/custom_image=""
 
+[filesystem]
+
+import/blender/enabled=false
+
 [global_group]
 
 connector="used for room generation"

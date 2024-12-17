@@ -1,0 +1,19 @@
+[remap]
+
+importer="oggvorbisstr"
+type="AudioStreamOggVorbis"
+uid="uid://bahuudcujctor"
+path="res://.godot/imported/frontier jungle 140bpm.ogg-ee665ac053fbabbfe276514f48004204.oggvorbisstr"
+
+[deps]
+
+source_file="res://snd/music/world1/frontier jungle 140bpm.ogg"
+dest_files=["res://.godot/imported/frontier jungle 140bpm.ogg-ee665ac053fbabbfe276514f48004204.oggvorbisstr"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4

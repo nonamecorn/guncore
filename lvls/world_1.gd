@@ -18,6 +18,7 @@ var rooms = [
 func _ready() -> void:
 	rects.append($"modules/starting room".get_rect())
 	spawn()
+	OstManager.switch_track("Battle")
 
 func get_exits():
 	exits = get_tree().get_nodes_in_group("connector").filter(func(element): return element.type == 1 and element.active)

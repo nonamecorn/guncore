@@ -52,7 +52,7 @@ layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
 mouse_filter = 2
-color = Color(0.625676, 0.128878, 0.24422, 1)
+color = Color(0.627451, 0.129412, 0.243137, 0.305882)
 
 [node name="grid_backpack" type="TextureRect" parent="."]
 layout_mode = 0

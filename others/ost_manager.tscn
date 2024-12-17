@@ -1,8 +1,24 @@
-[gd_scene load_steps=2 format=3 uid="uid://dx085y3efeew"]
+[gd_scene load_steps=5 format=3 uid="uid://dx085y3efeew"]
 
 [ext_resource type="Script" path="res://ost_manager.gd" id="1_rbwo4"]
+[ext_resource type="AudioStream" uid="uid://batktlh6alytr" path="res://snd/music/world1/Nikita Kryukov - I'll be here for a while.mp3" id="2_iohqb"]
+[ext_resource type="AudioStream" uid="uid://bahuudcujctor" path="res://snd/music/world1/frontier jungle 140bpm.ogg" id="3_k51hm"]
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_pojb0"]
+clip_count = 2
+clip_0/name = &"Shop"
+clip_0/stream = ExtResource("2_iohqb")
+clip_0/auto_advance = 1
+clip_0/next_clip = 0
+clip_1/name = &"Battle"
+clip_1/stream = ExtResource("3_k51hm")
+clip_1/auto_advance = 1
+clip_1/next_clip = 1
 
 [node name="OstManager" type="Node"]
+process_mode = 3
 script = ExtResource("1_rbwo4")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamInteractive_pojb0")
+autoplay = true
