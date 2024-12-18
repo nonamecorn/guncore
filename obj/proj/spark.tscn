@@ -1,7 +1,8 @@
-[gd_scene load_steps=8 format=3 uid="uid://bljl2lwsqqnpe"]
+[gd_scene load_steps=9 format=3 uid="uid://bljl2lwsqqnpe"]
 
 [ext_resource type="Texture2D" uid="uid://cn734peosn3j8" path="res://img/bullets/spark.png" id="1_qkovq"]
 [ext_resource type="Script" path="res://obj/proj/spark.gd" id="2_uxnap"]
+[ext_resource type="PackedScene" uid="uid://y6af83qql2nw" path="res://lvls/misc/bullet_light.tscn" id="3_k2rvb"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ucye"]
 atlas = ExtResource("1_qkovq")
@@ -45,5 +46,7 @@ autoplay = "default"
 frame = 3
 frame_progress = 1.0
 script = ExtResource("2_uxnap")
+
+[node name="bullet_light" parent="." instance=ExtResource("3_k2rvb")]
 
 [connection signal="animation_finished" from="." to="." method="_on_animation_finished"]
