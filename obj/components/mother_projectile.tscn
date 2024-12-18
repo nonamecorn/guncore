@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://chohchm3nmbw8"]
+[gd_scene load_steps=4 format=3 uid="uid://chohchm3nmbw8"]
 
 [ext_resource type="Script" path="res://obj/components/mother_projectile.gd" id="1_k18m3"]
 [ext_resource type="Texture2D" uid="uid://bog1u8dp65j3" path="res://img/bullet.png" id="1_sk8hd"]
+[ext_resource type="PackedScene" uid="uid://y6af83qql2nw" path="res://lvls/misc/bullet_light.tscn" id="3_rwc08"]
 
 [node name="mother_projectile" type="CharacterBody2D"]
 collision_layer = 16
@@ -17,5 +18,7 @@ rotation = 1.5708
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
 autostart = true
+
+[node name="bullet_light" parent="." instance=ExtResource("3_rwc08")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

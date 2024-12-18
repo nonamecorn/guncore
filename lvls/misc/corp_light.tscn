@@ -1,0 +1,21 @@
+[gd_scene load_steps=2 format=3 uid="uid://bde3ba2p8ca28"]
+
+[ext_resource type="Texture2D" uid="uid://bms4asqw38vst" path="res://img/Eyes_light.png" id="1_ah0jy"]
+
+[node name="corp_light" type="Node2D"]
+
+[node name="PointLight2D" type="PointLight2D" parent="."]
+shadow_enabled = true
+texture = ExtResource("1_ah0jy")
+
+[node name="castil" type="PointLight2D" parent="."]
+range_item_cull_mask = 2
+shadow_enabled = true
+shadow_item_cull_mask = 2
+texture = ExtResource("1_ah0jy")
+
+[node name="itemlight" type="PointLight2D" parent="."]
+blend_mode = 2
+range_item_cull_mask = 4
+shadow_enabled = true
+texture = ExtResource("1_ah0jy")

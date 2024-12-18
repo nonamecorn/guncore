@@ -3,7 +3,6 @@
 [ext_resource type="Texture2D" uid="uid://cn734peosn3j8" path="res://img/bullets/spark.png" id="1_qkovq"]
 [ext_resource type="Script" path="res://obj/proj/spark.gd" id="2_uxnap"]
 
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ucye"]
 atlas = ExtResource("1_qkovq")
 region = Rect2(0, 0, 32, 32)
