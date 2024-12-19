@@ -72,14 +72,17 @@ one_shot = true
 [node name="audio" type="Node2D" parent="."]
 
 [node name="shoting" type="AudioStreamPlayer2D" parent="audio"]
+bus = &"Sfx"
 
 [node name="reload_end_cue" type="AudioStreamPlayer2D" parent="audio"]
 stream = ExtResource("2_aqcxo")
 volume_db = -15.0
+bus = &"Sfx"
 
 [node name="reload_start_cue" type="AudioStreamPlayer2D" parent="audio"]
 stream = ExtResource("3_6g14y")
 volume_db = -15.0
+bus = &"Sfx"
 
 [node name="noise_alert" type="Area2D" parent="."]
 collision_layer = 0
