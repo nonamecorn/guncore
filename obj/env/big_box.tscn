@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://c70txah2l140m"]
+
+[ext_resource type="Texture2D" uid="uid://dks0ig4snk8v6" path="res://img/levels/Big_box.png" id="2_hij0f"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_2q7um"]
+size = Vector2(30, 46)
+
+[node name="Big_box" type="CharacterBody2D" groups=["targetable"]]
+y_sort_enabled = true
+collision_layer = 3
+collision_mask = 0
+
+[node name="big_box_collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -8)
+shape = SubResource("RectangleShape2D_2q7um")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("2_hij0f")
