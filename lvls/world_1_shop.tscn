@@ -1,11 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://so4co8sk7w75"]
+[gd_scene load_steps=3 format=3 uid="uid://so4co8sk7w75"]
 
-[ext_resource type="Script" path="res://lvls/world_1_shop.gd" id="1_cqjmn"]
 [ext_resource type="PackedScene" uid="uid://8c8ht7qy60rp" path="res://lvls/rooms/shop_room.tscn" id="1_mul21"]
 [ext_resource type="PackedScene" uid="uid://btw10scl5f85a" path="res://obj/bodies/player.tscn" id="4_1ehtl"]
 
 [node name="world1" type="Node2D"]
-script = ExtResource("1_cqjmn")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
 color = Color(0.47788, 0.47788, 0.47788, 1)

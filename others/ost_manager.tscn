@@ -1,19 +1,45 @@
-[gd_scene load_steps=5 format=3 uid="uid://dx085y3efeew"]
+[gd_scene load_steps=9 format=3 uid="uid://dx085y3efeew"]
 
 [ext_resource type="Script" path="res://ost_manager.gd" id="1_rbwo4"]
+[ext_resource type="AudioStream" uid="uid://cxi36pamqcrqi" path="res://snd/music/world1/jungle_frontier.wav" id="2_83dkb"]
 [ext_resource type="AudioStream" uid="uid://batktlh6alytr" path="res://snd/music/world1/Nikita Kryukov - I'll be here for a while.mp3" id="2_iohqb"]
 [ext_resource type="AudioStream" uid="uid://bahuudcujctor" path="res://snd/music/world1/frontier jungle 140bpm.ogg" id="3_k51hm"]
 
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_xcpcf"]
+stream_count = 1
+stream_0 = ExtResource("2_83dkb")
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_f6rws"]
+stream_count = 1
+stream_0 = ExtResource("2_iohqb")
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_spg0a"]
+shuffle = true
+stream_count = 1
+stream_0 = ExtResource("3_k51hm")
+
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_pojb0"]
-clip_count = 2
-clip_0/name = &"Shop"
-clip_0/stream = ExtResource("2_iohqb")
+clip_count = 3
+clip_0/name = &"Menu"
+clip_0/stream = SubResource("AudioStreamPlaylist_xcpcf")
 clip_0/auto_advance = 1
 clip_0/next_clip = 0
-clip_1/name = &"Battle"
-clip_1/stream = ExtResource("3_k51hm")
+clip_1/name = &"Shop"
+clip_1/stream = SubResource("AudioStreamPlaylist_f6rws")
 clip_1/auto_advance = 1
-clip_1/next_clip = 1
+clip_1/next_clip = 0
+clip_2/name = &"Battle"
+clip_2/stream = SubResource("AudioStreamPlaylist_spg0a")
+clip_2/auto_advance = 1
+clip_2/next_clip = 0
+_transitions = {
+Vector2i(-1, -1): {
+"fade_beats": 1,
+"fade_mode": 4,
+"from_time": 0,
+"to_time": 1
+}
+}
 
 [node name="OstManager" type="Node"]
 process_mode = 3
@@ -21,4 +47,6 @@ script = ExtResource("1_rbwo4")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
 stream = SubResource("AudioStreamInteractive_pojb0")
+volume_db = -22.854
 autoplay = true
+bus = &"Music"

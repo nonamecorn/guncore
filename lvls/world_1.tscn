@@ -1,9 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcchx721txe4c"]
+[gd_scene load_steps=8 format=3 uid="uid://dcchx721txe4c"]
 
 [ext_resource type="PackedScene" uid="uid://b720un0jadula" path="res://lvls/rooms/starting_room.tscn" id="1_08hws"]
 [ext_resource type="Script" path="res://lvls/world_1.gd" id="1_ki535"]
 [ext_resource type="Script" path="res://others/camera_2d.gd" id="3_5hpog"]
 [ext_resource type="PackedScene" uid="uid://btw10scl5f85a" path="res://obj/bodies/player.tscn" id="4_22ug0"]
+[ext_resource type="PackedScene" uid="uid://ddfo6c5nx4m8h" path="res://lvls/misc/light.tscn" id="5_h5ytn"]
+[ext_resource type="Script" path="res://lvls/misc/moving_light.gd" id="6_kdott"]
 
 [sub_resource type="Environment" id="Environment_rwc8n"]
 
@@ -11,7 +13,7 @@
 script = ExtResource("1_ki535")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.262932, 0.262932, 0.262932, 1)
+color = Color(0.237539, 0.237539, 0.237539, 1)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -12507.0
@@ -44,9 +46,35 @@ y_sort_enabled = true
 [node name="environment" type="Node2D" parent="ysort"]
 
 [node name="make_room" type="Timer" parent="."]
-wait_time = 0.001
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="."]
 environment = SubResource("Environment_rwc8n")
+
+[node name="light" parent="." instance=ExtResource("5_h5ytn")]
+visible = false
+position = Vector2(730, 229)
+script = ExtResource("6_kdott")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+color = Color(0.510665, 0.183224, 0.232565, 1)
+
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect"]
+layout_mode = 0
+offset_left = 191.0
+offset_top = 118.0
+offset_right = 373.0
+offset_bottom = 173.0
+theme_override_font_sizes/font_size = 40
+text = "LOADING
+"
 
 [connection signal="timeout" from="make_room" to="." method="_on_make_room_timeout"]

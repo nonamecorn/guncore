@@ -1,10 +1,12 @@
-[gd_scene load_steps=4 format=3 uid="uid://clebifn20pbo5"]
+[gd_scene load_steps=6 format=3 uid="uid://clebifn20pbo5"]
 
 [ext_resource type="Script" path="res://ui/pause.gd" id="1_ye7m4"]
 [ext_resource type="Texture2D" uid="uid://faonagr4q8jo" path="res://img/ui/UI.png" id="2_hmej1"]
 [ext_resource type="Texture2D" uid="uid://cxm8l442in7mi" path="res://img/ui/inventory_1slot.png" id="3_sr2fl"]
+[ext_resource type="Script" path="res://ui/slider.gd" id="3_vj4vv"]
+[ext_resource type="PackedScene" uid="uid://ggi5lqbxx6uu" path="res://ui/ui_button.tscn" id="4_ymsee"]
 
-[node name="pause" type="Control"]
+[node name="pause" type="Control" node_paths=PackedStringArray("checkbox")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -12,68 +14,114 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 script = ExtResource("1_ye7m4")
+checkbox = NodePath("NinePatchRect/VBoxContainer2/MarginContainer/CheckBox")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 2
 offset_left = 167.0
-offset_top = 87.0
-offset_right = 389.0
-offset_bottom = 270.0
+offset_top = 55.0
+offset_right = 467.0
+offset_bottom = 307.0
 texture = ExtResource("2_hmej1")
 patch_margin_left = 10
 patch_margin_top = 10
 patch_margin_right = 10
 patch_margin_bottom = 10
 
-[node name="Label" type="Label" parent="NinePatchRect"]
-layout_mode = 0
+[node name="VBoxContainer2" type="VBoxContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 14
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
 offset_left = 16.0
-offset_top = 29.0
-offset_right = 97.0
-offset_bottom = 52.0
+offset_top = -109.0
+offset_right = -17.0
+offset_bottom = 110.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="HBoxContainer" parent="NinePatchRect/VBoxContainer2"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer2/MarginContainer"]
+layout_mode = 2
 text = "fullscreen:"
 
-[node name="CheckBox" type="CheckBox" parent="NinePatchRect"]
-layout_mode = 0
-offset_left = 100.0
-offset_top = 31.0
-offset_right = 124.0
-offset_bottom = 55.0
-
-[node name="qbutton" type="Control" parent="NinePatchRect"]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="ui_button" type="NinePatchRect" parent="NinePatchRect/qbutton"]
+[node name="CheckBox" type="CheckBox" parent="NinePatchRect/VBoxContainer2/MarginContainer"]
 layout_mode = 2
-offset_left = 17.0
-offset_top = 139.0
-offset_right = 171.0
-offset_bottom = 162.0
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer2"]
+layout_mode = 2
+text = "master volume"
+
+[node name="HSlider" type="HSlider" parent="NinePatchRect/VBoxContainer2"]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+script = ExtResource("3_vj4vv")
+bus_name = "Master"
+
+[node name="Label2" type="Label" parent="NinePatchRect/VBoxContainer2"]
+layout_mode = 2
+text = "music volume"
+
+[node name="HSlider2" type="HSlider" parent="NinePatchRect/VBoxContainer2"]
+layout_mode = 2
+max_value = 1.0
+step = 0.1
+script = ExtResource("3_vj4vv")
+bus_name = "Music"
+
+[node name="Label3" type="Label" parent="NinePatchRect/VBoxContainer2"]
+layout_mode = 2
+text = "sfx volume"
+
+[node name="HSlider3" type="HSlider" parent="NinePatchRect/VBoxContainer2"]
+layout_mode = 2
+max_value = 10.0
+step = 0.01
+script = ExtResource("3_vj4vv")
+bus_name = "Sfx"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/VBoxContainer2"]
+layout_mode = 2
+
+[node name="qbutton" type="MarginContainer" parent="NinePatchRect/VBoxContainer2/VBoxContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="ui_button" type="NinePatchRect" parent="NinePatchRect/VBoxContainer2/VBoxContainer/qbutton"]
+layout_mode = 2
 texture = ExtResource("3_sr2fl")
 patch_margin_left = 2
 patch_margin_top = 2
 patch_margin_right = 2
 patch_margin_bottom = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect/qbutton"]
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect/VBoxContainer2/VBoxContainer/qbutton"]
 layout_mode = 2
-offset_left = 17.0
-offset_top = 139.0
-offset_right = 171.0
-offset_bottom = 162.0
 theme_override_constants/margin_left = 2
 theme_override_constants/margin_top = 0
 theme_override_constants/margin_right = 2
 theme_override_constants/margin_bottom = 0
 
-[node name="LinkButton" type="LinkButton" parent="NinePatchRect/qbutton/MarginContainer"]
+[node name="LinkButton" type="LinkButton" parent="NinePatchRect/VBoxContainer2/VBoxContainer/qbutton/MarginContainer"]
 custom_minimum_size = Vector2(150, 0)
 layout_mode = 2
 text = "Quit"
 underline = 1
 
-[connection signal="toggled" from="NinePatchRect/CheckBox" to="." method="_on_fulcreen_toggled"]
-[connection signal="pressed" from="NinePatchRect/qbutton/MarginContainer/LinkButton" to="." method="_on_quit_button_pressed"]
+[node name="ui_button" parent="NinePatchRect/VBoxContainer2/VBoxContainer" instance=ExtResource("4_ymsee")]
+layout_mode = 2
+
+[node name="LinkButton" parent="NinePatchRect/VBoxContainer2/VBoxContainer/ui_button/MarginContainer" index="0"]
+text = "retry"
+
+[connection signal="toggled" from="NinePatchRect/VBoxContainer2/MarginContainer/CheckBox" to="." method="_on_fulcreen_toggled"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer2/VBoxContainer/qbutton/MarginContainer/LinkButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer2/VBoxContainer/ui_button/MarginContainer/LinkButton" to="." method="_on_retry_button_pressed"]
+
+[editable path="NinePatchRect/VBoxContainer2/VBoxContainer/ui_button"]

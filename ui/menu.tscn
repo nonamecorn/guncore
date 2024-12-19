@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://cgjq0v6xmx2g3"]
+[gd_scene load_steps=6 format=3 uid="uid://cgjq0v6xmx2g3"]
 
 [ext_resource type="Script" path="res://ui/menu.gd" id="1_2c1oq"]
 [ext_resource type="Texture2D" uid="uid://faonagr4q8jo" path="res://img/ui/UI.png" id="1_3pwc6"]
+[ext_resource type="Texture2D" uid="uid://b4imob3yw4gm8" path="res://img/big_art/deepfried_17345737466020.jpg" id="2_44q7o"]
 [ext_resource type="Texture2D" uid="uid://cxm8l442in7mi" path="res://img/ui/inventory_1slot.png" id="2_npt6o"]
 [ext_resource type="PackedScene" uid="uid://clebifn20pbo5" path="res://ui/pause.tscn" id="4_tqumb"]
 
@@ -21,13 +22,15 @@ layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_right = -640.0
-offset_bottom = -360.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
+texture = ExtResource("2_44q7o")
+expand_mode = 1
+stretch_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
+visible = false
 layout_mode = 0
 offset_right = 640.0
 offset_bottom = 360.0
@@ -160,16 +163,22 @@ underline = 1
 [node name="pause" parent="." instance=ExtResource("4_tqumb")]
 visible = false
 layout_mode = 1
-mouse_filter = 2
 
 [node name="NinePatchRect" parent="pause" index="0"]
-offset_left = 220.0
-offset_top = 108.0
-offset_right = 442.0
-offset_bottom = 291.0
+offset_left = 216.0
+offset_top = 44.0
+offset_right = 516.0
+offset_bottom = 296.0
+
+[node name="VBoxContainer" parent="pause/NinePatchRect/VBoxContainer2" index="7"]
+visible = false
+
+[node name="ui_button" parent="pause/NinePatchRect/VBoxContainer2/VBoxContainer" index="1"]
+visible = false
 
 [connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/Startbutton/MarginContainer/LinkButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/Optionsbutton2/MarginContainer/LinkButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/Quitbutton3/MarginContainer/LinkButton" to="." method="_on_quit_button_pressed"]
 
 [editable path="pause"]
+[editable path="pause/NinePatchRect/VBoxContainer2/VBoxContainer/ui_button"]

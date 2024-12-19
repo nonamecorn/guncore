@@ -12,7 +12,7 @@ var rooms = [
 	"res://lvls/rooms/basic_room.tscn",
 	"res://lvls/rooms/combat_room.tscn"
 ]
-@export var roomcount = 5
+@export var roomcount = 20
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,7 +27,25 @@ func get_closing_exits():
 	exits = get_tree().get_nodes_in_group("connector").filter(func(element): return element.type == 1)
 
 func spawn():
-	$make_room.start()
+	#$make_room.start()
+	while roomcount != 0:
+		rooms.shuffle()
+		spawn_room(rooms[0])
+	#$make_room.stop()
+	#stop_spawnin()
+	#return
+	
+	
+	while roomcount == 0:
+		spawn_room(exit_obj_path)
+	get_closing_exits()
+	for exit in exits:
+		if exit.active: continue
+		exit.close()
+	
+	$Camera2D.enabled = false
+	$ysort/enemies/Player/Camera2D.enabled = true
+	$CanvasLayer/ColorRect.hide()
 
 func room_fits(room_rect, corr_rect):
 	for rect in rects:
@@ -39,8 +57,8 @@ func stop_spawnin():
 	
 	while roomcount == 0:
 		spawn_room(exit_obj_path)
-	$Camera2D.enabled = false
-	$ysort/enemies/Player/Camera2D.enabled = true
+	#$Camera2D.enabled = false
+	#$ysort/enemies/Player/Camera2D.enabled = true
 	
 	get_closing_exits()
 	for exit in exits:

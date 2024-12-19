@@ -1,7 +1,9 @@
 extends Control
 
+@export var checkbox : Node
+
 func _ready() -> void:
-	$NinePatchRect/CheckBox.button_pressed = GlobalVars.fullscreen
+	checkbox.button_pressed = GlobalVars.fullscreen
 
 func _input(event):
 	if event.is_action_pressed("ui_cancel"):
@@ -33,3 +35,14 @@ func _on_fulcreen_toggled(toggled_on):
 
 func _on_quit_button_pressed() -> void:
 	get_tree().quit()
+
+
+func _on_retry_button_pressed() -> void:
+	GlobalVars.change_score(0,0)
+	GlobalVars.items = []
+	GlobalVars.fullscreen = false
+	GlobalVars.money = 1000
+	GlobalVars.shop = []
+	GlobalVars._ready()
+	get_tree().paused = false
+	get_tree().call_deferred("change_scene_to_file","res://lvls/world_1_shop.tscn")
