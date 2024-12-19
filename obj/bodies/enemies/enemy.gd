@@ -210,5 +210,5 @@ func die():
 	$Sprite2D.set_light_mask(1)
 	$Sprite2D.set_visibility_layer(1)
 	$Sprite2D.material = null
-	print($Sprite2D.get_visibility_layer())
+	GlobalVars.change_score(GlobalVars.kills + 1, GlobalVars.loop)
 	

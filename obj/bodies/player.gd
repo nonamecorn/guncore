@@ -24,7 +24,7 @@ var strategy_dic = {}
 var active_gun : int = 0
 
 func _ready() -> void:
-	
+	on_score_change(GlobalVars.kills, GlobalVars.loop)
 	hurt(0,false)
 	refresh()
 	on_ammo_change(null,null,0)
@@ -39,6 +39,7 @@ func _ready() -> void:
 	$CanvasLayer/Inventory.load_save()
 	$player_hand_component/Marker2D/gun_base.ammo_changed.connect(on_ammo_change)
 	$player_hand_component/Marker2D/gun_base2.ammo_changed.connect(on_ammo_change)
+	GlobalVars.score_changed.connect(on_score_change)
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("special_button"):
@@ -121,6 +122,9 @@ func death():
 	$Sprite2D/IdleAnimation.show()
 	$Sprite2D/IdleAnimation.stop()
 	$Sprite2D/RunninAnnimation.hide()
+	GlobalVars.kills = 0
+	GlobalVars.loop = 0
+	on_score_change(0,0)
 
 func hurt(amnt, ap):
 	if strategies:
@@ -188,3 +192,6 @@ func change_stat(name_of_stat : String, value_of_stat, mult: bool):
 	set(name_of_stat, temp+value_of_stat)
 func set_stat(name_of_stat : String, value_of_stat):
 	set(name_of_stat, value_of_stat)
+
+func on_score_change(new_kills, new_loop):
+	$CanvasLayer/stats.text = "kills: " + str(new_kills) + " loop: " + str(new_loop)

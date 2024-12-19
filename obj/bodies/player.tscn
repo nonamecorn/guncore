@@ -247,10 +247,18 @@ offset_right = 592.0
 offset_bottom = 351.0
 text = "200$"
 
+[node name="stats" type="Label" parent="CanvasLayer"]
+offset_left = 482.0
+offset_top = 298.0
+offset_right = 565.0
+offset_bottom = 321.0
+text = "kills: 0 loop: 0"
+
 [node name="pause" parent="CanvasLayer" instance=ExtResource("11_heitk")]
 visible = false
 
 [node name="f1menu" parent="CanvasLayer" instance=ExtResource("12_i05es")]
+visible = false
 
 [node name="light" parent="." instance=ExtResource("12_p0x4g")]
 

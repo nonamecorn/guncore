@@ -1,5 +1,7 @@
 extends Node
 
+signal score_changed(new_kills, new_loop)
+
 func _ready() -> void:
 	var gun = Randogunser.get_gun()
 	var t1 = load(gun.RECIEVER).duplicate()
@@ -20,8 +22,13 @@ func _ready() -> void:
 
 const item_base = preload("res://ui/item_base.tscn")
 
+func change_score(new_kills, new_loop):
+	kills = new_kills
+	loop = new_loop
+	score_changed.emit(new_kills, new_loop)
 
-
+var loop = 0
+var kills = 0
 var items = [
 	#load("res://obj/parts/guns/akm.tres"),
 	#load("res://obj/parts/barrels/long_barrel.tres"),
