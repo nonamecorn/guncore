@@ -1,22 +1,20 @@
 [gd_scene load_steps=3 format=3 uid="uid://dk15yn20pad8s"]
 
 [ext_resource type="Texture2D" uid="uid://c2oetjbpktnno" path="res://img/misc/MuzzleFlash.png" id="1_lfbi8"]
-[ext_resource type="Texture2D" uid="uid://cc8mgdlatnw31" path="res://img/misc/MuzzleFlashLight.png" id="2_61doj"]
+[ext_resource type="PackedScene" uid="uid://ddfo6c5nx4m8h" path="res://lvls/misc/light.tscn" id="2_lp8o6"]
 
 [node name="muzzleflash" type="Sprite2D"]
 texture = ExtResource("1_lfbi8")
 
-[node name="light" type="Node2D" parent="."]
+[node name="light2" parent="." instance=ExtResource("2_lp8o6")]
 
-[node name="PointLight2D" type="PointLight2D" parent="light"]
-range_item_cull_mask = 5
-shadow_enabled = true
-shadow_item_cull_mask = 2
-texture = ExtResource("2_61doj")
-texture_scale = 4.0
+[node name="PointLight2D" parent="light2" index="0"]
+texture_scale = 0.1
 
-[node name="shadowlight" type="PointLight2D" parent="light"]
-range_item_cull_mask = 2
-shadow_enabled = true
-texture = ExtResource("2_61doj")
-texture_scale = 4.0
+[node name="castil" parent="light2" index="1"]
+texture_scale = 0.1
+
+[node name="itemlight" parent="light2" index="2"]
+texture_scale = 0.1
+
+[editable path="light2"]
