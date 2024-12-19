@@ -12,22 +12,18 @@ enum module_type {
 @export var type = module_type.CORR
 @export var orientation = module_orientation.NORTH
 var active = true
+var known = false
 
 func deactivate():
 	active = false
 	#$Polygon2D.show()
 
-func wft():
-	deactivate()
-	print("wtf")
-	$Polygon2D.show()
-
 func get_info():
+	known = true
 	return [type,orientation,global_position]
 
 func close():
-	print("huh")
-	#$Polygon2D2.show()
+	if known and !active: print("heh")
 	match orientation:
 		0:
 			get_child(0).get_child(0).enabled = true

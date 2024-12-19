@@ -13,8 +13,6 @@ func _ready() -> void:
 	items.append(t1)
 	items.append(t2)
 	items.append(t3)
-	var shop_strs = Randogunser.get_shop()
-	
 
 
 const item_base = preload("res://ui/item_base.tscn")
