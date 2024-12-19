@@ -1,7 +1,6 @@
-[gd_scene load_steps=26 format=3 uid="uid://d0ex485qfg6qx"]
+[gd_scene load_steps=29 format=3 uid="uid://d0ex485qfg6qx"]
 
 [ext_resource type="Script" path="res://ui/inventory.gd" id="1_vc4ge"]
-[ext_resource type="Texture2D" uid="uid://b4anek45w5w7p" path="res://img/ui/inventory.png" id="2_am81f"]
 [ext_resource type="Script" path="res://ui/texture_rect.gd" id="2_gjxwj"]
 [ext_resource type="Texture2D" uid="uid://bl5o8lhl8assn" path="res://img/ui/inventory3.png" id="2_uegg3"]
 [ext_resource type="Texture2D" uid="uid://bpp86byvrxopq" path="res://img/ui/inventory_cover.png" id="4_0csks"]
@@ -25,8 +24,12 @@
 [ext_resource type="Texture2D" uid="uid://bkjtqix3hyjsa" path="res://img/ui/Helmet.png" id="14_3ddj3"]
 [ext_resource type="Texture2D" uid="uid://c1lee8a3t06tt" path="res://img/ui/ArmorSlot.png" id="15_isfqa"]
 [ext_resource type="Texture2D" uid="uid://ds0gmt5dgnqnp" path="res://img/ui/Hand.png" id="16_7ox2p"]
+[ext_resource type="Texture2D" uid="uid://c422ygxdmneag" path="res://img/ui/shop.png" id="20_8ghwf"]
+[ext_resource type="Script" path="res://ui/sell.gd" id="20_c5gil"]
+[ext_resource type="Texture2D" uid="uid://dduylcjk7w1y3" path="res://img/ui/shop_cover.png" id="22_fsjln"]
+[ext_resource type="PackedScene" uid="uid://ggi5lqbxx6uu" path="res://ui/ui_button.tscn" id="28_1kw70"]
 
-[node name="Inventory" type="Control" node_paths=PackedStringArray("grid_bkpk", "eq_slot1", "eq_slot2", "eq_slot3", "augs", "collector", "safe_net", "shop", "shop_dil", "le_items", "shop_items")]
+[node name="Inventory" type="Control" node_paths=PackedStringArray("grid_bkpk", "eq_slot1", "eq_slot2", "eq_slot3", "augs", "collector", "safe_net", "shop", "shop_dil", "sell_point", "le_items", "shop_items")]
 process_mode = 3
 layout_mode = 3
 anchor_right = 0.5
@@ -43,6 +46,7 @@ collector = NodePath("collector")
 safe_net = NodePath("safety_net")
 shop = NodePath("shop_backpack2")
 shop_dil = NodePath("Shop")
+sell_point = NodePath("sell")
 le_items = NodePath("le_items")
 shop_items = NodePath("shop_items")
 
@@ -56,10 +60,10 @@ color = Color(0.627451, 0.129412, 0.243137, 0.305882)
 
 [node name="grid_backpack" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 224.0
-offset_top = 240.0
-offset_right = 384.0
-offset_bottom = 336.0
+offset_left = 199.0
+offset_top = 157.0
+offset_right = 359.0
+offset_bottom = 253.0
 mouse_filter = 2
 texture = ExtResource("2_uegg3")
 stretch_mode = 2
@@ -443,18 +447,52 @@ mouse_filter = 2
 texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
+[node name="sell" type="NinePatchRect" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 180.0
+offset_top = 9.0
+offset_right = 243.0
+offset_bottom = 46.0
+texture = ExtResource("6_uhxew")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+script = ExtResource("20_c5gil")
+
+[node name="ui_button" parent="." instance=ExtResource("28_1kw70")]
+visible = false
+layout_mode = 0
+offset_left = 268.0
+offset_top = 17.0
+offset_right = 436.0
+offset_bottom = 40.0
+
+[node name="LinkButton" parent="ui_button/MarginContainer" index="0"]
+text = "Reroll 10$"
+
 [node name="shop_backpack2" type="TextureRect" parent="." node_paths=PackedStringArray("popup", "shop_items_ctrl")]
 visible = false
 layout_mode = 0
-offset_left = 152.0
-offset_top = 56.0
-offset_right = 472.0
-offset_bottom = 184.0
-texture = ExtResource("2_am81f")
+offset_left = 186.0
+offset_top = 69.0
+offset_right = 378.0
+offset_bottom = 133.0
+texture = ExtResource("20_8ghwf")
 stretch_mode = 2
 script = ExtResource("10_50eua")
 popup = NodePath("../dialogue")
 shop_items_ctrl = NodePath("../shop_items")
+
+[node name="TextureRect" type="TextureRect" parent="shop_backpack2"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 208.0
+offset_bottom = 80.0
+mouse_filter = 2
+texture = ExtResource("22_fsjln")
 
 [node name="le_items" type="Control" parent="."]
 anchors_preset = 0
@@ -565,4 +603,7 @@ custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 text = "No"
 
+[connection signal="pressed" from="ui_button/MarginContainer/LinkButton" to="." method="_on_reroll_button_pressed"]
 [connection signal="pressed" from="Shop/talk_button" to="Shop" method="_on_talk_button_pressed"]
+
+[editable path="ui_button"]

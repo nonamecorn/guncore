@@ -62,7 +62,7 @@ var shop_pool = [
 	"res://obj/parts/attach/airburst_module.tres",
 	"res://obj/parts/mags/athlete_mag.tres",
 	"res://obj/parts/mags/AirBurst_mag.tres",
-	"res://obj/parts/body/light_armor.tres",
+	#"res://obj/parts/body/light_armor.tres",
 	"res://obj/parts/muzzles/silencer.tres",
 	"res://obj/parts/guts/Firerate_Spring.tres",
 	"res://obj/parts/guts/Fun_switch.tres",
@@ -105,11 +105,10 @@ func get_corp_gun() -> Dictionary:
 	return gun_preset
 
 func get_shop() -> Array:
-	#var shop = []
-	#for i in 4:
-		#var gun = get_gun()
-		#for part in gun:
-			#shop.append(gun[part])
+	var shop = []
+	for i in 3:
+		shop_pool.shuffle()
+		shop.append(shop_pool[0])
 	#print(shop)
-	return shop_pool
+	return shop
 	

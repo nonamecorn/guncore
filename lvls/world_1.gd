@@ -12,7 +12,7 @@ var rooms = [
 	"res://lvls/rooms/basic_room.tscn",
 	"res://lvls/rooms/combat_room.tscn"
 ]
-@export var roomcount = 20
+@export var roomcount = 3
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -40,7 +40,7 @@ func spawn():
 		spawn_room(exit_obj_path)
 	get_closing_exits()
 	for exit in exits:
-		if exit.active: continue
+		#if exit.active: continue
 		exit.close()
 	
 	$Camera2D.enabled = false

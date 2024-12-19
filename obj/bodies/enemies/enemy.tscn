@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=3 uid="uid://c3jo85so338er"]
+[gd_scene load_steps=20 format=3 uid="uid://c3jo85so338er"]
 
 [ext_resource type="Script" path="res://obj/bodies/enemies/enemy.gd" id="1_qbvdd"]
-[ext_resource type="Texture2D" uid="uid://emrwjki1a5h0" path="res://img/bodys/enemy.png" id="2_fn425"]
+[ext_resource type="Texture2D" uid="uid://88j42qnvmjuu" path="res://img/bodys/cultist_IdleAnim.png" id="2_j18lw"]
 [ext_resource type="PackedScene" uid="uid://df3di7rm5cgei" path="res://obj/components/enemy_hand_component.tscn" id="2_vctv7"]
+[ext_resource type="Texture2D" uid="uid://cggvmdym607vs" path="res://img/bodys/cultist_walkanim.png" id="3_cjvif"]
 [ext_resource type="PackedScene" uid="uid://ctrbcy5h47qqw" path="res://obj/components/gun_base.tscn" id="4_ohoj0"]
 [ext_resource type="PackedScene" uid="uid://b4ifd4nn31mq8" path="res://obj/components/hurt_box.tscn" id="5_eclwk"]
 [ext_resource type="AudioStream" uid="uid://cq5moh8342387" path="res://snd/sfx/enemydeath.wav" id="6_qqgv7"]
@@ -13,6 +14,64 @@ height = 18.0
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_x7umt"]
 light_mode = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y204q"]
+atlas = ExtResource("2_j18lw")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_st7es"]
+atlas = ExtResource("2_j18lw")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xci11"]
+atlas = ExtResource("2_j18lw")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_v8b5x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y204q")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_st7es")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xci11")
+}],
+"loop": true,
+"name": &"default",
+"speed": 1.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gq02c"]
+atlas = ExtResource("3_cjvif")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c62h0"]
+atlas = ExtResource("3_cjvif")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dak2x"]
+atlas = ExtResource("3_cjvif")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_aqq6o"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gq02c")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c62h0")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dak2x")
+}],
+"loop": true,
+"name": &"default",
+"speed": 7.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ykghs"]
 radius = 7.0
@@ -31,12 +90,20 @@ nav_agent = NodePath("NavigationAgent2D")
 position = Vector2(0, -3)
 shape = SubResource("CapsuleShape2D_egrxt")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Node2D" parent="."]
 light_mask = 4
 visibility_layer = 4
 material = SubResource("CanvasItemMaterial_x7umt")
 position = Vector2(0, -8)
-texture = ExtResource("2_fn425")
+
+[node name="idle" type="AnimatedSprite2D" parent="Sprite2D"]
+sprite_frames = SubResource("SpriteFrames_v8b5x")
+frame_progress = 0.0493824
+
+[node name="walk" type="AnimatedSprite2D" parent="Sprite2D"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_aqq6o")
+frame_progress = 0.430912
 
 [node name="enemy_hand_component" parent="." node_paths=PackedStringArray("ray") instance=ExtResource("2_vctv7")]
 position = Vector2(0, -8)

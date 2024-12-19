@@ -45,6 +45,10 @@ cultist=""
 corp=""
 targetable=""
 
+[gui]
+
+theme/custom_font="res://misc_assets/PressStart2P-Regular.ttf"
+
 [input]
 
 ui_left={

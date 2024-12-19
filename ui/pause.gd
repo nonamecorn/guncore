@@ -5,7 +5,7 @@ extends Control
 func _ready() -> void:
 	checkbox.button_pressed = GlobalVars.fullscreen
 
-func _input(event):
+func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
 		if !visible and get_tree().paused:
 			return

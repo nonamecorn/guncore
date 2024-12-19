@@ -8,6 +8,8 @@ extends Control
 
 const item_base = preload("res://ui/item_base.tscn")
  
+@export var reroll_cost : int = 10
+
 @export var grid_bkpk : Node
 @export var eq_slot1 : Node
 @export var eq_slot2 : Node
@@ -17,6 +19,7 @@ const item_base = preload("res://ui/item_base.tscn")
 @export var safe_net : Node
 @export var shop : Node
 @export var shop_dil : Node
+@export var sell_point : Node
 
 @export var le_items : Node
 @export var shop_items : Node
@@ -62,12 +65,16 @@ func switch_to_shop():
 	safe_net.show()
 	shop.show()
 	shop_dil.show()
+	sell_point.show()
+	$ui_button.show()
 
 func switch_to_inventory():
 	collector.show()
 	safe_net.hide()
 	shop.hide()
 	shop_dil.hide()
+	sell_point.hide()
+	$ui_button.hide()
 
 func _physics_process(_delta):
 	if !visible: 
@@ -176,7 +183,7 @@ func check_popup(cursor_pos):
 func get_container_under_cursor(cursor_pos):
 	var active_containers = [grid_bkpk,
 	 eq_slot1, eq_slot2,
-	 collector, augs, shop,
+	 collector, augs, shop, sell_point,
 	 safe_net].filter(func(thing): return thing.visible)
 	for c in active_containers:
 		if c.get_global_rect().has_point(cursor_pos):
@@ -207,7 +214,6 @@ func return_item():
 
 func buy_item():
 	if !item_held: return
-	GlobalVars.shop.erase(item_held.item_resource)
 	item_held.item_resource.from_shop = false
 	item_held.reparent(le_items)
 	var cost = item_held.item_resource.cost
@@ -217,7 +223,6 @@ func buy_item():
 
 func sell_item():
 	if !item_held: return
-	GlobalVars.shop.append(item_held.item_resource)
 	item_held.item_resource.from_shop = true
 	item_held.reparent(shop_items)
 	item_held.item_resource.picked_up = false
@@ -255,3 +260,11 @@ func pickup_collector(item_res : Item):
 		item.queue_free()
 		return false
 	return true
+
+
+func _on_reroll_button_pressed() -> void:
+	if  GlobalVars.money >= reroll_cost:
+		shop.flush_shop()
+		shop.load_shop()
+		GlobalVars.money -= reroll_cost
+		money_changed.emit()

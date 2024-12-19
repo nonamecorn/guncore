@@ -1,7 +1,8 @@
-[gd_scene load_steps=12 format=3 uid="uid://dwafsvlv6e7hc"]
+[gd_scene load_steps=22 format=3 uid="uid://dwafsvlv6e7hc"]
 
 [ext_resource type="Script" path="res://obj/bodies/enemies/corp_grunt.gd" id="1_7g7ug"]
 [ext_resource type="Texture2D" uid="uid://bnrs5ymoqkml4" path="res://img/bodys/Corp.png" id="2_21em0"]
+[ext_resource type="Texture2D" uid="uid://dd7cjk2v8x0op" path="res://img/bodys/Corp_anim.png" id="3_06vpp"]
 [ext_resource type="PackedScene" uid="uid://df3di7rm5cgei" path="res://obj/components/enemy_hand_component.tscn" id="3_lkscu"]
 [ext_resource type="PackedScene" uid="uid://ctrbcy5h47qqw" path="res://obj/components/gun_base.tscn" id="4_cyios"]
 [ext_resource type="PackedScene" uid="uid://b4ifd4nn31mq8" path="res://obj/components/hurt_box.tscn" id="5_sh640"]
@@ -14,6 +15,71 @@ height = 18.0
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_yb0ak"]
 light_mode = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tc3vg"]
+atlas = ExtResource("2_21em0")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2wn1x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tc3vg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6tru"]
+atlas = ExtResource("3_06vpp")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfjxm"]
+atlas = ExtResource("3_06vpp")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3dxh"]
+atlas = ExtResource("3_06vpp")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxe2s"]
+atlas = ExtResource("3_06vpp")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aw0y6"]
+atlas = ExtResource("3_06vpp")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mri6n"]
+atlas = ExtResource("3_06vpp")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lufcr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6tru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfjxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3dxh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxe2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aw0y6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mri6n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ykghs"]
 radius = 7.0
@@ -32,12 +98,19 @@ nav_agent = NodePath("NavigationAgent2D")
 position = Vector2(0, -3)
 shape = SubResource("CapsuleShape2D_egrxt")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Node2D" parent="."]
 light_mask = 4
 visibility_layer = 4
 material = SubResource("CanvasItemMaterial_yb0ak")
 position = Vector2(0, -8)
-texture = ExtResource("2_21em0")
+
+[node name="idle" type="AnimatedSprite2D" parent="Sprite2D"]
+sprite_frames = SubResource("SpriteFrames_2wn1x")
+
+[node name="walk" type="AnimatedSprite2D" parent="Sprite2D"]
+visible = false
+sprite_frames = SubResource("SpriteFrames_lufcr")
+frame_progress = 0.255949
 
 [node name="corp_light" parent="Sprite2D" instance=ExtResource("7_gskjq")]
 position = Vector2(4, -6)

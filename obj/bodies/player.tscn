@@ -225,35 +225,43 @@ current = true
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
+[node name="help" type="Label" parent="CanvasLayer"]
+offset_left = 23.0
+offset_top = 16.0
+offset_right = 231.0
+offset_bottom = 39.0
+theme_override_font_sizes/font_size = 8
+text = "f1 - controls"
+
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("8_wsalq")]
 visible = false
 
 [node name="hp" type="Label" parent="CanvasLayer"]
-offset_left = 504.0
-offset_top = 328.0
-offset_right = 544.0
-offset_bottom = 351.0
+offset_left = 408.0
+offset_top = 326.0
+offset_right = 456.0
+offset_bottom = 349.0
 text = "200"
 
 [node name="ammo" type="Label" parent="CanvasLayer"]
-offset_left = 433.0
-offset_top = 328.0
-offset_right = 495.0
-offset_bottom = 351.0
+offset_left = 220.0
+offset_top = 323.0
+offset_right = 332.0
+offset_bottom = 346.0
 text = "140/200"
 
 [node name="money" type="Label" parent="CanvasLayer"]
-offset_left = 552.0
-offset_top = 328.0
-offset_right = 592.0
-offset_bottom = 351.0
+offset_left = 525.0
+offset_top = 323.0
+offset_right = 589.0
+offset_bottom = 346.0
 text = "200$"
 
 [node name="stats" type="Label" parent="CanvasLayer"]
-offset_left = 482.0
-offset_top = 298.0
-offset_right = 565.0
-offset_bottom = 321.0
+offset_left = 366.0
+offset_top = 293.0
+offset_right = 622.0
+offset_bottom = 316.0
 text = "kills: 0 loop: 0"
 
 [node name="pause" parent="CanvasLayer" instance=ExtResource("11_heitk")]

@@ -14,10 +14,7 @@ func _ready() -> void:
 	items.append(t2)
 	items.append(t3)
 	var shop_strs = Randogunser.get_shop()
-	for path in shop_strs:
-		if !path: continue
-		var shop_res = load(path).duplicate()
-		shop.append(shop_res)
+	
 
 
 const item_base = preload("res://ui/item_base.tscn")
@@ -32,4 +29,3 @@ var kills = 0
 var items = []
 var fullscreen = false
 var money = 1000
-var shop = []

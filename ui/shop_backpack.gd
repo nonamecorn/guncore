@@ -24,10 +24,10 @@ func _ready():
 	
 
 func load_shop():
-	for item in GlobalVars.shop:
-		if !item: print("ses"); continue
-		var item_res = item
-		item_res.duplicate()
+	for path in Randogunser.get_shop():
+		if !path: continue
+		var item_res = load(path).duplicate()
+		if !item_res: print("ses"); continue
 		item_res.from_shop = true
 		var item_inst = item_base.instantiate()
 		item_inst.item_resource = item_res
@@ -43,7 +43,7 @@ func flush_shop():
 	for child in shop_items_ctrl.get_children():
 		child.queue_free()
 
-func insert_item(item):
+func insert_item_iternal(item):
 	var item_pos = item.global_position + Vector2(cell_size / 2, cell_size / 2)
 	var g_pos = pos_to_grid_coord(item_pos)
 	var item_size = get_grid_size(item)
@@ -113,6 +113,6 @@ func insert_item_at_first_available_spot(item):
 		for x in range(grid_width):
 			if !grid[x][y]:
 				item.global_position = global_position + Vector2(x, y) * cell_size
-				if insert_item(item):
+				if insert_item_iternal(item):
 					return true
 	return false

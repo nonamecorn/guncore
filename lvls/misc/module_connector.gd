@@ -26,6 +26,7 @@ func get_info():
 	return [type,orientation,global_position]
 
 func close():
+	print("huh")
 	#$Polygon2D2.show()
 	match orientation:
 		0:

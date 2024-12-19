@@ -72,11 +72,15 @@ func _physics_process(delta):
 		RUN:
 			run(delta)
 func start_blastin():
+	$Sprite2D/IdleAnimation.hide()
+	$Sprite2D/RunninAnnimation.show()
 	$makepath.start()
 	set_movement_target(current_target.global_position)
 	state = SURROUND
 
 func start_chasin():
+	$Sprite2D/IdleAnimation.hide()
+	$Sprite2D/RunninAnnimation.show()
 	set_movement_target(current_target.global_position)
 	state = IVESTIGATE
 
