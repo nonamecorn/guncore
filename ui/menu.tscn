@@ -1,0 +1,175 @@
+[gd_scene load_steps=5 format=3 uid="uid://cgjq0v6xmx2g3"]
+
+[ext_resource type="Script" path="res://ui/menu.gd" id="1_2c1oq"]
+[ext_resource type="Texture2D" uid="uid://faonagr4q8jo" path="res://img/ui/UI.png" id="1_3pwc6"]
+[ext_resource type="Texture2D" uid="uid://cxm8l442in7mi" path="res://img/ui/inventory_1slot.png" id="2_npt6o"]
+[ext_resource type="PackedScene" uid="uid://clebifn20pbo5" path="res://ui/pause.tscn" id="4_tqumb"]
+
+[node name="Menu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_2c1oq")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_right = -640.0
+offset_bottom = -360.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 640.0
+offset_bottom = 360.0
+mouse_filter = 2
+color = Color(0.702735, 0.286466, 0.3791, 1)
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 0
+offset_left = 20.0
+offset_top = 132.0
+offset_right = 208.0
+offset_bottom = 292.0
+texture = ExtResource("1_3pwc6")
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+
+[node name="VBoxContainer" type="Control" parent="NinePatchRect/MarginContainer"]
+layout_mode = 2
+mouse_filter = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+offset_right = 168.0
+offset_bottom = 23.0
+text = "So... I Started Blastin'"
+
+[node name="Startbutton" type="MarginContainer" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+offset_top = 27.0
+offset_right = 168.0
+offset_bottom = 50.0
+mouse_filter = 2
+
+[node name="ui_button" type="NinePatchRect" parent="NinePatchRect/MarginContainer/VBoxContainer/Startbutton"]
+layout_mode = 2
+texture = ExtResource("2_npt6o")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect/MarginContainer/VBoxContainer/Startbutton"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
+
+[node name="LinkButton" type="LinkButton" parent="NinePatchRect/MarginContainer/VBoxContainer/Startbutton/MarginContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+text = "Start"
+underline = 1
+
+[node name="Optionsbutton2" type="MarginContainer" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+offset_top = 54.0
+offset_right = 168.0
+offset_bottom = 77.0
+mouse_filter = 2
+
+[node name="ui_button" type="NinePatchRect" parent="NinePatchRect/MarginContainer/VBoxContainer/Optionsbutton2"]
+layout_mode = 2
+texture = ExtResource("2_npt6o")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect/MarginContainer/VBoxContainer/Optionsbutton2"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 0
+
+[node name="LinkButton" type="LinkButton" parent="NinePatchRect/MarginContainer/VBoxContainer/Optionsbutton2/MarginContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+mouse_filter = 1
+text = "Options"
+underline = 1
+
+[node name="Quitbutton3" type="MarginContainer" parent="NinePatchRect/MarginContainer/VBoxContainer"]
+layout_mode = 2
+offset_top = 81.0
+offset_right = 168.0
+offset_bottom = 104.0
+mouse_filter = 2
+
+[node name="ui_button" type="NinePatchRect" parent="NinePatchRect/MarginContainer/VBoxContainer/Quitbutton3"]
+layout_mode = 2
+texture = ExtResource("2_npt6o")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect/MarginContainer/VBoxContainer/Quitbutton3"]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 0
+
+[node name="LinkButton" type="LinkButton" parent="NinePatchRect/MarginContainer/VBoxContainer/Quitbutton3/MarginContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+mouse_filter = 1
+text = "Quit"
+underline = 1
+
+[node name="pause" parent="." instance=ExtResource("4_tqumb")]
+visible = false
+layout_mode = 1
+mouse_filter = 2
+
+[node name="NinePatchRect" parent="pause" index="0"]
+offset_left = 220.0
+offset_top = 108.0
+offset_right = 442.0
+offset_bottom = 291.0
+
+[connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/Startbutton/MarginContainer/LinkButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/Optionsbutton2/MarginContainer/LinkButton" to="." method="_on_options_button_pressed"]
+[connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/Quitbutton3/MarginContainer/LinkButton" to="." method="_on_quit_button_pressed"]
+
+[editable path="pause"]

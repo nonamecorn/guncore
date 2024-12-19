@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=3 uid="uid://clebifn20pbo5"]
+[gd_scene load_steps=4 format=3 uid="uid://clebifn20pbo5"]
 
 [ext_resource type="Script" path="res://ui/pause.gd" id="1_ye7m4"]
 [ext_resource type="Texture2D" uid="uid://faonagr4q8jo" path="res://img/ui/UI.png" id="2_hmej1"]
+[ext_resource type="Texture2D" uid="uid://cxm8l442in7mi" path="res://img/ui/inventory_1slot.png" id="3_sr2fl"]
 
 [node name="pause" type="Control"]
 process_mode = 3
@@ -40,4 +41,39 @@ offset_top = 31.0
 offset_right = 124.0
 offset_bottom = 55.0
 
+[node name="qbutton" type="Control" parent="NinePatchRect"]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ui_button" type="NinePatchRect" parent="NinePatchRect/qbutton"]
+layout_mode = 2
+offset_left = 17.0
+offset_top = 139.0
+offset_right = 171.0
+offset_bottom = 162.0
+texture = ExtResource("3_sr2fl")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="NinePatchRect/qbutton"]
+layout_mode = 2
+offset_left = 17.0
+offset_top = 139.0
+offset_right = 171.0
+offset_bottom = 162.0
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 2
+theme_override_constants/margin_bottom = 0
+
+[node name="LinkButton" type="LinkButton" parent="NinePatchRect/qbutton/MarginContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+text = "Quit"
+underline = 1
+
 [connection signal="toggled" from="NinePatchRect/CheckBox" to="." method="_on_fulcreen_toggled"]
+[connection signal="pressed" from="NinePatchRect/qbutton/MarginContainer/LinkButton" to="." method="_on_quit_button_pressed"]

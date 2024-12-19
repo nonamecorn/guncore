@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=3 uid="uid://btw10scl5f85a"]
+[gd_scene load_steps=35 format=3 uid="uid://btw10scl5f85a"]
 
 [ext_resource type="Script" path="res://obj/bodies/player.gd" id="1_6n3fv"]
 [ext_resource type="Texture2D" uid="uid://ci5dmfqdm37at" path="res://img/bodys/GG_IdleAnim.png" id="2_qk2hj"]
@@ -11,6 +11,7 @@
 [ext_resource type="Script" path="res://obj/components/hurt_box.gd" id="10_frvst"]
 [ext_resource type="AudioStream" uid="uid://31xvcqxgens0" path="res://snd/sfx/scream.wav" id="10_ti353"]
 [ext_resource type="PackedScene" uid="uid://clebifn20pbo5" path="res://ui/pause.tscn" id="11_heitk"]
+[ext_resource type="PackedScene" uid="uid://bfrhglfhp1ihi" path="res://ui/f_1_menu.tscn" id="12_i05es"]
 [ext_resource type="PackedScene" uid="uid://ddfo6c5nx4m8h" path="res://lvls/misc/light.tscn" id="12_p0x4g"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xlh8"]
@@ -248,6 +249,8 @@ text = "200$"
 
 [node name="pause" parent="CanvasLayer" instance=ExtResource("11_heitk")]
 visible = false
+
+[node name="f1menu" parent="CanvasLayer" instance=ExtResource("12_i05es")]
 
 [node name="light" parent="." instance=ExtResource("12_p0x4g")]
 

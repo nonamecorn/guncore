@@ -10,6 +10,12 @@ func _input(event):
 		get_tree().paused = !get_tree().paused
 		visible = !visible
 
+func toggle():
+	if !visible and get_tree().paused:
+		return
+	get_tree().paused = !get_tree().paused
+	visible = !visible
+
 func _on_button_pressed():
 	pass # Replace with function body.
 
@@ -23,3 +29,7 @@ func _on_fulcreen_toggled(toggled_on):
 		DisplayServer.window_set_mode(DisplayServer.WINDOW_MODE_WINDOWED)
 
 	
+
+
+func _on_quit_button_pressed() -> void:
+	get_tree().quit()
