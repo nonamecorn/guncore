@@ -29,7 +29,8 @@ min_spread = 5.0
 muzzle_position = Vector2(17, 0)
 add_spd = 250.0
 item_name = "Coil barrel"
-item_description = "Accelerates bullets due to some electromagnetic magic
+item_description = "Accelerates bullets due to 
+some electromagnetic magic.
 "
 cost = 50
 sprite = ExtResource("3_4v7y1")

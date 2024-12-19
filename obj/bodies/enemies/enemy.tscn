@@ -98,12 +98,12 @@ position = Vector2(0, -8)
 
 [node name="idle" type="AnimatedSprite2D" parent="Sprite2D"]
 sprite_frames = SubResource("SpriteFrames_v8b5x")
-frame_progress = 0.0493824
+frame_progress = 0.288172
 
 [node name="walk" type="AnimatedSprite2D" parent="Sprite2D"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_aqq6o")
-frame_progress = 0.430912
+frame_progress = 0.10251
 
 [node name="enemy_hand_component" parent="." node_paths=PackedStringArray("ray") instance=ExtResource("2_vctv7")]
 position = Vector2(0, -8)

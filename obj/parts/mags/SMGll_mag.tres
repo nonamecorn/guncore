@@ -17,7 +17,9 @@ reload_time = 2
 sound = ExtResource("4_il5h1")
 loud_dist = 100
 item_name = "SMGll mag"
-item_description = ""
+item_description = "Subsonic rounds.
+Popular among
+Stealth corps."
 cost = 30
 sprite = ExtResource("5_lnwct")
 sprite_offset = Vector2(1, 1)

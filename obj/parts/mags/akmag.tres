@@ -1,10 +1,13 @@
-[gd_resource type="Resource" script_class="Mag" load_steps=6 format=3 uid="uid://bnbmkb8n34y75"]
+[gd_resource type="Resource" script_class="Mag" load_steps=9 format=3 uid="uid://bnbmkb8n34y75"]
 
 [ext_resource type="Script" path="res://obj/parts/scripts/mag.gd" id="1_4qlor"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_13vdg"]
 [ext_resource type="Texture2D" uid="uid://bbvmwcguamenp" path="res://img/parts/AK_Mag.png" id="1_51pky"]
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_c5x6n"]
 [ext_resource type="PackedScene" uid="uid://ce5unulp5hnlx" path="res://obj/proj/fmj.tscn" id="2_44mwl"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_bo5ae"]
 [ext_resource type="AudioStream" uid="uid://bseru4wnpe0hh" path="res://snd/sfx/ar_fire.wav" id="4_x0m4p"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="6_h30mm"]
 
 [resource]
 script = ExtResource("1_4qlor")
@@ -14,8 +17,11 @@ reload_time = 2
 sound = ExtResource("4_x0m4p")
 loud_dist = 400
 item_name = "AK mag"
-item_description = ""
+item_description = "Most reliable mag ever."
 cost = 15
 sprite = ExtResource("1_51pky")
 sprite_offset = Vector2(3, 4)
+bullet_strategies = Array[ExtResource("1_13vdg")]([])
+player_strategies = Array[ExtResource("3_bo5ae")]([])
+shootin_strategies = Array[ExtResource("6_h30mm")]([])
 changes = Array[ExtResource("1_c5x6n")]([])

@@ -17,7 +17,9 @@ reload_time = 2
 sound = ExtResource("4_ptls6")
 loud_dist = 400
 item_name = "SES mag"
-item_description = ""
+item_description = "Least reliable mag ever.
+Even though it contains
+accursed alloy core."
 cost = 5
 sprite = ExtResource("4_hnugq")
 sprite_offset = Vector2(2, 1)

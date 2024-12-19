@@ -16,7 +16,8 @@ mag_position = Vector2(-4, 3)
 barrel_position = Vector2(0, 0)
 attach_position = Vector2(-4, -3)
 item_name = "Luty"
-item_description = "It's illegal to make makeshift weapon!!! However...."
+item_description = "It's illegal to make makeshift weapon!!!
+However...."
 cost = 5
 sprite = ExtResource("3_0kduy")
 sprite_offset = Vector2(0, 0)

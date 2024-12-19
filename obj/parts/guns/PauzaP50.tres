@@ -16,7 +16,8 @@ mag_position = Vector2(0, 1)
 barrel_position = Vector2(8, 0)
 attach_position = Vector2(2, -6)
 item_name = "Rauza R50"
-item_description = "Reject materialism, embrace anti-materielism"
+item_description = "Reject materialism,
+embrace anti-materielism"
 cost = 20
 sprite = ExtResource("3_idtr0")
 sprite_offset = Vector2(0, 0)

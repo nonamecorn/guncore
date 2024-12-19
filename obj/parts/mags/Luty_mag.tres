@@ -1,10 +1,13 @@
-[gd_resource type="Resource" script_class="Mag" load_steps=6 format=3 uid="uid://c6lj4qaio5050"]
+[gd_resource type="Resource" script_class="Mag" load_steps=9 format=3 uid="uid://c6lj4qaio5050"]
 
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_6t1tb"]
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_xf3kg"]
 [ext_resource type="PackedScene" uid="uid://b4qvivbnt8oim" path="res://obj/proj/PP_fmj.tscn" id="2_leerk"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_hl1iy"]
 [ext_resource type="Script" path="res://obj/parts/scripts/mag.gd" id="3_uu35d"]
 [ext_resource type="Texture2D" uid="uid://djlytxic53v0u" path="res://img/parts/Luty_mag.png" id="4_cnp8u"]
 [ext_resource type="AudioStream" uid="uid://bc6jww2l3klia" path="res://snd/sfx/smgfire.wav" id="4_h8qqb"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="6_r63ac"]
 
 [resource]
 script = ExtResource("3_uu35d")
@@ -14,8 +17,11 @@ reload_time = 2
 sound = ExtResource("4_h8qqb")
 loud_dist = 400
 item_name = "Luty mag"
-item_description = ""
+item_description = "Bed frame that somehow holds ammo."
 cost = 5
 sprite = ExtResource("4_cnp8u")
 sprite_offset = Vector2(2, 3)
+bullet_strategies = Array[ExtResource("1_6t1tb")]([])
+player_strategies = Array[ExtResource("3_hl1iy")]([])
+shootin_strategies = Array[ExtResource("6_r63ac")]([])
 changes = Array[ExtResource("1_xf3kg")]([])

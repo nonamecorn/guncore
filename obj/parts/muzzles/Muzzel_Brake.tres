@@ -25,7 +25,8 @@ is_set = false
 script = ExtResource("2_7mp8e")
 bullet_vector = Vector2(8, 0)
 item_name = "Muzzle brake"
-item_description = ""
+item_description = "Must have for
+Meta players."
 cost = 45
 sprite = ExtResource("3_1q8a4")
 sprite_offset = Vector2(4, 0)

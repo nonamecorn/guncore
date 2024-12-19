@@ -110,7 +110,7 @@ sprite_frames = SubResource("SpriteFrames_2wn1x")
 [node name="walk" type="AnimatedSprite2D" parent="Sprite2D"]
 visible = false
 sprite_frames = SubResource("SpriteFrames_lufcr")
-frame_progress = 0.255949
+frame_progress = 0.345473
 
 [node name="corp_light" parent="Sprite2D" instance=ExtResource("7_gskjq")]
 position = Vector2(4, -6)

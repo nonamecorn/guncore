@@ -17,7 +17,9 @@ reload_time = 6
 sound = ExtResource("4_cbhew")
 loud_dist = 400
 item_name = "MG box"
-item_description = ""
+item_description = "Offers huge ammo capacity
+if you willing to be vulnerable
+50% of the time."
 cost = 50
 sprite = ExtResource("3_u84gw")
 sprite_offset = Vector2(2, 2)
