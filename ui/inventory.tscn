@@ -60,10 +60,10 @@ color = Color(0.627451, 0.129412, 0.243137, 0.305882)
 
 [node name="grid_backpack" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 199.0
-offset_top = 157.0
-offset_right = 359.0
-offset_bottom = 253.0
+offset_left = 168.0
+offset_top = 240.0
+offset_right = 328.0
+offset_bottom = 336.0
 mouse_filter = 2
 texture = ExtResource("2_uegg3")
 stretch_mode = 2
@@ -450,10 +450,10 @@ stretch_mode = 2
 [node name="sell" type="NinePatchRect" parent="."]
 visible = false
 layout_mode = 0
-offset_left = 180.0
-offset_top = 9.0
-offset_right = 243.0
-offset_bottom = 46.0
+offset_left = 168.0
+offset_top = 16.0
+offset_right = 231.0
+offset_bottom = 53.0
 texture = ExtResource("6_uhxew")
 patch_margin_left = 2
 patch_margin_top = 2
@@ -464,10 +464,10 @@ script = ExtResource("20_c5gil")
 [node name="ui_button" parent="." instance=ExtResource("28_1kw70")]
 visible = false
 layout_mode = 0
-offset_left = 268.0
-offset_top = 17.0
-offset_right = 436.0
-offset_bottom = 40.0
+offset_left = 240.0
+offset_top = 16.0
+offset_right = 408.0
+offset_bottom = 39.0
 
 [node name="LinkButton" parent="ui_button/MarginContainer" index="0"]
 text = "Reroll 10$"
@@ -475,10 +475,10 @@ text = "Reroll 10$"
 [node name="shop_backpack2" type="TextureRect" parent="." node_paths=PackedStringArray("popup", "shop_items_ctrl")]
 visible = false
 layout_mode = 0
-offset_left = 186.0
-offset_top = 69.0
-offset_right = 378.0
-offset_bottom = 133.0
+offset_left = 168.0
+offset_top = 64.0
+offset_right = 360.0
+offset_bottom = 128.0
 texture = ExtResource("20_8ghwf")
 stretch_mode = 2
 script = ExtResource("10_50eua")

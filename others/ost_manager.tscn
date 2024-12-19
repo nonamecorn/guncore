@@ -22,24 +22,13 @@ stream_0 = ExtResource("3_k51hm")
 clip_count = 3
 clip_0/name = &"Menu"
 clip_0/stream = SubResource("AudioStreamPlaylist_xcpcf")
-clip_0/auto_advance = 1
-clip_0/next_clip = 0
+clip_0/auto_advance = 0
 clip_1/name = &"Shop"
 clip_1/stream = SubResource("AudioStreamPlaylist_f6rws")
-clip_1/auto_advance = 1
-clip_1/next_clip = 0
+clip_1/auto_advance = 0
 clip_2/name = &"Battle"
 clip_2/stream = SubResource("AudioStreamPlaylist_spg0a")
-clip_2/auto_advance = 1
-clip_2/next_clip = 0
-_transitions = {
-Vector2i(-1, -1): {
-"fade_beats": 1,
-"fade_mode": 4,
-"from_time": 0,
-"to_time": 1
-}
-}
+clip_2/auto_advance = 0
 
 [node name="OstManager" type="Node"]
 process_mode = 3

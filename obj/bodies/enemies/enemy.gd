@@ -199,6 +199,7 @@ func hurt(amnt, ap):
 			$enemy_hand_component.state = 2
 
 func die():
+	if dead: return
 	for part in unique_parts:
 		if unique_parts[part]:
 			drop(unique_parts[part])

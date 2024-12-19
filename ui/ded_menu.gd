@@ -5,7 +5,6 @@ func _on_rtry_button_pressed() -> void:
 	GlobalVars.items = []
 	GlobalVars.fullscreen = false
 	GlobalVars.money = 1000
-	GlobalVars.shop = []
 	GlobalVars._ready()
 	get_tree().call_deferred("change_scene_to_file","res://lvls/world_1_shop.tscn")
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c3jo85so338er"]
+[gd_scene load_steps=21 format=3 uid="uid://c3jo85so338er"]
 
 [ext_resource type="Script" path="res://obj/bodies/enemies/enemy.gd" id="1_qbvdd"]
 [ext_resource type="Texture2D" uid="uid://88j42qnvmjuu" path="res://img/bodys/cultist_IdleAnim.png" id="2_j18lw"]
@@ -13,6 +13,9 @@ radius = 7.0
 height = 18.0
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_x7umt"]
+light_mode = 2
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kudys"]
 light_mode = 2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y204q"]
@@ -97,12 +100,20 @@ material = SubResource("CanvasItemMaterial_x7umt")
 position = Vector2(0, -8)
 
 [node name="idle" type="AnimatedSprite2D" parent="Sprite2D"]
+light_mask = 4
+visibility_layer = 4
+material = SubResource("CanvasItemMaterial_kudys")
 sprite_frames = SubResource("SpriteFrames_v8b5x")
+autoplay = "default"
 frame_progress = 0.288172
 
 [node name="walk" type="AnimatedSprite2D" parent="Sprite2D"]
 visible = false
+light_mask = 4
+visibility_layer = 4
+material = SubResource("CanvasItemMaterial_kudys")
 sprite_frames = SubResource("SpriteFrames_aqq6o")
+autoplay = "default"
 frame_progress = 0.10251
 
 [node name="enemy_hand_component" parent="." node_paths=PackedStringArray("ray") instance=ExtResource("2_vctv7")]
