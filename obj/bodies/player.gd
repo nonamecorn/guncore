@@ -116,6 +116,7 @@ func death():
 	velocity = Vector2.ZERO
 	died.emit()
 	state = IDLE
+	$player_hand_component.follow = false
 	$death.play()
 	$CollisionShape2D.disabled = true
 	$Sprite2D.rotation_degrees = 90
@@ -125,6 +126,8 @@ func death():
 	GlobalVars.kills = 0
 	GlobalVars.loop = 0
 	on_score_change(0,0)
+	$CanvasLayer/ded_menu.show()
+
 
 func hurt(amnt, ap):
 	if strategies:

@@ -1,0 +1,30 @@
+[gd_scene load_steps=2 format=3 uid="uid://ggi5lqbxx6uu"]
+
+[ext_resource type="Texture2D" uid="uid://cxm8l442in7mi" path="res://img/ui/inventory_1slot.png" id="1_1e1yw"]
+
+[node name="ui_button" type="MarginContainer"]
+offset_top = 27.0
+offset_right = 168.0
+offset_bottom = 50.0
+mouse_filter = 2
+
+[node name="ui_button" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("1_1e1yw")
+patch_margin_left = 2
+patch_margin_top = 2
+patch_margin_right = 2
+patch_margin_bottom = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+mouse_filter = 2
+theme_override_constants/margin_left = 2
+theme_override_constants/margin_right = 2
+
+[node name="LinkButton" type="LinkButton" parent="MarginContainer"]
+custom_minimum_size = Vector2(150, 0)
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 1
+underline = 1

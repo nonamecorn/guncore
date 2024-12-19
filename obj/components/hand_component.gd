@@ -10,7 +10,9 @@ var active_base = 0
 var flipped = false
 var follow = true
 func _physics_process(_delta):
-	if !follow: return
+	if !follow:
+		$Marker2D.get_child(active_base).stop_fire()
+		return
 	if Input.is_action_just_pressed("1"):
 		$Marker2D.get_child(active_base).stop_fire()
 		active_base = 0

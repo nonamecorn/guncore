@@ -37,9 +37,9 @@ color = Color(0.702735, 0.286466, 0.3791, 1)
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0
 offset_left = 20.0
-offset_top = 132.0
+offset_top = 136.0
 offset_right = 208.0
-offset_bottom = 292.0
+offset_bottom = 296.0
 texture = ExtResource("1_3pwc6")
 patch_margin_left = 10
 patch_margin_top = 10
