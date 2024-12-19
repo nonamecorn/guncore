@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="GunReciever" load_steps=6 format=3 uid="uid://b31qmdjpvrlkc"]
+[gd_resource type="Resource" script_class="GunReciever" load_steps=7 format=3 uid="uid://b31qmdjpvrlkc"]
 
 [ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_acdb7"]
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_s4r2r"]
 [ext_resource type="Script" path="res://obj/parts/scripts/reciever.gd" id="2_vvj63"]
 [ext_resource type="Texture2D" uid="uid://cqst42ii7we3f" path="res://img/parts/PipeRifle.png" id="3_eosth"]
 [ext_resource type="Script" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_spth4"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="5_f1svk"]
 
 [resource]
 script = ExtResource("2_vvj63")
@@ -15,11 +16,11 @@ mag_position = Vector2(-2, 3)
 barrel_position = Vector2(3, 0)
 attach_position = Vector2(-3, -3)
 item_name = "Piperifle"
-item_description = ""
+item_description = "piperifle"
 cost = 7
 sprite = ExtResource("3_eosth")
 sprite_offset = Vector2(0, 0)
 bullet_strategies = Array[ExtResource("1_acdb7")]([])
-firing_strategies = Array[ExtResource("1_acdb7")]([])
 player_strategies = Array[ExtResource("3_spth4")]([])
+shootin_strategies = Array[ExtResource("5_f1svk")]([])
 changes = Array[ExtResource("1_s4r2r")]([])

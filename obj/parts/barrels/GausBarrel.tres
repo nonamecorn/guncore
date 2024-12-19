@@ -1,8 +1,11 @@
-[gd_resource type="Resource" script_class="Barrel" load_steps=6 format=3 uid="uid://bxx2dgogqnqnx"]
+[gd_resource type="Resource" script_class="Barrel" load_steps=9 format=3 uid="uid://bxx2dgogqnqnx"]
 
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_0ho3p"]
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_5nps4"]
 [ext_resource type="Script" path="res://obj/parts/scripts/barrel.gd" id="2_85mr3"]
 [ext_resource type="Texture2D" uid="uid://csnt6o7nooloq" path="res://img/parts/Coils.png" id="3_4v7y1"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_ljm23"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="5_ww2vb"]
 
 [sub_resource type="Resource" id="Resource_c4tdn"]
 script = ExtResource("1_5nps4")
@@ -26,8 +29,12 @@ min_spread = 5.0
 muzzle_position = Vector2(17, 0)
 add_spd = 250.0
 item_name = "Coil barrel"
-item_description = ""
-cost = 30
+item_description = "Accelerates bullets due to some electromagnetic magic
+"
+cost = 50
 sprite = ExtResource("3_4v7y1")
 sprite_offset = Vector2(14, 0)
+bullet_strategies = Array[ExtResource("1_0ho3p")]([])
+player_strategies = Array[ExtResource("3_ljm23")]([])
+shootin_strategies = Array[ExtResource("5_ww2vb")]([])
 changes = Array[ExtResource("1_5nps4")]([SubResource("Resource_c4tdn"), SubResource("Resource_2mgrr")])

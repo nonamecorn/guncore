@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="GunReciever" load_steps=6 format=3 uid="uid://mel4w53oqfb4"]
+[gd_resource type="Resource" script_class="GunReciever" load_steps=7 format=3 uid="uid://mel4w53oqfb4"]
 
 [ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_f0bbl"]
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_i4ba2"]
 [ext_resource type="Script" path="res://obj/parts/scripts/reciever.gd" id="2_7wmay"]
 [ext_resource type="Script" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_gnot1"]
 [ext_resource type="Texture2D" uid="uid://cry7ciyklfffy" path="res://img/parts/PauzaP50.png" id="3_idtr0"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="5_m3lod"]
 
 [resource]
 script = ExtResource("2_7wmay")
@@ -15,11 +16,11 @@ mag_position = Vector2(0, 1)
 barrel_position = Vector2(8, 0)
 attach_position = Vector2(2, -6)
 item_name = "Rauza R50"
-item_description = ""
+item_description = "Reject materialism, embrace anti-materielism"
 cost = 20
 sprite = ExtResource("3_idtr0")
 sprite_offset = Vector2(0, 0)
 bullet_strategies = Array[ExtResource("1_f0bbl")]([])
-firing_strategies = Array[ExtResource("1_f0bbl")]([])
 player_strategies = Array[ExtResource("3_gnot1")]([])
+shootin_strategies = Array[ExtResource("5_m3lod")]([])
 changes = Array[ExtResource("1_i4ba2")]([])

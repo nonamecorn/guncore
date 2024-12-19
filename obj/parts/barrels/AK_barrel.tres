@@ -1,8 +1,11 @@
-[gd_resource type="Resource" script_class="Barrel" load_steps=4 format=3 uid="uid://knr31207p64p"]
+[gd_resource type="Resource" script_class="Barrel" load_steps=7 format=3 uid="uid://knr31207p64p"]
 
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_00eg8"]
 [ext_resource type="Texture2D" uid="uid://tghkayky54p3" path="res://img/parts/AK_Barrel.png" id="1_5su8h"]
 [ext_resource type="Script" path="res://obj/parts/scripts/barrel.gd" id="1_a1wfo"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_r1hki"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_6frjy"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="5_ch4r2"]
 
 [resource]
 script = ExtResource("1_a1wfo")
@@ -13,7 +16,10 @@ muzzle_position = Vector2(14, 0)
 add_spd = 0.0
 item_name = "AK Barrel"
 item_description = ""
-cost = 5
+cost = 10
 sprite = ExtResource("1_5su8h")
 sprite_offset = Vector2(7, 0)
+bullet_strategies = Array[ExtResource("1_r1hki")]([])
+player_strategies = Array[ExtResource("3_6frjy")]([])
+shootin_strategies = Array[ExtResource("5_ch4r2")]([])
 changes = Array[ExtResource("1_00eg8")]([])

@@ -10,15 +10,16 @@
 [sub_resource type="Resource" id="Resource_6gjg1"]
 script = ExtResource("2_5qot8")
 stat_name = "current_firerate"
-value_of_stat = 0.05
+value_of_stat = 0.1
 mult = false
 is_set = false
 
 [resource]
 script = ExtResource("4_7tft1")
 item_name = "Fun switch"
-item_description = ""
-cost = 40
+item_description = "Сonverts semi-automatic weapons into automatic
+"
+cost = 20
 sprite = ExtResource("6_xwhaj")
 sprite_offset = Vector2(0, 0)
 bullet_strategies = Array[ExtResource("1_54ydv")]([])

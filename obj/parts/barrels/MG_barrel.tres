@@ -1,19 +1,25 @@
-[gd_resource type="Resource" script_class="Barrel" load_steps=4 format=3 uid="uid://bcdwxtu2tba7f"]
+[gd_resource type="Resource" script_class="Barrel" load_steps=7 format=3 uid="uid://bcdwxtu2tba7f"]
 
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_3r1ov"]
 [ext_resource type="Script" path="res://obj/parts/scripts/barrel.gd" id="1_86k7k"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_bp4a6"]
 [ext_resource type="Texture2D" uid="uid://1dotbnpeent3" path="res://img/parts/MG_barrel.png" id="2_udx33"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_b3fgn"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="5_rmp1a"]
 
 [resource]
 script = ExtResource("1_86k7k")
 range_in_secs = 1.0
-max_spread = 15.0
+max_spread = 10.0
 min_spread = 3.0
 muzzle_position = Vector2(13, 0)
 add_spd = 0.0
 item_name = "MG Barrel"
 item_description = ""
-cost = 5
+cost = 7
 sprite = ExtResource("2_udx33")
 sprite_offset = Vector2(6, 0)
+bullet_strategies = Array[ExtResource("1_bp4a6")]([])
+player_strategies = Array[ExtResource("3_b3fgn")]([])
+shootin_strategies = Array[ExtResource("5_rmp1a")]([])
 changes = Array[ExtResource("1_3r1ov")]([])

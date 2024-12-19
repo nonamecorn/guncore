@@ -17,7 +17,8 @@ is_set = false
 [resource]
 script = ExtResource("4_3qbrs")
 item_name = "Firerate spring"
-item_description = ""
+item_description = "Increases rate of fire
+"
 cost = 100
 sprite = ExtResource("6_hgt6g")
 sprite_offset = Vector2(0, 0)

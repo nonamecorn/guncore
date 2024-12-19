@@ -1,10 +1,12 @@
-[gd_resource type="Resource" script_class="Barrel" load_steps=6 format=3 uid="uid://kmm38oy5n8dk"]
+[gd_resource type="Resource" script_class="Barrel" load_steps=8 format=3 uid="uid://kmm38oy5n8dk"]
 
 [ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_ry8x6"]
 [ext_resource type="Resource" uid="uid://craqbchwwgn3g" path="res://obj/parts/strategies/AutoaimStrategy.tres" id="2_d6c8v"]
 [ext_resource type="Script" path="res://obj/components/change.gd" id="2_kaa66"]
 [ext_resource type="Script" path="res://obj/parts/scripts/barrel.gd" id="3_kc0m2"]
 [ext_resource type="Texture2D" uid="uid://b8oodehx2pord" path="res://img/parts/AutoAimBarrel.png" id="4_musuv"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="4_ocdmm"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="6_wp3sb"]
 
 [resource]
 script = ExtResource("3_kc0m2")
@@ -17,9 +19,10 @@ item_name = "Autoaim Barrel"
 item_description = "Makes bullet smart. 
 (Not too smart
 (They got expelled from self-guiding projectiles universety))"
-cost = 5
+cost = 100
 sprite = ExtResource("4_musuv")
 sprite_offset = Vector2(9, 0)
 bullet_strategies = Array[ExtResource("1_ry8x6")]([ExtResource("2_d6c8v")])
-firing_strategies = Array[ExtResource("1_ry8x6")]([])
+player_strategies = Array[ExtResource("4_ocdmm")]([])
+shootin_strategies = Array[ExtResource("6_wp3sb")]([])
 changes = Array[ExtResource("2_kaa66")]([])

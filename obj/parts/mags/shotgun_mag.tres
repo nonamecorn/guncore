@@ -1,10 +1,13 @@
-[gd_resource type="Resource" script_class="Mag" load_steps=10 format=3 uid="uid://dyx7wkgvril7s"]
+[gd_resource type="Resource" script_class="Mag" load_steps=13 format=3 uid="uid://dyx7wkgvril7s"]
 
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_237dl"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_gnxtw"]
 [ext_resource type="PackedScene" uid="uid://b4qvivbnt8oim" path="res://obj/proj/PP_fmj.tscn" id="2_vbayn"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_3mkxe"]
 [ext_resource type="Script" path="res://obj/parts/scripts/mag.gd" id="3_xvfsu"]
 [ext_resource type="AudioStream" uid="uid://dgx3iqg0qvlql" path="res://snd/sfx/shotgun_fire.wav" id="4_ctcjj"]
 [ext_resource type="Texture2D" uid="uid://cmp4orrfva3te" path="res://img/parts/shotgun_mag.png" id="4_okpfe"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="6_plmh8"]
 
 [sub_resource type="Resource" id="Resource_7xlcd"]
 script = ExtResource("1_237dl")
@@ -46,4 +49,7 @@ item_description = ""
 cost = 40
 sprite = ExtResource("4_okpfe")
 sprite_offset = Vector2(2, 2)
+bullet_strategies = Array[ExtResource("1_gnxtw")]([])
+player_strategies = Array[ExtResource("3_3mkxe")]([])
+shootin_strategies = Array[ExtResource("6_plmh8")]([])
 changes = Array[ExtResource("1_237dl")]([SubResource("Resource_7xlcd"), SubResource("Resource_dgm67"), SubResource("Resource_74d1m"), SubResource("Resource_hl8oi")])

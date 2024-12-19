@@ -1,10 +1,11 @@
-[gd_resource type="Resource" script_class="GunReciever" load_steps=6 format=3 uid="uid://rf24p8exqn0o"]
+[gd_resource type="Resource" script_class="GunReciever" load_steps=7 format=3 uid="uid://rf24p8exqn0o"]
 
 [ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_3wy70"]
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_dvuud"]
 [ext_resource type="Script" path="res://obj/parts/scripts/reciever.gd" id="2_mdy1r"]
 [ext_resource type="Script" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_klld6"]
 [ext_resource type="Texture2D" uid="uid://bm0xbm1cshnsn" path="res://img/parts/shotgun.png" id="3_v4wvg"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="5_md567"]
 
 [resource]
 script = ExtResource("2_mdy1r")
@@ -15,11 +16,11 @@ mag_position = Vector2(-4, 3)
 barrel_position = Vector2(0, 0)
 attach_position = Vector2(-1, -2)
 item_name = "Shotgun"
-item_description = ""
+item_description = "Good old pump action"
 cost = 3
 sprite = ExtResource("3_v4wvg")
 sprite_offset = Vector2(0, 0)
 bullet_strategies = Array[ExtResource("1_3wy70")]([])
-firing_strategies = Array[ExtResource("1_3wy70")]([])
 player_strategies = Array[ExtResource("3_klld6")]([])
+shootin_strategies = Array[ExtResource("5_md567")]([])
 changes = Array[ExtResource("1_dvuud")]([])
