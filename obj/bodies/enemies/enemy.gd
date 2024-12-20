@@ -215,9 +215,9 @@ func die():
 	$enemy_hand_component.queue_free()
 #	movement_target = null
 	$Sprite2D.rotation_degrees = 90
-	$Sprite2D.set_light_mask(1)
-	$Sprite2D.set_visibility_layer(1)
-	$Sprite2D.material = null
+	$Sprite2D/idle.set_light_mask(1)
+	$Sprite2D/idle.set_visibility_layer(1)
+	$Sprite2D/idle.material = null
 	$Sprite2D/idle.show()
 	$Sprite2D/idle.stop()
 	$Sprite2D/walk.hide()

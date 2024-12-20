@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://c3jo85so338er"]
+[gd_scene load_steps=20 format=3 uid="uid://c3jo85so338er"]
 
 [ext_resource type="Script" path="res://obj/bodies/enemies/enemy.gd" id="1_qbvdd"]
 [ext_resource type="Texture2D" uid="uid://88j42qnvmjuu" path="res://img/bodys/cultist_IdleAnim.png" id="2_j18lw"]
@@ -11,9 +11,6 @@
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_egrxt"]
 radius = 7.0
 height = 18.0
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_x7umt"]
-light_mode = 2
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kudys"]
 light_mode = 2
@@ -94,9 +91,6 @@ position = Vector2(0, -3)
 shape = SubResource("CapsuleShape2D_egrxt")
 
 [node name="Sprite2D" type="Node2D" parent="."]
-light_mask = 4
-visibility_layer = 4
-material = SubResource("CanvasItemMaterial_x7umt")
 position = Vector2(0, -8)
 
 [node name="idle" type="AnimatedSprite2D" parent="Sprite2D"]

@@ -15,10 +15,10 @@ script = ExtResource("1_d6dr7")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 2
-offset_left = 124.0
-offset_top = 84.0
-offset_right = 509.0
-offset_bottom = 313.0
+offset_left = 56.0
+offset_top = 32.0
+offset_right = 441.0
+offset_bottom = 296.0
 texture = ExtResource("1_tu7mv")
 patch_margin_left = 10
 patch_margin_top = 10
@@ -39,6 +39,18 @@ offset_left = 25.0
 offset_top = 33.0
 offset_right = 185.0
 offset_bottom = 191.0
+
+[node name="Label9" type="Label" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+text = "Loot parts, sell it
+to the shopkeep
+Get highest score.
+"
+
+[node name="Label10" type="Label" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+text = "
+"
 
 [node name="Label2" type="Label" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2

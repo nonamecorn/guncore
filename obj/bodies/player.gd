@@ -70,7 +70,6 @@ func open_shop():
 	$CanvasLayer/Inventory.switch_to_shop()
 	get_items()
 	$CanvasLayer/Inventory.show()
-	$CanvasLayer/money.show()
 	$CanvasLayer/Inventory/shop_backpack2.load_shop()
 	$Camera2D.follow = false
 	$player_hand_component.follow = false
@@ -110,7 +109,7 @@ func flip():
 	$Sprite2D.scale.x *= -1
 
 func refresh():
-	$CanvasLayer/money.text = str(GlobalVars.money)+"$"
+	$CanvasLayer/VBoxContainer/money.text = str(GlobalVars.money)+"$"
 
 func death():
 	velocity = Vector2.ZERO
@@ -143,7 +142,7 @@ func hurt(amnt, ap):
 			armor = difference
 	else:
 		health -= amnt
-	$CanvasLayer/hp.text = str(health)
+	$CanvasLayer/VBoxContainer/hp.text = str(health)
 	if health <= 0:
 		call_deferred("death")
 
@@ -174,9 +173,9 @@ func on_dissassemble2():
 func on_ammo_change(curr_mmo,max_mmo,ind):
 	if $player_hand_component.active_base != ind: return
 	if curr_mmo == null or max_mmo == null:
-		$CanvasLayer/ammo.text = ""
+		$CanvasLayer/VBoxContainer/ammo.text = ""
 	else:
-		$CanvasLayer/ammo.text = str(curr_mmo)+"/"+str(max_mmo)
+		$CanvasLayer/VBoxContainer/ammo.text = str(curr_mmo)+"/"+str(max_mmo)
 
 func on_augs_change(parts : Dictionary):
 	for part_name in parts:
@@ -197,4 +196,4 @@ func set_stat(name_of_stat : String, value_of_stat):
 
 func on_score_change(new_kills, new_loop):
 	if health <= 0: return
-	$CanvasLayer/stats.text = "kills: " + str(new_kills) + " loop: " + str(new_loop)
+	$CanvasLayer/VBoxContainer/stats.text = "kills: " + str(new_kills) + " loop: " + str(new_loop)

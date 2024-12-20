@@ -513,7 +513,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="shop_items" type="Control" parent="."]
-visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -555,12 +554,14 @@ theme_override_font_sizes/normal_font_size = 8
 text = "Bella:
 Now... Dont make any sudden moves."
 
-[node name="talk_button" type="Button" parent="Shop"]
+[node name="ui_button2" parent="Shop" instance=ExtResource("28_1kw70")]
 layout_mode = 0
 offset_left = 24.0
 offset_top = 304.0
-offset_right = 64.0
-offset_bottom = 335.0
+offset_right = 80.0
+offset_bottom = 328.0
+
+[node name="LinkButton" parent="Shop/ui_button2/MarginContainer" index="0"]
 text = "Talk"
 
 [node name="audio" type="Node" parent="."]
@@ -619,6 +620,7 @@ layout_mode = 2
 text = "No"
 
 [connection signal="pressed" from="ui_button/MarginContainer/LinkButton" to="." method="_on_link_button_pressed"]
-[connection signal="pressed" from="Shop/talk_button" to="Shop" method="_on_talk_button_pressed"]
+[connection signal="pressed" from="Shop/ui_button2/MarginContainer/LinkButton" to="Shop" method="_on_talk_button_pressed"]
 
 [editable path="ui_button"]
+[editable path="Shop/ui_button2"]

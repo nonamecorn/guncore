@@ -26,4 +26,4 @@ var loop = 0
 var kills = 0
 var items = []
 var fullscreen = false
-var money = 1000
+var money = 0
