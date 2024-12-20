@@ -125,7 +125,6 @@ func death():
 	$Sprite2D/RunninAnnimation.hide()
 	GlobalVars.kills = 0
 	GlobalVars.loop = 0
-	on_score_change(0,0)
 	$CanvasLayer/ded_menu.show()
 
 
@@ -197,4 +196,5 @@ func set_stat(name_of_stat : String, value_of_stat):
 	set(name_of_stat, value_of_stat)
 
 func on_score_change(new_kills, new_loop):
+	if health <= 0: return
 	$CanvasLayer/stats.text = "kills: " + str(new_kills) + " loop: " + str(new_loop)

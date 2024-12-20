@@ -200,9 +200,12 @@ func hurt(amnt, ap):
 
 func die():
 	if dead: return
+	var invent = []
 	for part in unique_parts:
 		if unique_parts[part]:
-			drop(unique_parts[part])
+			invent.append(unique_parts[part])
+	invent.shuffle()
+	drop(invent[0])
 	dead = true
 	state = IDLE
 	$death.play()

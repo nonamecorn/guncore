@@ -11,6 +11,10 @@ const item_base = preload("res://ui/item_base.tscn")
 @export var popup : Node
 @export var shop_items_ctrl : Node
 
+var current_deal = []
+var current_reroll_cost
+var loaded = false
+
 func _ready():
 	var s = get_grid_size(self)
 	grid_width = s.x
@@ -20,20 +24,35 @@ func _ready():
 		grid[x] = {}
 		for y in range(grid_height):
 			grid[x][y] = false
-	
-	
+
+func reroll_shop():
+	flush_shop()
+	current_deal = []
+	for path in Randogunser.get_shop():
+		current_deal.append(path)
+		add_item(path)
+
+func add_item(path):
+	if !path: return
+	var item_res = load(path).duplicate()
+	if !item_res: return
+	item_res.from_shop = true
+	var item_inst = item_base.instantiate()
+	item_inst.item_resource = item_res
+	item_inst.texture = item_res.sprite
+	shop_items_ctrl.add_child(item_inst)
+	insert_item_at_first_available_spot(item_inst)
+
+func show_shop():
+	for path in current_deal:
+		add_item(path)
 
 func load_shop():
-	for path in Randogunser.get_shop():
-		if !path: continue
-		var item_res = load(path).duplicate()
-		if !item_res: print("ses"); continue
-		item_res.from_shop = true
-		var item_inst = item_base.instantiate()
-		item_inst.item_resource = item_res
-		item_inst.texture = item_res.sprite
-		shop_items_ctrl.add_child(item_inst)
-		insert_item_at_first_available_spot(item_inst)
+	if !loaded:
+		loaded = true
+		reroll_shop()
+	else:
+		show_shop()
 
 func flush_shop():
 	for x in range(grid_width):

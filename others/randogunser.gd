@@ -106,9 +106,10 @@ func get_corp_gun() -> Dictionary:
 
 func get_shop() -> Array:
 	var shop = []
-	for i in 3:
-		shop_pool.shuffle()
-		shop.append(shop_pool[0])
+	shop_pool.shuffle()
+	shop.append(shop_pool[0])
+	shop.append(shop_pool[1])
+	shop.append(shop_pool[2])
 	#print(shop)
 	return shop
 	

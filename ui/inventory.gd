@@ -7,8 +7,7 @@ extends Control
 
 
 const item_base = preload("res://ui/item_base.tscn")
- 
-@export var reroll_cost : int = 10
+
 
 @export var grid_bkpk : Node
 @export var eq_slot1 : Node
@@ -32,6 +31,8 @@ var last_pos = Vector2()
 
 signal drop(item)
 signal money_changed
+
+var current_reroll_cost = 10
 
 func load_save():
 	for le_item in GlobalVars.items:
@@ -262,9 +263,13 @@ func pickup_collector(item_res : Item):
 	return true
 
 
-func _on_reroll_button_pressed() -> void:
-	if  GlobalVars.money >= reroll_cost:
-		shop.flush_shop()
-		shop.load_shop()
-		GlobalVars.money -= reroll_cost
+
+
+
+func _on_link_button_pressed() -> void:
+	if  GlobalVars.money >= current_reroll_cost:
+		shop.reroll_shop()
+		GlobalVars.money -= current_reroll_cost
+		current_reroll_cost += 3
+		$ui_button/MarginContainer/LinkButton.text = "Reroll " + str(current_reroll_cost) + "$"
 		money_changed.emit()

@@ -375,6 +375,7 @@ texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
 [node name="equipment_shaite3" type="NinePatchRect" parent="equipments"]
+visible = false
 layout_mode = 2
 offset_left = 24.0
 offset_top = 128.0
@@ -476,10 +477,12 @@ visible = false
 layout_mode = 0
 offset_left = 240.0
 offset_top = 16.0
-offset_right = 408.0
-offset_bottom = 39.0
+offset_right = 324.0
+offset_bottom = 28.0
 
 [node name="LinkButton" parent="ui_button/MarginContainer" index="0"]
+custom_minimum_size = Vector2(40, 0)
+theme_override_font_sizes/font_size = 8
 text = "Reroll 10$"
 
 [node name="shop_backpack2" type="TextureRect" parent="." node_paths=PackedStringArray("popup", "shop_items_ctrl")]
@@ -510,6 +513,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="shop_items" type="Control" parent="."]
+visible = false
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
@@ -547,6 +551,7 @@ offset_left = 16.0
 offset_top = 128.0
 offset_right = 135.0
 offset_bottom = 296.0
+theme_override_font_sizes/normal_font_size = 8
 text = "Bella:
 Now... Dont make any sudden moves."
 
@@ -613,7 +618,7 @@ custom_minimum_size = Vector2(50, 0)
 layout_mode = 2
 text = "No"
 
-[connection signal="pressed" from="ui_button/MarginContainer/LinkButton" to="." method="_on_reroll_button_pressed"]
+[connection signal="pressed" from="ui_button/MarginContainer/LinkButton" to="." method="_on_link_button_pressed"]
 [connection signal="pressed" from="Shop/talk_button" to="Shop" method="_on_talk_button_pressed"]
 
 [editable path="ui_button"]
