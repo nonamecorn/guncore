@@ -3,6 +3,10 @@ extends Node
 signal score_changed(new_kills, new_loop)
 
 func _ready() -> void:
+	change_score(0,0)
+	items = []
+	fullscreen = false
+	money = 0
 	var gun = Randogunser.get_gun()
 	var t1 = load(gun.RECIEVER).duplicate()
 	t1.picked_up = true
@@ -13,6 +17,7 @@ func _ready() -> void:
 	items.append(t1)
 	items.append(t2)
 	items.append(t3)
+
 
 
 const item_base = preload("res://ui/item_base.tscn")
