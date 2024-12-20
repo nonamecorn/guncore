@@ -1,13 +1,9 @@
-[gd_scene load_steps=9 format=3 uid="uid://dx085y3efeew"]
+[gd_scene load_steps=8 format=3 uid="uid://dx085y3efeew"]
 
 [ext_resource type="Script" path="res://ost_manager.gd" id="1_rbwo4"]
-[ext_resource type="AudioStream" uid="uid://bmipr287vvl6s" path="res://snd/music/general/Hymn of Tabal.mp3" id="2_hxsv8"]
+[ext_resource type="AudioStream" uid="uid://cppuixyb3jvvs" path="res://snd/music/general/Hymn of Tabal.ogg" id="2_eckju"]
 [ext_resource type="AudioStream" uid="uid://batktlh6alytr" path="res://snd/music/world1/Nikita Kryukov - I'll be here for a while.mp3" id="2_iohqb"]
 [ext_resource type="AudioStream" uid="uid://bahuudcujctor" path="res://snd/music/world1/frontier jungle 140bpm.ogg" id="3_k51hm"]
-
-[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_xcpcf"]
-stream_count = 1
-stream_0 = ExtResource("2_hxsv8")
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_f6rws"]
 stream_count = 1
@@ -21,7 +17,7 @@ stream_0 = ExtResource("3_k51hm")
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_pojb0"]
 clip_count = 3
 clip_0/name = &"Menu"
-clip_0/stream = SubResource("AudioStreamPlaylist_xcpcf")
+clip_0/stream = ExtResource("2_eckju")
 clip_0/auto_advance = 0
 clip_1/name = &"Shop"
 clip_1/stream = SubResource("AudioStreamPlaylist_f6rws")
