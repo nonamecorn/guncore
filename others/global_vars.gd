@@ -14,6 +14,12 @@ func _ready() -> void:
 	items.append(t2)
 	items.append(t3)
 
+func reset():
+	change_score(0,0)
+	items = []
+	fullscreen = false
+	money = 0
+	_ready()
 
 const item_base = preload("res://ui/item_base.tscn")
 
