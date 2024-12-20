@@ -38,5 +38,11 @@ func _on_quit_button_pressed() -> void:
 
 
 func _on_retry_button_pressed() -> void:
+	GlobalVars.change_score(0,0)
+	GlobalVars.items = []
+	GlobalVars.fullscreen = false
+	GlobalVars.money = 1000
+	GlobalVars.shop = []
 	GlobalVars._ready()
-	get_tree().call_deferred("change_scene_to_file","res://lvls/world_1.tscn")
+	get_tree().paused = false
+	get_tree().call_deferred("change_scene_to_file","res://lvls/world_1_shop.tscn")

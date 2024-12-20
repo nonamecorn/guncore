@@ -24,15 +24,14 @@ func get_info():
 
 func close():
 	if known and !active: return
-	$Polygon2D.show()
-	#match orientation:
-		#0:
-			#get_child(0).get_child(0).enabled = true
-			#get_child(0).get_child(1).enabled = true
-			#get_child(0).get_child(2).enabled = true
-		#1:
-			#get_child(1).get_child(0).enabled = true
-		#2:
-			#get_child(2).get_child(0).enabled = true
-		#3:
-			#get_child(3).get_child(0).enabled = true
+	match orientation:
+		0:
+			get_child(0).get_child(0).enabled = true
+			get_child(0).get_child(1).enabled = true
+			get_child(0).get_child(2).enabled = true
+		1:
+			get_child(1).get_child(0).enabled = true
+		2:
+			get_child(2).get_child(0).enabled = true
+		3:
+			get_child(3).get_child(0).enabled = true

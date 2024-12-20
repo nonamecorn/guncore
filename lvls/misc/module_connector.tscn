@@ -81,8 +81,9 @@ enabled = false
 enabled = false
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
+visible = false
 color = Color(0.941176, 0, 0, 1)
-polygon = PackedVector2Array(-44, -48, 53, -39, 46, 42, -49, 50)
+polygon = PackedVector2Array(0, -35, 44, 1, 0, 32)
 
 [node name="Polygon2D2" type="Polygon2D" parent="."]
 visible = false
