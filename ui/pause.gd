@@ -38,5 +38,6 @@ func _on_quit_button_pressed() -> void:
 
 
 func _on_retry_button_pressed() -> void:
+	get_tree().paused = !get_tree().paused
 	GlobalVars._ready()
 	get_tree().call_deferred("change_scene_to_file","res://lvls/world_1_shop.tscn")

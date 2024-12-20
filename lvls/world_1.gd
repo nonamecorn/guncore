@@ -67,9 +67,9 @@ func stop_spawnin():
 func spawn_room(room : String):
 	get_exits()
 	exits.reverse()
-	var head = exits.slice(0,3)
-	head.shuffle()
-	var connector = head[0]
+	#var head = exits.slice(0,3)
+	#head.shuffle()
+	var connector = exits[0]
 	var connector_info = connector.get_info()
 	var corr_inst
 	var connector_to_destroy
