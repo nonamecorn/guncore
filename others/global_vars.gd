@@ -26,6 +26,7 @@ func reset():
 	_ready()
 
 
+
 const item_base = preload("res://ui/item_base.tscn")
 
 func change_score(new_kills, new_loop):
