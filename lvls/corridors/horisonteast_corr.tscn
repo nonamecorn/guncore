@@ -7,6 +7,11 @@
 [node name="HorisontCorr" type="Node2D"]
 script = ExtResource("1_dlh8u")
 
+[node name="markers" type="Node2D" parent="."]
+
+[node name="east_module_connector" parent="markers" instance=ExtResource("2_6qlav")]
+position = Vector2(384, 0)
+
 [node name="layers" parent="." instance=ExtResource("1_o0jhh")]
 
 [node name="Ceiling" parent="layers" index="0"]
@@ -23,10 +28,5 @@ tile_map_data = PackedByteArray("AAAAAP//BAABAAAAAAABAP//BAABAAAAAAACAP//BAABAAA
 
 [node name="Decorations" parent="layers" index="4"]
 tile_map_data = PackedByteArray("AAAHAP//BAAGAAEAAAA=")
-
-[node name="markers" type="Node2D" parent="."]
-
-[node name="east_module_connector" parent="markers" instance=ExtResource("2_6qlav")]
-position = Vector2(384, 0)
 
 [editable path="layers"]

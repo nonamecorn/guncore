@@ -7,6 +7,11 @@
 [node name="vertical_corr" type="Node2D"]
 script = ExtResource("1_buj4u")
 
+[node name="markers" type="Node2D" parent="."]
+
+[node name="module_connector" parent="markers" instance=ExtResource("2_xg5oi")]
+position = Vector2(0, 320)
+
 [node name="layers" parent="." instance=ExtResource("1_k2hpj")]
 position = Vector2(0, 320)
 
@@ -18,10 +23,5 @@ tile_map_data = PackedByteArray("AAD///b/BQAAAAAAAAD///f/BQAAAAAAAAD///j/BQAAAAA
 
 [node name="floor" parent="layers" index="3"]
 tile_map_data = PackedByteArray("AAD///b/BAAAAAEAAAD///f/BAAAAAEAAAD///j/BAAAAAEAAAD///n/BAAAAAEAAAD///r/BAAAAAEAAAD///v/AgAAAAIAAAD///z/BAAAAAEAAAD///3/BAAAAAEAAAD///7/BAAAAAEAAAD/////BAAAAAEAAAABAPb/BAACAAEAAAABAPf/BAACAAEAAAABAPj/BAACAAEAAAABAPn/BAACAAEAAAABAPr/BAACAAEAAAABAPv/AgACAAIAAAABAPz/BAACAAEAAAABAP3/BAACAAEAAAABAP7/BAACAAEAAAABAP//BAACAAEAAAAAAPv/AgABAAIAAAA=")
-
-[node name="markers" type="Node2D" parent="."]
-
-[node name="module_connector" parent="markers" instance=ExtResource("2_xg5oi")]
-position = Vector2(0, 320)
 
 [editable path="layers"]
