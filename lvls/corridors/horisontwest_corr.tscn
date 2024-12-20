@@ -4,14 +4,8 @@
 [ext_resource type="Script" path="res://lvls/corridors/corridor.gd" id="1_twc2g"]
 [ext_resource type="PackedScene" uid="uid://bf65xavyr0pes" path="res://lvls/misc/module_connector.tscn" id="2_2hsb8"]
 
-
 [node name="HorisontCorr" type="Node2D"]
 script = ExtResource("1_twc2g")
-
-[node name="markers" type="Node2D" parent="."]
-
-[node name="east_module_connector" parent="markers" instance=ExtResource("2_2hsb8")]
-position = Vector2(-384, 0)
 
 [node name="layers" parent="." instance=ExtResource("1_hbpm8")]
 position = Vector2(-384, 0)
@@ -30,5 +24,10 @@ tile_map_data = PackedByteArray("AAAAAP//BAABAAAAAAABAP//BAABAAAAAAACAP//BAABAAA
 
 [node name="Decorations" parent="layers" index="4"]
 tile_map_data = PackedByteArray("AAAHAP//BAAGAAEAAAA=")
+
+[node name="markers" type="Node2D" parent="."]
+
+[node name="east_module_connector" parent="markers" instance=ExtResource("2_2hsb8")]
+position = Vector2(-384, 0)
 
 [editable path="layers"]
