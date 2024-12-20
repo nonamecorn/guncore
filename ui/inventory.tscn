@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://d0ex485qfg6qx"]
+[gd_scene load_steps=30 format=3 uid="uid://d0ex485qfg6qx"]
 
 [ext_resource type="Script" path="res://ui/inventory.gd" id="1_vc4ge"]
 [ext_resource type="Script" path="res://ui/texture_rect.gd" id="2_gjxwj"]
@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://ds0gmt5dgnqnp" path="res://img/ui/Hand.png" id="16_7ox2p"]
 [ext_resource type="Texture2D" uid="uid://c422ygxdmneag" path="res://img/ui/shop.png" id="20_8ghwf"]
 [ext_resource type="Script" path="res://ui/sell.gd" id="20_c5gil"]
+[ext_resource type="Texture2D" uid="uid://ie3vay21f6re" path="res://img/ui/sell.png" id="21_ivacy"]
 [ext_resource type="Texture2D" uid="uid://dduylcjk7w1y3" path="res://img/ui/shop_cover.png" id="22_fsjln"]
 [ext_resource type="PackedScene" uid="uid://ggi5lqbxx6uu" path="res://ui/ui_button.tscn" id="28_1kw70"]
 
@@ -452,14 +453,23 @@ visible = false
 layout_mode = 0
 offset_left = 168.0
 offset_top = 16.0
-offset_right = 231.0
-offset_bottom = 53.0
+offset_right = 216.0
+offset_bottom = 48.0
 texture = ExtResource("6_uhxew")
 patch_margin_left = 2
 patch_margin_top = 2
 patch_margin_right = 2
 patch_margin_bottom = 2
 script = ExtResource("20_c5gil")
+
+[node name="TextureRect" type="TextureRect" parent="sell"]
+layout_mode = 0
+offset_left = -16.0
+offset_top = -16.0
+offset_right = 64.0
+offset_bottom = 48.0
+mouse_filter = 2
+texture = ExtResource("21_ivacy")
 
 [node name="ui_button" parent="." instance=ExtResource("28_1kw70")]
 visible = false
@@ -476,9 +486,9 @@ text = "Reroll 10$"
 visible = false
 layout_mode = 0
 offset_left = 168.0
-offset_top = 64.0
+offset_top = 72.0
 offset_right = 360.0
-offset_bottom = 128.0
+offset_bottom = 136.0
 texture = ExtResource("20_8ghwf")
 stretch_mode = 2
 script = ExtResource("10_50eua")

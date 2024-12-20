@@ -1,9 +1,42 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctrbcy5h47qqw"]
+[gd_scene load_steps=14 format=3 uid="uid://ctrbcy5h47qqw"]
 
 [ext_resource type="Script" path="res://obj/components/gun_component.gd" id="1_it1k3"]
 [ext_resource type="AudioStream" uid="uid://bxglm1lbr2kpf" path="res://snd/sfx/reloadend.wav" id="2_aqcxo"]
 [ext_resource type="PackedScene" uid="uid://dk15yn20pad8s" path="res://obj/components/muzzleflash.tscn" id="2_primx"]
 [ext_resource type="AudioStream" uid="uid://grfe1fyigyx8" path="res://snd/sfx/reloadstart.wav" id="3_6g14y"]
+[ext_resource type="Texture2D" uid="uid://dituxt4ekcmwa" path="res://img/misc/casing.png" id="5_xqf5j"]
+
+[sub_resource type="Curve" id="Curve_v1ek5"]
+min_value = -101.14
+max_value = 102.14
+_data = [Vector2(0, 81.812), 0.0, 0.0, 0, 0, Vector2(0.49999, 81.812), 0.0, 0.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+metadata/_snap_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5vppe"]
+curve = SubResource("Curve_v1ek5")
+
+[sub_resource type="Curve" id="Curve_x36md"]
+max_value = 100.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.486667, 0), 0.0, 0.0, 0, 0, Vector2(0.493333, 100), 0.0, 0.0, 0, 0, Vector2(0.8, 100), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_b6ijd"]
+curve = SubResource("Curve_x36md")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_v3pqa"]
+particle_flag_disable_z = true
+direction = Vector3(-10, -40, 0)
+spread = 6.573
+initial_velocity_min = 70.42
+initial_velocity_max = 70.42
+angular_velocity_min = -142.47
+angular_velocity_max = -40.57
+angular_velocity_curve = SubResource("CurveTexture_5vppe")
+gravity = Vector3(0, 200, 0)
+damping_min = 23.944
+damping_max = 23.944
+damping_curve = SubResource("CurveTexture_b6ijd")
 
 [sub_resource type="Animation" id="Animation_ekmwy"]
 length = 0.001
@@ -57,6 +90,16 @@ script = ExtResource("1_it1k3")
 [node name="ATTACH" type="Marker2D" parent="."]
 position = Vector2(-7, -3)
 
+[node name="pos2" type="Marker2D" parent="."]
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="pos2"]
+show_behind_parent = true
+emitting = false
+amount = 6
+process_material = SubResource("ParticleProcessMaterial_v3pqa")
+texture = ExtResource("5_xqf5j")
+lifetime = 1.8
+
 [node name="pos" type="Marker2D" parent="."]
 
 [node name="muzzleflash" parent="pos" instance=ExtResource("2_primx")]
@@ -67,6 +110,10 @@ wait_time = 0.05
 
 [node name="reload" type="Timer" parent="."]
 wait_time = 0.1
+one_shot = true
+
+[node name="single_shot" type="Timer" parent="."]
+wait_time = 1.8
 one_shot = true
 
 [node name="audio" type="Node2D" parent="."]
@@ -98,3 +145,4 @@ libraries = {
 
 [connection signal="timeout" from="firerate" to="." method="fire"]
 [connection signal="timeout" from="reload" to="." method="_on_reload_timeout"]
+[connection signal="timeout" from="single_shot" to="." method="_on_single_shot_timeout"]

@@ -23,7 +23,7 @@ func get_info():
 	return [type,orientation,global_position]
 
 func close():
-	if known and !active: print("heh")
+	if known and !active: return
 	match orientation:
 		0:
 			get_child(0).get_child(0).enabled = true

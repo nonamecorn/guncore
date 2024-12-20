@@ -107,6 +107,13 @@ func asseble_gun(parts : Dictionary):
 	var alert_shape = CircleShape2D.new()
 	alert_shape.radius = alert_distance
 	$noise_alert/CollisionShape2D.shape = alert_shape
+	$pos2.position = $MAG.position
+	if current_firerate == 0:
+		$pos2/GPUParticles2D.one_shot = true
+		$pos2/GPUParticles2D.amount = 1
+	else:
+		$pos2/GPUParticles2D.one_shot = false
+		$pos2/GPUParticles2D.amount = int(1.8 / current_firerate)
 	display_ammo()
 	reload()
 
@@ -134,10 +141,14 @@ func start_fire():
 	if state: return
 	if current_ammo <= 0: return
 	fire()
-	if current_firerate == 0: return
 	if spread_tween: spread_tween.kill()
 	spread_tween = create_tween()
 	spread_tween.tween_property(self, "current_spread", current_max_spread, current_firerate*current_max_ammo)
+	if current_firerate == 0:
+		$pos2/GPUParticles2D.emitting = true
+		$single_shot.start()
+		return
+	$pos2/GPUParticles2D.emitting = true
 	$firerate.start()
 
 func stop_fire():
@@ -145,6 +156,7 @@ func stop_fire():
 	if spread_tween: spread_tween.kill()
 	spread_tween = create_tween()
 	spread_tween.tween_property(self, "current_spread", current_min_spread, 1)
+	$pos2/GPUParticles2D.emitting = false
 	$firerate.stop()
 
 func _on_reload_timeout():
@@ -172,6 +184,7 @@ func fire():
 	if state: return
 	for i in current_num_of_bullets:
 		if current_ammo <= 0: 
+			$pos2/GPUParticles2D.emitting = false
 			empty.emit()
 			return
 		current_ammo -= 1
@@ -197,3 +210,7 @@ func fire():
 			strategy.apply_strategy(bullet_inst, self)
 		get_tree().current_scene.call_deferred("add_child",bullet_inst)
 		bullet_inst.init(added_velocity, current_range, current_add_spd)
+
+
+func _on_single_shot_timeout() -> void:
+	$pos2/GPUParticles2D.emitting = false
