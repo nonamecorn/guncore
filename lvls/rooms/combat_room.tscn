@@ -15,26 +15,6 @@ size = Vector2(1039, 409)
 [node name="BasicRoom" type="Node2D"]
 script = ExtResource("1_7koly")
 
-[node name="markers" type="Node2D" parent="."]
-
-[node name="module_connector3" parent="markers" instance=ExtResource("2_cjjcc")]
-type = 1
-
-[node name="module_connector" parent="markers" instance=ExtResource("2_cjjcc")]
-position = Vector2(-512, 384)
-type = 1
-orientation = 1
-
-[node name="module_connector4" parent="markers" instance=ExtResource("2_cjjcc")]
-position = Vector2(608, 384)
-type = 1
-orientation = 2
-
-[node name="module_connector2" parent="markers" instance=ExtResource("2_cjjcc")]
-position = Vector2(0, 768)
-type = 1
-orientation = 3
-
 [node name="layers" parent="." instance=ExtResource("3_2wwxc")]
 
 [node name="Ceiling" parent="layers" index="0"]
@@ -140,6 +120,26 @@ position = Vector2(-336, 208)
 
 [node name="Small_box2" parent="." instance=ExtResource("8_8r555")]
 position = Vector2(-440, 208)
+
+[node name="markers" type="Node2D" parent="."]
+
+[node name="module_connector3" parent="markers" instance=ExtResource("2_cjjcc")]
+type = 1
+
+[node name="module_connector" parent="markers" instance=ExtResource("2_cjjcc")]
+position = Vector2(-512, 384)
+type = 1
+orientation = 1
+
+[node name="module_connector4" parent="markers" instance=ExtResource("2_cjjcc")]
+position = Vector2(608, 384)
+type = 1
+orientation = 2
+
+[node name="module_connector2" parent="markers" instance=ExtResource("2_cjjcc")]
+position = Vector2(0, 768)
+type = 1
+orientation = 3
 
 [connection signal="body_entered" from="Trigger" to="." method="_on_trigger_body_entered"]
 

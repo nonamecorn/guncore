@@ -1,7 +1,7 @@
 extends Control
 
 func _on_rtry_button_pressed() -> void:
-	GlobalVars.reset()
+	GlobalVars._ready()
 	get_tree().call_deferred("change_scene_to_file","res://lvls/world_1.tscn")
 
 
