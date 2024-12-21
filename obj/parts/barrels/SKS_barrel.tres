@@ -15,7 +15,10 @@ min_spread = 0.0
 muzzle_position = Vector2(21, 0)
 add_spd = 25.0
 item_name = "SES barrel"
-item_description = "???"
+item_description = "Roman the III was killed with this.
+(Maybe because he had 3 i's in his status)
+Bullets from this barrel is guided by god.
+"
 cost = 10
 sprite = ExtResource("3_dki3r")
 sprite_offset = Vector2(9, 0)

@@ -10,8 +10,8 @@
 [resource]
 script = ExtResource("2_uykjs")
 base_firerate = 0.1
-ver_recoil = 5.0
-hor_recoil = 6.0
+ver_recoil = 7.0
+hor_recoil = 7.0
 mag_position = Vector2(-4, 3)
 barrel_position = Vector2(0, 0)
 attach_position = Vector2(-4, -3)

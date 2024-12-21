@@ -15,7 +15,10 @@ min_spread = 5.0
 muzzle_position = Vector2(6, 0)
 add_spd = 0.0
 item_name = "SMGll barrel "
-item_description = "???"
+item_description = "Has the ability to redirect part
+of gases in special compartment,
+allowing it to shoot in two speeds.
+Switch is stuck on low one though."
 cost = 10
 sprite = ExtResource("3_dlif1")
 sprite_offset = Vector2(3, 0)

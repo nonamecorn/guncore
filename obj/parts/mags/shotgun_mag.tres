@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Mag" load_steps=13 format=3 uid="uid://dyx7wkgvril7s"]
+[gd_resource type="Resource" script_class="Mag" load_steps=15 format=3 uid="uid://dyx7wkgvril7s"]
 
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_237dl"]
 [ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_gnxtw"]
@@ -12,7 +12,7 @@
 [sub_resource type="Resource" id="Resource_7xlcd"]
 script = ExtResource("1_237dl")
 stat_name = "current_num_of_bullets"
-value_of_stat = 5.0
+value_of_stat = 4.0
 mult = false
 is_set = false
 
@@ -37,6 +37,20 @@ value_of_stat = 10.0
 mult = false
 is_set = false
 
+[sub_resource type="Resource" id="Resource_mxrb5"]
+script = ExtResource("1_237dl")
+stat_name = "current_min_spread"
+value_of_stat = 10.0
+mult = false
+is_set = false
+
+[sub_resource type="Resource" id="Resource_jrte4"]
+script = ExtResource("1_237dl")
+stat_name = "current_range"
+value_of_stat = 0.6
+mult = true
+is_set = false
+
 [resource]
 script = ExtResource("3_xvfsu")
 capacity = 50
@@ -52,4 +66,4 @@ sprite_offset = Vector2(2, 2)
 bullet_strategies = Array[ExtResource("1_gnxtw")]([])
 player_strategies = Array[ExtResource("3_3mkxe")]([])
 shootin_strategies = Array[ExtResource("6_plmh8")]([])
-changes = Array[ExtResource("1_237dl")]([SubResource("Resource_7xlcd"), SubResource("Resource_dgm67"), SubResource("Resource_74d1m"), SubResource("Resource_hl8oi")])
+changes = Array[ExtResource("1_237dl")]([SubResource("Resource_7xlcd"), SubResource("Resource_dgm67"), SubResource("Resource_74d1m"), SubResource("Resource_hl8oi"), SubResource("Resource_mxrb5"), SubResource("Resource_jrte4")])

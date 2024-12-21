@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GunReciever" load_steps=7 format=3 uid="uid://rf24p8exqn0o"]
+[gd_resource type="Resource" script_class="GunReciever" load_steps=11 format=3 uid="uid://rf24p8exqn0o"]
 
 [ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_3wy70"]
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_dvuud"]
@@ -7,20 +7,49 @@
 [ext_resource type="Texture2D" uid="uid://bm0xbm1cshnsn" path="res://img/parts/shotgun.png" id="3_v4wvg"]
 [ext_resource type="Script" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="5_md567"]
 
+[sub_resource type="Resource" id="Resource_n7t7f"]
+script = ExtResource("1_dvuud")
+stat_name = "current_min_spread"
+value_of_stat = 1.5
+mult = true
+is_set = false
+
+[sub_resource type="Resource" id="Resource_4x21f"]
+script = ExtResource("1_dvuud")
+stat_name = "current_max_spread"
+value_of_stat = 1.5
+mult = true
+is_set = false
+
+[sub_resource type="Resource" id="Resource_y4o5x"]
+script = ExtResource("1_dvuud")
+stat_name = "current_ver_recoil"
+value_of_stat = 0.5
+mult = true
+is_set = false
+
+[sub_resource type="Resource" id="Resource_kbdtn"]
+script = ExtResource("1_dvuud")
+stat_name = "current_hor_recoil"
+value_of_stat = 0.5
+mult = true
+is_set = false
+
 [resource]
 script = ExtResource("2_mdy1r")
 base_firerate = 0.0
-ver_recoil = 7.0
-hor_recoil = 7.0
+ver_recoil = 5.0
+hor_recoil = 4.0
 mag_position = Vector2(-4, 3)
 barrel_position = Vector2(0, 0)
 attach_position = Vector2(-1, -2)
 item_name = "Shotgun"
-item_description = "Worst weapon"
+item_description = "Offers great recoil reduction 
+at the cost of accuracy."
 cost = 3
 sprite = ExtResource("3_v4wvg")
 sprite_offset = Vector2(0, 0)
 bullet_strategies = Array[ExtResource("1_3wy70")]([])
 player_strategies = Array[ExtResource("3_klld6")]([])
 shootin_strategies = Array[ExtResource("5_md567")]([])
-changes = Array[ExtResource("1_dvuud")]([])
+changes = Array[ExtResource("1_dvuud")]([SubResource("Resource_n7t7f"), SubResource("Resource_4x21f"), SubResource("Resource_y4o5x"), SubResource("Resource_kbdtn")])

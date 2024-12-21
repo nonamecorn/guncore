@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Mag" load_steps=13 format=3 uid="uid://dipj30g35i2p4"]
+[gd_resource type="Resource" script_class="Mag" load_steps=15 format=3 uid="uid://dipj30g35i2p4"]
 
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_c5q8q"]
 [ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_edfe8"]
@@ -37,6 +37,20 @@ value_of_stat = 10.0
 mult = false
 is_set = false
 
+[sub_resource type="Resource" id="Resource_jnwr1"]
+script = ExtResource("1_c5q8q")
+stat_name = "current_max_spread"
+value_of_stat = 10.0
+mult = false
+is_set = false
+
+[sub_resource type="Resource" id="Resource_gvg5a"]
+script = ExtResource("1_c5q8q")
+stat_name = "current_range"
+value_of_stat = 0.8
+mult = true
+is_set = false
+
 [resource]
 script = ExtResource("3_02cpx")
 capacity = 100
@@ -45,11 +59,13 @@ reload_time = 3
 sound = ExtResource("4_2tjhj")
 loud_dist = 400
 item_name = "JAWS mag"
-item_description = "Holds shotgun ammo which shreds any target. Popular with killers emotionally dulled by battle drugs."
+item_description = "Holds shotgun ammo which shreds any target. 
+Popular with killers emotionally 
+dulled by battle drugs."
 cost = 70
 sprite = ExtResource("5_5panl")
 sprite_offset = Vector2(1, 2)
 bullet_strategies = Array[ExtResource("1_edfe8")]([])
 player_strategies = Array[ExtResource("3_8wjcf")]([])
 shootin_strategies = Array[ExtResource("6_f5gwf")]([])
-changes = Array[ExtResource("1_c5q8q")]([SubResource("Resource_hk0ql"), SubResource("Resource_jjx8m"), SubResource("Resource_ly7et"), SubResource("Resource_77bvs")])
+changes = Array[ExtResource("1_c5q8q")]([SubResource("Resource_hk0ql"), SubResource("Resource_jjx8m"), SubResource("Resource_ly7et"), SubResource("Resource_77bvs"), SubResource("Resource_jnwr1"), SubResource("Resource_gvg5a")])

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Mag" load_steps=9 format=3 uid="uid://b5fcw8hnl0k5d"]
+[gd_resource type="Resource" script_class="Mag" load_steps=12 format=3 uid="uid://b5fcw8hnl0k5d"]
 
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_gi1mc"]
 [ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_hdoi6"]
@@ -8,6 +8,27 @@
 [ext_resource type="AudioStream" uid="uid://bc6jww2l3klia" path="res://snd/sfx/smgfire.wav" id="4_il5h1"]
 [ext_resource type="Texture2D" uid="uid://blvf01w427fh0" path="res://img/parts/SMGll_mag.png" id="5_lnwct"]
 [ext_resource type="Script" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="6_al6b7"]
+
+[sub_resource type="Resource" id="Resource_o3wii"]
+script = ExtResource("1_gi1mc")
+stat_name = "alert_distance"
+value_of_stat = 0.7
+mult = true
+is_set = false
+
+[sub_resource type="Resource" id="Resource_s6e57"]
+script = ExtResource("1_gi1mc")
+stat_name = "current_ver_recoil"
+value_of_stat = -3.0
+mult = false
+is_set = false
+
+[sub_resource type="Resource" id="Resource_rfuap"]
+script = ExtResource("1_gi1mc")
+stat_name = "current_hor_recoil"
+value_of_stat = -3.0
+mult = false
+is_set = false
 
 [resource]
 script = ExtResource("3_52elb")
@@ -19,11 +40,14 @@ loud_dist = 100
 item_name = "SMGll mag"
 item_description = "Subsonic rounds.
 Popular among
-Stealth corps."
+Stealth corps.
+Recomended to
+use with silencer.
+"
 cost = 30
 sprite = ExtResource("5_lnwct")
 sprite_offset = Vector2(1, 1)
 bullet_strategies = Array[ExtResource("1_hdoi6")]([])
 player_strategies = Array[ExtResource("3_yiote")]([])
 shootin_strategies = Array[ExtResource("6_al6b7")]([])
-changes = Array[ExtResource("1_gi1mc")]([])
+changes = Array[ExtResource("1_gi1mc")]([SubResource("Resource_o3wii"), SubResource("Resource_s6e57"), SubResource("Resource_rfuap")])

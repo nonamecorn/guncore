@@ -163,7 +163,7 @@ ACCELERATION = 1500
 FRICTION = 1500
 
 [node name="collector" type="Area2D" parent="."]
-position = Vector2(0, -6)
+position = Vector2(0, -12)
 collision_layer = 0
 collision_mask = 8
 monitorable = false
@@ -173,6 +173,7 @@ shape = SubResource("CircleShape2D_0xlh8")
 debug_color = Color(0.448094, 0.413853, 0.530235, 0.42)
 
 [node name="Sprite2D" type="Node2D" parent="."]
+position = Vector2(0, -6)
 
 [node name="IdleAnimation" type="AnimatedSprite2D" parent="Sprite2D"]
 position = Vector2(0, -9)
@@ -193,7 +194,7 @@ position_smoothing_enabled = true
 script = ExtResource("4_6xs1v")
 
 [node name="player_hand_component" parent="." instance=ExtResource("3_nq5y6")]
-position = Vector2(0, -6)
+position = Vector2(0, -12)
 hand_length = 12
 
 [node name="Marker2D" parent="player_hand_component" index="0"]
@@ -207,6 +208,7 @@ visible = false
 player_handled = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
 shape = SubResource("CapsuleShape2D_mx0ab")
 
 [node name="death" type="AudioStreamPlayer2D" parent="."]
@@ -214,7 +216,7 @@ stream = ExtResource("10_ti353")
 bus = &"Sfx"
 
 [node name="hurt_box" parent="." instance=ExtResource("9_3vqfx")]
-position = Vector2(0, -6)
+position = Vector2(0, -12)
 script = ExtResource("10_frvst")
 
 [node name="CollisionShape2D" parent="hurt_box" index="0"]
@@ -272,6 +274,7 @@ theme_override_font_sizes/font_size = 8
 text = "140/200"
 
 [node name="light" parent="." instance=ExtResource("12_p0x4g")]
+position = Vector2(0, -6)
 
 [editable path="player_hand_component"]
 [editable path="hurt_box"]

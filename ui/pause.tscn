@@ -52,6 +52,7 @@ text = "fullscreen:"
 
 [node name="CheckBox" type="CheckBox" parent="NinePatchRect/VBoxContainer2/MarginContainer"]
 layout_mode = 2
+button_pressed = true
 
 [node name="Label" type="Label" parent="NinePatchRect/VBoxContainer2"]
 layout_mode = 2
@@ -103,10 +104,10 @@ patch_margin_bottom = 2
 
 [node name="MarginContainer" type="MarginContainer" parent="NinePatchRect/VBoxContainer2/VBoxContainer/qbutton"]
 layout_mode = 2
-theme_override_constants/margin_left = 2
-theme_override_constants/margin_top = 0
-theme_override_constants/margin_right = 2
-theme_override_constants/margin_bottom = 0
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
 
 [node name="LinkButton" type="LinkButton" parent="NinePatchRect/VBoxContainer2/VBoxContainer/qbutton/MarginContainer"]
 custom_minimum_size = Vector2(150, 0)

@@ -88,7 +88,6 @@ script = ExtResource("1_it1k3")
 [node name="MUZZLE" type="Marker2D" parent="."]
 
 [node name="ATTACH" type="Marker2D" parent="."]
-position = Vector2(-7, -3)
 
 [node name="pos2" type="Marker2D" parent="."]
 

@@ -95,16 +95,17 @@ group = "corp"
 nav_agent = NodePath("NavigationAgent2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -3)
+position = Vector2(0, -8)
 shape = SubResource("CapsuleShape2D_egrxt")
 
 [node name="Sprite2D" type="Node2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(0, -3)
 
 [node name="idle" type="AnimatedSprite2D" parent="Sprite2D"]
 light_mask = 4
 visibility_layer = 4
 material = SubResource("CanvasItemMaterial_64cn8")
+position = Vector2(-4.76837e-07, -11)
 sprite_frames = SubResource("SpriteFrames_2wn1x")
 autoplay = "default"
 
@@ -113,15 +114,17 @@ visible = false
 light_mask = 4
 visibility_layer = 4
 material = SubResource("CanvasItemMaterial_64cn8")
+position = Vector2(0, -11)
 sprite_frames = SubResource("SpriteFrames_lufcr")
 autoplay = "default"
-frame_progress = 0.345473
+frame = 5
+frame_progress = 0.0877768
 
 [node name="corp_light" parent="Sprite2D" instance=ExtResource("7_gskjq")]
-position = Vector2(4, -6)
+position = Vector2(4, -18)
 
 [node name="enemy_hand_component" parent="." node_paths=PackedStringArray("ray") instance=ExtResource("3_lkscu")]
-position = Vector2(0, -8)
+position = Vector2(0, -13)
 hand_length = 16
 ray = NodePath("../RayCast2D")
 
@@ -141,7 +144,7 @@ wait_time = 0.5
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 
 [node name="hurt_box" parent="." instance=ExtResource("5_sh640")]
-position = Vector2(0, -8)
+position = Vector2(0, -13)
 
 [node name="CollisionShape2D" parent="hurt_box" index="0"]
 shape = SubResource("CapsuleShape2D_ykghs")
@@ -161,7 +164,7 @@ shape = SubResource("CircleShape2D_qhfwq")
 debug_color = Color(0, 0.6, 0.701961, 0)
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(0, -13)
 target_position = Vector2(632, 0)
 collision_mask = 6
 
