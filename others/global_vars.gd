@@ -3,7 +3,7 @@ extends Node
 signal score_changed(new_kills, new_loop)
 
 func _ready() -> void:
-	loop = 4
+	loop = 0
 	kills = 0
 	items = []
 	money = 0

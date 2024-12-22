@@ -23,15 +23,17 @@ func get_info():
 	return [type,orientation,global_position]
 
 func close():
-	if known and !active: return
+	if !active: return
 	match orientation:
 		0:
-			get_child(0).get_child(0).enabled = true
-			get_child(0).get_child(1).enabled = true
-			get_child(0).get_child(2).enabled = true
+			$NORTH.show()
+			$NORTH/StaticBody2D/CollisionShape2D.disabled = false
 		1:
-			get_child(1).get_child(0).enabled = true
+			$WEST.show()
+			$WEST/StaticBody2D/CollisionShape2D.disabled = false
 		2:
-			get_child(2).get_child(0).enabled = true
+			$EAST.show()
+			$EAST/StaticBody2D/CollisionShape2D.disabled = false
 		3:
-			get_child(3).get_child(0).enabled = true
+			$SOUTH.show()
+			$SOUTH/StaticBody2D/CollisionShape2D.disabled = false

@@ -7,7 +7,8 @@ var angle_cone_of_vission = 30
 var angle_between_rays = 10
 var max_viev_distance = 600
 var current_target
-@export var ray : Node 
+@export var ray : Node
+@export var particles : Node 
 enum {
 	FIRING,
 	IDLE,

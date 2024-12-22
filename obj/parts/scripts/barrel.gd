@@ -6,3 +6,9 @@ class_name Barrel
 @export var muzzle_position : Vector2
 @export var add_spd : float
 var slot : String = "BARREL"
+var stats = {
+	"Range": "range_in_secs",
+	"Max Spread": "max_spread",
+	"Min Spread": "min_spread",
+	"Added Speed": "add_spd",
+}

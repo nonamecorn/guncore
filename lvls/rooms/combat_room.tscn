@@ -15,26 +15,6 @@ size = Vector2(1039, 409)
 [node name="BasicRoom" type="Node2D"]
 script = ExtResource("1_7koly")
 
-[node name="markers" type="Node2D" parent="."]
-
-[node name="module_connector3" parent="markers" instance=ExtResource("2_cjjcc")]
-type = 1
-
-[node name="module_connector" parent="markers" instance=ExtResource("2_cjjcc")]
-position = Vector2(-512, 384)
-type = 1
-orientation = 1
-
-[node name="module_connector4" parent="markers" instance=ExtResource("2_cjjcc")]
-position = Vector2(608, 384)
-type = 1
-orientation = 2
-
-[node name="module_connector2" parent="markers" instance=ExtResource("2_cjjcc")]
-position = Vector2(0, 768)
-type = 1
-orientation = 3
-
 [node name="layers" parent="." instance=ExtResource("3_2wwxc")]
 
 [node name="Ceiling" parent="layers" index="0"]
@@ -97,6 +77,39 @@ position = Vector2(208, 240)
 [node name="explosive_barrel3" parent="env" instance=ExtResource("4_bwa8p")]
 position = Vector2(112, 592)
 
+[node name="Big_box" parent="env" instance=ExtResource("6_1tixf")]
+position = Vector2(272, 208)
+
+[node name="Mid_box" parent="env" instance=ExtResource("7_osf2a")]
+position = Vector2(336, 208)
+
+[node name="Small_box" parent="env" instance=ExtResource("8_8r555")]
+position = Vector2(264, 224)
+
+[node name="Mid_box2" parent="env" instance=ExtResource("7_osf2a")]
+position = Vector2(-368, 464)
+
+[node name="Big_box2" parent="env" instance=ExtResource("6_1tixf")]
+position = Vector2(-336, 464)
+
+[node name="Mid_box4" parent="env" instance=ExtResource("7_osf2a")]
+position = Vector2(-432, 592)
+
+[node name="Big_box3" parent="env" instance=ExtResource("6_1tixf")]
+position = Vector2(-464, 528)
+
+[node name="Mid_box3" parent="env" instance=ExtResource("7_osf2a")]
+position = Vector2(-464, 544)
+
+[node name="Big_box4" parent="env" instance=ExtResource("6_1tixf")]
+position = Vector2(-304, 208)
+
+[node name="Mid_box5" parent="env" instance=ExtResource("7_osf2a")]
+position = Vector2(-336, 208)
+
+[node name="Small_box2" parent="env" instance=ExtResource("8_8r555")]
+position = Vector2(-440, 208)
+
 [node name="Trigger" type="Area2D" parent="."]
 position = Vector2(8, 401)
 collision_layer = 0
@@ -108,38 +121,25 @@ position = Vector2(38.5, -4.5)
 shape = SubResource("RectangleShape2D_vfr7w")
 debug_color = Color(0.983183, 0, 0.35969, 0)
 
-[node name="Big_box" parent="." instance=ExtResource("6_1tixf")]
-position = Vector2(272, 208)
+[node name="markers" type="Node2D" parent="."]
 
-[node name="Mid_box" parent="." instance=ExtResource("7_osf2a")]
-position = Vector2(336, 208)
+[node name="module_connector3" parent="markers" instance=ExtResource("2_cjjcc")]
+type = 1
 
-[node name="Small_box" parent="." instance=ExtResource("8_8r555")]
-position = Vector2(264, 224)
+[node name="module_connector" parent="markers" instance=ExtResource("2_cjjcc")]
+position = Vector2(-512, 384)
+type = 1
+orientation = 1
 
-[node name="Mid_box2" parent="." instance=ExtResource("7_osf2a")]
-position = Vector2(-368, 464)
+[node name="module_connector4" parent="markers" instance=ExtResource("2_cjjcc")]
+position = Vector2(608, 384)
+type = 1
+orientation = 2
 
-[node name="Big_box2" parent="." instance=ExtResource("6_1tixf")]
-position = Vector2(-336, 464)
-
-[node name="Mid_box4" parent="." instance=ExtResource("7_osf2a")]
-position = Vector2(-432, 592)
-
-[node name="Big_box3" parent="." instance=ExtResource("6_1tixf")]
-position = Vector2(-464, 528)
-
-[node name="Mid_box3" parent="." instance=ExtResource("7_osf2a")]
-position = Vector2(-464, 544)
-
-[node name="Big_box4" parent="." instance=ExtResource("6_1tixf")]
-position = Vector2(-304, 208)
-
-[node name="Mid_box5" parent="." instance=ExtResource("7_osf2a")]
-position = Vector2(-336, 208)
-
-[node name="Small_box2" parent="." instance=ExtResource("8_8r555")]
-position = Vector2(-440, 208)
+[node name="module_connector2" parent="markers" instance=ExtResource("2_cjjcc")]
+position = Vector2(0, 768)
+type = 1
+orientation = 3
 
 [connection signal="body_entered" from="Trigger" to="." method="_on_trigger_body_entered"]
 

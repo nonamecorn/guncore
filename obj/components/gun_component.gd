@@ -11,6 +11,7 @@ var current_ammo
 var current_spread = 0
 var added_velocity : Vector2
 var state = STOP
+var gpuparticles
 
 enum {
 	FIRE,
@@ -73,7 +74,7 @@ func asseble_gun(parts : Dictionary):
 	current_spread = current_min_spread
 	current_range = parts.BARREL.range_in_secs
 	current_max_ammo = parts.MAG.capacity
-	current_ammo = parts.MAG.capacity
+	current_ammo = 0
 	current_bullet_obj = parts.MAG.projectile
 	current_num_of_bullets = 1
 	current_ver_recoil = parts.RECIEVER.ver_recoil
@@ -107,13 +108,14 @@ func asseble_gun(parts : Dictionary):
 	var alert_shape = CircleShape2D.new()
 	alert_shape.radius = alert_distance
 	$noise_alert/CollisionShape2D.shape = alert_shape
-	$pos2.position = $MAG.position
+	gpuparticles = get_parent().get_parent().particles
+	gpuparticles.global_position = $MAG.global_position + Vector2(0,-3)
 	if current_firerate == 0:
-		$pos2/GPUParticles2D.one_shot = true
-		$pos2/GPUParticles2D.amount = 1
+		gpuparticles.one_shot = true
+		gpuparticles.amount = 8
 	else:
-		$pos2/GPUParticles2D.one_shot = false
-		$pos2/GPUParticles2D.amount = int(1.8 / current_firerate)
+		gpuparticles.one_shot = false
+		gpuparticles.amount = int(1.8 / current_firerate)
 	display_ammo()
 	reload()
 
@@ -145,10 +147,10 @@ func start_fire():
 	spread_tween = create_tween()
 	spread_tween.tween_property(self, "current_spread", current_max_spread, current_firerate*current_max_ammo)
 	if current_firerate == 0:
-		$pos2/GPUParticles2D.emitting = true
+		gpuparticles.emitting = true
 		$single_shot.start()
 		return
-	$pos2/GPUParticles2D.emitting = true
+	gpuparticles.emitting = true
 	$firerate.start()
 
 func stop_fire():
@@ -156,7 +158,7 @@ func stop_fire():
 	if spread_tween: spread_tween.kill()
 	spread_tween = create_tween()
 	spread_tween.tween_property(self, "current_spread", current_min_spread, 1)
-	$pos2/GPUParticles2D.emitting = false
+	gpuparticles.emitting = false
 	$firerate.stop()
 
 func _on_reload_timeout():
@@ -168,10 +170,12 @@ func _on_reload_timeout():
 	state = FIRE
 
 func reload():
-	if !$MAG.visible: return
+	if !$MAG.visible or current_ammo == current_max_ammo: return
 	stop_fire()
 	state = STOP
 	if player_handled:
+		current_ammo = 0
+		display_ammo()
 		$audio/reload_start_cue.play()
 	$reload.start()
 	$MAG.hide()
@@ -184,7 +188,7 @@ func fire():
 	if state: return
 	for i in current_num_of_bullets:
 		if current_ammo <= 0: 
-			$pos2/GPUParticles2D.emitting = false
+			gpuparticles.emitting = false
 			empty.emit()
 			return
 		current_ammo -= 1
@@ -213,4 +217,4 @@ func fire():
 
 
 func _on_single_shot_timeout() -> void:
-	$pos2/GPUParticles2D.emitting = false
+	gpuparticles.emitting = false

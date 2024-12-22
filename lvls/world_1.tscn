@@ -56,6 +56,7 @@ position = Vector2(730, 229)
 script = ExtResource("6_kdott")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
 anchors_preset = 15

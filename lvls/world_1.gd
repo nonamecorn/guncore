@@ -21,7 +21,7 @@ func _ready() -> void:
 	OstManager.switch_track("Battle")
 
 func get_exits():
-	exits = get_tree().get_nodes_in_group("connector").filter(func(element): return element.type == 1 and element.active)
+	exits = get_tree().get_nodes_in_group("connector").filter(func(element): return element.type == 1 and !element.known)
 
 func get_closing_exits():
 	exits = get_tree().get_nodes_in_group("connector").filter(func(element): return element.type == 1)
@@ -43,8 +43,8 @@ func spawn():
 		#if exit.active: continue
 		exit.close()
 	
-	$Camera2D.enabled = false
-	$ysort/enemies/Player/Camera2D.enabled = true
+	#$Camera2D.enabled = false
+	#$ysort/enemies/Player/Camera2D.enabled = true
 	$CanvasLayer/ColorRect.hide()
 
 func room_fits(room_rect, corr_rect):
@@ -67,9 +67,9 @@ func stop_spawnin():
 func spawn_room(room : String):
 	get_exits()
 	exits.reverse()
-	#var head = exits.slice(0,3)
-	#head.shuffle()
-	var connector = exits[0]
+	var head = exits.slice(0,3)
+	head.shuffle()
+	var connector = head[0]
 	var connector_info = connector.get_info()
 	var corr_inst
 	var connector_to_destroy
@@ -97,14 +97,13 @@ func spawn_room(room : String):
 	#room_rect.position = room_rect.position
 	var corr_rect = corr_inst.get_rect()
 	if room_fits(room_rect,corr_rect):
-		room_inst.get_child(0).get_child(connector_to_destroy).queue_free()
+		room_inst.find_child("markers").get_child(connector_to_destroy).deactivate()
 		#if room_inst.has_method("init"):
 			#room_inst.init()
 		connector.queue_free()
 		rects.append_array([room_rect, corr_rect])
 		roomcount -= 1
 	else:
-		connector.deactivate()
 		room_inst.queue_free()
 		corr_inst.queue_free()
 

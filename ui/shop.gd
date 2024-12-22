@@ -46,7 +46,7 @@ func _ready() -> void:
 			playing!"
 		]
 	$RichTextLabel.text = "Bella:
-			" + dills[0]
+" + dills[0]
 
 func _on_talk_button_pressed() -> void:
 	dills.shuffle()

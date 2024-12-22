@@ -1,9 +1,51 @@
-[gd_scene load_steps=2 format=3 uid="uid://du82m8s6amvuo"]
+[gd_scene load_steps=8 format=3 uid="uid://du82m8s6amvuo"]
 
 [ext_resource type="Script" path="res://obj/components/hand_component.gd" id="1_02xou"]
+[ext_resource type="Texture2D" uid="uid://dituxt4ekcmwa" path="res://img/misc/casing.png" id="2_jmntq"]
 
-[node name="player_hand_component" type="Node2D"]
+[sub_resource type="Curve" id="Curve_khjgn"]
+min_value = -101.14
+max_value = 102.14
+_data = [Vector2(0, 81.812), 0.0, 0.0, 0, 0, Vector2(0.49999, 81.812), 0.0, 0.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+metadata/_snap_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_5vppe"]
+curve = SubResource("Curve_khjgn")
+
+[sub_resource type="Curve" id="Curve_ar4gn"]
+max_value = 100.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.486667, 0), 0.0, 0.0, 0, 0, Vector2(0.493333, 100), 0.0, 0.0, 0, 0, Vector2(0.8, 100), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_b6ijd"]
+curve = SubResource("Curve_ar4gn")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_k01jn"]
+particle_flag_disable_z = true
+direction = Vector3(-10, -40, 0)
+spread = 6.573
+initial_velocity_min = 70.42
+initial_velocity_max = 70.42
+angular_velocity_min = -142.47
+angular_velocity_max = -40.57
+angular_velocity_curve = SubResource("CurveTexture_5vppe")
+gravity = Vector3(0, 200, 0)
+damping_min = 23.944
+damping_max = 23.944
+damping_curve = SubResource("CurveTexture_b6ijd")
+
+[node name="player_hand_component" type="Node2D" node_paths=PackedStringArray("particles")]
 script = ExtResource("1_02xou")
+particles = NodePath("GPUParticles2D")
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(34, 0)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+position = Vector2(34, 0)
+emitting = false
+amount = 6
+process_material = SubResource("ParticleProcessMaterial_k01jn")
+texture = ExtResource("2_jmntq")
+lifetime = 1.8

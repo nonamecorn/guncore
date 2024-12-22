@@ -1,84 +1,70 @@
-[gd_scene load_steps=3 format=4 uid="uid://bf65xavyr0pes"]
+[gd_scene load_steps=10 format=3 uid="uid://bf65xavyr0pes"]
 
 [ext_resource type="Script" path="res://lvls/misc/module_connector.gd" id="1_4gpo4"]
-[ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="2_o5j33"]
+[ext_resource type="Texture2D" uid="uid://vcgyqkg8rba5" path="res://img/levels/N.png" id="2_nh3ni"]
+[ext_resource type="Texture2D" uid="uid://bdkna4pa4260c" path="res://img/levels/W.png" id="3_5wuld"]
+[ext_resource type="Texture2D" uid="uid://dsncjel8ip1ja" path="res://img/levels/E.png" id="4_7o6i2"]
+[ext_resource type="Texture2D" uid="uid://bqxbuojchbqkh" path="res://img/levels/S.png" id="5_xjk4a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dtynl"]
+size = Vector2(192, 48)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_blgbc"]
+size = Vector2(18, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k53ja"]
+size = Vector2(16, 224)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ploom"]
+size = Vector2(192, 16)
 
 [node name="module_connector" type="Marker2D" groups=["connector"]]
 script = ExtResource("1_4gpo4")
 
-[node name="layers" parent="." instance=ExtResource("2_o5j33")]
+[node name="NORTH" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(16, -24)
+texture = ExtResource("2_nh3ni")
 
-[node name="Ceiling" parent="layers" index="0"]
-tile_map_data = PackedByteArray("AAD9//7/AQAAAAAAAAD+//7/AQABAAAAAAD///7/AQABAAAAAAAAAP7/AQABAAAAAAABAP7/AQABAAAAAAACAP7/AQABAAAAAAD9////AQAAAAEAAAADAP7/AQACAAAAAAADAP//AQACAAEAAAA=")
-enabled = false
+[node name="StaticBody2D" type="StaticBody2D" parent="NORTH"]
 
-[node name="wota" parent="layers" index="1"]
-tile_map_data = PackedByteArray("AAD/////BQAAAAAAAAAAAP//BQAAAAAAAAABAP//BQAAAAAAAAA=")
-enabled = false
+[node name="CollisionShape2D" type="CollisionShape2D" parent="NORTH/StaticBody2D"]
+shape = SubResource("RectangleShape2D_dtynl")
+disabled = true
 
-[node name="Walls" parent="layers" index="2"]
-tile_map_data = PackedByteArray("AAACAP//BgACAAEAAAD+////BgAAAAEAAAD/////BAAEAAAAAAAAAP//BAAFAAAAAAABAP//BAAGAAAAAAA=")
-enabled = false
+[node name="WEST" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(-8, 0)
+texture = ExtResource("3_5wuld")
 
-[node name="floor" parent="layers" index="3"]
-enabled = false
+[node name="StaticBody2D" type="StaticBody2D" parent="WEST"]
 
-[node name="Decorations" parent="layers" index="4"]
-enabled = false
+[node name="CollisionShape2D" type="CollisionShape2D" parent="WEST/StaticBody2D"]
+position = Vector2(1, 0)
+shape = SubResource("RectangleShape2D_blgbc")
+disabled = true
 
-[node name="layers2" parent="." instance=ExtResource("2_o5j33")]
+[node name="EAST" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(8, 0)
+texture = ExtResource("4_7o6i2")
 
-[node name="Ceiling" parent="layers2" index="0"]
-tile_map_data = PackedByteArray("AAD///3/AQAAAAEAAAD///7/AQAAAAEAAAD///z/AQAAAAAAAAD/////AQAAAAEAAAD//wAAAQAAAAEAAAD//wEAAQAAAAEAAAD//wIAAQAAAAEAAAD//wMAAQAAAAIAAAA=")
-enabled = false
+[node name="StaticBody2D" type="StaticBody2D" parent="EAST"]
 
-[node name="wota" parent="layers2" index="1"]
-enabled = false
+[node name="CollisionShape2D" type="CollisionShape2D" parent="EAST/StaticBody2D"]
+shape = SubResource("RectangleShape2D_k53ja")
+disabled = true
 
-[node name="Walls" parent="layers2" index="2"]
-enabled = false
+[node name="SOUTH" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(16, 8)
+texture = ExtResource("5_xjk4a")
 
-[node name="floor" parent="layers2" index="3"]
-enabled = false
+[node name="StaticBody2D" type="StaticBody2D" parent="SOUTH"]
 
-[node name="Decorations" parent="layers2" index="4"]
-enabled = false
-
-[node name="layers3" parent="." instance=ExtResource("2_o5j33")]
-
-[node name="Ceiling" parent="layers3" index="0"]
-tile_map_data = PackedByteArray("AAAAAP3/AQACAAEAAAAAAP7/AQACAAEAAAAAAPz/AQACAAAAAAAAAP//AQACAAEAAAAAAAAAAQACAAEAAAAAAAEAAQACAAEAAAAAAAIAAQACAAEAAAAAAAMAAQACAAIAAAA=")
-enabled = false
-
-[node name="wota" parent="layers3" index="1"]
-enabled = false
-
-[node name="Walls" parent="layers3" index="2"]
-enabled = false
-
-[node name="floor" parent="layers3" index="3"]
-enabled = false
-
-[node name="Decorations" parent="layers3" index="4"]
-enabled = false
-
-[node name="layers4" parent="." instance=ExtResource("2_o5j33")]
-
-[node name="Ceiling" parent="layers4" index="0"]
-tile_map_data = PackedByteArray("AAD9/wAAAQAAAAIAAAD+/wAAAQABAAIAAAD//wAAAQABAAIAAAAAAAAAAQABAAIAAAABAAAAAQABAAIAAAACAAAAAQABAAIAAAADAAAAAQACAAIAAAA=")
-enabled = false
-
-[node name="wota" parent="layers4" index="1"]
-enabled = false
-
-[node name="Walls" parent="layers4" index="2"]
-enabled = false
-
-[node name="floor" parent="layers4" index="3"]
-enabled = false
-
-[node name="Decorations" parent="layers4" index="4"]
-enabled = false
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SOUTH/StaticBody2D"]
+shape = SubResource("RectangleShape2D_ploom")
+disabled = true
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 visible = false
@@ -89,8 +75,3 @@ polygon = PackedVector2Array(0, -35, 44, 1, 0, 32)
 visible = false
 color = Color(0.630407, 0.440608, 0.491858, 1)
 polygon = PackedVector2Array(0, -35, 44, 1, 0, 32)
-
-[editable path="layers"]
-[editable path="layers2"]
-[editable path="layers3"]
-[editable path="layers4"]

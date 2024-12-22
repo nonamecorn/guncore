@@ -143,6 +143,7 @@ func hurt(amnt, ap):
 	else:
 		health -= amnt
 	$CanvasLayer/VBoxContainer/hp.text = str(health)
+	$ProgressBar.value = health
 	if health <= 0:
 		call_deferred("death")
 
