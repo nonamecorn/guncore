@@ -9,6 +9,7 @@ var max_viev_distance = 600
 var current_target
 @export var ray : Node
 @export var particles : Node 
+@export var turn_speed = 200.0
 enum {
 	FIRING,
 	IDLE,
@@ -24,7 +25,17 @@ func _ready() -> void:
 
 var flipped = false
 
-func _physics_process(_delta: float) -> void:
+
+func face_point(delta: float):
+	var direction = look_vec
+	var angle = transform.x.angle_to(direction)
+	rotate(sign(angle) * min(delta*deg_to_rad(turn_speed), abs(angle)))
+
+func is_facing_target(target_point: Vector2):
+	var l_target_pos = to_local(target_point)
+	return l_target_pos.z < 0 and abs(l_target_pos.x) < 1.0
+
+func _physics_process(delta: float) -> void:
 	current_target = get_parent().current_target
 	if !current_target or !is_instance_valid(current_target):
 		return
@@ -39,7 +50,8 @@ func _physics_process(_delta: float) -> void:
 		flip()
 	if look_vec.x >= 0 and flipped:
 		flip()
-	global_rotation = atan2(look_vec.y, look_vec.x)
+	face_point(delta)
+	
 
 func firing_state():
 	look_vec = (current_target.global_position - global_position).normalized()
@@ -85,19 +97,17 @@ func has_los(point):
 		return true
 	return false
 
+func apply_recoil(recoil_vector):
+	if !current_target: return
+	var direction = (current_target.global_position - global_position) + recoil_vector
+	var angle = transform.x.angle_to(direction)
+	rotate(abs(angle))
+
 func flip():
 	get_parent().flip()
 	flipped = !flipped
 	scale.y *= -1
 
-func add_gun(_gun):
-	pass
-
-func del_gun():
-	pass
-
-func switch_gun(gun):
-	return gun
 func reload():
 	$Marker2D.get_child(0).reload()
 

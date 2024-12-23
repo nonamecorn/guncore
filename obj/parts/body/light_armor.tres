@@ -10,7 +10,7 @@
 
 [sub_resource type="Resource" id="Resource_bs7iw"]
 script = ExtResource("2_3m4jm")
-stat_name = "MAX_SPEED"
+stat_name = "current_speed"
 value_of_stat = -20.0
 mult = false
 is_set = false
@@ -20,6 +20,7 @@ script = ExtResource("4_5d2du")
 item_name = "Light vest"
 item_description = ""
 cost = 60
+durability = 1000
 sprite = ExtResource("7_hy5qm")
 sprite_offset = Vector2(0, 0)
 bullet_strategies = Array[ExtResource("1_ichh7")]([])

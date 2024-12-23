@@ -62,7 +62,7 @@ var shop_pool = [
 	"res://obj/parts/attach/airburst_module.tres",
 	"res://obj/parts/mags/athlete_mag.tres",
 	"res://obj/parts/mags/AirBurst_mag.tres",
-	#"res://obj/parts/body/light_armor.tres",
+	"res://obj/parts/body/light_armor.tres",
 	"res://obj/parts/muzzles/silencer.tres",
 	"res://obj/parts/guts/Firerate_Spring.tres",
 	"res://obj/parts/guts/Fun_switch.tres",

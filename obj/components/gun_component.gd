@@ -181,6 +181,18 @@ func reload():
 	$MAG.hide()
 	current_spread = current_min_spread
 
+func wear_down():
+	for part in gun_parts:
+		if !gun_parts[part]: continue
+		gun_parts[part].durability -= 1
+
+func weapon_functional():
+	for part in gun_parts:
+		if !gun_parts[part]: continue
+		if gun_parts[part].durability <= 0:
+			return false
+	return true
+
 func display_ammo():
 	ammo_changed.emit(current_ammo,current_max_ammo,get_index())
 
@@ -193,15 +205,22 @@ func fire():
 			return
 		current_ammo -= 1
 		display_ammo()
+		wear_down()
+		
 		$AnimationPlayer.play("fire")
 		$audio/shoting.play()
 		for body in $noise_alert.get_overlapping_bodies():
 				if body.has_method("alert"):
 					body.alert(global_position)
+		
+		var recoil_vector = Vector2(-current_ver_recoil,randf_range(-current_hor_recoil, current_hor_recoil)).rotated(global_rotation)
 		if  player_handled:
 			var vievscale = get_viewport_transform().get_scale()
-			var recoil_vector = Vector2(-current_ver_recoil,randf_range(-current_hor_recoil, current_hor_recoil)).rotated(global_rotation)
 			Input.warp_mouse(get_viewport().get_mouse_position()*vievscale + recoil_vector*vievscale)
+		else:
+			get_parent().get_parent().apply_recoil(recoil_vector)
+		
+		
 		var bullet_inst = current_bullet_obj.instantiate()
 		bullet_inst.global_position = check_point_of_fire()
 		bullet_inst.global_rotation_degrees = global_rotation_degrees + rng.randf_range(-current_spread, current_spread)
@@ -214,6 +233,10 @@ func fire():
 			strategy.apply_strategy(bullet_inst, self)
 		get_tree().current_scene.call_deferred("add_child",bullet_inst)
 		bullet_inst.init(added_velocity, current_range, current_add_spd)
+		
+		if !weapon_functional():
+			current_ammo = 0
+			display_ammo()
 
 
 func _on_single_shot_timeout() -> void:

@@ -27,6 +27,8 @@ position = Vector2(16, -24)
 texture = ExtResource("2_nh3ni")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="NORTH"]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="NORTH/StaticBody2D"]
 shape = SubResource("RectangleShape2D_dtynl")
@@ -38,6 +40,8 @@ position = Vector2(-8, 0)
 texture = ExtResource("3_5wuld")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="WEST"]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="WEST/StaticBody2D"]
 position = Vector2(1, 0)
@@ -50,6 +54,8 @@ position = Vector2(8, 0)
 texture = ExtResource("4_7o6i2")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="EAST"]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EAST/StaticBody2D"]
 shape = SubResource("RectangleShape2D_k53ja")
@@ -61,6 +67,8 @@ position = Vector2(16, 8)
 texture = ExtResource("5_xjk4a")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="SOUTH"]
+collision_layer = 3
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SOUTH/StaticBody2D"]
 shape = SubResource("RectangleShape2D_ploom")
@@ -69,9 +77,9 @@ disabled = true
 [node name="Polygon2D" type="Polygon2D" parent="."]
 visible = false
 color = Color(0.941176, 0, 0, 1)
-polygon = PackedVector2Array(0, -35, 44, 1, 0, 32)
+polygon = PackedVector2Array(-48, -32, 40, -32, 40, 32, -48, 32)
 
 [node name="Polygon2D2" type="Polygon2D" parent="."]
 visible = false
-color = Color(0.630407, 0.440608, 0.491858, 1)
-polygon = PackedVector2Array(0, -35, 44, 1, 0, 32)
+color = Color(0.631373, 0.439216, 0.490196, 0.235294)
+polygon = PackedVector2Array(-632, -448, -8, -56, 1240, -256, 64, 64, -600, 640, -48, 16)

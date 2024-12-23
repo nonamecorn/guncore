@@ -13,6 +13,7 @@ var rooms = [
 	"res://lvls/rooms/combat_room.tscn"
 ]
 @export var roomcount = 3
+@export var debug = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -24,7 +25,7 @@ func get_exits():
 	exits = get_tree().get_nodes_in_group("connector").filter(func(element): return element.type == 1 and !element.known)
 
 func get_closing_exits():
-	exits = get_tree().get_nodes_in_group("connector").filter(func(element): return element.type == 1)
+	exits = get_tree().get_nodes_in_group("connector").filter(func(element): return element.type == 1 and element.active)
 
 func spawn():
 	#$make_room.start()
@@ -42,9 +43,9 @@ func spawn():
 	for exit in exits:
 		#if exit.active: continue
 		exit.close()
-	
-	#$Camera2D.enabled = false
-	#$ysort/enemies/Player/Camera2D.enabled = true
+	if !debug: 
+		$Camera2D.enabled = false
+		$ysort/enemies/Player/Camera2D.enabled = true
 	$CanvasLayer/ColorRect.hide()
 
 func room_fits(room_rect, corr_rect):
@@ -97,13 +98,18 @@ func spawn_room(room : String):
 	#room_rect.position = room_rect.position
 	var corr_rect = corr_inst.get_rect()
 	if room_fits(room_rect,corr_rect):
-		room_inst.find_child("markers").get_child(connector_to_destroy).deactivate()
+		var opposite_marker = room_inst.find_child("markers").get_child(connector_to_destroy)
+		opposite_marker.deactivate()
+		opposite_marker.known = true
 		#if room_inst.has_method("init"):
 			#room_inst.init()
-		connector.queue_free()
+		
+		connector.deactivate()
 		rects.append_array([room_rect, corr_rect])
 		roomcount -= 1
 	else:
+		connector.close()
+		print("wtf")
 		room_inst.queue_free()
 		corr_inst.queue_free()
 

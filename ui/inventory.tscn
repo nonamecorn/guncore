@@ -375,7 +375,6 @@ texture = ExtResource("6_uhxew")
 stretch_mode = 2
 
 [node name="equipment_shaite3" type="NinePatchRect" parent="equipments"]
-visible = false
 layout_mode = 2
 offset_left = 24.0
 offset_top = 128.0

@@ -1,7 +1,7 @@
 extends BasicPlayerStrategy
 class_name BodyArmorStrategy
 
-@export var damage_absorbtion : int = 10
+@export var damage_absorbtion : float = 10.0
 
 func init_strategy(_player):
 	pass
@@ -9,9 +9,9 @@ func init_strategy(_player):
 func move_strategy(_player):
 	pass
 
-func hurt_strategy(player, damage, ap):
+func hurt_strategy(player, damage : float, ap):
 	if ap:
-		player.hp -= damage
+		player.health -= damage
 	else:
 		var ddtn = damage_absorbtion * (damage / 100)
-		player.hp -= (damage - ddtn)
+		player.health -= (damage - ddtn)

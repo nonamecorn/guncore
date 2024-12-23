@@ -51,6 +51,7 @@ func insert_item_at_spot(item, slot):
 	if items.has(item_slot) and items[item_slot] != null:
 		return false
 	items[item_slot] = item
+	
 	if gun:
 		check_assembly()
 	else:

@@ -101,7 +101,7 @@ func quick_grab(cursor_pos):
 			last_pos = item_held.global_position
 			item_offset = item_held.global_position - cursor_pos
 			if c.name == "grid_backpack":
-				for i in $equipments.get_child_count() - 1:
+				for i in $equipments.get_child_count():
 					if $equipments.get_child(i).insert_item_at_spot(
 						item_held,item_held.item_resource.slot):
 						item_held = null

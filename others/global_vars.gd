@@ -36,5 +36,5 @@ func change_score(new_kills, new_loop):
 var loop = 0
 var kills = 0
 var items = []
-var fullscreen = true
+var fullscreen = DisplayServer.window_get_mode()
 var money = 0

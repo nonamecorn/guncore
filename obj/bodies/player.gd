@@ -4,9 +4,14 @@ extends  CharacterBody2D
 @onready var gun = $player_hand_component
 @onready var item_base = load("res://obj/components/item_ground_base.tscn")
 
-@export var MAX_SPEED = 160
+@export var MAX_SPEED = 180
 @export var ACCELERATION = 1000
 @export var FRICTION = 1000
+
+var current_speed = MAX_SPEED
+var current_acceleration = ACCELERATION
+var current_friction = FRICTION
+
 var health : int = 200
 var armor : int = 0
 
@@ -93,11 +98,11 @@ func move_state(delta):
 	if input_vector != Vector2.ZERO:
 		$Sprite2D/IdleAnimation.hide()
 		$Sprite2D/RunninAnnimation.show()
-		velocity = velocity.move_toward(input_vector * MAX_SPEED,delta * ACCELERATION)
+		velocity = velocity.move_toward(input_vector * current_speed,delta * current_acceleration)
 	else:
 		$Sprite2D/IdleAnimation.show()
 		$Sprite2D/RunninAnnimation.hide()
-		velocity = velocity.move_toward(Vector2.ZERO, delta * FRICTION)
+		velocity = velocity.move_toward(Vector2.ZERO, delta * current_friction)
 	move_and_slide()
 
 func play():
@@ -129,9 +134,8 @@ func death():
 
 func hurt(amnt, ap):
 	if strategies:
-		print("хуй")
 		for strategy in strategies:
-			strategy.init_strategy(self)
+			strategy.hurt_strategy(self, amnt, ap)
 	elif !ap and armor != 0:
 		return
 	elif ap and armor != 0:
@@ -179,8 +183,15 @@ func on_ammo_change(curr_mmo,max_mmo,ind):
 		$CanvasLayer/VBoxContainer/ammo.text = str(curr_mmo)+"/"+str(max_mmo)
 
 func on_augs_change(parts : Dictionary):
+	current_speed = MAX_SPEED
+	current_acceleration = ACCELERATION
+	current_friction = FRICTION
+	strategies = []
+	strategy_dic = {}
 	for part_name in parts:
 		if parts[part_name] == null: continue
+		for stratagy in parts[part_name].player_strategies:
+			strategies.append(stratagy)
 		for change in parts[part_name].changes:
 			if change.is_set:
 				set_stat(change.stat_name, change.value_of_stat)
