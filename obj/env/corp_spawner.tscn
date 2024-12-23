@@ -1,0 +1,180 @@
+[gd_scene load_steps=14 format=3 uid="uid://bfnpoji3eximf"]
+
+[ext_resource type="AudioStream" uid="uid://tdmqgj55whuh" path="res://snd/sfx/doorkicker_sfx.mp3" id="1_8hqla"]
+[ext_resource type="Script" path="res://obj/env/corp_spawner.gd" id="1_b54st"]
+[ext_resource type="Texture2D" uid="uid://ddujwdae061te" path="res://img/levels/Door.png" id="2_quxrr"]
+[ext_resource type="Texture2D" uid="uid://bkc2mcskqhcr" path="res://img/levels/dorgor.png" id="4_ngo0w"]
+
+[sub_resource type="Animation" id="Animation_hweto"]
+resource_name = "doorkick"
+length = 3.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.7, 1.36667, 2.03333),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3]
+}
+tracks/2/type = "method"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath(".")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(2.26667),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"spawn"
+}]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("GPUParticles2D:emitting")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(2.06667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_vciyq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = false
+tracks/0/path = NodePath("AudioStreamPlayer2D:playing")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = false
+tracks/2/path = NodePath("GPUParticles2D:emitting")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yrhut"]
+_data = {
+"RESET": SubResource("Animation_vciyq"),
+"doorkick": SubResource("Animation_hweto")
+}
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hwg77"]
+particles_animation = true
+particles_anim_h_frames = 5
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_khjgn"]
+min_value = -101.14
+max_value = 102.14
+_data = [Vector2(0, 55), 0.0, 0.0, 0, 0, Vector2(0.5, 55), 0.0, 0.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+metadata/_snap_count = 2
+
+[sub_resource type="CurveTexture" id="CurveTexture_bakn7"]
+curve = SubResource("Curve_khjgn")
+
+[sub_resource type="Curve" id="Curve_tlp7n"]
+max_value = 100.0
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0338983, 3.07797), 0.0, 0.0, 0, 0, Vector2(0.0610269, 99.1108), 0.0, 0.0, 0, 0, Vector2(1, 100), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[sub_resource type="CurveTexture" id="CurveTexture_wlykp"]
+curve = SubResource("Curve_tlp7n")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_spgj3"]
+particle_flag_disable_z = true
+direction = Vector3(0, 1, 0)
+initial_velocity_min = 166.66
+initial_velocity_max = 243.58
+angular_velocity_curve = SubResource("CurveTexture_bakn7")
+gravity = Vector3(0, 0, 0)
+damping_min = 5.128
+damping_max = 7.692
+damping_curve = SubResource("CurveTexture_wlykp")
+anim_offset_max = 1.0
+
+[node name="corp_spawner" type="Node2D"]
+script = ExtResource("1_b54st")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("1_8hqla")
+bus = &"Sfx"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_quxrr")
+hframes = 4
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_yrhut")
+}
+
+[node name="corps" type="Node2D" parent="."]
+
+[node name="Marker2D" type="Marker2D" parent="corps"]
+position = Vector2(-87, 64)
+
+[node name="Marker2D2" type="Marker2D" parent="corps"]
+position = Vector2(0, 99)
+
+[node name="Marker2D3" type="Marker2D" parent="corps"]
+position = Vector2(89, 64)
+
+[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_hwg77")
+emitting = false
+amount = 5
+process_material = SubResource("ParticleProcessMaterial_spgj3")
+texture = ExtResource("4_ngo0w")
+lifetime = 5.0
+one_shot = true
+explosiveness = 1.0
+trail_sections = 5
+trail_section_subdivisions = 5

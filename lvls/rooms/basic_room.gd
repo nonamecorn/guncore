@@ -2,22 +2,16 @@ extends Node2D
 
 @onready var markers = $markers.get_children()
 @onready var tilemap = $layers/Ceiling
-@onready var enemy = load("res://obj/bodies/enemies/enemy.tscn")
-@onready var corp = load("res://obj/bodies/enemies/corp_grunt.tscn")
 
 var activated = false
 
 func init():
 	if has_node("enemies"):
 		for marker in $enemies.get_children():
-			var enemy_inst = enemy.instantiate()
-			enemy_inst.global_position = marker.global_position
-			get_tree().current_scene.find_child("enemies").call_deferred("add_child",enemy_inst) 
+			marker.init()
 	if has_node("corps"):
 		for marker in $corps.get_children():
-			var enemy_inst = corp.instantiate()
-			enemy_inst.global_position = marker.global_position
-			get_tree().current_scene.find_child("enemies").call_deferred("add_child",enemy_inst) 
+			marker.init()
 
 func get_exits() -> Array:
 	return markers

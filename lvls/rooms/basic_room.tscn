@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://c3pgbdnfobaqo"]
+[gd_scene load_steps=11 format=4 uid="uid://c3pgbdnfobaqo"]
 
 [ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="1_0qsy7"]
 [ext_resource type="Script" path="res://lvls/rooms/basic_room.gd" id="1_ygdka"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://c70txah2l140m" path="res://obj/env/big_box.tscn" id="6_ry3ej"]
 [ext_resource type="PackedScene" uid="uid://cjw5l1ahljlkm" path="res://obj/env/mid_box.tscn" id="7_hcfla"]
 [ext_resource type="PackedScene" uid="uid://bxtkcc7g5gfh2" path="res://obj/env/small_box.tscn" id="8_r1pft"]
+[ext_resource type="PackedScene" uid="uid://cpcfb5ro5if5" path="res://obj/env/cult_spawner.tscn" id="9_i6apq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbyfv"]
 size = Vector2(530, 409)
@@ -42,17 +43,17 @@ left = true
 
 [node name="enemies" type="Node2D" parent="."]
 
-[node name="Marker2D" type="Marker2D" parent="enemies"]
-position = Vector2(-168, 232)
+[node name="cult_spawner" parent="enemies" instance=ExtResource("9_i6apq")]
+position = Vector2(-121, 279)
 
-[node name="Marker2D2" type="Marker2D" parent="enemies"]
-position = Vector2(170, 275)
+[node name="cult_spawner2" parent="enemies" instance=ExtResource("9_i6apq")]
+position = Vector2(164, 290)
 
-[node name="Marker2D3" type="Marker2D" parent="enemies"]
-position = Vector2(180, 527)
+[node name="cult_spawner3" parent="enemies" instance=ExtResource("9_i6apq")]
+position = Vector2(-122, 510)
 
-[node name="Marker2D4" type="Marker2D" parent="enemies"]
-position = Vector2(-133, 533)
+[node name="cult_spawner4" parent="enemies" instance=ExtResource("9_i6apq")]
+position = Vector2(160, 521)
 
 [node name="env" type="Node2D" parent="."]
 

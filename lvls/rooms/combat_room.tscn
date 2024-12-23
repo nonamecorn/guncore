@@ -1,13 +1,15 @@
-[gd_scene load_steps=10 format=4 uid="uid://b7oj8pql257pe"]
+[gd_scene load_steps=12 format=4 uid="uid://b7oj8pql257pe"]
 
 [ext_resource type="Script" path="res://lvls/rooms/basic_room.gd" id="1_7koly"]
 [ext_resource type="PackedScene" uid="uid://bf65xavyr0pes" path="res://lvls/misc/module_connector.tscn" id="2_cjjcc"]
 [ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="3_2wwxc"]
+[ext_resource type="PackedScene" uid="uid://cpcfb5ro5if5" path="res://obj/env/cult_spawner.tscn" id="4_7wdmv"]
 [ext_resource type="PackedScene" uid="uid://dww7vxteobmel" path="res://obj/env/explosive_barrel.tscn" id="4_bwa8p"]
 [ext_resource type="PackedScene" uid="uid://cmowt08tkhfxs" path="res://lvls/misc/bi_light_occluder_2d.tscn" id="5_uumab"]
 [ext_resource type="PackedScene" uid="uid://c70txah2l140m" path="res://obj/env/big_box.tscn" id="6_1tixf"]
 [ext_resource type="PackedScene" uid="uid://cjw5l1ahljlkm" path="res://obj/env/mid_box.tscn" id="7_osf2a"]
 [ext_resource type="PackedScene" uid="uid://bxtkcc7g5gfh2" path="res://obj/env/small_box.tscn" id="8_8r555"]
+[ext_resource type="PackedScene" uid="uid://bfnpoji3eximf" path="res://obj/env/corp_spawner.tscn" id="9_743gg"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vfr7w"]
 size = Vector2(1039, 409)
@@ -43,28 +45,22 @@ left = true
 
 [node name="enemies" type="Node2D" parent="."]
 
-[node name="Marker2D" type="Marker2D" parent="enemies"]
-position = Vector2(177, 253)
+[node name="cult_spawner" parent="enemies" instance=ExtResource("4_7wdmv")]
+position = Vector2(-320, 552)
 
-[node name="Marker2D2" type="Marker2D" parent="enemies"]
-position = Vector2(515, 296)
+[node name="cult_spawner2" parent="enemies" instance=ExtResource("4_7wdmv")]
+position = Vector2(416, 280)
 
-[node name="Marker2D3" type="Marker2D" parent="enemies"]
-position = Vector2(525, 548)
-
-[node name="Marker2D4" type="Marker2D" parent="enemies"]
-position = Vector2(212, 554)
+[node name="cult_spawner3" parent="enemies" instance=ExtResource("4_7wdmv")]
+position = Vector2(368, 544)
 
 [node name="corps" type="Node2D" parent="."]
 
-[node name="Marker2D" type="Marker2D" parent="corps"]
-position = Vector2(-398, 253)
+[node name="corp_spawner" parent="corps" instance=ExtResource("9_743gg")]
+position = Vector2(-400, 176)
 
-[node name="Marker2D2" type="Marker2D" parent="corps"]
-position = Vector2(-400, 528)
-
-[node name="Marker2D3" type="Marker2D" parent="corps"]
-position = Vector2(-298, 508)
+[node name="corp_spawner2" parent="corps" instance=ExtResource("9_743gg")]
+position = Vector2(-208, 176)
 
 [node name="env" type="Node2D" parent="."]
 

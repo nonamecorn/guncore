@@ -86,6 +86,7 @@ stream = ExtResource("3_6g14y")
 bus = &"Sfx"
 
 [node name="something_broke" type="AudioStreamPlayer2D" parent="audio"]
+bus = &"Sfx"
 
 [node name="noise_alert" type="Area2D" parent="."]
 collision_layer = 0
