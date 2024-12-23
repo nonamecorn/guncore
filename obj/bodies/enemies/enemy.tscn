@@ -131,6 +131,7 @@ autostart = true
 wait_time = 0.5
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+target_desired_distance = 15.0
 
 [node name="hurt_box" parent="." instance=ExtResource("5_eclwk")]
 position = Vector2(0, -14)

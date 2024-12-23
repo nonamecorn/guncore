@@ -5,7 +5,8 @@ class_name Item
 @export var item_name : String = ""
 @export_multiline var item_description : String = ''
 @export var cost : int = 5
-@export var durability : int = 1000
+@export var max_durability : int = 1000
+@export var curr_durability : int = 1000
 @export var sprite : Texture2D
 @export var sprite_offset : Vector2
 @export var bullet_strategies : Array[BasicBulletStrategy]
@@ -20,6 +21,9 @@ signal pickup
 var eq = false
 var eq_index = null
 var picked_up = false
+
+func init():
+	id = IdGiver.get_id()
 
 func pick_up():
 	if picked_up: return

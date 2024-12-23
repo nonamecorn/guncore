@@ -194,7 +194,7 @@ func on_augs_change(parts : Dictionary):
 			strategies.append(stratagy)
 		for change in parts[part_name].changes:
 			if change.is_set:
-				set_stat(change.stat_name, change.value_of_stat)
+				set(change.stat_name, change.value_of_stat)
 				continue
 			change_stat(change.stat_name, change.value_of_stat, change.mult)
 func change_stat(name_of_stat : String, value_of_stat, mult: bool):
@@ -203,8 +203,7 @@ func change_stat(name_of_stat : String, value_of_stat, mult: bool):
 		set(name_of_stat, temp*value_of_stat)
 		return
 	set(name_of_stat, temp+value_of_stat)
-func set_stat(name_of_stat : String, value_of_stat):
-	set(name_of_stat, value_of_stat)
+
 
 func on_score_change(new_kills, new_loop):
 	if health <= 0: return

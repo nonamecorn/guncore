@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dcchx721txe4c"]
+[gd_scene load_steps=7 format=3 uid="uid://dcchx721txe4c"]
 
 [ext_resource type="PackedScene" uid="uid://b720un0jadula" path="res://lvls/rooms/starting_room.tscn" id="1_08hws"]
 [ext_resource type="Script" path="res://lvls/world_1.gd" id="1_ki535"]
@@ -6,8 +6,6 @@
 [ext_resource type="PackedScene" uid="uid://btw10scl5f85a" path="res://obj/bodies/player.tscn" id="4_22ug0"]
 [ext_resource type="PackedScene" uid="uid://ddfo6c5nx4m8h" path="res://lvls/misc/light.tscn" id="5_h5ytn"]
 [ext_resource type="Script" path="res://lvls/misc/moving_light.gd" id="6_kdott"]
-
-[sub_resource type="Environment" id="Environment_rwc8n"]
 
 [node name="world1" type="Node2D"]
 script = ExtResource("1_ki535")
@@ -46,9 +44,6 @@ y_sort_enabled = true
 [node name="environment" type="Node2D" parent="ysort"]
 
 [node name="make_room" type="Timer" parent="."]
-
-[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
-environment = SubResource("Environment_rwc8n")
 
 [node name="light" parent="." instance=ExtResource("5_h5ytn")]
 visible = false

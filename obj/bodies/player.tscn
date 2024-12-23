@@ -158,7 +158,6 @@ height = 24.0
 top_level = true
 collision_layer = 4
 script = ExtResource("1_6n3fv")
-MAX_SPEED = 300
 ACCELERATION = 1500
 FRICTION = 1500
 

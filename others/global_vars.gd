@@ -10,10 +10,13 @@ func _ready() -> void:
 	var gun = Randogunser.get_gun()
 	var t1 = load(gun.RECIEVER).duplicate()
 	t1.picked_up = true
+	t1.init()
 	var t2 = load(gun.MAG).duplicate()
 	t2.picked_up = true
+	t2.init()
 	var t3 = load(gun.BARREL).duplicate()
 	t3.picked_up = true
+	t3.init()
 	items.append(t1)
 	items.append(t2)
 	items.append(t3)

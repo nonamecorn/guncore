@@ -2,7 +2,7 @@ extends Node2D
 
 var facade = preload("res://obj/components/facade.tscn")
 var p_facade = preload("res://obj/components/p_facade.tscn")
-var gun_parts
+var gun_resources
 var point_of_shooting = Vector2(0,0)
 var spread_tween
 @onready var rng = RandomNumberGenerator.new()
@@ -61,7 +61,7 @@ func dispawn_facade(part_name):
 
 func asseble_gun(parts : Dictionary):
 	dissassemble_gun()
-	gun_parts = parts
+	gun_resources = parts
 	spawn_facade(parts.RECIEVER, Vector2.ZERO)
 	spawn_facade(parts.BARREL, parts.RECIEVER.barrel_position+parts.BARREL.sprite_offset)
 	spawn_facade(parts.MAG, parts.RECIEVER.mag_position+parts.MAG.sprite_offset)
@@ -93,7 +93,7 @@ func asseble_gun(parts : Dictionary):
 		if parts[part_name] == null: continue
 		for change in parts[part_name].changes:
 			if change.is_set:
-				set_stat(change.stat_name, change.value_of_stat)
+				set(change.stat_name, change.value_of_stat)
 				continue
 			change_stat(change.stat_name, change.value_of_stat, change.mult)
 		
@@ -125,8 +125,6 @@ func change_stat(name_of_stat : String, value_of_stat, mult: bool):
 		set(name_of_stat, temp*value_of_stat)
 		return
 	set(name_of_stat, temp+value_of_stat)
-func set_stat(name_of_stat : String, value_of_stat):
-	set(name_of_stat, value_of_stat)
 
 
 func dissassemble_gun():
@@ -182,14 +180,14 @@ func reload():
 	current_spread = current_min_spread
 
 func wear_down():
-	for part in gun_parts:
-		if !gun_parts[part]: continue
-		gun_parts[part].durability -= 1
+	for part in gun_resources:
+		if !gun_resources[part]: continue
+		gun_resources[part].curr_durability -= 1
 
 func weapon_functional():
-	for part in gun_parts:
-		if !gun_parts[part]: continue
-		if gun_parts[part].durability <= 0:
+	for part in gun_resources:
+		if !gun_resources[part]: continue
+		if gun_resources[part].curr_durability <= 0:
 			return false
 	return true
 
