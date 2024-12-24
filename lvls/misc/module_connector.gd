@@ -11,22 +11,29 @@ enum module_type {
 }
 @export var type = module_type.CORR
 @export var orientation = module_orientation.NORTH
+@export var authorised = false
 var active = true
 var known = false
 var closed = false
 
 func deactivate():
 	active = false
-	#$Polygon2D.show()
+	$Polygon2D.show()
 
 func get_info():
-	#$Polygon2D2.show()
+	assert(authorised, "authorised access only")
+	$Polygon2D2.show()
 	known = true
-	return [type,orientation,global_position]
+	return {
+		"type": type,
+		"orientation": orientation,
+		"position": global_position
+	}
 
 func close():
 	if closed: return
 	closed = true
+	assert(authorised, "authorised access only")
 	match orientation:
 		0:
 			$NORTH.show()

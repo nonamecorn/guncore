@@ -80,7 +80,7 @@ animations = [{
 }]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_i220x"]
-radius = 112.0
+radius = 68.0
 
 [node name="explosive_barrel" type="CharacterBody2D" groups=["targetable"]]
 y_sort_enabled = true

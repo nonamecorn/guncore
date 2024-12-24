@@ -29,7 +29,6 @@ var rooms = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	print(GlobalVars.loop)
 	rects.append($"modules/starting room".get_rect())
 	OstManager.switch_track("Battle")
 	if GlobalVars.loop >= 2:
@@ -38,14 +37,12 @@ func _ready() -> void:
 	
 	rooms = get("rooms"+str(GlobalVars.loop))
 	spawn()
-	
-	print(rooms)
 
 func get_exits():
-	exits = get_tree().get_nodes_in_group("connector").filter(func(element): return element.type == 1 and !element.known)
+	exits = get_tree().get_nodes_in_group("connector").filter(func(element): return element.authorised and element.type == 1 and !element.known)
 
 func get_closing_exits():
-	exits = get_tree().get_nodes_in_group("connector").filter(func(element): return element.type == 1 and element.active)
+	exits = get_tree().get_nodes_in_group("connector").filter(func(element): return element.authorised and element.type == 1 and element.active)
 
 func spawn():
 	#$make_room.start()
@@ -92,9 +89,11 @@ func spawn_room(room : String):
 	head.shuffle()
 	var connector = head[0]
 	var connector_info = connector.get_info()
+	if !connector_info:
+		return
 	var corr_inst
 	var connector_to_destroy
-	match connector_info[1]:
+	match connector_info.orientation:
 		0: 
 			corr_inst = corr_north_obj.instantiate()
 			connector_to_destroy = 3
@@ -107,31 +106,33 @@ func spawn_room(room : String):
 		3: 
 			corr_inst = corr_south_obj.instantiate()
 			connector_to_destroy = 0
-	corr_inst.global_position = connector_info[2]
+	corr_inst.global_position = connector_info.position
 	var corr_connector = corr_inst.get_child(0).get_child(0)
 	$modules.add_child(corr_inst)
 	var room_inst = load(room).instantiate()
 	room_inst.global_position = corr_connector.global_position
 	$modules.add_child(room_inst)
-	room_inst.align(connector_info[1])
+	room_inst.align(connector_info.orientation)
 	var room_rect = room_inst.get_rect()
 	#room_rect.position = room_rect.position
 	var corr_rect = corr_inst.get_rect()
 	if room_fits(room_rect,corr_rect):
 		var opposite_marker = room_inst.find_child("markers").get_child(connector_to_destroy)
 		opposite_marker.deactivate()
-		opposite_marker.known = true
-		#if room_inst.has_method("init"):
-			#room_inst.init()
-		
 		connector.deactivate()
 		rects.append_array([room_rect, corr_rect])
+		authorize_access(room_inst.markers)
+		opposite_marker.get_info()
 		roomcount -= 1
 	else:
 		connector.close()
-		print("wtf")
 		room_inst.queue_free()
 		corr_inst.queue_free()
+		print("wtf")
+
+func authorize_access(markers):
+	for marker in markers:
+		marker.authorised = true
 
 func _on_make_room_timeout() -> void:
 	if  roomcount == 0:

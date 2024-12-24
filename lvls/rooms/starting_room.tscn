@@ -30,5 +30,6 @@ tile_map_data = PackedByteArray("AAANAAEAAwAAAAIAAAAOAAEAAwAAAAAAAAAPAAEAAwABAAA
 position = Vector2(608, 448)
 type = 1
 orientation = 3
+authorised = true
 
 [editable path="layers"]
