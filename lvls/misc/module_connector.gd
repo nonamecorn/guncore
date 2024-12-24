@@ -18,11 +18,11 @@ var closed = false
 
 func deactivate():
 	active = false
-	$Polygon2D.show()
+	#$Polygon2D.show()
 
 func get_info():
 	assert(authorised, "authorised access only")
-	$Polygon2D2.show()
+	#$Polygon2D2.show()
 	known = true
 	return {
 		"type": type,

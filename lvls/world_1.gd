@@ -128,7 +128,6 @@ func spawn_room(room : String):
 		connector.close()
 		room_inst.queue_free()
 		corr_inst.queue_free()
-		print("wtf")
 
 func authorize_access(markers):
 	for marker in markers:
