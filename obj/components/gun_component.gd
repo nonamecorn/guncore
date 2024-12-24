@@ -211,14 +211,6 @@ func fire():
 				if body.has_method("alert"):
 					body.alert(global_position)
 		
-		var recoil_vector = Vector2(-current_ver_recoil,randf_range(-current_hor_recoil, current_hor_recoil)).rotated(global_rotation)
-		if  player_handled:
-			var vievscale = get_viewport_transform().get_scale()
-			Input.warp_mouse(get_viewport().get_mouse_position()*vievscale + recoil_vector*vievscale)
-		else:
-			get_parent().get_parent().apply_recoil(recoil_vector)
-		
-		
 		var bullet_inst = current_bullet_obj.instantiate()
 		bullet_inst.global_position = check_point_of_fire()
 		bullet_inst.global_rotation_degrees = global_rotation_degrees + rng.randf_range(-current_spread, current_spread)
@@ -231,6 +223,13 @@ func fire():
 			strategy.apply_strategy(bullet_inst, self)
 		get_tree().current_scene.call_deferred("add_child",bullet_inst)
 		bullet_inst.init(added_velocity, current_range, current_add_spd)
+		
+		var recoil_vector = Vector2(-current_ver_recoil,randf_range(-current_hor_recoil, current_hor_recoil)).rotated(global_rotation)
+		if  player_handled:
+			var vievscale = get_viewport_transform().get_scale()
+			Input.warp_mouse(get_viewport().get_mouse_position()*vievscale + recoil_vector*vievscale)
+		else:
+			get_parent().get_parent().apply_recoil(recoil_vector)
 		
 		if !weapon_functional():
 			current_ammo = 0

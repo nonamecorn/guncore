@@ -1,23 +1,24 @@
-[gd_scene load_steps=12 format=4 uid="uid://b7oj8pql257pe"]
+[gd_scene load_steps=13 format=4 uid="uid://cr60qw65p1fnu"]
 
-[ext_resource type="Script" path="res://lvls/rooms/basic_room.gd" id="1_7koly"]
-[ext_resource type="PackedScene" uid="uid://bf65xavyr0pes" path="res://lvls/misc/module_connector.tscn" id="2_cjjcc"]
-[ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="3_2wwxc"]
-[ext_resource type="PackedScene" uid="uid://cpcfb5ro5if5" path="res://lvls/env/cult_spawner.tscn" id="4_7wdmv"]
-[ext_resource type="PackedScene" uid="uid://dww7vxteobmel" path="res://lvls/env/explosive_barrel.tscn" id="4_bwa8p"]
-[ext_resource type="PackedScene" uid="uid://cmowt08tkhfxs" path="res://lvls/misc/bi_light_occluder_2d.tscn" id="5_uumab"]
-[ext_resource type="PackedScene" uid="uid://c70txah2l140m" path="res://lvls/env/big_box.tscn" id="6_1tixf"]
-[ext_resource type="PackedScene" uid="uid://cjw5l1ahljlkm" path="res://lvls/env/mid_box.tscn" id="7_osf2a"]
-[ext_resource type="PackedScene" uid="uid://bxtkcc7g5gfh2" path="res://lvls/env/small_box.tscn" id="8_8r555"]
-[ext_resource type="PackedScene" uid="uid://bfnpoji3eximf" path="res://lvls/env/corp_spawner.tscn" id="9_743gg"]
+[ext_resource type="Script" path="res://lvls/rooms/basic_room.gd" id="1_cj3nh"]
+[ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="2_n8b5e"]
+[ext_resource type="PackedScene" uid="uid://cmowt08tkhfxs" path="res://lvls/misc/bi_light_occluder_2d.tscn" id="3_cuj2b"]
+[ext_resource type="PackedScene" uid="uid://cpcfb5ro5if5" path="res://lvls/env/cult_spawner.tscn" id="4_2e3o1"]
+[ext_resource type="PackedScene" uid="uid://dtae80jmikdb0" path="res://lvls/env/enemy_instaspawn.tscn" id="5_fahsl"]
+[ext_resource type="PackedScene" uid="uid://dwafsvlv6e7hc" path="res://obj/bodies/enemies/corp_grunt.tscn" id="6_33y6f"]
+[ext_resource type="PackedScene" uid="uid://dww7vxteobmel" path="res://lvls/env/explosive_barrel.tscn" id="6_sxun7"]
+[ext_resource type="PackedScene" uid="uid://c70txah2l140m" path="res://lvls/env/big_box.tscn" id="7_0vucx"]
+[ext_resource type="PackedScene" uid="uid://cjw5l1ahljlkm" path="res://lvls/env/mid_box.tscn" id="8_8ecr8"]
+[ext_resource type="PackedScene" uid="uid://bxtkcc7g5gfh2" path="res://lvls/env/small_box.tscn" id="9_vqnns"]
+[ext_resource type="PackedScene" uid="uid://bf65xavyr0pes" path="res://lvls/misc/module_connector.tscn" id="10_83cpw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vfr7w"]
 size = Vector2(1039, 409)
 
 [node name="BasicRoom" type="Node2D"]
-script = ExtResource("1_7koly")
+script = ExtResource("1_cj3nh")
 
-[node name="layers" parent="." instance=ExtResource("3_2wwxc")]
+[node name="layers" parent="." instance=ExtResource("2_n8b5e")]
 
 [node name="Ceiling" parent="layers" index="0"]
 tile_map_data = PackedByteArray("AAACAAIAAQABAAEAAAACAAEAAQABAAEAAAACAAAAAQABAAEAAAD+/wIAAQABAAEAAAD+/wEAAQABAAEAAAD+/wAAAQABAAEAAAD9/wEAAQAAAAEAAAD9/wAAAQAAAAEAAAD9/wIAAQAAAAEAAAD+/wMAAQABAAEAAAD9/wMAAQAAAAEAAAACAAMAAQABAAEAAAADAAAAAQACAAEAAAADAAEAAQACAAEAAAADAAIAAQACAAEAAAADAAMAAQACAAEAAAACAAUAAQABAAEAAAACAAQAAQABAAEAAAD+/wUAAQABAAEAAAD+/wQAAQABAAEAAAD9/wQAAQAEAAEAAAD+/wYAAQABAAEAAAD9/wYAAQABAAEAAAACAAYAAQABAAEAAAADAAQAAQADAAEAAAADAAYAAQABAAEAAAAIAA4AAQABAAEAAAAIAAoAAQABAAEAAAAIAAkAAQABAAEAAAAIAAgAAQABAAEAAAAHAA4AAQABAAEAAAAHAAoAAQABAAEAAAAGABIAAQABAAEAAAAGABEAAQABAAEAAAAGABAAAQABAAEAAAAGAA4AAQABAAEAAAAGAAoAAQABAAEAAAAGAAgAAQABAAEAAAAGAAcAAQABAAEAAAAFABIAAQABAAEAAAAFABEAAQABAAEAAAAFABAAAQABAAEAAAAFAA8AAQABAAEAAAAFAA4AAQABAAEAAAAFAAoAAQABAAEAAAAFAAkAAQABAAEAAAAFAAgAAQABAAEAAAAFAAcAAQABAAEAAAAEABIAAQABAAEAAAAEABEAAQABAAEAAAAEABAAAQABAAEAAAAEAA8AAQABAAEAAAAEAA4AAQABAAEAAAAEAAoAAQABAAEAAAAEAAkAAQABAAEAAAAEAAgAAQABAAEAAAAEAAcAAQABAAEAAAADABIAAQABAAEAAAADABEAAQABAAEAAAADABAAAQABAAEAAAADAA4AAQABAAEAAAADAAoAAQABAAEAAAADAAgAAQABAAEAAAADAAcAAQABAAEAAAACABIAAQABAAEAAAACABEAAQABAAEAAAACABAAAQABAAEAAAACAA4AAQABAAEAAAACAAoAAQABAAEAAAACAAgAAQABAAEAAAACAAcAAQABAAEAAAD+/xIAAQABAAEAAAD+/xEAAQABAAEAAAD+/w4AAQABAAEAAAD+/woAAQABAAEAAAD+/wgAAQABAAEAAAD+/wcAAQABAAEAAAD9/xIAAQABAAEAAAD9/xEAAQABAAEAAAD9/xAAAQABAAEAAAD9/w4AAQABAAEAAAD9/woAAQABAAEAAAD9/wgAAQABAAEAAAD9/wcAAQABAAEAAAD8/xIAAQABAAEAAAD8/xEAAQABAAEAAAD8/xAAAQABAAEAAAD8/w8AAQABAAEAAAD8/w4AAQABAAEAAAD8/woAAQABAAEAAAD8/wkAAQABAAEAAAD8/wgAAQABAAEAAAD8/wcAAQABAAEAAAD7/xEAAQABAAEAAAD7/xAAAQABAAEAAAD7/w8AAQABAAEAAAD7/w4AAQABAAEAAAD7/woAAQABAAEAAAD7/wkAAQABAAEAAAD7/wgAAQABAAEAAAD7/wcAAQABAAEAAAD6/xEAAQABAAEAAAD6/xAAAQABAAEAAAD6/w4AAQABAAEAAAD6/woAAQABAAEAAAD6/wgAAQABAAEAAAD6/wcAAQABAAEAAAD5/xEAAQABAAEAAAD5/xAAAQABAAEAAAD5/w4AAQABAAEAAAD5/woAAQABAAEAAAD5/wgAAQABAAEAAAD5/wcAAQABAAEAAAD5/wYAAQABAAEAAAD4/xIAAQABAAEAAAD4/xEAAQABAAEAAAD4/xAAAQABAAEAAAD4/w4AAQABAAEAAAD4/woAAQABAAEAAAD3/wQAAQABAAAAAAD4/wQAAQABAAAAAAD5/wQAAQABAAAAAAD3/wcAAQABAAEAAAD3/wgAAQABAAEAAAD3/woAAQABAAEAAAD3/w4AAQABAAEAAAD3/xAAAQABAAEAAAD3/xEAAQABAAEAAAD3/xIAAQABAAEAAAD5/xMAAQABAAIAAAD4/xMAAQABAAIAAAD3/xMAAQABAAIAAAD6/wQAAQABAAAAAAD6/xMAAQABAAIAAAD7/wQAAQABAAAAAAD7/xMAAQABAAIAAAD8/wQAAQABAAAAAAD8/xMAAQABAAIAAAD9/xMAAQAEAAAAAAD+/xMAAQABAAEAAAACABMAAQABAAEAAAAEAAQAAQABAAAAAAAFAAQAAQABAAAAAAAFABMAAQABAAIAAAAGAAQAAQABAAAAAAAGABMAAQABAAIAAAAHAAQAAQABAAAAAAAHABMAAQABAAIAAAAIAAQAAQABAAAAAAAIABMAAQABAAIAAAAJAAYAAQABAAEAAAAJAAQAAQABAAAAAAAJAAcAAQABAAEAAAAJAAgAAQABAAEAAAAJAAoAAQABAAEAAAAJAA4AAQABAAEAAAAJABAAAQABAAEAAAAJABEAAQABAAEAAAAJABIAAQABAAEAAAAJABMAAQABAAIAAAACABcAAQABAAEAAAACABYAAQABAAEAAAACABUAAQABAAEAAAACABQAAQABAAEAAAD+/xcAAQABAAEAAAD+/xYAAQABAAEAAAD+/xUAAQABAAEAAAD+/xQAAQABAAEAAAD9/xQAAQAAAAEAAAD9/xUAAQAAAAEAAAD9/xYAAQAAAAEAAAD9/xcAAQAAAAEAAAASAA4AAQABAAEAAAASAAoAAQABAAEAAAARAA4AAQABAAEAAAARAAoAAQABAAEAAAAQAA4AAQABAAEAAAAQAAoAAQABAAEAAAAPAA4AAQABAAEAAAAPAAoAAQABAAEAAAAOAA4AAQABAAEAAAAOAAoAAQABAAEAAAANAA4AAQABAAEAAAANAAoAAQABAAEAAAAMAA4AAQABAAEAAAAMAAoAAQABAAEAAAALAA4AAQABAAEAAAALAAoAAQABAAEAAAAKAA4AAQABAAEAAAAKAAoAAQABAAEAAAAKAA8AAQABAAEAAAALAA8AAQABAAEAAAAMAA8AAQABAAEAAAASAA8AAQADAAAAAAD2/w4AAQABAAEAAADz/w4AAQABAAEAAADy/w4AAQABAAEAAADy/woAAQABAAEAAADx/w4AAQABAAEAAADx/woAAQABAAEAAADw/w4AAQABAAEAAADw/woAAQABAAEAAADw/w8AAQAEAAAAAADy/w8AAQABAAEAAADz/w8AAQABAAEAAAD0/w8AAQABAAEAAAD1/w8AAQABAAEAAAD2/w8AAQABAAEAAAAKAAgAAQABAAEAAAALAAgAAQABAAEAAAAMAAgAAQABAAEAAAANAAgAAQABAAEAAAAOAAgAAQABAAEAAAAPAAgAAQABAAEAAAAQAAgAAQABAAEAAAARAAgAAQABAAEAAAASAAgAAQADAAEAAADw/wgAAQAEAAEAAADx/wgAAQABAAEAAADy/wgAAQABAAEAAADz/wgAAQABAAEAAAD0/wgAAQABAAEAAAD1/wgAAQABAAEAAAD2/wgAAQABAAEAAAAEABMAAQABAAIAAAADABMAAQADAAAAAAADABQAAQACAAEAAAADABUAAQACAAEAAAADABYAAQACAAEAAAADABcAAQACAAEAAAD2/wcAAQABAAEAAAD1/wcAAQABAAEAAAD0/wcAAQABAAEAAAD0/wYAAQABAAEAAADz/wcAAQABAAEAAADz/wYAAQABAAEAAADy/wcAAQABAAEAAADx/wcAAQABAAEAAADx/wYAAQABAAEAAADw/wYAAQAAAAEAAADw/wUAAQAAAAEAAADw/wQAAQAAAAAAAADx/wQAAQABAAAAAADy/wQAAQABAAAAAADw/wcAAQAAAAEAAADy/wkAAQABAAEAAADx/wkAAQABAAEAAADz/wQAAQABAAAAAADz/wkAAQABAAEAAAD0/wQAAQABAAAAAAD0/wkAAQABAAEAAAD1/wQAAQABAAAAAAD1/wkAAQABAAEAAAD2/wQAAQABAAAAAAD2/wkAAQABAAEAAAD3/wkAAQABAAEAAAARAAcAAQABAAEAAAAQAAcAAQABAAEAAAAPAAcAAQABAAEAAAAOAAcAAQABAAEAAAANAAcAAQABAAEAAAAMAAcAAQABAAEAAAALAAcAAQABAAEAAAAKAAcAAQABAAEAAAAKAAQAAQABAAAAAAAKAAkAAQABAAEAAAAJAAkAAQABAAEAAAALAAQAAQABAAAAAAALAAkAAQABAAEAAAAMAAQAAQABAAAAAAAMAAkAAQABAAEAAAANAAQAAQABAAAAAAANAAkAAQABAAEAAAAOAAQAAQABAAAAAAAOAAkAAQABAAEAAAAPAAQAAQABAAAAAAAPAAkAAQABAAEAAAAQAAQAAQABAAAAAAAQAAkAAQABAAEAAAARAAQAAQABAAAAAAARAAkAAQABAAEAAAASAAUAAQACAAEAAAASAAYAAQACAAEAAAASAAQAAQACAAAAAAASAAcAAQACAAEAAAD2/xIAAQABAAEAAAD2/xEAAQABAAEAAAD2/xAAAQABAAEAAAD1/xIAAQABAAEAAAD1/xEAAQABAAEAAAD1/xAAAQABAAEAAAD0/xIAAQABAAEAAAD0/xEAAQABAAEAAAD0/xAAAQABAAEAAADz/xIAAQABAAEAAADz/xEAAQABAAEAAADz/xAAAQABAAEAAADy/xEAAQABAAEAAADy/xAAAQABAAEAAADw/xAAAQAAAAEAAADw/xEAAQAAAAEAAADw/xIAAQAAAAEAAADy/xMAAQABAAIAAADx/xMAAQABAAIAAADw/xMAAQAAAAIAAADz/xMAAQABAAIAAAD0/xMAAQABAAIAAAD1/xMAAQABAAIAAAD2/xMAAQABAAIAAAARABIAAQABAAEAAAARABEAAQABAAEAAAARABAAAQABAAEAAAAQABIAAQABAAEAAAAQABEAAQABAAEAAAAQABAAAQABAAEAAAAPABIAAQABAAEAAAAPABEAAQABAAEAAAAPABAAAQABAAEAAAAOABIAAQABAAEAAAAOABEAAQABAAEAAAAOABAAAQABAAEAAAANABIAAQABAAEAAAANABEAAQABAAEAAAANABAAAQABAAEAAAAMABIAAQABAAEAAAAMABEAAQABAAEAAAAMABAAAQABAAEAAAALABIAAQABAAEAAAALABEAAQABAAEAAAALABAAAQABAAEAAAAKABIAAQABAAEAAAAKABEAAQABAAEAAAAKABAAAQABAAEAAAAKABMAAQABAAIAAAALABMAAQABAAIAAAAMABMAAQABAAIAAAANABMAAQABAAIAAAAOABMAAQABAAIAAAAPABMAAQABAAIAAAAQABMAAQABAAIAAAARABMAAQABAAIAAAASABAAAQACAAEAAAASABEAAQACAAEAAAASABIAAQACAAEAAAASABMAAQACAAIAAAD+/xAAAQABAAEAAAA=")
@@ -36,74 +37,88 @@ tile_map_data = PackedByteArray("AAADAAkAAwABAAIAAAD9/wkAAwAAAAIAAAD+/wkAAwAAAAA
 
 [node name="decor" type="Node2D" parent="."]
 
-[node name="BiLightOccluder2D" parent="decor" instance=ExtResource("5_uumab")]
+[node name="BiLightOccluder2D" parent="decor" instance=ExtResource("3_cuj2b")]
 position = Vector2(-482, 320)
 
-[node name="BiLightOccluder2D2" parent="decor" instance=ExtResource("5_uumab")]
+[node name="BiLightOccluder2D2" parent="decor" instance=ExtResource("3_cuj2b")]
 position = Vector2(576, 320)
 left = true
 
 [node name="enemies" type="Node2D" parent="."]
 
-[node name="cult_spawner" parent="enemies" instance=ExtResource("4_7wdmv")]
-position = Vector2(-320, 552)
+[node name="cult_spawner" parent="enemies" instance=ExtResource("4_2e3o1")]
+position = Vector2(-380, 272)
 
-[node name="cult_spawner2" parent="enemies" instance=ExtResource("4_7wdmv")]
-position = Vector2(416, 280)
+[node name="cult_spawner2" parent="enemies" instance=ExtResource("4_2e3o1")]
+position = Vector2(456, 276)
 
-[node name="cult_spawner3" parent="enemies" instance=ExtResource("4_7wdmv")]
+[node name="cult_spawner3" parent="enemies" instance=ExtResource("4_2e3o1")]
 position = Vector2(368, 544)
+
+[node name="enemy_instaspawn" parent="enemies" instance=ExtResource("5_fahsl")]
+position = Vector2(-112, 308)
+enemy = ExtResource("6_33y6f")
+
+[node name="enemy_instaspawn2" parent="enemies" instance=ExtResource("5_fahsl")]
+position = Vector2(-112, 484)
+enemy = ExtResource("6_33y6f")
+
+[node name="enemy_instaspawn3" parent="enemies" instance=ExtResource("5_fahsl")]
+position = Vector2(168, 472)
+enemy = ExtResource("6_33y6f")
+
+[node name="enemy_instaspawn4" parent="enemies" instance=ExtResource("5_fahsl")]
+position = Vector2(140, 296)
+enemy = ExtResource("6_33y6f")
+
+[node name="enemy_instaspawn5" parent="enemies" instance=ExtResource("5_fahsl")]
+position = Vector2(-412, 556)
+enemy = ExtResource("6_33y6f")
 
 [node name="corps" type="Node2D" parent="."]
 
-[node name="corp_spawner" parent="corps" instance=ExtResource("9_743gg")]
-position = Vector2(-400, 176)
-
-[node name="corp_spawner2" parent="corps" instance=ExtResource("9_743gg")]
-position = Vector2(-208, 176)
-
 [node name="env" type="Node2D" parent="."]
 
-[node name="explosive_barrel" parent="env" instance=ExtResource("4_bwa8p")]
+[node name="explosive_barrel" parent="env" instance=ExtResource("6_sxun7")]
 position = Vector2(-304, 464)
 
-[node name="explosive_barrel2" parent="env" instance=ExtResource("4_bwa8p")]
+[node name="explosive_barrel2" parent="env" instance=ExtResource("6_sxun7")]
 position = Vector2(208, 240)
 
-[node name="explosive_barrel3" parent="env" instance=ExtResource("4_bwa8p")]
+[node name="explosive_barrel3" parent="env" instance=ExtResource("6_sxun7")]
 position = Vector2(112, 592)
 
-[node name="Big_box" parent="env" instance=ExtResource("6_1tixf")]
+[node name="Big_box" parent="env" instance=ExtResource("7_0vucx")]
 position = Vector2(272, 208)
 
-[node name="Mid_box" parent="env" instance=ExtResource("7_osf2a")]
+[node name="Mid_box" parent="env" instance=ExtResource("8_8ecr8")]
 position = Vector2(336, 208)
 
-[node name="Small_box" parent="env" instance=ExtResource("8_8r555")]
+[node name="Small_box" parent="env" instance=ExtResource("9_vqnns")]
 position = Vector2(264, 224)
 
-[node name="Mid_box2" parent="env" instance=ExtResource("7_osf2a")]
+[node name="Mid_box2" parent="env" instance=ExtResource("8_8ecr8")]
 position = Vector2(-368, 464)
 
-[node name="Big_box2" parent="env" instance=ExtResource("6_1tixf")]
+[node name="Big_box2" parent="env" instance=ExtResource("7_0vucx")]
 position = Vector2(-336, 464)
 
-[node name="Mid_box4" parent="env" instance=ExtResource("7_osf2a")]
+[node name="Mid_box4" parent="env" instance=ExtResource("8_8ecr8")]
 position = Vector2(-432, 592)
 
-[node name="Big_box3" parent="env" instance=ExtResource("6_1tixf")]
+[node name="Big_box3" parent="env" instance=ExtResource("7_0vucx")]
 position = Vector2(-464, 528)
 
-[node name="Mid_box3" parent="env" instance=ExtResource("7_osf2a")]
+[node name="Mid_box3" parent="env" instance=ExtResource("8_8ecr8")]
 position = Vector2(-464, 544)
 
-[node name="Big_box4" parent="env" instance=ExtResource("6_1tixf")]
+[node name="Big_box4" parent="env" instance=ExtResource("7_0vucx")]
 position = Vector2(-304, 208)
 
-[node name="Mid_box5" parent="env" instance=ExtResource("7_osf2a")]
+[node name="Mid_box5" parent="env" instance=ExtResource("8_8ecr8")]
 position = Vector2(-336, 208)
 
-[node name="Small_box2" parent="env" instance=ExtResource("8_8r555")]
+[node name="Small_box2" parent="env" instance=ExtResource("9_vqnns")]
 position = Vector2(-440, 208)
 
 [node name="Trigger" type="Area2D" parent="."]
@@ -119,20 +134,20 @@ debug_color = Color(0.983183, 0, 0.35969, 0)
 
 [node name="markers" type="Node2D" parent="."]
 
-[node name="module_connector3" parent="markers" instance=ExtResource("2_cjjcc")]
+[node name="module_connector3" parent="markers" instance=ExtResource("10_83cpw")]
 type = 1
 
-[node name="module_connector" parent="markers" instance=ExtResource("2_cjjcc")]
+[node name="module_connector" parent="markers" instance=ExtResource("10_83cpw")]
 position = Vector2(-512, 384)
 type = 1
 orientation = 1
 
-[node name="module_connector4" parent="markers" instance=ExtResource("2_cjjcc")]
+[node name="module_connector4" parent="markers" instance=ExtResource("10_83cpw")]
 position = Vector2(608, 384)
 type = 1
 orientation = 2
 
-[node name="module_connector2" parent="markers" instance=ExtResource("2_cjjcc")]
+[node name="module_connector2" parent="markers" instance=ExtResource("10_83cpw")]
 position = Vector2(0, 768)
 type = 1
 orientation = 3

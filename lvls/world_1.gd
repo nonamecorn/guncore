@@ -8,18 +8,38 @@ var corr_north_obj = preload("res://lvls/corridors/verticalnorth_corr.tscn")
 var corr_west_obj = preload("res://lvls/corridors/horisontwest_corr.tscn")
 var corr_east_obj = preload("res://lvls/corridors/horisonteast_corr.tscn")
 var corr_south_obj = preload("res://lvls/corridors/verticalsouth_corr.tscn")
+var rooms0 = [
+	"res://lvls/rooms/basic_room.tscn",
+	"res://lvls/rooms/cultfort_room.tscn",
+]
+var rooms1 = [
+	"res://lvls/rooms/combat_room.tscn",
+	"res://lvls/rooms/corpbreach_room.tscn",
+	"res://lvls/rooms/combat_room.tscn",
+]
 var rooms = [
 	"res://lvls/rooms/basic_room.tscn",
-	"res://lvls/rooms/combat_room.tscn"
+	"res://lvls/rooms/combat_room.tscn",
+	"res://lvls/rooms/cultfort_room.tscn",
+	"res://lvls/rooms/cultinvasion_room.tscn",
+	"res://lvls/rooms/corpbreach_room.tscn",
 ]
 @export var roomcount = 3
 @export var debug = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	print(GlobalVars.loop)
 	rects.append($"modules/starting room".get_rect())
-	spawn()
 	OstManager.switch_track("Battle")
+	if GlobalVars.loop >= 2:
+		spawn()
+		return
+	
+	rooms = get("rooms"+str(GlobalVars.loop))
+	spawn()
+	
+	print(rooms)
 
 func get_exits():
 	exits = get_tree().get_nodes_in_group("connector").filter(func(element): return element.type == 1 and !element.known)
