@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=45 format=3 uid="uid://6c0up61qo7l2"]
+[gd_resource type="TileSet" load_steps=46 format=3 uid="uid://6c0up61qo7l2"]
 
 [ext_resource type="Texture2D" uid="uid://cfv7m5boehwdu" path="res://img/levels/ceiling_tileset.png" id="1_etbpj"]
 [ext_resource type="Texture2D" uid="uid://dpghkg3bb01ux" path="res://img/levels/MOST.png" id="2_0okir"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://dukrl40d7m0oh" path="res://img/levels/WaterAnim.png" id="6_galtf"]
 [ext_resource type="Texture2D" uid="uid://bfeiavarq0xvs" path="res://img/walls_and_floor.png" id="7_wpu8x"]
 [ext_resource type="Texture2D" uid="uid://behu87ivyr4iy" path="res://img/walls_n.png" id="8_4snno"]
+[ext_resource type="Texture2D" uid="uid://bvow5hcmwu5x5" path="res://img/levels/SewerTileSetwalls.png" id="8_7nd2h"]
 
 [sub_resource type="NavigationPolygon" id="NavigationPolygon_2qpuy"]
 
@@ -294,7 +295,6 @@ texture_region_size = Vector2i(32, 32)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_80nce"]
 diffuse_texture = ExtResource("4_k4swy")
-normal_texture = ExtResource("5_33ae3")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1tfg7"]
 texture = SubResource("CanvasTexture_80nce")
@@ -319,8 +319,6 @@ texture_region_size = Vector2i(32, 32)
 2:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(13, -16, 16, -16, 16, 16, 13, 16)
 3:1/0 = 0
 3:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
-6:1/0 = 0
-6:1/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 0:2/0 = 0
 0:2/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, -16, -13, 11, 16, 16, -16, 16)
 1:2/0 = 0
@@ -392,7 +390,7 @@ texture_region_size = Vector2i(32, 32)
 1:2/0 = 0
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_jxno5"]
-diffuse_texture = ExtResource("4_k4swy")
+diffuse_texture = ExtResource("8_7nd2h")
 normal_texture = ExtResource("5_33ae3")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_bc0xa"]
@@ -402,6 +400,11 @@ texture_region_size = Vector2i(32, 32)
 1:0/0 = 0
 2:0/0 = 0
 3:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+6:1/0 = 0
 
 [resource]
 tile_size = Vector2i(32, 32)

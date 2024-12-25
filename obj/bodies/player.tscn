@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=3 uid="uid://btw10scl5f85a"]
+[gd_scene load_steps=37 format=3 uid="uid://btw10scl5f85a"]
 
 [ext_resource type="Script" path="res://obj/bodies/player.gd" id="1_6n3fv"]
 [ext_resource type="Texture2D" uid="uid://ci5dmfqdm37at" path="res://img/bodys/GG_IdleAnim.png" id="2_qk2hj"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bfrhglfhp1ihi" path="res://ui/f_1_menu.tscn" id="12_i05es"]
 [ext_resource type="PackedScene" uid="uid://ddfo6c5nx4m8h" path="res://lvls/misc/light.tscn" id="12_p0x4g"]
 [ext_resource type="PackedScene" uid="uid://df86p143ocdnj" path="res://ui/ded_menu.tscn" id="13_vfuiq"]
+[ext_resource type="Texture2D" uid="uid://cy2eud5lve0j5" path="res://img/misc/light232.png" id="15_pajcc"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xlh8"]
 radius = 47.0
@@ -175,6 +176,8 @@ debug_color = Color(0.448094, 0.413853, 0.530235, 0.42)
 position = Vector2(0, -6)
 
 [node name="IdleAnimation" type="AnimatedSprite2D" parent="Sprite2D"]
+light_mask = 16
+visibility_layer = 16
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_avorb")
 autoplay = "default"
@@ -182,6 +185,8 @@ frame_progress = 0.51957
 
 [node name="RunninAnnimation" type="AnimatedSprite2D" parent="Sprite2D"]
 visible = false
+light_mask = 16
+visibility_layer = 16
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_8tg87")
 autoplay = "default"
@@ -275,7 +280,14 @@ text = "140/200"
 [node name="light" parent="." instance=ExtResource("12_p0x4g")]
 position = Vector2(0, -6)
 
+[node name="player" type="PointLight2D" parent="light"]
+range_item_cull_mask = 16
+texture = ExtResource("15_pajcc")
+texture_scale = 0.5
+
 [node name="ProgressBar" type="ProgressBar" parent="."]
+light_mask = 16
+visibility_layer = 16
 offset_left = -53.0
 offset_top = -55.0
 offset_right = 54.0
@@ -289,3 +301,4 @@ value = 200.0
 [editable path="CanvasLayer/ded_menu"]
 [editable path="CanvasLayer/ded_menu/NinePatchRect/VBoxContainer/ui_button"]
 [editable path="CanvasLayer/ded_menu/NinePatchRect/VBoxContainer/ui_button2"]
+[editable path="light"]
