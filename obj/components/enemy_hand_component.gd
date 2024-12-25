@@ -91,6 +91,7 @@ func _in_vision_cone(point):
 	return abs(rad_to_deg(dir_to_point.angle_to(forward))) <= angle_cone_of_vission
 
 func has_los(point):
+	ray.global_position = $Marker2D.get_child(0).get_point_of_fire()
 	ray.target_position = point - global_position
 	ray.force_raycast_update()
 	if ray.is_colliding() and ray.get_collider() == get_parent().current_target:

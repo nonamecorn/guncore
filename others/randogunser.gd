@@ -5,7 +5,6 @@ var recievers = [
 	"res://obj/parts/guns/akm.tres",
 	"res://obj/parts/guns/Luty.tres",
 	"res://obj/parts/guns/MG.tres",
-	"res://obj/parts/guns/PauzaP50.tres",
 	"res://obj/parts/guns/PipeRifle.tres",
 	"res://obj/parts/guns/PPsH.tres",
 	"res://obj/parts/guns/shotgun.tres",
@@ -16,7 +15,6 @@ var mags = [
 	"res://obj/parts/mags/akmag.tres",
 	"res://obj/parts/mags/Luty_mag.tres",
 	"res://obj/parts/mags/MG_mag.tres",
-	"res://obj/parts/mags/PauzaP50_mag.tres",
 	"res://obj/parts/mags/PipeRifle_mag.tres",
 	"res://obj/parts/mags/PPsH_mag.tres",
 	"res://obj/parts/mags/shotgun_mag.tres",
@@ -29,7 +27,6 @@ var barrels = [
 	"res://obj/parts/barrels/long_barrel.tres",
 	"res://obj/parts/barrels/Luty_barrel.tres",
 	"res://obj/parts/barrels/MG_barrel.tres",
-	"res://obj/parts/barrels/PauzaP50_barrel.tres",
 	"res://obj/parts/barrels/PipeRifle_barrel.tres",
 	"res://obj/parts/barrels/PPsH_barrel.tres",
 	"res://obj/parts/barrels/shotgun_barrel.tres",
@@ -72,16 +69,19 @@ var corp_guns = [
 	"res://obj/parts/guns/CAWS.tres",
 	"res://obj/parts/guns/AR-180.tres",
 	"res://obj/parts/guns/SMGll.tres",
+	"res://obj/parts/guns/PauzaP50.tres",
 ]
 var corp_mags = [
 	"res://obj/parts/mags/AR-180_mag.tres",
 	"res://obj/parts/mags/CAWS_mag.tres",
 	"res://obj/parts/mags/SMGll_mag.tres",
+	"res://obj/parts/mags/PauzaP50_mag.tres",
 ]
 var corp_barrels = [
 	"res://obj/parts/barrels/AR-180_barrel.tres",
 	"res://obj/parts/barrels/CAWS_barrel.tres",
 	"res://obj/parts/barrels/SMGll_barrel.tres",
+	"res://obj/parts/barrels/PauzaP50_barrel.tres",
 ]
 
 

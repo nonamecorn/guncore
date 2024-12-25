@@ -4,8 +4,12 @@
 [ext_resource type="Texture2D" uid="uid://faonagr4q8jo" path="res://img/ui/UI.png" id="2_4rdkq"]
 
 [node name="Item_base" type="TextureRect" node_paths=PackedStringArray("item_nametag", "item_desctag")]
+custom_minimum_size = Vector2(64, 64)
+offset_right = 64.0
+offset_bottom = 64.0
 mouse_filter = 0
-stretch_mode = 3
+expand_mode = 3
+stretch_mode = 4
 script = ExtResource("1_d0eus")
 item_nametag = NodePath("PopupPanel/MarginContainer2/MarginContainer/VBoxContainer/Label")
 item_desctag = NodePath("PopupPanel/MarginContainer2/MarginContainer/VBoxContainer/RichTextLabel")
@@ -40,16 +44,12 @@ layout_mode = 2
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 size_flags_vertical = 1
-theme_override_font_sizes/font_size = 8
 text = "name"
 
 [node name="RichTextLabel" type="Label" parent="PopupPanel/MarginContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/font_size = 8
 text = "small"
 
 [node name="DurabilityBar" type="ProgressBar" parent="PopupPanel/MarginContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
-theme_override_font_sizes/font_size = 8
-show_percentage = false

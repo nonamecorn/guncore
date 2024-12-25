@@ -10,7 +10,7 @@ config_version=5
 
 [application]
 
-config/name="SoIStartedBlasting"
+config/name="Guns Of Theseus"
 run/main_scene="res://ui/menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
 config/icon="res://icon.svg"
@@ -29,8 +29,6 @@ window/size/viewport_height=720
 window/size/mode=3
 window/size/resizable=false
 window/stretch/mode="viewport"
-window/stretch/aspect="ignore"
-window/stretch/scale=2.0
 mouse_cursor/custom_image="res://img/misc/crosshair.png"
 mouse_cursor/custom_image_hotspot=Vector2(16, 16)
 window/custom_image=""

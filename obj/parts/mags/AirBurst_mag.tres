@@ -23,11 +23,14 @@ projectile = ExtResource("4_yr8wu")
 reload_time = 2
 sound = ExtResource("7_mbuar")
 loud_dist = 400
+proj_desc = "FMJ"
 item_name = "AirBurst mag"
 item_description = "See Elysium (not Disco).
 Recomended to use with 
 airburst control scope."
 cost = 80
+max_durability = 1000
+curr_durability = 1000
 sprite = ExtResource("8_6l7fk")
 sprite_offset = Vector2(1, 1)
 bullet_strategies = Array[ExtResource("1_8vfmn")]([])

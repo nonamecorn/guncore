@@ -103,3 +103,6 @@ libraries = {
 [connection signal="timeout" from="firerate" to="." method="fire"]
 [connection signal="timeout" from="reload" to="." method="_on_reload_timeout"]
 [connection signal="timeout" from="single_shot" to="." method="_on_single_shot_timeout"]
+
+[editable path="pos/muzzleflash"]
+[editable path="pos/muzzleflash/light2"]

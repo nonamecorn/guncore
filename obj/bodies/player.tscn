@@ -194,6 +194,7 @@ frame_progress = 0.692477
 
 [node name="Camera2D" type="Camera2D" parent="."]
 ignore_rotation = false
+zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 script = ExtResource("4_6xs1v")
 
@@ -229,54 +230,6 @@ shape = SubResource("CapsuleShape2D_5x7ft")
 [node name="AudioListener2D" type="AudioListener2D" parent="."]
 current = true
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="help" type="Label" parent="CanvasLayer"]
-offset_left = 23.0
-offset_top = 16.0
-offset_right = 127.0
-offset_bottom = 24.0
-theme_override_font_sizes/font_size = 8
-text = "f1 - controls"
-
-[node name="Inventory" parent="CanvasLayer" instance=ExtResource("8_wsalq")]
-visible = false
-
-[node name="pause" parent="CanvasLayer" instance=ExtResource("11_heitk")]
-visible = false
-
-[node name="f1menu" parent="CanvasLayer" instance=ExtResource("12_i05es")]
-visible = false
-
-[node name="ded_menu" parent="CanvasLayer" instance=ExtResource("13_vfuiq")]
-visible = false
-
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
-offset_left = 488.0
-offset_top = 304.0
-offset_right = 616.0
-offset_bottom = 348.0
-
-[node name="stats" type="Label" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 8
-text = "kills: 0 loop: 0"
-
-[node name="hp" type="Label" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 8
-text = "200 hp"
-
-[node name="money" type="Label" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 8
-text = "200$"
-
-[node name="ammo" type="Label" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 8
-text = "140/200"
-
 [node name="light" parent="." instance=ExtResource("12_p0x4g")]
 position = Vector2(0, -6)
 
@@ -296,9 +249,64 @@ theme_override_font_sizes/font_size = 8
 max_value = 200.0
 value = 200.0
 
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="help" type="Label" parent="CanvasLayer"]
+offset_left = 23.0
+offset_top = 16.0
+offset_right = 127.0
+offset_bottom = 24.0
+text = "f1 - controls"
+
+[node name="Inventory" parent="CanvasLayer" instance=ExtResource("8_wsalq")]
+visible = false
+anchors_preset = 15
+
+[node name="pause" parent="CanvasLayer" instance=ExtResource("11_heitk")]
+visible = false
+
+[node name="f1menu" parent="CanvasLayer" instance=ExtResource("12_i05es")]
+visible = false
+
+[node name="ded_menu" parent="CanvasLayer" instance=ExtResource("13_vfuiq")]
+visible = false
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -288.0
+offset_top = -102.0
+offset_right = -32.0
+offset_bottom = -26.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="stats" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "kills: 0 loop: 0"
+
+[node name="hp" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "200 hp"
+
+[node name="money" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "200$"
+
+[node name="ammo" type="Label" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "140/200"
+
 [editable path="player_hand_component"]
 [editable path="hurt_box"]
+[editable path="light"]
 [editable path="CanvasLayer/ded_menu"]
 [editable path="CanvasLayer/ded_menu/NinePatchRect/VBoxContainer/ui_button"]
 [editable path="CanvasLayer/ded_menu/NinePatchRect/VBoxContainer/ui_button2"]
-[editable path="light"]

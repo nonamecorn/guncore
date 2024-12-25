@@ -38,7 +38,7 @@ var bullet_strategies = []
 func _ready() -> void:
 	rng.randomize()
 
-func check_point_of_fire() -> Vector2:
+func get_point_of_fire() -> Vector2:
 	return $pos.global_position
 
 func spawn_facade(part,offset):
@@ -108,6 +108,10 @@ func asseble_gun(parts : Dictionary):
 	var alert_shape = CircleShape2D.new()
 	alert_shape.radius = alert_distance
 	$noise_alert/CollisionShape2D.shape = alert_shape
+	if alert_distance <= 200:
+		$pos/muzzleflash/light2.hide()
+	else:
+		$pos/muzzleflash/light2.show()
 	gpuparticles = get_parent().get_parent().particles
 	gpuparticles.global_position = $MAG.global_position + Vector2(0,-3)
 	if current_firerate == 0:
@@ -212,7 +216,7 @@ func fire():
 					body.alert(global_position)
 		
 		var bullet_inst = current_bullet_obj.instantiate()
-		bullet_inst.global_position = check_point_of_fire()
+		bullet_inst.global_position = get_point_of_fire()
 		bullet_inst.global_rotation_degrees = global_rotation_degrees + rng.randf_range(-current_spread, current_spread)
 		added_velocity = get_parent().get_parent().get_parent().velocity
 		
@@ -226,7 +230,8 @@ func fire():
 		
 		var recoil_vector = Vector2(-current_ver_recoil,randf_range(-current_hor_recoil, current_hor_recoil)).rotated(global_rotation)
 		if  player_handled:
-			var vievscale = get_viewport_transform().get_scale()
+			#var vievscale = get_viewport_transform().get_scale()
+			var vievscale = 1.5
 			Input.warp_mouse(get_viewport().get_mouse_position()*vievscale + recoil_vector*vievscale)
 		else:
 			get_parent().get_parent().apply_recoil(recoil_vector)

@@ -36,9 +36,7 @@ var current_reroll_cost = 10
 
 func load_save():
 	for le_item in GlobalVars.items:
-		
 		if !le_item.eq:
-			
 			pickup_item(le_item)
 		else:
 			equip_item(le_item, le_item.eq_index)

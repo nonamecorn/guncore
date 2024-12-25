@@ -27,7 +27,6 @@ grow_vertical = 2
 mouse_filter = 2
 texture = ExtResource("2_44q7o")
 expand_mode = 1
-stretch_mode = 2
 
 [node name="ColorRect" type="ColorRect" parent="."]
 visible = false
@@ -39,10 +38,11 @@ color = Color(0.702735, 0.286466, 0.3791, 1)
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_left = 20.0
-offset_top = 136.0
-offset_right = 220.0
-offset_bottom = 296.0
+offset_left = 48.0
+offset_top = 400.0
+offset_right = 240.0
+offset_bottom = 544.0
+scale = Vector2(2, 2)
 texture = ExtResource("1_3pwc6")
 patch_margin_left = 10
 patch_margin_top = 10
@@ -62,27 +62,18 @@ theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 
-[node name="VBoxContainer" type="Control" parent="NinePatchRect/MarginContainer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer"]
 layout_mode = 2
 mouse_filter = 2
 
 [node name="Label" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
-offset_left = 2.0
-offset_top = 2.0
-offset_right = 165.0
-offset_bottom = 25.0
-text = "So... 
-I Started 
-Blastin'"
+text = "Guns Of
+Theseus"
 
 [node name="Startbutton" type="MarginContainer" parent="NinePatchRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
-offset_left = 2.0
-offset_top = 62.0
-offset_right = 170.0
-offset_bottom = 85.0
 mouse_filter = 2
 
 [node name="ui_button" type="NinePatchRect" parent="NinePatchRect/MarginContainer/VBoxContainer/Startbutton"]
@@ -111,10 +102,6 @@ underline = 1
 
 [node name="Optionsbutton2" type="MarginContainer" parent="NinePatchRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
-offset_left = 2.0
-offset_top = 89.0
-offset_right = 170.0
-offset_bottom = 112.0
 mouse_filter = 2
 
 [node name="ui_button" type="NinePatchRect" parent="NinePatchRect/MarginContainer/VBoxContainer/Optionsbutton2"]
@@ -142,10 +129,6 @@ underline = 1
 
 [node name="Quitbutton3" type="MarginContainer" parent="NinePatchRect/MarginContainer/VBoxContainer"]
 layout_mode = 2
-offset_left = 2.0
-offset_top = 116.0
-offset_right = 170.0
-offset_bottom = 139.0
 mouse_filter = 2
 
 [node name="ui_button" type="NinePatchRect" parent="NinePatchRect/MarginContainer/VBoxContainer/Quitbutton3"]
@@ -176,10 +159,12 @@ visible = false
 layout_mode = 1
 
 [node name="NinePatchRect" parent="pause" index="0"]
-offset_left = 228.0
-offset_top = 72.0
-offset_right = 528.0
-offset_bottom = 324.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = 440.0
+offset_top = 220.0
+offset_right = 734.0
+offset_bottom = 452.0
 
 [node name="VBoxContainer" parent="pause/NinePatchRect/VBoxContainer2" index="7"]
 visible = false
