@@ -29,7 +29,7 @@ var rooms = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	rects.append($"modules/starting room".get_rect())
+	rects.append($"ysort/modules/starting room".get_rect())
 	OstManager.switch_track("Battle")
 	if GlobalVars.loop >= 2:
 		spawn()
@@ -106,12 +106,12 @@ func spawn_room(room : String):
 		3: 
 			corr_inst = corr_south_obj.instantiate()
 			connector_to_destroy = 0
-	corr_inst.global_position = connector_info.position
+	corr_inst.global_position = connector_info.position - corr_inst.get_child(0).position
 	var corr_connector = corr_inst.get_child(0).get_child(0)
-	$modules.add_child(corr_inst)
+	$ysort/modules.add_child(corr_inst)
 	var room_inst = load(room).instantiate()
 	room_inst.global_position = corr_connector.global_position
-	$modules.add_child(room_inst)
+	$ysort/modules.add_child(room_inst)
 	room_inst.align(connector_info.orientation)
 	var room_rect = room_inst.get_rect()
 	#room_rect.position = room_rect.position

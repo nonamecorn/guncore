@@ -17,6 +17,7 @@ size = Vector2(86, 21)
 radius = 24.0
 
 [node name="shopinging room" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_8435x")
 
 [node name="layers" parent="." instance=ExtResource("2_o1o1j")]

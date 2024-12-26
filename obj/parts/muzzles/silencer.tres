@@ -30,11 +30,13 @@ is_set = false
 
 [resource]
 script = ExtResource("4_jj67x")
-bullet_vector = Vector2(0, 0)
+bullet_vector = Vector2(11, 0)
 item_name = "Silencer"
 item_description = "Decreases volume of
 a Weapon (duh)"
 cost = 60
+max_durability = 1000
+curr_durability = 1000
 sprite = ExtResource("6_utsma")
 sprite_offset = Vector2(4, 0)
 bullet_strategies = Array[ExtResource("1_dwpc5")]([])

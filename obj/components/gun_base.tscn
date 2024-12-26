@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://ctrbcy5h47qqw"]
+[gd_scene load_steps=9 format=3 uid="uid://ctrbcy5h47qqw"]
 
 [ext_resource type="Script" path="res://obj/components/gun_component.gd" id="1_it1k3"]
 [ext_resource type="AudioStream" uid="uid://bxglm1lbr2kpf" path="res://snd/sfx/reloadend.wav" id="2_aqcxo"]
 [ext_resource type="PackedScene" uid="uid://dk15yn20pad8s" path="res://obj/components/muzzleflash.tscn" id="2_primx"]
 [ext_resource type="AudioStream" uid="uid://grfe1fyigyx8" path="res://snd/sfx/reloadstart.wav" id="3_6g14y"]
+[ext_resource type="AudioStream" uid="uid://blt37tqho0arn" path="res://snd/sfx/silencedsmg_fire.wav" id="3_fv6p6"]
 
 [sub_resource type="Animation" id="Animation_ekmwy"]
 length = 0.001
@@ -73,6 +74,9 @@ wait_time = 0.5
 one_shot = true
 
 [node name="audio" type="Node2D" parent="."]
+
+[node name="silenced_shooting" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("3_fv6p6")
 
 [node name="shoting" type="AudioStreamPlayer2D" parent="audio"]
 bus = &"Sfx"

@@ -20,16 +20,17 @@ offset_right = 15602.0
 offset_bottom = 11581.0
 color = Color(0.168627, 0.0784314, 0.141176, 1)
 
-[node name="modules" type="Node2D" parent="."]
-
-[node name="starting room" parent="modules" instance=ExtResource("1_08hws")]
-
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(524, 159)
 script = ExtResource("3_5hpog")
 
 [node name="ysort" type="Node2D" parent="."]
 y_sort_enabled = true
+
+[node name="modules" type="Node2D" parent="ysort"]
+y_sort_enabled = true
+
+[node name="starting room" parent="ysort/modules" instance=ExtResource("1_08hws")]
 
 [node name="enemies" type="Node2D" parent="ysort"]
 y_sort_enabled = true

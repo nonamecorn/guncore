@@ -14,6 +14,7 @@
 size = Vector2(530, 409)
 
 [node name="BasicRoom" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_ygdka")
 
 [node name="layers" parent="." instance=ExtResource("1_0qsy7")]
@@ -59,6 +60,7 @@ position = Vector2(-122, 510)
 position = Vector2(160, 521)
 
 [node name="env" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="explosive_barrel" parent="env" instance=ExtResource("4_lmxnw")]
 position = Vector2(-212, 271)
@@ -70,22 +72,22 @@ position = Vector2(212, 235)
 position = Vector2(-175, 565)
 
 [node name="Big_box" parent="env" instance=ExtResource("6_ry3ej")]
-position = Vector2(-48, 464)
+position = Vector2(-48, 468)
 
 [node name="Mid_box" parent="env" instance=ExtResource("7_hcfla")]
-position = Vector2(-80, 336)
+position = Vector2(-80, 346)
 
 [node name="Small_box" parent="env" instance=ExtResource("8_r1pft")]
-position = Vector2(-72, 464)
+position = Vector2(-72, 473)
 
 [node name="Mid_box2" parent="env" instance=ExtResource("7_hcfla")]
-position = Vector2(80, 272)
+position = Vector2(80, 282)
 
 [node name="Big_box2" parent="env" instance=ExtResource("6_ry3ej")]
-position = Vector2(272, 512)
+position = Vector2(272, 516)
 
 [node name="Mid_box3" parent="env" instance=ExtResource("7_hcfla")]
-position = Vector2(272, 528)
+position = Vector2(272, 538)
 
 [node name="Trigger" type="Area2D" parent="."]
 position = Vector2(8, 401)

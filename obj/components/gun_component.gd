@@ -35,6 +35,8 @@ var alert_distance
 var firing_strategies = []
 var bullet_strategies = []
 
+var silenced = false
+
 func _ready() -> void:
 	rng.randomize()
 
@@ -109,8 +111,10 @@ func asseble_gun(parts : Dictionary):
 	alert_shape.radius = alert_distance
 	$noise_alert/CollisionShape2D.shape = alert_shape
 	if alert_distance <= 200:
+		silenced = true
 		$pos/muzzleflash/light2.hide()
 	else:
+		silenced = false
 		$pos/muzzleflash/light2.show()
 	gpuparticles = get_parent().get_parent().particles
 	gpuparticles.global_position = $MAG.global_position + Vector2(0,-3)
@@ -209,8 +213,11 @@ func fire():
 		display_ammo()
 		wear_down()
 		
-		$AnimationPlayer.play("fire")
-		$audio/shoting.play()
+		if !silenced:
+			$AnimationPlayer.play("fire")
+			$audio/shoting.play()
+		else:
+			$audio/silenced_shooting.play()
 		for body in $noise_alert.get_overlapping_bodies():
 				if body.has_method("alert"):
 					body.alert(global_position)

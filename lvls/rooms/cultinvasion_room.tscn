@@ -16,6 +16,7 @@
 size = Vector2(1039, 409)
 
 [node name="BasicRoom" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_cj3nh")
 
 [node name="layers" parent="." instance=ExtResource("2_n8b5e")]
@@ -81,6 +82,7 @@ enemy = ExtResource("6_33y6f")
 [node name="corps" type="Node2D" parent="."]
 
 [node name="env" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="explosive_barrel" parent="env" instance=ExtResource("6_sxun7")]
 position = Vector2(-304, 464)
@@ -92,37 +94,37 @@ position = Vector2(208, 240)
 position = Vector2(112, 592)
 
 [node name="Big_box" parent="env" instance=ExtResource("7_0vucx")]
-position = Vector2(272, 208)
+position = Vector2(272, 216)
 
 [node name="Mid_box" parent="env" instance=ExtResource("8_8ecr8")]
-position = Vector2(336, 208)
+position = Vector2(336, 218)
 
 [node name="Small_box" parent="env" instance=ExtResource("9_vqnns")]
-position = Vector2(264, 224)
+position = Vector2(264, 233)
 
 [node name="Mid_box2" parent="env" instance=ExtResource("8_8ecr8")]
-position = Vector2(-368, 464)
+position = Vector2(-368, 474)
 
 [node name="Big_box2" parent="env" instance=ExtResource("7_0vucx")]
-position = Vector2(-336, 464)
+position = Vector2(-336, 472)
 
 [node name="Mid_box4" parent="env" instance=ExtResource("8_8ecr8")]
-position = Vector2(-432, 592)
+position = Vector2(-432, 602)
 
 [node name="Big_box3" parent="env" instance=ExtResource("7_0vucx")]
-position = Vector2(-464, 528)
+position = Vector2(-464, 536)
 
 [node name="Mid_box3" parent="env" instance=ExtResource("8_8ecr8")]
-position = Vector2(-464, 544)
+position = Vector2(-464, 554)
 
 [node name="Big_box4" parent="env" instance=ExtResource("7_0vucx")]
-position = Vector2(-304, 208)
+position = Vector2(-304, 212)
 
 [node name="Mid_box5" parent="env" instance=ExtResource("8_8ecr8")]
-position = Vector2(-336, 208)
+position = Vector2(-336, 218)
 
 [node name="Small_box2" parent="env" instance=ExtResource("9_vqnns")]
-position = Vector2(-440, 208)
+position = Vector2(-440, 217)
 
 [node name="Trigger" type="Area2D" parent="."]
 position = Vector2(8, 401)

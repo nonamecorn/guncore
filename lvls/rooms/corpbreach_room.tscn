@@ -15,6 +15,7 @@
 size = Vector2(530, 409)
 
 [node name="BasicRoom" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_ybskh")
 
 [node name="layers" parent="." instance=ExtResource("2_5myui")]
@@ -75,6 +76,7 @@ position = Vector2(16, 432)
 number_of_enemies = 4
 
 [node name="env" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="explosive_barrel" parent="env" instance=ExtResource("5_xt0tc")]
 position = Vector2(-216, 336)

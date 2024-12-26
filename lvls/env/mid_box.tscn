@@ -3,15 +3,16 @@
 [ext_resource type="Texture2D" uid="uid://byviol34lt771" path="res://img/levels/Mid_box.png" id="1_gl816"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0uuf0"]
-size = Vector2(30, 30)
+size = Vector2(30, 18)
 
 [node name="Mid_box" type="CharacterBody2D" groups=["targetable"]]
-y_sort_enabled = true
 collision_layer = 3
 collision_mask = 0
 
-[node name="mid_box_collision" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_0uuf0")
-
 [node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -10)
 texture = ExtResource("1_gl816")
+
+[node name="mid_box_collision" type="CollisionShape2D" parent="."]
+position = Vector2(0, -4)
+shape = SubResource("RectangleShape2D_0uuf0")
