@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://dww7vxteobmel"]
+[gd_scene load_steps=21 format=3 uid="uid://dww7vxteobmel"]
 
 [ext_resource type="Script" path="res://lvls/env/explosive_barrel.gd" id="1_a0xrv"]
 [ext_resource type="Texture2D" uid="uid://c3fwrau0tielk" path="res://img/levels/BOCHKA.png" id="1_euo60"]
 [ext_resource type="Texture2D" uid="uid://d26mj4qry847c" path="res://img/misc/explosion.png" id="2_tbypd"]
 [ext_resource type="AudioStream" uid="uid://jrit8ythk2v3" path="res://snd/sfx/sniper_fire.wav" id="4_6tqpp"]
+[ext_resource type="PackedScene" uid="uid://ddfo6c5nx4m8h" path="res://lvls/misc/light.tscn" id="4_ob27i"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_um7h4"]
 radius = 12.0
@@ -82,6 +83,43 @@ animations = [{
 [sub_resource type="CircleShape2D" id="CircleShape2D_i220x"]
 radius = 68.0
 
+[sub_resource type="Animation" id="Animation_eclbp"]
+resource_name = "explode"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("light:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.266667),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="Animation" id="Animation_khdef"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("light:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_nokgf"]
+_data = {
+"RESET": SubResource("Animation_khdef"),
+"explode": SubResource("Animation_eclbp")
+}
+
 [node name="explosive_barrel" type="CharacterBody2D" groups=["targetable"]]
 y_sort_enabled = true
 collision_layer = 3
@@ -100,6 +138,9 @@ texture = ExtResource("1_euo60")
 visible = false
 sprite_frames = SubResource("SpriteFrames_dfk63")
 
+[node name="light" parent="." instance=ExtResource("4_ob27i")]
+visible = false
+
 [node name="HurtArea2D" type="Area2D" parent="."]
 position = Vector2(0, -8)
 collision_layer = 0
@@ -112,5 +153,10 @@ shape = SubResource("CircleShape2D_i220x")
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 position = Vector2(0, -8)
 stream = ExtResource("4_6tqpp")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_nokgf")
+}
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

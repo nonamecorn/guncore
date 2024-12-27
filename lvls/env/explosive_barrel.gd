@@ -10,6 +10,7 @@ func hurt(_amnt, _ap):
 		if body.has_method("hurt"):
 			body.hurt(damage, true)
 	$AudioStreamPlayer2D.play()
+	$AnimationPlayer.play("explode")
 	$AnimatedSprite2D.show()
 	$AnimatedSprite2D.play()
 	$Sprite2D.hide()

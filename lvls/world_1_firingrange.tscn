@@ -1,14 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://kn75nfa5xrqc"]
+[gd_scene load_steps=4 format=3 uid="uid://bqlon1lbmmq8v"]
 
 [ext_resource type="Script" path="res://lvls/world_1_shop.gd" id="1_oil8l"]
-[ext_resource type="PackedScene" uid="uid://d30hb65krcme1" path="res://lvls/rooms/firingrange_room.tscn" id="2_4gfqm"]
+[ext_resource type="PackedScene" uid="uid://7qiqm1rgpyuo" path="res://lvls/rooms/firingrange_room.tscn" id="2_4gfqm"]
 [ext_resource type="PackedScene" uid="uid://btw10scl5f85a" path="res://obj/bodies/player.tscn" id="3_kaahk"]
 
 [node name="world1" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_oil8l")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.47788, 0.47788, 0.47788, 1)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -12507.0
@@ -18,6 +18,7 @@ offset_bottom = 11581.0
 color = Color(0.168627, 0.0784314, 0.141176, 1)
 
 [node name="modules" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="BasicRoom" parent="modules" instance=ExtResource("2_4gfqm")]
 
@@ -26,4 +27,15 @@ color = Color(0.168627, 0.0784314, 0.141176, 1)
 [node name="items" type="Node2D" parent="."]
 
 [node name="Player" parent="." instance=ExtResource("3_kaahk")]
-position = Vector2(527, 323)
+position = Vector2(294, 331)
+
+[node name="light" parent="Player" index="8"]
+visible = false
+
+[editable path="Player"]
+[editable path="Player/player_hand_component"]
+[editable path="Player/hurt_box"]
+[editable path="Player/light"]
+[editable path="Player/CanvasLayer/ded_menu"]
+[editable path="Player/CanvasLayer/ded_menu/NinePatchRect/VBoxContainer/ui_button"]
+[editable path="Player/CanvasLayer/ded_menu/NinePatchRect/VBoxContainer/ui_button2"]

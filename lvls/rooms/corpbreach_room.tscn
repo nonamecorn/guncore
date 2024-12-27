@@ -79,13 +79,13 @@ number_of_enemies = 4
 y_sort_enabled = true
 
 [node name="explosive_barrel" parent="env" instance=ExtResource("5_xt0tc")]
-position = Vector2(-216, 336)
+position = Vector2(-113, 370)
 
 [node name="explosive_barrel2" parent="env" instance=ExtResource("5_xt0tc")]
-position = Vector2(268, 336)
+position = Vector2(266, 301)
 
 [node name="explosive_barrel3" parent="env" instance=ExtResource("5_xt0tc")]
-position = Vector2(-80, 588)
+position = Vector2(-90, 594)
 
 [node name="Mid_box" parent="env" instance=ExtResource("7_8too0")]
 position = Vector2(-112, 496)

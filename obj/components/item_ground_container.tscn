@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://bclbae2vfelms"]
+
+[ext_resource type="Script" path="res://obj/components/item_ground_container.gd" id="1_ejgts"]
+[ext_resource type="Texture2D" uid="uid://byviol34lt771" path="res://img/levels/Mid_box.png" id="2_tlyes"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_6qyq3"]
+
+[node name="item_ground_container" type="Area2D"]
+collision_layer = 8
+collision_mask = 0
+monitoring = false
+script = ExtResource("1_ejgts")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -6)
+shape = SubResource("CircleShape2D_6qyq3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.63175, 0.524494, 0.240938, 1)
+position = Vector2(0, -6)
+scale = Vector2(0.8, 0.8)
+texture = ExtResource("2_tlyes")

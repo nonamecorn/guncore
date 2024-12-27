@@ -156,7 +156,6 @@ radius = 6.0
 height = 24.0
 
 [node name="Player" type="CharacterBody2D" groups=["player", "targetable"]]
-top_level = true
 collision_layer = 4
 script = ExtResource("1_6n3fv")
 ACCELERATION = 1500
@@ -260,7 +259,6 @@ text = "f1 - controls"
 
 [node name="Inventory" parent="CanvasLayer" instance=ExtResource("8_wsalq")]
 visible = false
-anchors_preset = 15
 
 [node name="pause" parent="CanvasLayer" instance=ExtResource("11_heitk")]
 visible = false

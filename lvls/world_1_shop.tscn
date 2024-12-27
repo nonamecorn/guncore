@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://btw10scl5f85a" path="res://obj/bodies/player.tscn" id="4_1ehtl"]
 
 [node name="world1" type="Node2D"]
+y_sort_enabled = true
 script = ExtResource("1_tww5b")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
@@ -18,10 +19,12 @@ offset_bottom = 11581.0
 color = Color(0.168627, 0.0784314, 0.141176, 1)
 
 [node name="modules" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="shopinging room" parent="modules" instance=ExtResource("1_mul21")]
 
 [node name="enemies" type="Node2D" parent="."]
+y_sort_enabled = true
 
 [node name="items" type="Node2D" parent="."]
 

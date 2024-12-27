@@ -63,13 +63,13 @@ initial_state = 1
 y_sort_enabled = true
 
 [node name="explosive_barrel" parent="env" instance=ExtResource("5_qygaf")]
-position = Vector2(-216, 336)
+position = Vector2(-136, 276)
 
 [node name="explosive_barrel2" parent="env" instance=ExtResource("5_qygaf")]
-position = Vector2(268, 336)
+position = Vector2(203, 283)
 
 [node name="explosive_barrel3" parent="env" instance=ExtResource("5_qygaf")]
-position = Vector2(-80, 588)
+position = Vector2(129, 585)
 
 [node name="Big_box" parent="env" instance=ExtResource("6_34eic")]
 position = Vector2(-48, 464)

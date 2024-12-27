@@ -9,21 +9,17 @@ var dills0 = [
 	"This shop is booby trapped, so dont try anything stupid.",
 ]
 var dills1 = [
-	"You know, with that ammount of bullet holes, 
-	that suit wont save you?",
+	"You know, with that ammount of bullet holes, that suit wont save you?",
 	"I heard corps are here. Thats not good",
 	"I hope you wont get shot",
-	"If you going up could you please kill more of these fuckers.
-	Which ones? Doesnt matter.",
-	"More people are buying guns. Saying that guy in yellow
-	busting their operations. Thanks dude.",
+	"If you going up could you please kill more of these fuckers. Which ones? Doesnt matter.",
+	"More people are buying guns. Saying that guy in yellow busting their operations. Thanks dude.",
 ]
 var dills2 = [
-	"Im missing the sun...",
+	"I miss the sun...",
 	"I was deployed in Africa once. Heard birds, can you believe this?",
 	"You better watch out. Corps deploying heavy units",
-	"Hard to believe that you came in one piece. With gun you had at first i thought
-	youre some kind of suicide shooter. I stand corrected",
+	"Hard to believe that you came in one piece. With gun you had at first i thought youre some kind of suicide shooter. I stand corrected",
 	"Why are you doing this? Just curious.",
 ]
 var greetings = [
@@ -45,8 +41,8 @@ func _ready() -> void:
 			so that\'s it. Thank you for
 			playing!"
 		]
-	$RichTextLabel.text = "Bella:
-" + dills[0]
+		$RichTextLabel.text = "Bella:
+	" + dills[0]
 
 func _on_talk_button_pressed() -> void:
 	dills.shuffle()

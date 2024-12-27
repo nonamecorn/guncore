@@ -161,7 +161,12 @@ func drop(item : Item):
 func get_items():
 	$CanvasLayer/Inventory.collector.flush()
 	for item in $collector.get_overlapping_areas():
-		$CanvasLayer/Inventory.pickup_collector(item.pickup())
+		var res = item.pickup()
+		if res is Array:
+			for sub_item in res:
+				$CanvasLayer/Inventory.pickup_collector(sub_item)
+			continue
+		$CanvasLayer/Inventory.pickup_collector(res)
 
 func on_assemble(parts):
 	$player_hand_component/Marker2D/gun_base.asseble_gun(parts)

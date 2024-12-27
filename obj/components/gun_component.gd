@@ -120,7 +120,7 @@ func asseble_gun(parts : Dictionary):
 	gpuparticles.global_position = $MAG.global_position + Vector2(0,-3)
 	if current_firerate == 0:
 		gpuparticles.one_shot = true
-		gpuparticles.amount = 8
+		gpuparticles.amount = 18
 	else:
 		gpuparticles.one_shot = false
 		gpuparticles.amount = int(1.8 / current_firerate)
