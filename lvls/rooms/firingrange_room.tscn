@@ -95,18 +95,21 @@ position = Vector2(-336, 218)
 position = Vector2(-440, 217)
 
 [node name="spawner_barrel" parent="env" instance=ExtResource("9_cgkkf")]
-position = Vector2(320, 259)
+position = Vector2(-144, 296)
 enemy = ExtResource("10_qbaet")
-hand_rotation = 90.0
 
 [node name="spawner_barrel2" parent="env" instance=ExtResource("9_cgkkf")]
 modulate = Color(0.219633, 0.576209, 1, 1)
-position = Vector2(422, 258)
+position = Vector2(-136, 536)
 enemy = ExtResource("11_2o28g")
-hand_rotation = 90.0
 
 [node name="item_ground_container" parent="env" instance=ExtResource("12_0x7t6")]
-position = Vector2(525, 323)
+position = Vector2(520, 256)
+slice = Array[int]([0, 22])
+
+[node name="item_ground_container2" parent="env" instance=ExtResource("12_0x7t6")]
+position = Vector2(384, 256)
+slice = Array[int]([22, 50])
 
 [node name="Trigger" type="Area2D" parent="."]
 visible = false

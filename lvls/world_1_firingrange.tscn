@@ -9,6 +9,7 @@ y_sort_enabled = true
 script = ExtResource("1_oil8l")
 
 [node name="CanvasModulate" type="CanvasModulate" parent="."]
+color = Color(0.355314, 0.355314, 0.355314, 1)
 
 [node name="ColorRect" type="ColorRect" parent="."]
 offset_left = -12507.0
@@ -28,9 +29,6 @@ y_sort_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("3_kaahk")]
 position = Vector2(294, 331)
-
-[node name="light" parent="Player" index="8"]
-visible = false
 
 [editable path="Player"]
 [editable path="Player/player_hand_component"]

@@ -12,7 +12,7 @@ script = ExtResource("2_6ktrs")
 range_in_secs = 1.2
 max_spread = 12.0
 min_spread = 0.0
-muzzle_position = Vector2(21, 0)
+muzzle_position = Vector2(20, 0)
 add_spd = 25.0
 item_name = "SES barrel"
 item_description = "Roman the III was killed with this.
@@ -20,6 +20,8 @@ item_description = "Roman the III was killed with this.
 Bullets from this barrel is guided by god.
 "
 cost = 10
+max_durability = 1000
+curr_durability = 1000
 sprite = ExtResource("3_dki3r")
 sprite_offset = Vector2(9, 0)
 bullet_strategies = Array[ExtResource("1_5l451")]([])

@@ -20,6 +20,8 @@ item_name = "Fun switch"
 item_description = "Сonverts semi-automatic weapons into automatic
 "
 cost = 20
+max_durability = 1000
+curr_durability = 1000
 sprite = ExtResource("6_xwhaj")
 sprite_offset = Vector2(0, 0)
 bullet_strategies = Array[ExtResource("1_54ydv")]([])

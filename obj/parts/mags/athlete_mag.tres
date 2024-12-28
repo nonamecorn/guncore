@@ -13,12 +13,15 @@
 script = ExtResource("5_pl6nb")
 capacity = 5
 projectile = ExtResource("4_tyke5")
-reload_time = 3
+reload_time = 4
 sound = ExtResource("7_a84u0")
 loud_dist = 600
+proj_desc = "20mm grenades"
 item_name = "Athlete Mag"
 item_description = "Mag for a grenade launcher"
 cost = 75
+max_durability = 1000
+curr_durability = 1000
 sprite = ExtResource("8_54nw4")
 sprite_offset = Vector2(1, 1)
 bullet_strategies = Array[ExtResource("1_o7ivs")]([])

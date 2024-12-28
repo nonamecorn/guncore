@@ -12,7 +12,7 @@
 [sub_resource type="Resource" id="Resource_hk0ql"]
 script = ExtResource("1_c5q8q")
 stat_name = "current_num_of_bullets"
-value_of_stat = 5.0
+value_of_stat = 4.0
 mult = false
 is_set = false
 
@@ -58,11 +58,14 @@ projectile = ExtResource("2_6xap1")
 reload_time = 3
 sound = ExtResource("4_2tjhj")
 loud_dist = 400
+proj_desc = "Shotgun shells"
 item_name = "JAWS mag"
 item_description = "Holds shotgun ammo which shreds any target. 
 Popular with killers emotionally 
 dulled by battle drugs."
 cost = 70
+max_durability = 1000
+curr_durability = 1000
 sprite = ExtResource("5_5panl")
 sprite_offset = Vector2(1, 2)
 bullet_strategies = Array[ExtResource("1_edfe8")]([])

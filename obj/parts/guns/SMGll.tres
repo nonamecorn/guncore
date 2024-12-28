@@ -10,14 +10,16 @@
 [resource]
 script = ExtResource("2_w15kk")
 base_firerate = 0.04
-ver_recoil = 6.0
-hor_recoil = 6.0
+ver_recoil = 12.0
+hor_recoil = 12.0
 mag_position = Vector2(-5, 2)
 barrel_position = Vector2(-1, 0)
 attach_position = Vector2(-7, -3)
 item_name = "SMGll"
 item_description = "Sequel to the SMGl"
 cost = 70
+max_durability = 1000
+curr_durability = 1000
 sprite = ExtResource("3_i3ngt")
 sprite_offset = Vector2(0, 0)
 bullet_strategies = Array[ExtResource("1_7q8nj")]([])

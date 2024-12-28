@@ -10,8 +10,8 @@
 [resource]
 script = ExtResource("2_uykjs")
 base_firerate = 0.1
-ver_recoil = 7.0
-hor_recoil = 7.0
+ver_recoil = 9.0
+hor_recoil = 9.0
 mag_position = Vector2(-4, 3)
 barrel_position = Vector2(0, 0)
 attach_position = Vector2(-4, -3)
@@ -19,6 +19,8 @@ item_name = "Luty"
 item_description = "It's illegal to make makeshift weapon!!!
 However...."
 cost = 5
+max_durability = 1000
+curr_durability = 1000
 sprite = ExtResource("3_0kduy")
 sprite_offset = Vector2(0, 0)
 bullet_strategies = Array[ExtResource("1_lmq8c")]([])

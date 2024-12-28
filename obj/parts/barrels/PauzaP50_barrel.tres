@@ -9,7 +9,7 @@
 
 [resource]
 script = ExtResource("2_mru7b")
-range_in_secs = 3.0
+range_in_secs = 2.0
 max_spread = 7.0
 min_spread = 0.0
 muzzle_position = Vector2(22, 0)
@@ -17,6 +17,8 @@ add_spd = 50.0
 item_name = "Rauza R50 "
 item_description = "???"
 cost = 25
+max_durability = 1000
+curr_durability = 1000
 sprite = ExtResource("3_fyrhx")
 sprite_offset = Vector2(11, 0)
 bullet_strategies = Array[ExtResource("1_6dn6y")]([])

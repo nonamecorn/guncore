@@ -11,12 +11,14 @@
 script = ExtResource("2_08wh6")
 range_in_secs = 0.6
 max_spread = 40.0
-min_spread = 10.0
+min_spread = 3.0
 muzzle_position = Vector2(4, 0)
 add_spd = -100.0
 item_name = "Luty barrel"
 item_description = "Has a huge spread"
 cost = 5
+max_durability = 1000
+curr_durability = 1000
 sprite = ExtResource("3_2ul67")
 sprite_offset = Vector2(3, 0)
 bullet_strategies = Array[ExtResource("1_iwd7j")]([])

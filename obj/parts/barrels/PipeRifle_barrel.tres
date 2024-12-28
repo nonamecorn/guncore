@@ -1,19 +1,27 @@
-[gd_resource type="Resource" script_class="Barrel" load_steps=4 format=3 uid="uid://blyp8v0xtr1v7"]
+[gd_resource type="Resource" script_class="Barrel" load_steps=7 format=3 uid="uid://blyp8v0xtr1v7"]
 
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_gijct"]
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_ne5xj"]
 [ext_resource type="Script" path="res://obj/parts/scripts/barrel.gd" id="2_awl7n"]
 [ext_resource type="Texture2D" uid="uid://ckogt56de3tx6" path="res://img/parts/PipeRifle_barrel.png" id="3_2tgh6"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_d7ab0"]
+[ext_resource type="Script" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="5_qiyto"]
 
 [resource]
 script = ExtResource("2_awl7n")
 range_in_secs = 1.1
 max_spread = 14.0
-min_spread = 3.0
+min_spread = 1.0
 muzzle_position = Vector2(12, 0)
 add_spd = 0.0
 item_name = "Metal pipe"
 item_description = "Metal pipe"
 cost = 5
+max_durability = 1000
+curr_durability = 1000
 sprite = ExtResource("3_2tgh6")
 sprite_offset = Vector2(6, 0)
+bullet_strategies = Array[ExtResource("1_gijct")]([])
+player_strategies = Array[ExtResource("3_d7ab0")]([])
+shootin_strategies = Array[ExtResource("5_qiyto")]([])
 changes = Array[ExtResource("1_ne5xj")]([])

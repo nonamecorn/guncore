@@ -11,14 +11,17 @@
 
 [resource]
 script = ExtResource("3_urb46")
-capacity = 10
+capacity = 20
 projectile = ExtResource("2_cjw5m")
 reload_time = 1
 sound = ExtResource("4_7g401")
 loud_dist = 400
+proj_desc = "FMJ"
 item_name = "Pipe mag"
 item_description = "Second reliable mag ever."
 cost = 5
+max_durability = 1000
+curr_durability = 1000
 sprite = ExtResource("4_tpy38")
 sprite_offset = Vector2(2, 1)
 bullet_strategies = Array[ExtResource("1_qgmem")]([])

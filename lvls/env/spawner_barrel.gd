@@ -8,8 +8,6 @@ func _ready() -> void:
 
 func hurt(_amnt, _ap):
 	$AudioStreamPlayer2D.play()
-	$AnimationPlayer.play("explode")
-	$Sprite2D.hide()
 	
 	var enemy_inst = enemy.instantiate()
 	enemy_inst.global_position = $hand/Marker2D.global_position

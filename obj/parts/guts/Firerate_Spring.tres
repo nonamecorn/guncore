@@ -20,6 +20,8 @@ item_name = "Firerate spring"
 item_description = "Increases rate of fire
 "
 cost = 100
+max_durability = 1000
+curr_durability = 1000
 sprite = ExtResource("6_hgt6g")
 sprite_offset = Vector2(0, 0)
 bullet_strategies = Array[ExtResource("1_uxljf")]([])

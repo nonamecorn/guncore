@@ -23,7 +23,7 @@ projectile = ExtResource("4_yr8wu")
 reload_time = 2
 sound = ExtResource("7_mbuar")
 loud_dist = 400
-proj_desc = "FMJ"
+proj_desc = "AirBurst bullets"
 item_name = "AirBurst mag"
 item_description = "See Elysium (not Disco).
 Recomended to use with 

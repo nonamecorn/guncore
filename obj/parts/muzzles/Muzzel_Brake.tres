@@ -10,14 +10,14 @@
 [sub_resource type="Resource" id="Resource_mj266"]
 script = ExtResource("1_1gbqs")
 stat_name = "current_ver_recoil"
-value_of_stat = 0.5
+value_of_stat = 0.6
 mult = true
 is_set = false
 
 [sub_resource type="Resource" id="Resource_gnytl"]
 script = ExtResource("1_1gbqs")
 stat_name = "current_hor_recoil"
-value_of_stat = 0.75
+value_of_stat = 0.8
 mult = true
 is_set = false
 
@@ -28,6 +28,8 @@ item_name = "Muzzle brake"
 item_description = "Must have for
 Meta players."
 cost = 45
+max_durability = 1000
+curr_durability = 1000
 sprite = ExtResource("3_1q8a4")
 sprite_offset = Vector2(4, 0)
 bullet_strategies = Array[ExtResource("1_6t3jc")]([])

@@ -32,6 +32,8 @@ item_name = "Looooong barrel"
 item_description = "Insanely long barrel
 "
 cost = 40
+max_durability = 1000
+curr_durability = 1000
 sprite = ExtResource("1_nv6u6")
 sprite_offset = Vector2(29, 0)
 bullet_strategies = Array[ExtResource("1_d1abk")]([])

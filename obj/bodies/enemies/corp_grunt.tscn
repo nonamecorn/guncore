@@ -91,6 +91,7 @@ radius = 600.0
 [node name="enemy" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent") groups=["corp", "targetable"]]
 collision_layer = 4
 script = ExtResource("1_7g7ug")
+health = 100
 group = "corp"
 nav_agent = NodePath("NavigationAgent2D")
 

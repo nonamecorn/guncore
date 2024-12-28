@@ -10,8 +10,8 @@
 [resource]
 script = ExtResource("1_8pcku")
 base_firerate = 0.08
-ver_recoil = 8.0
-hor_recoil = 8.0
+ver_recoil = 16.0
+hor_recoil = 12.0
 mag_position = Vector2(2, 2)
 barrel_position = Vector2(8, 0)
 attach_position = Vector2(2, -3)
@@ -20,6 +20,8 @@ item_description = "THIS IS MASCHINENGEWEHR.
 IT GEWEHRS MASCHINEN.
 "
 cost = 25
+max_durability = 1000
+curr_durability = 1000
 sprite = ExtResource("2_3nx22")
 sprite_offset = Vector2(0, 0)
 bullet_strategies = Array[ExtResource("1_evb57")]([])

@@ -10,8 +10,8 @@
 [resource]
 script = ExtResource("1_nlil8")
 base_firerate = 0.06
-ver_recoil = 7.0
-hor_recoil = 6.0
+ver_recoil = 20.0
+hor_recoil = 16.0
 mag_position = Vector2(-1, 1)
 barrel_position = Vector2(4, 0)
 attach_position = Vector2(-2, -2)
@@ -19,6 +19,8 @@ item_name = "PPsH"
 item_description = "Most powerful weapon of lost time.
 Made from accursed alloy."
 cost = 40
+max_durability = 1000
+curr_durability = 1000
 sprite = ExtResource("1_10x7f")
 sprite_offset = Vector2(0, 0)
 bullet_strategies = Array[ExtResource("1_8e0ab")]([])

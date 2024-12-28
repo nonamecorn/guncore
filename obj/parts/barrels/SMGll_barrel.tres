@@ -11,7 +11,7 @@
 script = ExtResource("2_scck8")
 range_in_secs = 0.5
 max_spread = 20.0
-min_spread = 5.0
+min_spread = 2.0
 muzzle_position = Vector2(6, 0)
 add_spd = 0.0
 item_name = "SMGll barrel "
@@ -20,6 +20,8 @@ of gases in special compartment,
 allowing it to shoot in two speeds.
 Switch is stuck on low one though."
 cost = 10
+max_durability = 1000
+curr_durability = 1000
 sprite = ExtResource("3_dlif1")
 sprite_offset = Vector2(3, 0)
 bullet_strategies = Array[ExtResource("1_ikcdj")]([])

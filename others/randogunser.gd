@@ -56,6 +56,7 @@ var shop_pool = [
 	"res://obj/parts/barrels/CAWS_barrel.tres",
 	"res://obj/parts/barrels/SMGll_barrel.tres",
 	"res://obj/parts/barrels/Autoaim_barrel.tres",
+	"res://obj/parts/barrels/PauzaP50_barrel.tres",
 	"res://obj/parts/attach/airburst_module.tres",
 	"res://obj/parts/mags/athlete_mag.tres",
 	"res://obj/parts/mags/AirBurst_mag.tres",

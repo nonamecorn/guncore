@@ -1,0 +1,7 @@
+[gd_resource type="Resource" script_class="MultDamageStrategy" load_steps=2 format=3 uid="uid://f3hpkudo6jx6"]
+
+[ext_resource type="Script" path="res://obj/parts/strategies/mult_damage_strategy.gd" id="1_78711"]
+
+[resource]
+script = ExtResource("1_78711")
+mult_damage = 0
