@@ -32,6 +32,7 @@ var current_hor_recoil
 var current_add_spd
 var current_reload_time
 var alert_distance
+var wear : float
 var firing_strategies = []
 var bullet_strategies = []
 
@@ -84,6 +85,7 @@ func asseble_gun(parts : Dictionary):
 	current_add_spd = parts.BARREL.add_spd
 	current_reload_time = parts.MAG.reload_time
 	alert_distance = parts.MAG.loud_dist
+	wear = parts.MAG.wear
 	$audio/shoting.stream = parts.MAG.sound
 	$MUZZLE.position = parts.BARREL.muzzle_position + parts.RECIEVER.barrel_position
 	$pos.position = $MUZZLE.position + Vector2.RIGHT * 5
@@ -163,7 +165,7 @@ func stop_fire():
 	if state: return
 	if spread_tween: spread_tween.kill()
 	spread_tween = create_tween()
-	spread_tween.tween_property(self, "current_spread", current_min_spread, 1)
+	spread_tween.tween_property(self, "current_spread", current_min_spread, current_firerate*current_max_ammo)
 	gpuparticles.emitting = false
 	$firerate.stop()
 
@@ -190,7 +192,7 @@ func reload():
 func wear_down():
 	for part in gun_resources:
 		if !gun_resources[part]: continue
-		gun_resources[part].curr_durability -= 1
+		gun_resources[part].curr_durability -= wear
 
 func weapon_functional():
 	for part in gun_resources:
@@ -225,8 +227,7 @@ func fire():
 		var bullet_inst = current_bullet_obj.instantiate()
 		bullet_inst.global_position = get_point_of_fire()
 		bullet_inst.global_rotation_degrees = global_rotation_degrees + rng.randf_range(-current_spread, current_spread)
-		added_velocity = get_parent().get_parent().get_parent().velocity
-		
+		added_velocity = get_parent().get_parent().get_parent().velocity/2
 		
 		for strategy in bullet_strategies:
 			bullet_inst.strategies.append(strategy)
@@ -237,15 +238,13 @@ func fire():
 		
 		var recoil_vector = Vector2(-current_ver_recoil,randf_range(-current_hor_recoil, current_hor_recoil)).rotated(global_rotation)
 		if  player_handled:
-			#var vievscale = get_viewport_transform().get_scale()
-			var vievscale = 1.5
-			Input.warp_mouse(get_viewport().get_mouse_position()*vievscale + recoil_vector*vievscale)
+			var viewscale = get_viewport_transform().get_scale()/2
+			Input.warp_mouse(get_viewport().get_mouse_position()*viewscale + recoil_vector*viewscale)
 		else:
 			get_parent().get_parent().apply_recoil(recoil_vector)
-		
-		if !weapon_functional():
-			current_ammo = 0
-			display_ammo()
+	if !weapon_functional():
+		current_ammo = 0
+		display_ammo()
 
 
 func _on_single_shot_timeout() -> void:

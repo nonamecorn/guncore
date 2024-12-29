@@ -15,8 +15,11 @@ min_spread = 0.0
 muzzle_position = Vector2(17, 0)
 add_spd = 0.0
 item_name = "RAR-180"
-item_description = "???"
+item_description = "The reason why Resistance is 
+Futile"
 cost = 15
+max_durability = 500
+curr_durability = 500
 sprite = ExtResource("3_yr4j8")
 sprite_offset = Vector2(8, 0)
 bullet_strategies = Array[ExtResource("1_s55bd")]([])

@@ -76,7 +76,7 @@ position = Vector2(-304, 464)
 position = Vector2(208, 240)
 
 [node name="explosive_barrel3" parent="env" instance=ExtResource("4_bwa8p")]
-position = Vector2(112, 592)
+position = Vector2(116, 602)
 
 [node name="Big_box" parent="env" instance=ExtResource("6_1tixf")]
 position = Vector2(272, 212)

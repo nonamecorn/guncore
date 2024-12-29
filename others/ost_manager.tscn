@@ -1,33 +1,29 @@
 [gd_scene load_steps=9 format=3 uid="uid://dx085y3efeew"]
 
 [ext_resource type="Script" path="res://ost_manager.gd" id="1_rbwo4"]
-[ext_resource type="AudioStream" uid="uid://bmipr287vvl6s" path="res://snd/music/general/Hymn of Tabal.mp3" id="2_hxsv8"]
-[ext_resource type="AudioStream" uid="uid://batktlh6alytr" path="res://snd/music/world1/Nikita Kryukov - I'll be here for a while.mp3" id="2_iohqb"]
-[ext_resource type="AudioStream" uid="uid://bahuudcujctor" path="res://snd/music/world1/frontier jungle 140bpm.ogg" id="3_k51hm"]
+[ext_resource type="AudioStream" uid="uid://b1sraligdjgun" path="res://snd/music/festive/shlatt_snow.mp3" id="2_8rv36"]
+[ext_resource type="AudioStream" uid="uid://dtc1pr6n5dgij" path="res://snd/music/festive/omg_hes_jolly.mp3" id="3_csta3"]
+[ext_resource type="AudioStream" uid="uid://yjqq7g1avuew" path="res://snd/music/festive/King-Arthur_s-Gold-Christmas-Battle-Theme_.mp3" id="4_nebmj"]
+[ext_resource type="AudioStream" uid="uid://b5i3ity5vdy83" path="res://snd/music/festive/Pokemon-Masters-EX-OST-Christmas-Event-Battle-_HQ_.mp3" id="5_k8420"]
+[ext_resource type="AudioStream" uid="uid://bj60nhk5w4ekv" path="res://snd/music/festive/videoplayback-_4_.mp3" id="6_0i65y"]
 
-[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_xcpcf"]
-stream_count = 1
-stream_0 = ExtResource("2_hxsv8")
-
-[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_f6rws"]
-stream_count = 1
-stream_0 = ExtResource("2_iohqb")
-
-[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_spg0a"]
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_v70dk"]
 shuffle = true
-stream_count = 1
-stream_0 = ExtResource("3_k51hm")
+stream_count = 3
+stream_0 = ExtResource("4_nebmj")
+stream_1 = ExtResource("5_k8420")
+stream_2 = ExtResource("6_0i65y")
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_pojb0"]
 clip_count = 3
 clip_0/name = &"Menu"
-clip_0/stream = SubResource("AudioStreamPlaylist_xcpcf")
+clip_0/stream = ExtResource("2_8rv36")
 clip_0/auto_advance = 0
 clip_1/name = &"Shop"
-clip_1/stream = SubResource("AudioStreamPlaylist_f6rws")
+clip_1/stream = ExtResource("3_csta3")
 clip_1/auto_advance = 0
 clip_2/name = &"Battle"
-clip_2/stream = SubResource("AudioStreamPlaylist_spg0a")
+clip_2/stream = SubResource("AudioStreamPlaylist_v70dk")
 clip_2/auto_advance = 0
 
 [node name="OstManager" type="Node"]

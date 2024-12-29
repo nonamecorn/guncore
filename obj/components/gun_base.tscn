@@ -77,6 +77,7 @@ one_shot = true
 
 [node name="silenced_shooting" type="AudioStreamPlayer2D" parent="audio"]
 stream = ExtResource("3_fv6p6")
+bus = &"Sfx"
 
 [node name="shoting" type="AudioStreamPlayer2D" parent="audio"]
 bus = &"Sfx"

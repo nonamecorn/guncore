@@ -30,6 +30,7 @@ projectile = ExtResource("2_dcuin")
 reload_time = 4
 sound = ExtResource("4_ls4in")
 loud_dist = 400
+wear = 10.0
 proj_desc = ".50 BMG"
 item_name = "Rauza R50 mag"
 item_description = "Extreme power and penetrating ability. Highly unstable."

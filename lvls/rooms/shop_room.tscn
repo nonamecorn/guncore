@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://8c8ht7qy60rp"]
+[gd_scene load_steps=13 format=4 uid="uid://8c8ht7qy60rp"]
 
 [ext_resource type="Script" path="res://lvls/rooms/starting_room.gd" id="1_8435x"]
 [ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="2_o1o1j"]
@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://sdso0p2h0m1g" path="res://img/levels/Lift.png" id="6_1368m"]
 [ext_resource type="PackedScene" uid="uid://c70txah2l140m" path="res://lvls/env/big_box.tscn" id="7_lprkh"]
 [ext_resource type="PackedScene" uid="uid://cjw5l1ahljlkm" path="res://lvls/env/mid_box.tscn" id="8_7fm53"]
+[ext_resource type="Texture2D" uid="uid://ddjhs2u4288mg" path="res://img/big_art/864f2c686ce3a8fb0832caf124d0ba0e.png" id="10_8fdn3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v2n3q"]
 size = Vector2(86, 21)
@@ -40,9 +41,6 @@ tile_map_data = PackedByteArray("AAANAAYABwAAAAAAAAARAAYABwACAAAAAAAOAAYABwABAAA
 [node name="Decorations" parent="layers" index="5"]
 tile_map_data = PackedByteArray("AAASAAoAAwAAAAAAAAATAAoAAwAAAAAAAAAUAAoAAwAAAAAAAAAVAAoAAwACAAAAAAAWAAoAAwABAAAAAAAXAAoAAwAAAAAAAAANAAkAAwAAAAAAAAAOAAkAAwACAAAAAAAPAAkAAwADAAEAAAAPAAoAAwAEAAEAAAAPAAsAAwAEAAIAAAANAAIAAwAAAAAAAAAOAAIAAwADAAEAAAAOAAMAAwADAAAAAAAOAAQAAwAEAAIAAAAOAAUAAwACAAIAAAAPAAUAAwABAAIAAAARAAoAAwAAAAIAAAA=")
 
-[node name="Small_box" parent="layers" instance=ExtResource("3_8ysjy")]
-position = Vector2(559, 80)
-
 [node name="shop_area" type="Area2D" parent="."]
 position = Vector2(512, 17)
 collision_layer = 0
@@ -73,10 +71,18 @@ position = Vector2(0, 23)
 shape = SubResource("CircleShape2D_301ny")
 
 [node name="Big_box" parent="." instance=ExtResource("7_lprkh")]
-position = Vector2(560, 176)
+position = Vector2(747, 243)
 
 [node name="Mid_box" parent="." instance=ExtResource("8_7fm53")]
-position = Vector2(491, 104)
+position = Vector2(697, 298)
+
+[node name="Small_box" parent="." instance=ExtResource("3_8ysjy")]
+position = Vector2(706, 248)
+
+[node name="864f2c686Ce3a8Fb0832Caf124d0Ba0e" type="Sprite2D" parent="."]
+position = Vector2(553.625, 48.625)
+scale = Vector2(0.140595, 0.136158)
+texture = ExtResource("10_8fdn3")
 
 [connection signal="body_entered" from="shop_area" to="shop_area" method="_on_body_entered"]
 [connection signal="body_entered" from="exit" to="exit" method="_on_body_entered"]

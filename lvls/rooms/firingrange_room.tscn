@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://7qiqm1rgpyuo"]
+[gd_scene load_steps=15 format=4 uid="uid://7qiqm1rgpyuo"]
 
 [ext_resource type="Script" path="res://lvls/rooms/basic_room.gd" id="1_mx8kl"]
 [ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="2_0dw5n"]
@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c3jo85so338er" path="res://obj/bodies/enemies/enemy.tscn" id="10_qbaet"]
 [ext_resource type="PackedScene" uid="uid://dwafsvlv6e7hc" path="res://obj/bodies/enemies/corp_grunt.tscn" id="11_2o28g"]
 [ext_resource type="PackedScene" uid="uid://bclbae2vfelms" path="res://obj/components/item_ground_container.tscn" id="12_0x7t6"]
+[ext_resource type="Texture2D" uid="uid://ddjhs2u4288mg" path="res://img/big_art/864f2c686ce3a8fb0832caf124d0ba0e.png" id="13_ep58p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vfr7w"]
 size = Vector2(1039, 409)
@@ -95,12 +96,12 @@ position = Vector2(-336, 218)
 position = Vector2(-440, 217)
 
 [node name="spawner_barrel" parent="env" instance=ExtResource("9_cgkkf")]
-position = Vector2(-144, 296)
+position = Vector2(466, 568)
 enemy = ExtResource("10_qbaet")
 
 [node name="spawner_barrel2" parent="env" instance=ExtResource("9_cgkkf")]
 modulate = Color(0.219633, 0.576209, 1, 1)
-position = Vector2(-136, 536)
+position = Vector2(317, 572)
 enemy = ExtResource("11_2o28g")
 
 [node name="item_ground_container" parent="env" instance=ExtResource("12_0x7t6")]
@@ -143,6 +144,11 @@ orientation = 2
 position = Vector2(0, 640)
 type = 1
 orientation = 3
+
+[node name="864f2c686Ce3a8Fb0832Caf124d0Ba0e" type="Sprite2D" parent="."]
+position = Vector2(-80, 414)
+scale = Vector2(0.183541, 0.169308)
+texture = ExtResource("13_ep58p")
 
 [connection signal="body_entered" from="Trigger" to="." method="_on_trigger_body_entered"]
 

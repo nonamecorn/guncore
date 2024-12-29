@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="GunReciever" load_steps=7 format=3 uid="uid://03ayqxjr4ce1"]
+[gd_resource type="Resource" script_class="GunReciever" load_steps=8 format=3 uid="uid://03ayqxjr4ce1"]
 
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_0vevy"]
 [ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_8e0ab"]
@@ -6,6 +6,13 @@
 [ext_resource type="Script" path="res://obj/parts/scripts/reciever.gd" id="1_nlil8"]
 [ext_resource type="Script" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_4y660"]
 [ext_resource type="Script" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="5_y6u6u"]
+
+[sub_resource type="Resource" id="Resource_vkeol"]
+script = ExtResource("1_0vevy")
+stat_name = "wear"
+value_of_stat = 0.1
+mult = true
+is_set = false
 
 [resource]
 script = ExtResource("1_nlil8")
@@ -26,4 +33,4 @@ sprite_offset = Vector2(0, 0)
 bullet_strategies = Array[ExtResource("1_8e0ab")]([])
 player_strategies = Array[ExtResource("3_4y660")]([])
 shootin_strategies = Array[ExtResource("5_y6u6u")]([])
-changes = Array[ExtResource("1_0vevy")]([])
+changes = Array[ExtResource("1_0vevy")]([SubResource("Resource_vkeol")])

@@ -16,6 +16,7 @@ projectile = ExtResource("4_tyke5")
 reload_time = 4
 sound = ExtResource("7_a84u0")
 loud_dist = 600
+wear = 5.0
 proj_desc = "20mm grenades"
 item_name = "Athlete Mag"
 item_description = "Mag for a grenade launcher"
