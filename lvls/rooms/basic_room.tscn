@@ -122,5 +122,6 @@ type = 1
 orientation = 3
 
 [connection signal="body_entered" from="Trigger" to="." method="_on_trigger_body_entered"]
+[connection signal="body_exited" from="Trigger" to="." method="_on_trigger_body_exited"]
 
 [editable path="layers"]

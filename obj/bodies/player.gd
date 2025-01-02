@@ -24,13 +24,14 @@ enum {
 }
 var state = MOVE
 var tween : Tween
+var eq_res : Dictionary
 var strategies = []
 var strategy_dic = {}
 var active_gun : int = 0
 
 func _ready() -> void:
 	on_score_change(GlobalVars.kills, GlobalVars.loop)
-	hurt(0,false)
+	hurt(0)
 	refresh()
 	on_ammo_change(null,null,0)
 	$hurt_box.damaged.connect(hurt)
@@ -45,6 +46,7 @@ func _ready() -> void:
 	$player_hand_component/Marker2D/gun_base.ammo_changed.connect(on_ammo_change)
 	$player_hand_component/Marker2D/gun_base2.ammo_changed.connect(on_ammo_change)
 	GlobalVars.score_changed.connect(on_score_change)
+	GlobalVars.i_see_you.connect(on_perception_change)
 
 func _physics_process(delta):
 	if Input.is_action_just_pressed("special_button"):
@@ -131,25 +133,34 @@ func death():
 	GlobalVars.loop = 0
 	$CanvasLayer/ded_menu.show()
 
-
-func hurt(amnt, ap):
+var incoming_damage
+func hurt(amnt):
+	incoming_damage = amnt
 	if strategies:
 		for strategy in strategies:
-			strategy.hurt_strategy(self, amnt, ap)
-	elif !ap and armor != 0:
-		return
-	elif ap and armor != 0:
-		var difference = armor - amnt
-		if difference < 0:
-			armor = 0
-		else:
-			armor = difference
-	else:
-		health -= amnt
+			strategy.hurt_strategy(self, incoming_damage)
+	health -= incoming_damage
+	wear_down(incoming_damage)
 	$CanvasLayer/VBoxContainer/hp.text = str(health)
 	$ProgressBar.value = health
+	incoming_damage = 0
 	if health <= 0:
 		call_deferred("death")
+	for part in eq_res:
+		if part == "HAND" or !eq_res.has(part) or !eq_res[part]: continue
+		if !module_functional(part):
+			eq_res.erase(part)
+	on_augs_change(eq_res)
+
+func wear_down(ammnt):
+	for part in eq_res:
+		if !eq_res[part]: continue
+		eq_res[part].wear_down(ammnt)
+
+func module_functional(modname) -> bool:
+	if eq_res[modname].curr_durability <= 0:
+		return false
+	return true
 
 func drop(item : Item):
 	GlobalVars.items.erase(item)
@@ -188,13 +199,16 @@ func on_ammo_change(curr_mmo,max_mmo,ind):
 		$CanvasLayer/VBoxContainer/ammo.text = str(curr_mmo)+"/"+str(max_mmo)
 
 func on_augs_change(parts : Dictionary):
+	if !parts: return
+	remove_all_parts(parts)
+	eq_res = parts
 	current_speed = MAX_SPEED
 	current_acceleration = ACCELERATION
 	current_friction = FRICTION
 	strategies = []
 	strategy_dic = {}
 	for part_name in parts:
-		if parts[part_name] == null: continue
+		if parts[part_name] == null or parts[part_name].broken: continue
 		for stratagy in parts[part_name].player_strategies:
 			strategies.append(stratagy)
 		for change in parts[part_name].changes:
@@ -209,6 +223,14 @@ func change_stat(name_of_stat : String, value_of_stat, mult: bool):
 		return
 	set(name_of_stat, temp+value_of_stat)
 
+func remove_all_parts(parts):
+	for part_name in parts:
+		if parts[part_name] == null: continue
+		for stratagy in parts[part_name].player_strategies:
+			stratagy.remove(self)
+
+func on_perception_change(isy):
+	$CanvasLayer/ISY.visible = isy
 
 func on_score_change(new_kills, new_loop):
 	if health <= 0: return

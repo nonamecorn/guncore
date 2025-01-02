@@ -49,7 +49,6 @@ func insert_item_at_spot(item, slot):
 	if items.has(item_slot) and items[item_slot] != null:
 		return false
 	items[item_slot] = item
-	print("huh")
 	if gun:
 		check_assembly()
 	else:
@@ -58,10 +57,7 @@ func insert_item_at_spot(item, slot):
 	item.item_resource.eq_index = get_index()
 	item.item_resource.pick_up()
 	var da_slot = find_child(slot)
-	print(da_slot)
 	var item_pos = da_slot.get("global_position") + da_slot.get("size") / 2 - item.size / 2
-	print(item_pos)
-	print(da_slot.get_rect().position)
 	item.global_position = item_pos
 	find_child(item_slot+"COVER"+str(get_index())).show()
 	return true

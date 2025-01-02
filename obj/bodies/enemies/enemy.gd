@@ -8,22 +8,26 @@ const FRICTION = 700
 @onready var item_base = load("res://obj/components/item_ground_base.tscn")
 
 var randomnum
+var bodies = []
 var nearby_allies = []
 var nearby_enemies = []
 var current_target = null
 var dead = false
+var id : int
+
 enum {
 	SURROUND,
 	IDLE,
 	RUN,
-	IVESTIGATE
+	INVESTIGATE,
+	CHASE
 }
 @export var armor = 0
 @export var health = 50
 var state = IDLE
 var rng = RandomNumberGenerator.new()
 var direction = Vector2.ZERO
-var move_position
+var static_move_position : Vector2
 
 @export var group : String
 @export var nav_agent: NavigationAgent2D
@@ -39,10 +43,12 @@ var unique_parts = {
 		"ATTACH": null,
 	}
 func _ready():
-	
+	id = IdGiver.get_id()
+	GlobalVars.people += 1
 #	print(movement_target)
 	rng.randomize()
 	randomnum = rng.randf()
+	$hurt_box.damaged.connect(hurt)
 	parts = Randogunser.get_gun()
 	for part in parts:
 		if parts[part]:
@@ -56,69 +62,79 @@ func flip():
 func set_movement_target(target_point: Vector2):
 	nav_agent.target_position = target_point
 
+func _on_less_crucial_checks_timeout() -> void:
+	if  dead:
+		return
+	$Label.text = str(state)
+	bodies = get_tree().get_nodes_in_group("body")
+	update_current_target()
+	match state:
+		IDLE:
+			direction = (get_self_circle_position(randomnum) - global_position).normalized() 
+		SURROUND:
+			if !current_target or !is_instance_valid(current_target):
+				return
+			static_move_position = current_target.global_position
+			check_witness()
+			set_movement_target(get_circle_position(randomnum))
+		INVESTIGATE:
+			set_movement_target(static_move_position)
+		RUN:
+			pass
+			set_movement_target(get_self_circle_position(randomnum))
+		CHASE:
+			check_witness()
+			set_movement_target(current_target.global_position)
+
+
 func _physics_process(delta):
 	if dead: return
-	if !current_target or !is_instance_valid(current_target):
-		$enemy_hand_component.state = 1
-		return
-	
 	match state:
 		IDLE:
 			direction = (get_self_circle_position(randomnum) - global_position).normalized() 
 		SURROUND:
 			surround(delta)
-		IVESTIGATE:
+		INVESTIGATE:
 			move(delta)
 		RUN:
 			run(delta)
+		CHASE:
+			move(delta)
 func start_blastin():
 	$Sprite2D/idle.hide()
 	$Sprite2D/walk.show()
-	$makepath.start()
-	set_movement_target(current_target.global_position)
 	state = SURROUND
 
 func start_chasin():
-	$Sprite2D/idle.hide()
-	$Sprite2D/walk.show()
-	set_movement_target(current_target.global_position)
-	state = IVESTIGATE
+	pass
+	#if state == SURROUND: return
+	#$Sprite2D/idle.hide()
+	#$Sprite2D/walk.show()
+	#state = INVESTIGATE
 
 func surround(delta):
 	if nav_agent.is_navigation_finished():
 		return
-	get_circle_position(randomnum)
+	if !current_target:
+		$enemy_hand_component.state = 1
+		print("wesdw")
+		state = INVESTIGATE
+	$enemy_hand_component.state = 0
 	var current_pos = global_position
 	var next_path = nav_agent.get_next_path_position()
 	var new_velocity = (next_path - current_pos).normalized()
 	velocity = velocity.move_toward(new_velocity * MAX_SPEED,delta * ACCELERATION)
 	move_and_slide()
 
-func get_circle_position(random):
-	var kill_circle_centre = current_target.global_position
-	var radius = 200
-#	Distance from center to circumference of circle
-	var angle = random * PI * 2;
-	var x = kill_circle_centre.x + cos(angle) * radius;
-	var y = kill_circle_centre.y + sin(angle) * radius;
-	set_movement_target(Vector2(x,y))
-
 func run(delta):
 	direction = (get_self_circle_position(randomnum) - global_position).normalized() 
 	velocity = velocity.move_toward(direction * MAX_SPEED,delta * ACCELERATION)
 	move_and_slide()
 
-func get_self_circle_position(random):
-	var kill_circle_centre = global_position
-	var radius = 20
-#	Distance from center to circumference of circle
-	var angle = random * PI * 2;
-	var x = kill_circle_centre.x + cos(angle) * radius;
-	var y = kill_circle_centre.y + sin(angle) * radius;
-	return(Vector2(x,y))
-
 func move(delta):
 	if nav_agent.is_navigation_finished():
+		$enemy_hand_component.state = 1
+		state = RUN
 		return
 	var current_pos = global_position
 	var next_path = nav_agent.get_next_path_position()
@@ -127,21 +143,35 @@ func move(delta):
 	velocity = velocity.move_toward(new_velocity * MAX_SPEED,delta * ACCELERATION)
 	move_and_slide()
 
+
+func get_circle_position(random) -> Vector2:
+	var kill_circle_centre = current_target.global_position
+	var radius = 200
+#	Distance from center to circumference of circle
+	var angle = random * PI * 2;
+	var x = kill_circle_centre.x + cos(angle) * radius;
+	var y = kill_circle_centre.y + sin(angle) * radius;
+	return(Vector2(x,y))
+
+func get_self_circle_position(random) -> Vector2:
+	var kill_circle_centre = global_position
+	var radius = 20
+#	Distance from center to circumference of circle
+	var angle = random * PI * 2;
+	var x = kill_circle_centre.x + cos(angle) * radius;
+	var y = kill_circle_centre.y + sin(angle) * radius;
+	return(Vector2(x,y))
+
+
 func alert(alert_position):
 	if dead: return
-	state = IVESTIGATE
+	state = INVESTIGATE
 	$enemy_hand_component.state = 2
 	$change_position.wait_time = 2
 	set_movement_target(alert_position)
 
 func _on_change_position_timeout():
 	randomnum = rng.randf()
-
-func _on_makepath_timeout():
-	if dead or !is_instance_valid(current_target):
-		return
-	update_current_target()
-	get_circle_position(randomnum)
 
 func drop(item : Item):
 	if dead: return
@@ -150,16 +180,16 @@ func drop(item : Item):
 	get_tree().current_scene.find_child("items").call_deferred("add_child",item_inst)
 	item_inst.init(item)
 
-func _on_body_manager_body_entered(_body: Node2D) -> void:
-	update_current_target()
-
-func _on_body_manager_body_exited(_body: Node2D) -> void:
-	update_current_target()
+func check_witness():
+	if current_target.is_in_group("player"):
+		GlobalVars.add_witness(id)
+	else:
+		GlobalVars.erase_witness(id)
 
 func update_nearby_npcs():
 	nearby_allies = []
 	nearby_enemies = []
-	for body in $body_manager.get_overlapping_bodies():
+	for body in bodies:
 		if body.is_in_group(group):
 			nearby_allies.append(body)
 		else:
@@ -168,8 +198,12 @@ func update_nearby_npcs():
 func update_current_target():
 	update_nearby_npcs()
 	current_target = get_closest(nearby_enemies)
+	if current_target == null:
+		return false
+	return true
 
 func get_closest(array):
+	if dead: return
 	var closest = null
 	var smallest_distance = -1
 	for body in array:
@@ -180,23 +214,15 @@ func get_closest(array):
 	return closest
 
 
-func hurt(amnt, ap):
-	if !ap and armor != 0:
-		return
-	elif ap and armor != 0:
-		var difference = armor - amnt
-		if difference < 0:
-			armor = 0
-		else:
-			armor = difference
-	else:
-		health -= amnt
-		if health <= 0:
-			call_deferred("die")
-		if state == IDLE:
-			state = RUN
-			$change_position.wait_time = 0.5
-			$enemy_hand_component.state = 2
+func hurt(amnt):
+	if dead: return
+	health -= amnt
+	if health <= 0:
+		call_deferred("die")
+	if state == IDLE:
+		state = RUN
+		$change_position.wait_time = 0.5
+		$enemy_hand_component.state = 2
 
 func die():
 	if dead: return
@@ -208,10 +234,12 @@ func die():
 	drop(invent[0])
 	dead = true
 	state = IDLE
+	current_target = null
+	
 	$death.play()
-	$change_position.stop()
-	$makepath.stop()
+	$less_crucial_checks.stop()
 	$CollisionShape2D.disabled = true
+	$hurt_box/CollisionShape2D.disabled = true
 	$enemy_hand_component.queue_free()
 #	movement_target = null
 	$Sprite2D.rotation_degrees = 90
@@ -221,5 +249,9 @@ func die():
 	$Sprite2D/idle.show()
 	$Sprite2D/idle.stop()
 	$Sprite2D/walk.hide()
+	GlobalVars.erase_witness(id)
 	GlobalVars.change_score(GlobalVars.kills + 1, GlobalVars.loop)
-	
+
+
+func _on_enemy_forgeting_timeout() -> void:
+	pass # Replace with function body.

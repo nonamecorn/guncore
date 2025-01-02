@@ -7,5 +7,8 @@ func init_strategy(_player):
 func move_strategy(_player):
 	pass
 
-func hurt_strategy(_player, _damage, _ap):
+func hurt_strategy(_player, _damage : float):
+	pass
+
+func remove(_player):
 	pass

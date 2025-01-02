@@ -7,8 +7,8 @@ class_name Mag
 @export var reload_time = 0
 @export var sound : AudioStream
 @export var loud_dist : int = 400
-@export var wear : float = 1
 @export var proj_desc : String = "FMJ"
+@export var wear : float = 1.0
 
 var slot : String = "MAG"
 

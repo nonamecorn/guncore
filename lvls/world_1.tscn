@@ -36,7 +36,6 @@ y_sort_enabled = true
 y_sort_enabled = true
 
 [node name="Player" parent="ysort/enemies" instance=ExtResource("4_22ug0")]
-top_level = false
 position = Vector2(513, 145)
 
 [node name="items" type="Node2D" parent="ysort"]

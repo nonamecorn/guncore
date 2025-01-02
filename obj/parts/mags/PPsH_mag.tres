@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Mag" load_steps=11 format=3 uid="uid://bvg06o71a00gi"]
+[gd_resource type="Resource" script_class="Mag" load_steps=12 format=3 uid="uid://bvg06o71a00gi"]
 
 [ext_resource type="Texture2D" uid="uid://bknaax03eqtyi" path="res://img/parts/PPsH_Mag.png" id="1_22v56"]
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_gkyod"]
@@ -23,6 +23,13 @@ value_of_stat = 0.75
 mult = true
 is_set = false
 
+[sub_resource type="Resource" id="Resource_vns21"]
+script = ExtResource("1_gkyod")
+stat_name = "wear"
+value_of_stat = 0.0
+mult = true
+is_set = false
+
 [resource]
 script = ExtResource("2_odm2g")
 capacity = 71
@@ -31,14 +38,15 @@ reload_time = 4
 sound = ExtResource("4_ma4bv")
 loud_dist = 400
 proj_desc = "SMG bullets"
+wear = 1.0
 item_name = "PPsH drum"
 item_description = "???"
 cost = 30
-max_durability = 1000
-curr_durability = 1000
+max_durability = 1000.0
+curr_durability = 1000.0
 sprite = ExtResource("1_22v56")
 sprite_offset = Vector2(2, 2)
 bullet_strategies = Array[ExtResource("1_juu71")]([])
 player_strategies = Array[ExtResource("3_vae8a")]([])
 shootin_strategies = Array[ExtResource("6_bxpl7")]([])
-changes = Array[ExtResource("1_gkyod")]([SubResource("Resource_swhl1"), SubResource("Resource_ljnyj")])
+changes = Array[ExtResource("1_gkyod")]([SubResource("Resource_swhl1"), SubResource("Resource_ljnyj"), SubResource("Resource_vns21")])

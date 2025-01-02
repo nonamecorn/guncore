@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://dwafsvlv6e7hc"]
+[gd_scene load_steps=21 format=3 uid="uid://dwafsvlv6e7hc"]
 
 [ext_resource type="Script" path="res://obj/bodies/enemies/corp_grunt.gd" id="1_7g7ug"]
 [ext_resource type="Texture2D" uid="uid://bnrs5ymoqkml4" path="res://img/bodys/Corp.png" id="2_21em0"]
@@ -10,8 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://bde3ba2p8ca28" path="res://lvls/misc/corp_light.tscn" id="7_gskjq"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_egrxt"]
-radius = 7.0
-height = 18.0
+radius = 4.0
+height = 10.0
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_64cn8"]
 light_mode = 2
@@ -85,18 +85,16 @@ animations = [{
 radius = 7.0
 height = 26.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_qhfwq"]
-radius = 600.0
-
-[node name="enemy" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent") groups=["corp", "targetable"]]
-collision_layer = 4
+[node name="enemy" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent") groups=["body", "corp", "targetable"]]
+collision_layer = 36
 script = ExtResource("1_7g7ug")
 health = 100
 group = "corp"
 nav_agent = NodePath("NavigationAgent2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -8)
+position = Vector2(0, -2)
+rotation = 1.5708
 shape = SubResource("CapsuleShape2D_egrxt")
 
 [node name="Sprite2D" type="Node2D" parent="."]
@@ -143,6 +141,7 @@ autostart = true
 wait_time = 0.5
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+debug_enabled = true
 
 [node name="hurt_box" parent="." instance=ExtResource("5_sh640")]
 position = Vector2(0, -13)
@@ -154,26 +153,17 @@ shape = SubResource("CapsuleShape2D_ykghs")
 stream = ExtResource("6_82n5t")
 bus = &"Sfx"
 
-[node name="body_manager" type="Area2D" parent="."]
-position = Vector2(0, -8)
-collision_layer = 0
-collision_mask = 4
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="body_manager"]
-shape = SubResource("CircleShape2D_qhfwq")
-debug_color = Color(0, 0.6, 0.701961, 0)
-
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(0, -13)
 target_position = Vector2(632, 0)
-collision_mask = 6
+collision_mask = 32
+
+[node name="body_manager" type="Timer" parent="."]
+autostart = true
 
 [connection signal="timeout" from="enemy_hand_component/burst_duration" to="enemy_hand_component" method="_on_burst_duration_timeout"]
 [connection signal="timeout" from="change_position" to="." method="_on_change_position_timeout"]
 [connection signal="timeout" from="makepath" to="." method="_on_makepath_timeout"]
-[connection signal="body_entered" from="body_manager" to="." method="_on_body_manager_body_entered"]
-[connection signal="body_exited" from="body_manager" to="." method="_on_body_manager_body_exited"]
 
 [editable path="enemy_hand_component"]
 [editable path="hurt_box"]

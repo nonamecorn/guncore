@@ -9,9 +9,6 @@ func init_strategy(_player):
 func move_strategy(_player):
 	pass
 
-func hurt_strategy(player, damage : float, ap):
-	if ap:
-		player.health -= damage
-	else:
-		var ddtn = damage_absorbtion * (damage / 100)
-		player.health -= (damage - ddtn)
+func hurt_strategy(player, damage : float):
+	var ddtn = damage_absorbtion * (damage / 100)
+	player.incoming_damage = (damage - ddtn)

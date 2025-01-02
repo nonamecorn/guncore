@@ -27,19 +27,27 @@ var greetings = [
 	"Oh its you again. Hii.",
 	"Hello, how are you? Hurt again?"
 ]
-var dills = []
+
+var jolly_greetings = [
+	"Merry christmas...",
+	"Happy new year.",
+	"Hello, how are you? Hurt again?"
+]
+var dills = [
+	"This year was... Productive...",
+	"All i want for christmas is... more guns.",
+	"I hope ill get good presents.",
+	"Cheerup dude, you look not jolly at all.",
+]
 
 func _ready() -> void:
 	if GlobalVars.loop <= 2:
-		dills = get("dills"+str(GlobalVars.loop))
+		#dills = get("dills"+str(GlobalVars.loop))
 		$RichTextLabel.text = "Bella:
-			" + greetings[GlobalVars.loop]
+			" + jolly_greetings[GlobalVars.loop]
 	else:
 		dills = [
-			"Nice job! 
-			New levels is under connstruction 
-			so that\'s it. Thank you for
-			playing!"
+			"Good job! I hope you enjoyed this sneakpeak as much as i enjoyed making it. Happy new year!"
 		]
 		$RichTextLabel.text = "Bella:
 	" + dills[0]

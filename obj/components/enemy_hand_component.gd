@@ -3,7 +3,7 @@ extends Node2D
 @export var hand_length = 80
 var state = IDLE
 var look_vec = Vector2.ZERO
-var angle_cone_of_vission = 30
+var angle_cone_of_vission = 45
 var angle_between_rays = 10
 var max_viev_distance = 600
 var current_target
@@ -13,7 +13,6 @@ var current_target
 enum {
 	FIRING,
 	IDLE,
-	RUN
 }
 
 var rng = RandomNumberGenerator.new()
@@ -37,15 +36,11 @@ func is_facing_target(target_point: Vector2):
 
 func _physics_process(delta: float) -> void:
 	current_target = get_parent().current_target
-	if !current_target or !is_instance_valid(current_target):
-		return
 	match state:
 		IDLE:
 			idle_state()
 		FIRING:
 			firing_state()
-		RUN:
-			run_state()
 	if look_vec.x < 0 and !flipped:
 		flip()
 	if look_vec.x >= 0 and flipped:
@@ -54,25 +49,19 @@ func _physics_process(delta: float) -> void:
 	
 
 func firing_state():
+	if !current_target or !is_instance_valid(current_target):
+		return
 	look_vec = (current_target.global_position - global_position).normalized()
-	if !_in_vision_cone(current_target.global_position) or !has_los(current_target.global_position):
+	if !_in_vision_cone(current_target.global_position) or !has_los(current_target):
 		#print("runnin")
-		state = RUN
 		get_parent().start_chasin()
 
 func idle_state():
 	look_vec = get_parent().direction
-	if _in_vision_cone(current_target.global_position) and has_los(current_target.global_position):
+	if !current_target or !is_instance_valid(current_target):
+		return
+	if _in_vision_cone(current_target.global_position) and has_los(current_target):
 		#print("blastin")
-		state = FIRING
-		$attack.start()
-		get_parent().start_blastin()
-
-func run_state():
-	look_vec = (current_target.global_position - global_position).normalized()
-	if _in_vision_cone(current_target.global_position) and has_los(current_target.global_position):
-		#print("blastin")
-		state = FIRING
 		$attack.start()
 		get_parent().start_blastin()
 
@@ -90,11 +79,11 @@ func _in_vision_cone(point):
 	var dir_to_point = point - global_position
 	return abs(rad_to_deg(dir_to_point.angle_to(forward))) <= angle_cone_of_vission
 
-func has_los(point):
+func has_los(target):
 	ray.global_position = $Marker2D.get_child(0).get_point_of_fire()
-	ray.target_position = point - global_position
+	ray.target_position = target.global_position - $Marker2D.get_child(0).get_point_of_fire()
 	ray.force_raycast_update()
-	if ray.is_colliding() and ray.get_collider() == get_parent().current_target:
+	if ray.is_colliding() and ray.get_collider() == target:
 		return true
 	return false
 
@@ -114,7 +103,7 @@ func reload():
 
 func _on_attack_timeout() -> void:
 	if !current_target or !is_instance_valid(current_target): return
-	if _in_vision_cone(current_target.global_position) and has_los(current_target.global_position):
+	if _in_vision_cone(current_target.global_position) and has_los(current_target):
 		#print("gud")
 		$Marker2D.get_child(0).start_fire()
 		$burst_duration.start()

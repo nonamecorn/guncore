@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c3jo85so338er"]
+[gd_scene load_steps=19 format=3 uid="uid://c3jo85so338er"]
 
 [ext_resource type="Script" path="res://obj/bodies/enemies/enemy.gd" id="1_qbvdd"]
 [ext_resource type="Texture2D" uid="uid://88j42qnvmjuu" path="res://img/bodys/cultist_IdleAnim.png" id="2_j18lw"]
@@ -7,10 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://ctrbcy5h47qqw" path="res://obj/components/gun_base.tscn" id="4_ohoj0"]
 [ext_resource type="PackedScene" uid="uid://b4ifd4nn31mq8" path="res://obj/components/hurt_box.tscn" id="5_eclwk"]
 [ext_resource type="AudioStream" uid="uid://cq5moh8342387" path="res://snd/sfx/enemydeath.wav" id="6_qqgv7"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_egrxt"]
-radius = 7.0
-height = 18.0
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kudys"]
 light_mode = 2
@@ -73,22 +69,19 @@ animations = [{
 "speed": 7.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_egrxt"]
+radius = 4.0
+height = 10.0
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ykghs"]
 radius = 7.0
 height = 26.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_qhfwq"]
-radius = 600.0
-
-[node name="enemy" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent") groups=["cultist", "targetable"]]
-collision_layer = 4
+[node name="enemy" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent") groups=["body", "cultist", "targetable"]]
+collision_layer = 36
 script = ExtResource("1_qbvdd")
 group = "cultist"
 nav_agent = NodePath("NavigationAgent2D")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -9)
-shape = SubResource("CapsuleShape2D_egrxt")
 
 [node name="Sprite2D" type="Node2D" parent="."]
 position = Vector2(0, -5)
@@ -112,6 +105,10 @@ sprite_frames = SubResource("SpriteFrames_aqq6o")
 autoplay = "default"
 frame_progress = 0.10251
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_egrxt")
+
 [node name="enemy_hand_component" parent="." node_paths=PackedStringArray("ray") instance=ExtResource("2_vctv7")]
 position = Vector2(0, -14)
 hand_length = 16
@@ -127,9 +124,6 @@ one_shot = true
 wait_time = 2.0
 autostart = true
 
-[node name="makepath" type="Timer" parent="."]
-wait_time = 0.5
-
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 target_desired_distance = 15.0
 
@@ -143,26 +137,29 @@ shape = SubResource("CapsuleShape2D_ykghs")
 stream = ExtResource("6_qqgv7")
 bus = &"Sfx"
 
-[node name="body_manager" type="Area2D" parent="."]
-position = Vector2(0, -8)
-collision_layer = 0
-collision_mask = 4
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="body_manager"]
-shape = SubResource("CircleShape2D_qhfwq")
-debug_color = Color(0, 0.6, 0.701961, 0)
-
 [node name="RayCast2D" type="RayCast2D" parent="."]
 position = Vector2(0, -14)
 target_position = Vector2(632, 0)
-collision_mask = 6
+collision_mask = 32
+
+[node name="less_crucial_checks" type="Timer" parent="."]
+wait_time = 0.062
+autostart = true
+
+[node name="Label" type="Label" parent="."]
+offset_left = -19.0
+offset_top = -46.0
+offset_right = 21.0
+offset_bottom = -30.0
+
+[node name="enemy_forgeting" type="Timer" parent="."]
+wait_time = 4.0
+one_shot = true
 
 [connection signal="timeout" from="enemy_hand_component/burst_duration" to="enemy_hand_component" method="_on_burst_duration_timeout"]
 [connection signal="timeout" from="change_position" to="." method="_on_change_position_timeout"]
-[connection signal="timeout" from="makepath" to="." method="_on_makepath_timeout"]
-[connection signal="body_entered" from="body_manager" to="." method="_on_body_manager_body_entered"]
-[connection signal="body_exited" from="body_manager" to="." method="_on_body_manager_body_exited"]
+[connection signal="timeout" from="less_crucial_checks" to="." method="_on_less_crucial_checks_timeout"]
+[connection signal="timeout" from="enemy_forgeting" to="." method="_on_enemy_forgeting_timeout"]
 
 [editable path="enemy_hand_component"]
 [editable path="hurt_box"]

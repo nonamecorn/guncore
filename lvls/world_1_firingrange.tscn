@@ -1,8 +1,13 @@
-[gd_scene load_steps=4 format=3 uid="uid://bqlon1lbmmq8v"]
+[gd_scene load_steps=7 format=3 uid="uid://bqlon1lbmmq8v"]
 
 [ext_resource type="Script" path="res://lvls/world_1_shop.gd" id="1_oil8l"]
 [ext_resource type="PackedScene" uid="uid://7qiqm1rgpyuo" path="res://lvls/rooms/firingrange_room.tscn" id="2_4gfqm"]
 [ext_resource type="PackedScene" uid="uid://btw10scl5f85a" path="res://obj/bodies/player.tscn" id="3_kaahk"]
+[ext_resource type="Script" path="res://lvls/music_switch1.gd" id="4_xwk6c"]
+[ext_resource type="Script" path="res://lvls/music_switch2.gd" id="5_1knlo"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_2wvo1"]
+radius = 20.025
 
 [node name="world1" type="Node2D"]
 y_sort_enabled = true
@@ -29,6 +34,29 @@ y_sort_enabled = true
 
 [node name="Player" parent="." instance=ExtResource("3_kaahk")]
 position = Vector2(294, 331)
+
+[node name="Area2D" type="Area2D" parent="."]
+position = Vector2(489, 328)
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+script = ExtResource("4_xwk6c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_2wvo1")
+
+[node name="Area2D2" type="Area2D" parent="."]
+position = Vector2(426, 327)
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+script = ExtResource("5_1knlo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
+shape = SubResource("CircleShape2D_2wvo1")
+
+[connection signal="body_entered" from="Area2D" to="Area2D" method="_on_body_entered"]
+[connection signal="body_entered" from="Area2D2" to="Area2D2" method="_on_body_entered"]
 
 [editable path="Player"]
 [editable path="Player/player_hand_component"]

@@ -30,7 +30,7 @@ var rooms = [
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	rects.append($"ysort/modules/starting room".get_rect())
-	OstManager.switch_track("Battle")
+	OstManager.switch_track("Battle2_bass")
 	if GlobalVars.loop >= 2:
 		spawn()
 		return

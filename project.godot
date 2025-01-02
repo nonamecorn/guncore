@@ -26,7 +26,7 @@ OstManager="*res://others/ost_manager.tscn"
 
 window/size/viewport_width=1280
 window/size/viewport_height=720
-window/size/mode=3
+window/size/mode=4
 window/size/resizable=false
 window/stretch/mode="viewport"
 mouse_cursor/custom_image="res://img/misc/crosshair.png"
@@ -44,6 +44,7 @@ player=""
 cultist=""
 corp=""
 targetable=""
+body="for enemy ai"
 
 [gui]
 
@@ -141,6 +142,11 @@ e={
 2d_physics/layer_2="bullets"
 2d_physics/layer_3="bodies"
 2d_physics/layer_4="items"
+2d_physics/layer_6="los"
+
+[navigation]
+
+2d/default_edge_connection_margin=16.0
 
 [physics]
 

@@ -1,8 +1,11 @@
 extends Node
 
 signal score_changed(new_kills, new_loop)
+signal i_see_you(isy)
 
 func _ready() -> void:
+	people = 0
+	witnesses = []
 	loop = 0
 	kills = 0
 	items = []
@@ -35,6 +38,31 @@ func change_score(new_kills, new_loop):
 	kills = new_kills
 	loop = new_loop
 	score_changed.emit(new_kills, new_loop)
+	if people == kills:
+		OstManager.switch_track("Battle2_bass")
+
+var people = 0
+var witnesses = []
+
+func add_witness(witness):
+	witnesses.append(witness)
+	witnesses = array_unique(witnesses)
+	if witnesses.size() != 0:
+		i_see_you.emit(true)
+
+
+func erase_witness(witness):
+	witnesses.erase(witness)
+	if witnesses.size() == 0:
+		i_see_you.emit(false)
+
+
+func array_unique(array: Array) -> Array:
+	var unique: Array = []
+	for item in array:
+		if not unique.has(item):
+			unique.append(item)
+	return unique
 
 var loop = 0
 var kills = 0

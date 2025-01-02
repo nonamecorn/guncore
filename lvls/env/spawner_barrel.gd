@@ -6,7 +6,7 @@ extends CharacterBody2D
 func _ready() -> void:
 	$hand.rotate(rad_to_deg(hand_rotation))
 
-func hurt(_amnt, _ap):
+func hurt(_amnt):
 	$AudioStreamPlayer2D.play()
 	
 	var enemy_inst = enemy.instantiate()

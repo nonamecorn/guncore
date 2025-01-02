@@ -40,7 +40,7 @@ func _physics_process(delta):
 
 func on_collision(collider):
 	if collider and collider.get_collider().has_method("hurt"):
-		collider.get_collider().hurt(damage, ap)
+		collider.get_collider().hurt(damage)
 	active = false
 	$Sprite2D.hide()
 	create_spark()

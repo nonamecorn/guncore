@@ -1,4 +1,4 @@
-[gd_scene load_steps=38 format=3 uid="uid://btw10scl5f85a"]
+[gd_scene load_steps=37 format=3 uid="uid://btw10scl5f85a"]
 
 [ext_resource type="Script" path="res://obj/bodies/player.gd" id="1_6n3fv"]
 [ext_resource type="Texture2D" uid="uid://ci5dmfqdm37at" path="res://img/bodys/GG_IdleAnim.png" id="2_qk2hj"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://ctrbcy5h47qqw" path="res://obj/components/gun_base.tscn" id="6_m4fya"]
 [ext_resource type="PackedScene" uid="uid://d0ex485qfg6qx" path="res://ui/inventory.tscn" id="8_wsalq"]
 [ext_resource type="PackedScene" uid="uid://b4ifd4nn31mq8" path="res://obj/components/hurt_box.tscn" id="9_3vqfx"]
-[ext_resource type="Script" path="res://obj/components/hurt_box.gd" id="10_frvst"]
 [ext_resource type="AudioStream" uid="uid://31xvcqxgens0" path="res://snd/sfx/scream.wav" id="10_ti353"]
 [ext_resource type="PackedScene" uid="uid://clebifn20pbo5" path="res://ui/pause.tscn" id="11_heitk"]
 [ext_resource type="PackedScene" uid="uid://bfrhglfhp1ihi" path="res://ui/f_1_menu.tscn" id="12_i05es"]
@@ -156,8 +155,8 @@ height = 12.0
 radius = 6.0
 height = 24.0
 
-[node name="Player" type="CharacterBody2D" groups=["player", "targetable"]]
-collision_layer = 4
+[node name="Player" type="CharacterBody2D" groups=["body", "player", "targetable"]]
+collision_layer = 36
 script = ExtResource("1_6n3fv")
 ACCELERATION = 1500
 FRICTION = 1500
@@ -201,7 +200,6 @@ texture = ExtResource("16_62qpq")
 ignore_rotation = false
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
-position_smoothing_speed = 10.0
 script = ExtResource("4_6xs1v")
 
 [node name="player_hand_component" parent="." instance=ExtResource("3_nq5y6")]
@@ -228,7 +226,6 @@ bus = &"Sfx"
 
 [node name="hurt_box" parent="." instance=ExtResource("9_3vqfx")]
 position = Vector2(0, -12)
-script = ExtResource("10_frvst")
 
 [node name="CollisionShape2D" parent="hurt_box" index="0"]
 shape = SubResource("CapsuleShape2D_5x7ft")
@@ -308,6 +305,14 @@ text = "200$"
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "140/200"
+
+[node name="ISY" type="Label" parent="CanvasLayer"]
+visible = false
+offset_left = 16.0
+offset_top = 690.0
+offset_right = 160.0
+offset_bottom = 706.0
+text = "I SEE YOU"
 
 [editable path="player_hand_component"]
 [editable path="hurt_box"]

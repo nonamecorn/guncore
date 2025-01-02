@@ -20,8 +20,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 offset_left = 236.0
 offset_top = 76.0
-offset_right = -646.0
-offset_bottom = -374.0
+offset_right = -632.0
+offset_bottom = -362.0
 grow_horizontal = 2
 grow_vertical = 2
 scale = Vector2(2, 2)
@@ -58,29 +58,33 @@ layout_mode = 2
 text = "
 "
 
+[node name="Label11" type="Label" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+text = "tab - inventory"
+
 [node name="Label2" type="Label" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
-text = "lmb - shoot"
+text = "lmb - shoot, drag parts"
+
+[node name="Label8" type="Label" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+text = "ctr + lmb - fast drag"
+
+[node name="Label6" type="Label" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+text = "w,a,s,d - walk"
 
 [node name="Label3" type="Label" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
 text = "1,2,e - switch weapons"
 
-[node name="Label4" type="Label" parent="NinePatchRect/VBoxContainer"]
-layout_mode = 2
-text = "p - soft retry"
-
 [node name="Label5" type="Label" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
 text = "r - reload"
 
-[node name="Label6" type="Label" parent="NinePatchRect/VBoxContainer"]
+[node name="Label4" type="Label" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
-text = "tab - inventory"
-
-[node name="Label8" type="Label" parent="NinePatchRect/VBoxContainer"]
-layout_mode = 2
-text = "ctr + lmb - fast drag"
+text = "p - soft retry"
 
 [node name="Label7" type="Label" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2

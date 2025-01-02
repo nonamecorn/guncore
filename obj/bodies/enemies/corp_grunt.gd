@@ -2,9 +2,12 @@ extends Enemy
 
 
 func _ready():
+	id = IdGiver.get_id()
 #	print(movement_target)
+	GlobalVars.people += 1
 	rng.randomize()
 	randomnum = rng.randf()
+	$hurt_box.damaged.connect(hurt)
 	parts = Randogunser.get_corp_gun()
 	for part in parts:
 		if parts[part]:

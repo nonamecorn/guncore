@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://dx085y3efeew"]
+[gd_scene load_steps=11 format=3 uid="uid://dx085y3efeew"]
 
 [ext_resource type="Script" path="res://ost_manager.gd" id="1_rbwo4"]
 [ext_resource type="AudioStream" uid="uid://b1sraligdjgun" path="res://snd/music/festive/shlatt_snow.mp3" id="2_8rv36"]
@@ -6,6 +6,8 @@
 [ext_resource type="AudioStream" uid="uid://yjqq7g1avuew" path="res://snd/music/festive/King-Arthur_s-Gold-Christmas-Battle-Theme_.mp3" id="4_nebmj"]
 [ext_resource type="AudioStream" uid="uid://b5i3ity5vdy83" path="res://snd/music/festive/Pokemon-Masters-EX-OST-Christmas-Event-Battle-_HQ_.mp3" id="5_k8420"]
 [ext_resource type="AudioStream" uid="uid://bj60nhk5w4ekv" path="res://snd/music/festive/videoplayback-_4_.mp3" id="6_0i65y"]
+[ext_resource type="AudioStream" uid="uid://bacxodhr85whp" path="res://snd/music/invu1/locked.ogg" id="7_y5c5y"]
+[ext_resource type="AudioStream" uid="uid://2ndljrt0bgpu" path="res://snd/music/invu1/locked_bass.ogg" id="8_6y78d"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_v70dk"]
 shuffle = true
@@ -15,7 +17,7 @@ stream_1 = ExtResource("5_k8420")
 stream_2 = ExtResource("6_0i65y")
 
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_pojb0"]
-clip_count = 3
+clip_count = 5
 clip_0/name = &"Menu"
 clip_0/stream = ExtResource("2_8rv36")
 clip_0/auto_advance = 0
@@ -25,6 +27,44 @@ clip_1/auto_advance = 0
 clip_2/name = &"Battle"
 clip_2/stream = SubResource("AudioStreamPlaylist_v70dk")
 clip_2/auto_advance = 0
+clip_3/name = &"Battle2"
+clip_3/stream = ExtResource("7_y5c5y")
+clip_3/auto_advance = 0
+clip_4/name = &"Battle2_bass"
+clip_4/stream = ExtResource("8_6y78d")
+clip_4/auto_advance = 0
+_transitions = {
+Vector2i(-1, -1): {
+"fade_beats": 1,
+"fade_mode": 3,
+"from_time": 2,
+"to_time": 1
+},
+Vector2i(3, 3): {
+"fade_beats": 1,
+"fade_mode": 0,
+"from_time": 0,
+"to_time": 0
+},
+Vector2i(3, 4): {
+"fade_beats": 1,
+"fade_mode": 3,
+"from_time": 0,
+"to_time": 0
+},
+Vector2i(4, 3): {
+"fade_beats": 1,
+"fade_mode": 3,
+"from_time": 1,
+"to_time": 0
+},
+Vector2i(4, 4): {
+"fade_beats": 1,
+"fade_mode": 0,
+"from_time": 0,
+"to_time": 0
+}
+}
 
 [node name="OstManager" type="Node"]
 process_mode = 3
