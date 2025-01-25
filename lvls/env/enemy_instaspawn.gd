@@ -1,6 +1,6 @@
 extends Node2D
 
-@export var enemy = load("res://obj/bodies/enemies/corp_grunt.tscn")
+@export var enemy: PackedScene
 
 func init():
 	var enemy_inst = enemy.instantiate()

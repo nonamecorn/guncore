@@ -10,7 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://bxtkcc7g5gfh2" path="res://lvls/env/small_box.tscn" id="9_nynhk"]
 [ext_resource type="PackedScene" uid="uid://bf65xavyr0pes" path="res://lvls/misc/module_connector.tscn" id="10_e7h53"]
 [ext_resource type="PackedScene" uid="uid://c3jo85so338er" path="res://obj/bodies/enemies/enemy.tscn" id="10_qbaet"]
-[ext_resource type="PackedScene" uid="uid://dwafsvlv6e7hc" path="res://obj/bodies/enemies/corp_grunt.tscn" id="11_2o28g"]
+[ext_resource type="PackedScene" uid="uid://byya3w7ktpqp8" path="res://obj/bodies/enemies/corp_grunt.tscn" id="11_2o28g"]
 [ext_resource type="PackedScene" uid="uid://bclbae2vfelms" path="res://obj/components/item_ground_container.tscn" id="12_0x7t6"]
 [ext_resource type="Texture2D" uid="uid://ddjhs2u4288mg" path="res://img/big_art/864f2c686ce3a8fb0832caf124d0ba0e.png" id="13_ep58p"]
 
