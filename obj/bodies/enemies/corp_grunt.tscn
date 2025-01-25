@@ -88,9 +88,12 @@ height = 26.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_t83n3"]
 radius = 98.0204
 
-[node name="enemy" type="CharacterBody2D" groups=["body", "cultist", "targetable"]]
+[node name="enemy" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent") groups=["body", "cultist", "targetable"]]
 collision_layer = 36
 script = ExtResource("1_7g7ug")
+health = 100
+group = "corp"
+nav_agent = NodePath("NavigationAgent2D")
 
 [node name="Sprite2D" type="Node2D" parent="."]
 position = Vector2(0, -5)
@@ -112,6 +115,9 @@ position = Vector2(0, -10)
 sprite_frames = SubResource("SpriteFrames_aqq6o")
 autoplay = "default"
 frame_progress = 0.10251
+
+[node name="corp_light" parent="Sprite2D" instance=ExtResource("7_gskjq")]
+position = Vector2(5, -17)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
@@ -168,9 +174,6 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="cqb_awarness"]
 shape = SubResource("CircleShape2D_t83n3")
-
-[node name="corp_light" parent="." instance=ExtResource("7_gskjq")]
-position = Vector2(5, -22)
 
 [connection signal="timeout" from="enemy_hand_component/burst_duration" to="enemy_hand_component" method="_on_burst_duration_timeout"]
 [connection signal="timeout" from="change_position" to="." method="_on_change_position_timeout"]
