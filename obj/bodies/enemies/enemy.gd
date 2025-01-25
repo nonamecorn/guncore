@@ -12,6 +12,7 @@ var bodies = []
 var nearby_allies = []
 var nearby_enemies = []
 var current_target = null
+var previous_target = null
 var dead = false
 var id : int
 
@@ -27,7 +28,7 @@ enum {
 var state = IDLE
 var rng = RandomNumberGenerator.new()
 var direction = Vector2.ZERO
-var static_move_position : Vector2
+var static_move_position = null
 
 @export var group : String
 @export var nav_agent: NavigationAgent2D
@@ -67,14 +68,14 @@ func _on_less_crucial_checks_timeout() -> void:
 		return
 	$Label.text = str(state)
 	bodies = get_tree().get_nodes_in_group("body")
-	update_current_target()
+	if state != SURROUND:
+		update_current_target()
 	match state:
 		IDLE:
 			direction = (get_self_circle_position(randomnum) - global_position).normalized() 
 		SURROUND:
 			if !current_target or !is_instance_valid(current_target):
 				return
-			static_move_position = current_target.global_position
 			check_witness()
 			set_movement_target(get_circle_position(randomnum))
 		INVESTIGATE:
@@ -94,6 +95,7 @@ func _physics_process(delta):
 			direction = (get_self_circle_position(randomnum) - global_position).normalized() 
 		SURROUND:
 			surround(delta)
+			static_move_position = current_target.global_position
 		INVESTIGATE:
 			move(delta)
 		RUN:
@@ -103,14 +105,17 @@ func _physics_process(delta):
 func start_blastin():
 	$Sprite2D/idle.hide()
 	$Sprite2D/walk.show()
+	$enemy_hand_component.state = 0
 	state = SURROUND
 
 func start_chasin():
-	pass
-	#if state == SURROUND: return
-	#$Sprite2D/idle.hide()
-	#$Sprite2D/walk.show()
-	#state = INVESTIGATE
+	if state == SURROUND: return
+	if (current_target in $cqb_awarness.get_overlapping_bodies()) and state == SURROUND:
+		return
+	$Sprite2D/idle.hide()
+	$Sprite2D/walk.show()
+	$enemy_hand_component.state = 1
+	state = INVESTIGATE
 
 func surround(delta):
 	if nav_agent.is_navigation_finished():
@@ -164,11 +169,12 @@ func get_self_circle_position(random) -> Vector2:
 
 
 func alert(alert_position):
-	if dead: return
-	state = INVESTIGATE
-	$enemy_hand_component.state = 2
+	if dead or state == SURROUND: return
+	$enemy_hand_component.state = 1
 	$change_position.wait_time = 2
-	set_movement_target(alert_position)
+	static_move_position = alert_position
+	set_movement_target(static_move_position)
+	state = INVESTIGATE
 
 func _on_change_position_timeout():
 	randomnum = rng.randf()
@@ -197,6 +203,7 @@ func update_nearby_npcs():
 
 func update_current_target():
 	update_nearby_npcs()
+	previous_target = current_target
 	current_target = get_closest(nearby_enemies)
 	if current_target == null:
 		return false
@@ -251,7 +258,3 @@ func die():
 	$Sprite2D/walk.hide()
 	GlobalVars.erase_witness(id)
 	GlobalVars.change_score(GlobalVars.kills + 1, GlobalVars.loop)
-
-
-func _on_enemy_forgeting_timeout() -> void:
-	pass # Replace with function body.

@@ -1,76 +1,165 @@
-[gd_scene load_steps=11 format=3 uid="uid://dx085y3efeew"]
+[gd_scene load_steps=18 format=3 uid="uid://dx085y3efeew"]
 
 [ext_resource type="Script" path="res://ost_manager.gd" id="1_rbwo4"]
-[ext_resource type="AudioStream" uid="uid://b1sraligdjgun" path="res://snd/music/festive/shlatt_snow.mp3" id="2_8rv36"]
-[ext_resource type="AudioStream" uid="uid://dtc1pr6n5dgij" path="res://snd/music/festive/omg_hes_jolly.mp3" id="3_csta3"]
-[ext_resource type="AudioStream" uid="uid://yjqq7g1avuew" path="res://snd/music/festive/King-Arthur_s-Gold-Christmas-Battle-Theme_.mp3" id="4_nebmj"]
-[ext_resource type="AudioStream" uid="uid://b5i3ity5vdy83" path="res://snd/music/festive/Pokemon-Masters-EX-OST-Christmas-Event-Battle-_HQ_.mp3" id="5_k8420"]
-[ext_resource type="AudioStream" uid="uid://bj60nhk5w4ekv" path="res://snd/music/festive/videoplayback-_4_.mp3" id="6_0i65y"]
-[ext_resource type="AudioStream" uid="uid://bacxodhr85whp" path="res://snd/music/invu1/locked.ogg" id="7_y5c5y"]
-[ext_resource type="AudioStream" uid="uid://2ndljrt0bgpu" path="res://snd/music/invu1/locked_bass.ogg" id="8_6y78d"]
+[ext_resource type="AudioStream" uid="uid://dmbwqwhphmh7t" path="res://snd/music/general/attachmentbreaker.ogg" id="2_3q357"]
+[ext_resource type="AudioStream" uid="uid://dpajqhxt7es67" path="res://snd/music/world1/locked_calm.ogg" id="3_sehid"]
+[ext_resource type="AudioStream" uid="uid://cqkfwb03uptlo" path="res://snd/music/world1/customarket.ogg" id="3_xb3fa"]
+[ext_resource type="AudioStream" uid="uid://8ia10pndk80b" path="res://snd/music/world1/locked_metal.ogg" id="4_k678b"]
 
-[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_v70dk"]
-shuffle = true
-stream_count = 3
-stream_0 = ExtResource("4_nebmj")
-stream_1 = ExtResource("5_k8420")
-stream_2 = ExtResource("6_0i65y")
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_lsjum"]
+stream_count = 1
+stream_0 = ExtResource("2_3q357")
 
-[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_pojb0"]
-clip_count = 5
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_2lw7b"]
+stream_count = 1
+stream_0 = ExtResource("3_xb3fa")
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_vvpoe"]
+stream_count = 1
+stream_0 = ExtResource("3_sehid")
+
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_d8r71"]
+stream_count = 1
+stream_0 = ExtResource("4_k678b")
+
+[sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_gdf1j"]
+clip_count = 4
 clip_0/name = &"Menu"
-clip_0/stream = ExtResource("2_8rv36")
+clip_0/stream = SubResource("AudioStreamPlaylist_lsjum")
 clip_0/auto_advance = 0
 clip_1/name = &"Shop"
-clip_1/stream = ExtResource("3_csta3")
+clip_1/stream = SubResource("AudioStreamPlaylist_2lw7b")
 clip_1/auto_advance = 0
-clip_2/name = &"Battle"
-clip_2/stream = SubResource("AudioStreamPlaylist_v70dk")
+clip_2/name = &"Battle_calm"
+clip_2/stream = SubResource("AudioStreamPlaylist_vvpoe")
 clip_2/auto_advance = 0
-clip_3/name = &"Battle2"
-clip_3/stream = ExtResource("7_y5c5y")
+clip_3/name = &"Battle_metal"
+clip_3/stream = SubResource("AudioStreamPlaylist_d8r71")
 clip_3/auto_advance = 0
-clip_4/name = &"Battle2_bass"
-clip_4/stream = ExtResource("8_6y78d")
-clip_4/auto_advance = 0
 _transitions = {
-Vector2i(-1, -1): {
+Vector2i(2, 2): {
+"fade_beats": 1,
+"fade_mode": 0,
+"from_time": 0,
+"to_time": 0
+},
+Vector2i(2, 3): {
 "fade_beats": 1,
 "fade_mode": 3,
-"from_time": 2,
-"to_time": 1
+"from_time": 1,
+"to_time": 0
+},
+Vector2i(3, 2): {
+"fade_beats": 1,
+"fade_mode": 3,
+"from_time": 1,
+"to_time": 0
 },
 Vector2i(3, 3): {
 "fade_beats": 1,
 "fade_mode": 0,
 "from_time": 0,
 "to_time": 0
-},
-Vector2i(3, 4): {
-"fade_beats": 1,
-"fade_mode": 3,
-"from_time": 0,
-"to_time": 0
-},
-Vector2i(4, 3): {
-"fade_beats": 1,
-"fade_mode": 3,
-"from_time": 1,
-"to_time": 0
-},
-Vector2i(4, 4): {
-"fade_beats": 1,
-"fade_mode": 0,
-"from_time": 0,
-"to_time": 0
 }
 }
+
+[sub_resource type="Animation" id="Animation_bi11s"]
+resource_name = "fade_to_battle"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Locked_blya:stream:stream_1/volume")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.266667),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Locked_blya:stream:stream_0/volume")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [0.0, -60.0]
+}
+
+[sub_resource type="Animation" id="Animation_jw74l"]
+resource_name = "fade_to_calm"
+
+[sub_resource type="Animation" id="Animation_ehe52"]
+resource_name = "battle_to_shop"
+
+[sub_resource type="Animation" id="Animation_uafej"]
+resource_name = "shop_to_battle"
+
+[sub_resource type="Animation" id="Animation_t5a1h"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Locked_blya:stream:stream_1/volume")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [-60.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Locked_blya:stream:stream_0/volume")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_6byle"]
+_data = {
+"RESET": SubResource("Animation_t5a1h"),
+"battle_to_shop": SubResource("Animation_ehe52"),
+"fade_to_battle": SubResource("Animation_bi11s"),
+"fade_to_calm": SubResource("Animation_jw74l"),
+"shop_to_battle": SubResource("Animation_uafej")
+}
+
+[sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_vyx4i"]
+stream_count = 2
+stream_0/stream = ExtResource("3_sehid")
+stream_0/volume = 0.0
+stream_1/stream = ExtResource("4_k678b")
+stream_1/volume = -60.0
 
 [node name="OstManager" type="Node"]
 process_mode = 3
 script = ExtResource("1_rbwo4")
 
 [node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
-stream = SubResource("AudioStreamInteractive_pojb0")
+stream = SubResource("AudioStreamInteractive_gdf1j")
 autoplay = true
 bus = &"Music"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_6byle")
+}
+
+[node name="Locked_blya" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamSynchronized_vyx4i")
+
+[node name="Menu" type="AudioStreamPlayer" parent="."]
+
+[node name="Shop" type="AudioStreamPlayer" parent="."]

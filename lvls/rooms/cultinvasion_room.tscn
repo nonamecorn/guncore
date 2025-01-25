@@ -1,16 +1,112 @@
-[gd_scene load_steps=13 format=4 uid="uid://cr60qw65p1fnu"]
+[gd_scene load_steps=33 format=4 uid="uid://cr60qw65p1fnu"]
 
 [ext_resource type="Script" path="res://lvls/rooms/basic_room.gd" id="1_cj3nh"]
 [ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="2_n8b5e"]
 [ext_resource type="PackedScene" uid="uid://cmowt08tkhfxs" path="res://lvls/misc/bi_light_occluder_2d.tscn" id="3_cuj2b"]
 [ext_resource type="PackedScene" uid="uid://cpcfb5ro5if5" path="res://lvls/env/cult_spawner.tscn" id="4_2e3o1"]
 [ext_resource type="PackedScene" uid="uid://dtae80jmikdb0" path="res://lvls/env/enemy_instaspawn.tscn" id="5_fahsl"]
-[ext_resource type="PackedScene" uid="uid://dwafsvlv6e7hc" path="res://obj/bodies/enemies/corp_grunt.tscn" id="6_33y6f"]
+[ext_resource type="Script" path="res://obj/bodies/enemies/corp_grunt.gd" id="6_pfpd6"]
 [ext_resource type="PackedScene" uid="uid://dww7vxteobmel" path="res://lvls/env/explosive_barrel.tscn" id="6_sxun7"]
 [ext_resource type="PackedScene" uid="uid://c70txah2l140m" path="res://lvls/env/big_box.tscn" id="7_0vucx"]
+[ext_resource type="Texture2D" uid="uid://bnrs5ymoqkml4" path="res://img/bodys/Corp.png" id="7_oilt2"]
 [ext_resource type="PackedScene" uid="uid://cjw5l1ahljlkm" path="res://lvls/env/mid_box.tscn" id="8_8ecr8"]
+[ext_resource type="Texture2D" uid="uid://dd7cjk2v8x0op" path="res://img/bodys/Corp_anim.png" id="8_aul0w"]
+[ext_resource type="PackedScene" uid="uid://bde3ba2p8ca28" path="res://lvls/misc/corp_light.tscn" id="9_5f3em"]
 [ext_resource type="PackedScene" uid="uid://bxtkcc7g5gfh2" path="res://lvls/env/small_box.tscn" id="9_vqnns"]
 [ext_resource type="PackedScene" uid="uid://bf65xavyr0pes" path="res://lvls/misc/module_connector.tscn" id="10_83cpw"]
+[ext_resource type="PackedScene" uid="uid://df3di7rm5cgei" path="res://obj/components/enemy_hand_component.tscn" id="10_cj7pj"]
+[ext_resource type="PackedScene" uid="uid://ctrbcy5h47qqw" path="res://obj/components/gun_base.tscn" id="11_3tpae"]
+[ext_resource type="PackedScene" uid="uid://b4ifd4nn31mq8" path="res://obj/components/hurt_box.tscn" id="12_jn8ym"]
+[ext_resource type="AudioStream" uid="uid://cq5moh8342387" path="res://snd/sfx/enemydeath.wav" id="13_7qcdh"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_egrxt"]
+radius = 4.0
+height = 10.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_64cn8"]
+light_mode = 2
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_tc3vg"]
+atlas = ExtResource("7_oilt2")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_2wn1x"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_tc3vg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c6tru"]
+atlas = ExtResource("8_aul0w")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nfjxm"]
+atlas = ExtResource("8_aul0w")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c3dxh"]
+atlas = ExtResource("8_aul0w")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hxe2s"]
+atlas = ExtResource("8_aul0w")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aw0y6"]
+atlas = ExtResource("8_aul0w")
+region = Rect2(128, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_mri6n"]
+atlas = ExtResource("8_aul0w")
+region = Rect2(160, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lufcr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c6tru")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nfjxm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_c3dxh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hxe2s")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aw0y6")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_mri6n")
+}],
+"loop": true,
+"name": &"default",
+"speed": 12.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ykghs"]
+radius = 7.0
+height = 26.0
+
+[sub_resource type="PackedScene" id="PackedScene_xi1i4"]
+_bundled = {
+"conn_count": 3,
+"conns": PackedInt32Array(1073741841, 1073741840, 75, 74, 2, 0, 0, 1073741843, 1073741842, 77, 76, 2, 0, 0, 1073741845, 1073741844, 79, 78, 2, 0, 0),
+"editable_instances": [NodePath("enemy_hand_component"), NodePath("hurt_box")],
+"names": PackedStringArray("enemy", "CharacterBody2D", "body", "corp", "targetable", "collision_layer", "script", "health", "group", "nav_agent", "CollisionShape2D", "CollisionShape2D", "position", "rotation", "shape", "Sprite2D", "Node2D", "position", "idle", "AnimatedSprite2D", "light_mask", "visibility_layer", "material", "position", "sprite_frames", "autoplay", "walk", "AnimatedSprite2D", "visible", "light_mask", "visibility_layer", "material", "position", "sprite_frames", "autoplay", "frame", "frame_progress", "corp_light", "position", "enemy_hand_component", "position", "hand_length", "ray", "gun_base", "burst_duration", "Timer", "wait_time", "one_shot", "change_position", "Timer", "wait_time", "autostart", "makepath", "Timer", "wait_time", "NavigationAgent2D", "NavigationAgent2D", "debug_enabled", "hurt_box", "position", "CollisionShape2D", "shape", "death", "AudioStreamPlayer2D", "stream", "bus", "RayCast2D", "RayCast2D", "position", "target_position", "collision_mask", "body_manager", "Timer", "autostart", "_on_burst_duration_timeout", "timeout", "_on_change_position_timeout", "timeout", "_on_makepath_timeout", "timeout"),
+"node_count": 17,
+"node_paths": [NodePath("."), NodePath("."), NodePath("./Sprite2D"), NodePath("./Sprite2D"), NodePath("./Sprite2D"), NodePath("."), NodePath("./enemy_hand_component/Marker2D"), NodePath("./enemy_hand_component"), NodePath("."), NodePath("."), NodePath("."), NodePath("."), NodePath("./hurt_box"), NodePath("."), NodePath("."), NodePath("."), NodePath("enemy_hand_component"), NodePath("enemy_hand_component/burst_duration"), NodePath("."), NodePath("change_position"), NodePath("."), NodePath("makepath")],
+"nodes": PackedInt32Array(-1, -1, 1, 0, -1, 5, 5, 0, 6, 1, 7, 2, 8, 3, 1073741833, 4, 3, 2, 3, 4, 1073741824, 0, 11, 10, -1, 3, 12, 5, 13, 6, 14, 7, 0, 1073741825, 0, 16, 15, -1, 1, 17, 8, 0, 1073741826, 0, 19, 18, -1, 6, 20, 9, 21, 10, 22, 11, 23, 12, 24, 13, 25, 14, 0, 1073741827, 0, 27, 26, -1, 9, 28, 15, 29, 16, 30, 17, 31, 18, 32, 19, 33, 20, 34, 21, 35, 22, 36, 23, 0, 1073741828, 0, 2147483647, 37, 24, 1, 38, 25, 0, 1073741829, 0, 2147483647, 39, 26, 3, 40, 27, 41, 28, 1073741866, 29, 0, 1073741830, 0, 2147483647, 262187, 30, 0, 0, 1073741831, 0, 45, 44, -1, 2, 46, 31, 47, 32, 0, 1073741832, 0, 49, 48, -1, 2, 50, 33, 51, 34, 0, 1073741833, 0, 53, 52, -1, 1, 54, 35, 0, 1073741834, 0, 56, 55, -1, 1, 57, 36, 0, 1073741835, 0, 2147483647, 58, 37, 1, 59, 38, 0, 1073741836, -1, 2147483647, 262204, -1, 1, 61, 39, 0, 1073741837, 0, 63, 62, -1, 2, 64, 40, 65, 41, 0, 1073741838, 0, 67, 66, -1, 3, 68, 42, 69, 43, 70, 44, 0, 1073741839, 0, 72, 71, -1, 1, 73, 45, 0),
+"variants": [36, ExtResource("6_pfpd6"), 100, "corp", NodePath("NavigationAgent2D"), Vector2(0, -2), 1.5708, SubResource("CapsuleShape2D_egrxt"), Vector2(0, -3), 4, 4, SubResource("CanvasItemMaterial_64cn8"), Vector2(-4.76837e-07, -11), SubResource("SpriteFrames_2wn1x"), "default", false, 4, 4, SubResource("CanvasItemMaterial_64cn8"), Vector2(0, -11), SubResource("SpriteFrames_lufcr"), "default", 5, 0.0877768, ExtResource("9_5f3em"), Vector2(4, -18), ExtResource("10_cj7pj"), Vector2(0, -13), 16, NodePath("../RayCast2D"), ExtResource("11_3tpae"), 0.5, true, 2.0, true, 0.5, true, ExtResource("12_jn8ym"), Vector2(0, -13), SubResource("CapsuleShape2D_ykghs"), ExtResource("13_7qcdh"), &"Sfx", Vector2(0, -13), Vector2(632, 0), 32, true],
+"version": 3
+}
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vfr7w"]
 size = Vector2(1039, 409)
@@ -61,23 +157,23 @@ position = Vector2(368, 544)
 
 [node name="enemy_instaspawn" parent="enemies" instance=ExtResource("5_fahsl")]
 position = Vector2(-112, 308)
-enemy = ExtResource("6_33y6f")
+enemy = SubResource("PackedScene_xi1i4")
 
 [node name="enemy_instaspawn2" parent="enemies" instance=ExtResource("5_fahsl")]
 position = Vector2(-112, 484)
-enemy = ExtResource("6_33y6f")
+enemy = SubResource("PackedScene_xi1i4")
 
 [node name="enemy_instaspawn3" parent="enemies" instance=ExtResource("5_fahsl")]
 position = Vector2(168, 472)
-enemy = ExtResource("6_33y6f")
+enemy = SubResource("PackedScene_xi1i4")
 
 [node name="enemy_instaspawn4" parent="enemies" instance=ExtResource("5_fahsl")]
 position = Vector2(140, 296)
-enemy = ExtResource("6_33y6f")
+enemy = SubResource("PackedScene_xi1i4")
 
 [node name="enemy_instaspawn5" parent="enemies" instance=ExtResource("5_fahsl")]
 position = Vector2(-412, 556)
-enemy = ExtResource("6_33y6f")
+enemy = SubResource("PackedScene_xi1i4")
 
 [node name="corps" type="Node2D" parent="."]
 

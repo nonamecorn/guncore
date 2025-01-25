@@ -3,7 +3,10 @@ extends Node2D
 @export var hand_length = 34
 @export var particles : Node 
 func _ready() -> void:
+	player_crosshair = get_tree().get_nodes_in_group("crosshair")[0]
 	$Marker2D.position.x = hand_length
+
+var player_crosshair
 
 var active_base = 0
 

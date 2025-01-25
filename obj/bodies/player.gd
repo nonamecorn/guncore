@@ -48,23 +48,28 @@ func _ready() -> void:
 	GlobalVars.score_changed.connect(on_score_change)
 	GlobalVars.i_see_you.connect(on_perception_change)
 
+func _unhandled_input(_event: InputEvent) -> void:
+	pass
+	#if event.is_action_pressed("ui_cancel") and state != TAB_MENU:
+		#$CanvasLayer/pause.toggle_on()
+
 func _physics_process(delta):
 	if Input.is_action_just_pressed("special_button"):
 		get_tree().reload_current_scene()
-	else:
-		match state:
-				MOVE:
-					move_state(delta)
-				IDLE:
-					pass
-				TAB_MENU:
-					tab_state()
-		
+		return
+	match state:
+			MOVE:
+				move_state(delta)
+			IDLE:
+				pass
+			TAB_MENU:
+				tab_state()
+	
 
 func tab_state():
 	$Sprite2D/IdleAnimation.show()
 	$Sprite2D/RunninAnnimation.hide()
-	if Input.is_action_just_pressed("ui_tab"):
+	if Input.is_action_just_pressed("ui_tab") or Input.is_action_just_pressed("ui_cancel"):
 		$CanvasLayer/Inventory.hide_properly()
 		$CanvasLayer/Inventory.switch_to_inventory()
 		$player_hand_component.follow = true

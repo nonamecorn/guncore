@@ -43,7 +43,7 @@ func align(aligment) ->void:
 func _on_trigger_body_entered(body: Node2D) -> void:
 	if !body.is_in_group("player"): return
 	if activated: return
-	OstManager.switch_track("Battle2")
+	OstManager.switch_track("Battle_metal")
 	activated = true
 	init()
 

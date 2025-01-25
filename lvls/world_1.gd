@@ -24,13 +24,13 @@ var rooms = [
 	"res://lvls/rooms/cultinvasion_room.tscn",
 	"res://lvls/rooms/corpbreach_room.tscn",
 ]
-@export var roomcount = 3
+@export var roomcount = 5
 @export var debug = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	rects.append($"ysort/modules/starting room".get_rect())
-	OstManager.switch_track("Battle2_bass")
+	OstManager.switch_track("Battle_calm")
 	if GlobalVars.loop >= 2:
 		spawn()
 		return

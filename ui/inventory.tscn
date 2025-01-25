@@ -27,7 +27,7 @@
 [ext_resource type="Script" path="res://ui/sell.gd" id="20_c5gil"]
 [ext_resource type="Texture2D" uid="uid://ie3vay21f6re" path="res://img/ui/sell.png" id="21_ivacy"]
 [ext_resource type="Texture2D" uid="uid://dduylcjk7w1y3" path="res://img/ui/shop_cover.png" id="22_fsjln"]
-[ext_resource type="Texture2D" uid="uid://cg58avj1jaoyk" path="res://img/big_art/jena.png" id="27_eb2n1"]
+[ext_resource type="Texture2D" uid="uid://b2lkovbldqmkk" path="res://img/big_art/jena_new.jpg" id="27_257ws"]
 [ext_resource type="PackedScene" uid="uid://ggi5lqbxx6uu" path="res://ui/ui_button.tscn" id="28_1kw70"]
 
 [node name="Inventory" type="Control" node_paths=PackedStringArray("grid_bkpk", "eq_slot1", "eq_slot2", "eq_slot3", "augs", "collector", "safe_net", "shop", "shop_dil", "sell_point", "le_items", "shop_items")]
@@ -573,7 +573,7 @@ offset_left = 16.0
 offset_top = 20.0
 offset_right = 122.0
 offset_bottom = 124.0
-texture = ExtResource("27_eb2n1")
+texture = ExtResource("27_257ws")
 expand_mode = 1
 stretch_mode = 4
 

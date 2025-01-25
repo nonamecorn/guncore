@@ -50,10 +50,10 @@ func _physics_process(delta: float) -> void:
 
 func firing_state():
 	if !current_target or !is_instance_valid(current_target):
+		get_parent().start_chasin()
 		return
 	look_vec = (current_target.global_position - global_position).normalized()
 	if !_in_vision_cone(current_target.global_position) or !has_los(current_target):
-		#print("runnin")
 		get_parent().start_chasin()
 
 func idle_state():

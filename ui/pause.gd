@@ -1,22 +1,41 @@
 extends Control
 
 @export var checkbox : Node
+@export var cut = false
 
 func _ready() -> void:
 	checkbox.button_pressed = GlobalVars.fullscreen
 
 func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("ui_cancel"):
-		if !visible and get_tree().paused:
+		if cut or get_parent().get_parent().state == 2:
 			return
-		get_tree().paused = !get_tree().paused
-		visible = !visible
+		toggle()
+		return
+		#if !visible and get_tree().paused:
+			#return
+		#get_tree().paused = !get_tree().paused
+		#visible = !visible
 
 func toggle():
-	if !visible and get_tree().paused:
-		return
+	#if !visible and get_tree().paused:
+		#return
 	get_tree().paused = !get_tree().paused
 	visible = !visible
+
+func toggle_on():
+	print("on")
+	#if !visible and get_tree().paused:
+		#return
+	get_tree().paused = true
+	visible = true
+
+func toggle_off():
+	print("off")
+	#if !visible and get_tree().paused:
+		#return
+	get_tree().paused = false
+	visible = false
 
 func _on_button_pressed():
 	pass # Replace with function body.

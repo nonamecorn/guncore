@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://dwafsvlv6e7hc"]
+[gd_scene load_steps=22 format=3 uid="uid://byya3w7ktpqp8"]
 
 [ext_resource type="Script" path="res://obj/bodies/enemies/corp_grunt.gd" id="1_7g7ug"]
 [ext_resource type="Texture2D" uid="uid://bnrs5ymoqkml4" path="res://img/bodys/Corp.png" id="2_21em0"]
@@ -9,121 +9,116 @@
 [ext_resource type="AudioStream" uid="uid://cq5moh8342387" path="res://snd/sfx/enemydeath.wav" id="6_82n5t"]
 [ext_resource type="PackedScene" uid="uid://bde3ba2p8ca28" path="res://lvls/misc/corp_light.tscn" id="7_gskjq"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_egrxt"]
-radius = 4.0
-height = 10.0
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_64cn8"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kudys"]
 light_mode = 2
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_tc3vg"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_m03cw"]
 atlas = ExtResource("2_21em0")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_2wn1x"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_v8b5x"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_tc3vg")
+"texture": SubResource("AtlasTexture_m03cw")
 }],
-"loop": true,
-"name": &"default",
+"loop": false,
+"name": &"new_animation",
 "speed": 5.0
 }]
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c6tru"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_vdnoi"]
 atlas = ExtResource("3_06vpp")
 region = Rect2(0, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_nfjxm"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_4d00o"]
 atlas = ExtResource("3_06vpp")
 region = Rect2(32, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_c3dxh"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_nuvbx"]
 atlas = ExtResource("3_06vpp")
 region = Rect2(64, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_hxe2s"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_71xq7"]
 atlas = ExtResource("3_06vpp")
 region = Rect2(96, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_aw0y6"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_5hq78"]
 atlas = ExtResource("3_06vpp")
 region = Rect2(128, 0, 32, 32)
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mri6n"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_snbmf"]
 atlas = ExtResource("3_06vpp")
 region = Rect2(160, 0, 32, 32)
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_lufcr"]
+[sub_resource type="SpriteFrames" id="SpriteFrames_aqq6o"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_c6tru")
+"texture": SubResource("AtlasTexture_vdnoi")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_nfjxm")
+"texture": SubResource("AtlasTexture_4d00o")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_c3dxh")
+"texture": SubResource("AtlasTexture_nuvbx")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_hxe2s")
+"texture": SubResource("AtlasTexture_71xq7")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_aw0y6")
+"texture": SubResource("AtlasTexture_5hq78")
 }, {
 "duration": 1.0,
-"texture": SubResource("AtlasTexture_mri6n")
+"texture": SubResource("AtlasTexture_snbmf")
 }],
 "loop": true,
 "name": &"default",
-"speed": 12.0
+"speed": 7.0
 }]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_egrxt"]
+radius = 4.0
+height = 10.0
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ykghs"]
 radius = 7.0
 height = 26.0
 
-[node name="enemy" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent") groups=["body", "corp", "targetable"]]
+[sub_resource type="CircleShape2D" id="CircleShape2D_t83n3"]
+radius = 98.0204
+
+[node name="enemy" type="CharacterBody2D" groups=["body", "cultist", "targetable"]]
 collision_layer = 36
 script = ExtResource("1_7g7ug")
-health = 100
-group = "corp"
-nav_agent = NodePath("NavigationAgent2D")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -2)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_egrxt")
 
 [node name="Sprite2D" type="Node2D" parent="."]
-position = Vector2(0, -3)
+position = Vector2(0, -5)
 
 [node name="idle" type="AnimatedSprite2D" parent="Sprite2D"]
 light_mask = 4
 visibility_layer = 4
-material = SubResource("CanvasItemMaterial_64cn8")
-position = Vector2(-4.76837e-07, -11)
-sprite_frames = SubResource("SpriteFrames_2wn1x")
-autoplay = "default"
+material = SubResource("CanvasItemMaterial_kudys")
+position = Vector2(0, -10)
+sprite_frames = SubResource("SpriteFrames_v8b5x")
+animation = &"new_animation"
 
 [node name="walk" type="AnimatedSprite2D" parent="Sprite2D"]
 visible = false
 light_mask = 4
 visibility_layer = 4
-material = SubResource("CanvasItemMaterial_64cn8")
-position = Vector2(0, -11)
-sprite_frames = SubResource("SpriteFrames_lufcr")
+material = SubResource("CanvasItemMaterial_kudys")
+position = Vector2(0, -10)
+sprite_frames = SubResource("SpriteFrames_aqq6o")
 autoplay = "default"
-frame = 5
-frame_progress = 0.0877768
+frame_progress = 0.10251
 
-[node name="corp_light" parent="Sprite2D" instance=ExtResource("7_gskjq")]
-position = Vector2(4, -18)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_egrxt")
 
 [node name="enemy_hand_component" parent="." node_paths=PackedStringArray("ray") instance=ExtResource("3_lkscu")]
-position = Vector2(0, -13)
+position = Vector2(0, -14)
 hand_length = 16
 ray = NodePath("../RayCast2D")
 
@@ -137,14 +132,11 @@ one_shot = true
 wait_time = 2.0
 autostart = true
 
-[node name="makepath" type="Timer" parent="."]
-wait_time = 0.5
-
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-debug_enabled = true
+target_desired_distance = 15.0
 
 [node name="hurt_box" parent="." instance=ExtResource("5_sh640")]
-position = Vector2(0, -13)
+position = Vector2(0, -14)
 
 [node name="CollisionShape2D" parent="hurt_box" index="0"]
 shape = SubResource("CapsuleShape2D_ykghs")
@@ -154,16 +146,35 @@ stream = ExtResource("6_82n5t")
 bus = &"Sfx"
 
 [node name="RayCast2D" type="RayCast2D" parent="."]
-position = Vector2(0, -13)
+position = Vector2(0, -14)
 target_position = Vector2(632, 0)
 collision_mask = 32
 
-[node name="body_manager" type="Timer" parent="."]
+[node name="less_crucial_checks" type="Timer" parent="."]
+wait_time = 0.062
 autostart = true
+
+[node name="Label" type="Label" parent="."]
+visible = false
+offset_left = -19.0
+offset_top = -46.0
+offset_right = 21.0
+offset_bottom = -30.0
+
+[node name="cqb_awarness" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="cqb_awarness"]
+shape = SubResource("CircleShape2D_t83n3")
+
+[node name="corp_light" parent="." instance=ExtResource("7_gskjq")]
+position = Vector2(5, -22)
 
 [connection signal="timeout" from="enemy_hand_component/burst_duration" to="enemy_hand_component" method="_on_burst_duration_timeout"]
 [connection signal="timeout" from="change_position" to="." method="_on_change_position_timeout"]
-[connection signal="timeout" from="makepath" to="." method="_on_makepath_timeout"]
+[connection signal="timeout" from="less_crucial_checks" to="." method="_on_less_crucial_checks_timeout"]
 
 [editable path="enemy_hand_component"]
 [editable path="hurt_box"]

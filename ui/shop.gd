@@ -34,25 +34,21 @@ var jolly_greetings = [
 	"Hello, how are you? Hurt again?"
 ]
 var dills = [
-	"This year was... Productive...",
-	"All i want for christmas is... more guns.",
-	"I hope ill get good presents.",
-	"Cheerup dude, you look not jolly at all.",
 ]
 
 func _ready() -> void:
 	if GlobalVars.loop <= 2:
-		#dills = get("dills"+str(GlobalVars.loop))
-		$RichTextLabel.text = "Bella:
-			" + jolly_greetings[GlobalVars.loop]
+		dills = get("dills"+str(GlobalVars.loop))
+		$RichTextLabel.text = "Jena:
+			" + greetings[GlobalVars.loop]
 	else:
 		dills = [
-			"Good job! I hope you enjoyed this sneakpeak as much as i enjoyed making it. Happy new year!"
+			"Good job! I hope you enjoyed this sneakpeak as much as i enjoyed making it."
 		]
-		$RichTextLabel.text = "Bella:
+		$RichTextLabel.text = "Jena:
 	" + dills[0]
 
 func _on_talk_button_pressed() -> void:
 	dills.shuffle()
-	$RichTextLabel.text = "Bella:
+	$RichTextLabel.text = "Jena:
 " + dills[0]

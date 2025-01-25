@@ -27,8 +27,8 @@ OstManager="*res://others/ost_manager.tscn"
 window/size/viewport_width=1280
 window/size/viewport_height=720
 window/size/mode=4
-window/size/resizable=false
 window/stretch/mode="viewport"
+window/stretch/aspect="ignore"
 mouse_cursor/custom_image="res://img/misc/crosshair.png"
 mouse_cursor/custom_image_hotspot=Vector2(16, 16)
 window/custom_image=""
@@ -45,6 +45,7 @@ cultist=""
 corp=""
 targetable=""
 body="for enemy ai"
+crosshair=""
 
 [gui]
 

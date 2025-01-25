@@ -13,6 +13,8 @@ var added_velocity : Vector2
 var state = STOP
 var gpuparticles
 
+var player_crosshair
+
 enum {
 	FIRE,
 	STOP,
@@ -39,6 +41,8 @@ var bullet_strategies = []
 var silenced = false
 
 func _ready() -> void:
+	if player_handled:
+		player_crosshair = get_tree().get_nodes_in_group("crosshair")[0]
 	rng.randomize()
 
 func get_point_of_fire() -> Vector2:
@@ -217,8 +221,10 @@ func fire():
 		
 		if !silenced:
 			$AnimationPlayer.play("fire")
+			$audio/shoting.pitch_scale = rng.randf_range(0.9,1.1)
 			$audio/shoting.play()
 		else:
+			$audio/silenced_shooting.pitch_scale = rng.randf_range(0.5,1.5)
 			$audio/silenced_shooting.play()
 		for body in $noise_alert.get_overlapping_bodies():
 				if body.has_method("alert"):
@@ -238,6 +244,7 @@ func fire():
 		
 		var recoil_vector = Vector2(-current_ver_recoil,randf_range(-current_hor_recoil, current_hor_recoil)).rotated(global_rotation)
 		if  player_handled:
+			#player_crosshair.global_position += recoil_vector
 			var viewscale = get_viewport_transform().get_scale()/2
 			Input.warp_mouse(get_viewport().get_mouse_position()*viewscale + recoil_vector*viewscale)
 		else:
