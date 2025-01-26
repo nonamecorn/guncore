@@ -88,7 +88,7 @@ height = 26.0
 [sub_resource type="CircleShape2D" id="CircleShape2D_t83n3"]
 radius = 98.0204
 
-[node name="enemy" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent") groups=["body", "cultist", "targetable"]]
+[node name="enemy" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent") groups=["body", "corp", "targetable"]]
 collision_layer = 36
 script = ExtResource("1_7g7ug")
 health = 100

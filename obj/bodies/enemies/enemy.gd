@@ -68,8 +68,7 @@ func _on_less_crucial_checks_timeout() -> void:
 		return
 	$Label.text = str(state)
 	bodies = get_tree().get_nodes_in_group("body")
-	if state != SURROUND:
-		update_current_target()
+	update_current_target()
 	match state:
 		IDLE:
 			direction = (get_self_circle_position(randomnum) - global_position).normalized() 
