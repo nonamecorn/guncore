@@ -7,7 +7,7 @@ func on_collision(_collider):
 	velocity = Vector2.ZERO
 	for body in $HurtArea2D.get_overlapping_bodies():
 		if body.has_method("hurt"):
-			body.hurt(damage, true)
+			body.hurt(damage)
 	$AudioStreamPlayer2D.play()
 	$AnimatedSprite2D.show()
 	$AnimatedSprite2D.play()

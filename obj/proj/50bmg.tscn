@@ -13,7 +13,8 @@ radius = 3.0
 height = 10.0
 
 [node name="50BMG" instance=ExtResource("1_hgpbt")]
-collision_mask = 2
+collision_layer = 0
+collision_mask = 64
 script = ExtResource("2_p1ett")
 damage = 100
 ap = true
@@ -26,7 +27,7 @@ shape = SubResource("CapsuleShape2D_ljja1")
 
 [node name="Area2D" type="Area2D" parent="." index="3"]
 collision_layer = 0
-collision_mask = 4
+collision_mask = 5
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 rotation = 1.5708
