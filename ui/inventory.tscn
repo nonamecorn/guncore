@@ -601,9 +601,11 @@ text = "Talk"
 
 [node name="grab" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource("9_7nj7r")
+bus = &"Sfx"
 
 [node name="release" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource("10_4wjgb")
+bus = &"Sfx"
 
 [node name="dialogue" type="NinePatchRect" parent="."]
 visible = false
