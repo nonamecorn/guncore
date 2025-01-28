@@ -131,7 +131,12 @@ func asseble_gun(parts : Dictionary):
 		gpuparticles.one_shot = false
 		gpuparticles.amount = int(1.8 / current_firerate)
 	display_ammo()
-	reload()
+	if player_handled:
+		reload()
+	else:
+		current_ammo = current_max_ammo
+		state = FIRE
+
 
 func change_stat(name_of_stat : String, value_of_stat, mult: bool):
 	var temp = get(name_of_stat)
