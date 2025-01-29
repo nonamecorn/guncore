@@ -38,8 +38,8 @@ item_description = "Accelerates bullets due to
 some electromagnetic magic.
 "
 cost = 50
-max_durability = 1000
-curr_durability = 1000
+max_durability = 1000.0
+curr_durability = 1000.0
 sprite = ExtResource("3_4v7y1")
 sprite_offset = Vector2(14, 0)
 bullet_strategies = Array[ExtResource("1_0ho3p")]([SubResource("Resource_u15j7")])

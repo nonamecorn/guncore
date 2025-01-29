@@ -20,6 +20,8 @@ item_description = "Makes bullet smart.
 (Not too smart
 (They got expelled from self-guiding projectiles universety))"
 cost = 100
+max_durability = 1000.0
+curr_durability = 1000.0
 sprite = ExtResource("4_musuv")
 sprite_offset = Vector2(9, 0)
 bullet_strategies = Array[ExtResource("1_ry8x6")]([ExtResource("2_d6c8v")])

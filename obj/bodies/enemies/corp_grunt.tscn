@@ -117,7 +117,7 @@ autoplay = "default"
 frame_progress = 0.10251
 
 [node name="corp_light" parent="Sprite2D" instance=ExtResource("7_gskjq")]
-position = Vector2(5, -17)
+position = Vector2(4, -17)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708

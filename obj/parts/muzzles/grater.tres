@@ -42,8 +42,8 @@ item_name = "Cheese grater"
 item_description = "Increases number of bullets.
 Greatly reduces accuracy."
 cost = 60
-max_durability = 1000
-curr_durability = 1000
+max_durability = 1000.0
+curr_durability = 1000.0
 sprite = ExtResource("2_5vsxe")
 sprite_offset = Vector2(2, 0)
 bullet_strategies = Array[ExtResource("1_pp8yk")]([])

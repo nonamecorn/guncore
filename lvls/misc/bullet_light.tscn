@@ -7,9 +7,11 @@
 [node name="PointLight2D" type="PointLight2D" parent="."]
 shadow_enabled = true
 texture = ExtResource("1_3gnft")
+texture_scale = 0.75
 
 [node name="itemlight" type="PointLight2D" parent="."]
 blend_mode = 2
 range_item_cull_mask = 4
 shadow_enabled = true
 texture = ExtResource("1_3gnft")
+texture_scale = 0.75

@@ -8,12 +8,12 @@
 [ext_resource type="PackedScene" uid="uid://ctrbcy5h47qqw" path="res://obj/components/gun_base.tscn" id="6_m4fya"]
 [ext_resource type="PackedScene" uid="uid://d0ex485qfg6qx" path="res://ui/inventory.tscn" id="8_wsalq"]
 [ext_resource type="PackedScene" uid="uid://b4ifd4nn31mq8" path="res://obj/components/hurt_box.tscn" id="9_3vqfx"]
+[ext_resource type="Texture2D" uid="uid://bsrnnrtx2tib7" path="res://img/new_light.png" id="10_cb2yh"]
 [ext_resource type="AudioStream" uid="uid://31xvcqxgens0" path="res://snd/sfx/scream.wav" id="10_ti353"]
 [ext_resource type="PackedScene" uid="uid://clebifn20pbo5" path="res://ui/pause.tscn" id="11_heitk"]
 [ext_resource type="PackedScene" uid="uid://bfrhglfhp1ihi" path="res://ui/f_1_menu.tscn" id="12_i05es"]
 [ext_resource type="PackedScene" uid="uid://ddfo6c5nx4m8h" path="res://lvls/misc/light.tscn" id="12_p0x4g"]
 [ext_resource type="PackedScene" uid="uid://df86p143ocdnj" path="res://ui/ded_menu.tscn" id="13_vfuiq"]
-[ext_resource type="Texture2D" uid="uid://cy2eud5lve0j5" path="res://img/misc/light232.png" id="15_pajcc"]
 [ext_resource type="Script" path="res://obj/bodies/marker_2d.gd" id="16_ku1r1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xlh8"]
@@ -231,9 +231,18 @@ current = true
 [node name="light" parent="." instance=ExtResource("12_p0x4g")]
 position = Vector2(0, -6)
 
+[node name="PointLight2D" parent="light" index="0"]
+texture = ExtResource("10_cb2yh")
+
+[node name="castil" parent="light" index="1"]
+texture = ExtResource("10_cb2yh")
+
+[node name="itemlight" parent="light" index="2"]
+texture = ExtResource("10_cb2yh")
+
 [node name="player" type="PointLight2D" parent="light"]
 range_item_cull_mask = 16
-texture = ExtResource("15_pajcc")
+texture = ExtResource("10_cb2yh")
 texture_scale = 0.5
 
 [node name="ProgressBar" type="ProgressBar" parent="."]

@@ -38,6 +38,7 @@ reload_time = 1
 sound = ExtResource("4_il5h1")
 loud_dist = 100
 proj_desc = "SMG bullets"
+wear = 1.0
 item_name = "SMGll mag"
 item_description = "Subsonic rounds.
 Popular among
@@ -46,8 +47,8 @@ Recomended to
 use with silencer.
 "
 cost = 30
-max_durability = 1000
-curr_durability = 1000
+max_durability = 1000.0
+curr_durability = 1000.0
 sprite = ExtResource("5_lnwct")
 sprite_offset = Vector2(1, 1)
 bullet_strategies = Array[ExtResource("1_hdoi6")]([])

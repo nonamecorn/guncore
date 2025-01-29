@@ -28,8 +28,8 @@ item_name = "Muzzle brake"
 item_description = "Must have for
 Meta players."
 cost = 45
-max_durability = 1000
-curr_durability = 1000
+max_durability = 1000.0
+curr_durability = 1000.0
 sprite = ExtResource("3_1q8a4")
 sprite_offset = Vector2(4, 0)
 bullet_strategies = Array[ExtResource("1_6t3jc")]([])
