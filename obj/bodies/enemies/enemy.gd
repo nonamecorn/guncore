@@ -8,11 +8,8 @@ const FRICTION = 700
 @onready var item_base = load("res://obj/components/item_ground_base.tscn")
 
 var randomnum
-var bodies = []
-var nearby_allies = []
-var nearby_enemies = []
+
 var current_target = null
-var previous_target = null
 var dead = false
 var id : int
 
@@ -67,8 +64,7 @@ func _on_less_crucial_checks_timeout() -> void:
 	if  dead:
 		return
 	$Label.text = str(state)
-	bodies = get_tree().get_nodes_in_group("body")
-	update_current_target()
+	
 	match state:
 		IDLE:
 			direction = (get_self_circle_position(randomnum) - global_position).normalized() 
@@ -101,16 +97,17 @@ func _physics_process(delta):
 			run(delta)
 		CHASE:
 			move(delta)
-func start_blastin():
+func start_blastin(target):
+	print("ses")
+	current_target = target
 	$Sprite2D/idle.hide()
 	$Sprite2D/walk.show()
 	$enemy_hand_component.state = 0
 	state = SURROUND
 
 func start_chasin():
-	if state == SURROUND: return
-	if (current_target in $cqb_awarness.get_overlapping_bodies()) and state == SURROUND:
-		return
+	#if (current_target in $cqb_awarness.get_overlapping_bodies()) and state == SURROUND:
+		#return
 	$Sprite2D/idle.hide()
 	$Sprite2D/walk.show()
 	$enemy_hand_component.state = 1
@@ -191,33 +188,6 @@ func check_witness():
 	else:
 		GlobalVars.erase_witness(id)
 
-func update_nearby_npcs():
-	nearby_allies = []
-	nearby_enemies = []
-	for body in bodies:
-		if body.is_in_group(group):
-			nearby_allies.append(body)
-		else:
-			nearby_enemies.append(body)
-
-func update_current_target():
-	update_nearby_npcs()
-	previous_target = current_target
-	current_target = get_closest(nearby_enemies)
-	if current_target == null:
-		return false
-	return true
-
-func get_closest(array):
-	if dead: return
-	var closest = null
-	var smallest_distance = -1
-	for body in array:
-		var dist_to_body = global_position.distance_squared_to(body.global_position)
-		if smallest_distance < 0 or dist_to_body < smallest_distance:
-			closest = body
-			smallest_distance = dist_to_body
-	return closest
 
 
 func hurt(amnt):

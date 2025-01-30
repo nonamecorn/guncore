@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://df3di7rm5cgei"]
+[gd_scene load_steps=9 format=3 uid="uid://df3di7rm5cgei"]
 
 [ext_resource type="Script" path="res://obj/components/enemy_hand_component.gd" id="1_ayyde"]
 [ext_resource type="Texture2D" uid="uid://dituxt4ekcmwa" path="res://img/misc/casing.png" id="2_pvhvs"]
@@ -35,12 +35,14 @@ damping_min = 23.944
 damping_max = 23.944
 damping_curve = SubResource("CurveTexture_6rby1")
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_u4rxq"]
+radius = 165.194
+
 [node name="enemy_hand_component" type="Node2D" node_paths=PackedStringArray("particles")]
 script = ExtResource("1_ayyde")
 particles = NodePath("GPUParticles2D")
 
 [node name="attack" type="Timer" parent="."]
-wait_time = 1.5
 
 [node name="Marker2D" type="Marker2D" parent="."]
 position = Vector2(80, 0)
@@ -51,5 +53,13 @@ amount = 6
 process_material = SubResource("ParticleProcessMaterial_rhrj5")
 texture = ExtResource("2_pvhvs")
 lifetime = 1.8
+
+[node name="Cqb_awareness" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cqb_awareness"]
+shape = SubResource("CircleShape2D_u4rxq")
 
 [connection signal="timeout" from="attack" to="." method="_on_attack_timeout"]

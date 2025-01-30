@@ -3,10 +3,16 @@ extends Node2D
 @export var hand_length = 80
 var state = IDLE
 var look_vec = Vector2.ZERO
-var angle_cone_of_vission = 45
+var angle_cone_of_vission = 55
 var angle_between_rays = 10
 var max_viev_distance = 600
 var current_target
+
+var bodies = []
+var nearby_allies = []
+var nearby_enemies = []
+var group : String
+
 @export var ray : Node
 @export var particles : Node 
 @export var turn_speed = 200.0
@@ -18,6 +24,7 @@ enum {
 var rng = RandomNumberGenerator.new()
 
 func _ready() -> void:
+	group = get_parent().group
 	rng.randomize()
 	$Marker2D.position.x = hand_length
 	$Marker2D.get_child(0).empty.connect(reload)
@@ -47,23 +54,58 @@ func _physics_process(delta: float) -> void:
 		flip()
 	face_point(delta)
 	
+	if rng.randi_range(0,1) == 1:
+		bodies = get_tree().get_nodes_in_group("body")
+		update_current_target()
 
 func firing_state():
-	if !current_target or !is_instance_valid(current_target):
-		get_parent().start_chasin()
-		return
 	look_vec = (current_target.global_position - global_position).normalized()
 	if !_in_vision_cone(current_target.global_position) or !has_los(current_target):
+		if current_target in $Cqb_awareness.get_overlapping_bodies():
+			return
+		for enemy in nearby_enemies:
+			if _in_vision_cone(enemy.global_position) and has_los(enemy):
+				current_target = enemy
+				#print("blastin")
+				$attack.start()
+				get_parent().start_blastin(current_target)
+				return
 		get_parent().start_chasin()
 
 func idle_state():
 	look_vec = get_parent().direction
-	if !current_target or !is_instance_valid(current_target):
-		return
-	if _in_vision_cone(current_target.global_position) and has_los(current_target):
-		#print("blastin")
-		$attack.start()
-		get_parent().start_blastin()
+	if rng.randi_range(0,1) == 1:
+		for enemy in nearby_enemies:
+			if _in_vision_cone(enemy.global_position) and has_los(enemy):
+				print("blastin")
+				$attack.start()
+				get_parent().start_blastin(enemy)
+func update_nearby_npcs():
+	nearby_allies = []
+	nearby_enemies = []
+	for body in bodies:
+		if body.is_in_group(group):
+			nearby_allies.append(body)
+		else:
+			nearby_enemies.append(body)
+
+func update_current_target():
+	update_nearby_npcs()
+	current_target = get_closest(nearby_enemies)
+	if current_target == null:
+		return false
+	return true
+
+func get_closest(array):
+	var closest = null
+	var smallest_distance = -1
+	for body in array:
+		var dist_to_body = global_position.distance_squared_to(body.global_position)
+		if smallest_distance < 0 or dist_to_body < smallest_distance:
+			closest = body
+			smallest_distance = dist_to_body
+	return closest
+
 
 func get_self_circle_position():
 	var kill_circle_centre = Vector2.ZERO

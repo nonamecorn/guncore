@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=3 uid="uid://c3jo85so338er"]
+[gd_scene load_steps=19 format=3 uid="uid://c3jo85so338er"]
 
 [ext_resource type="Script" path="res://obj/bodies/enemies/enemy.gd" id="1_qbvdd"]
 [ext_resource type="Texture2D" uid="uid://88j42qnvmjuu" path="res://img/bodys/cultist_IdleAnim.png" id="2_j18lw"]
@@ -77,9 +77,6 @@ height = 10.0
 radius = 7.0
 height = 26.0
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_t83n3"]
-radius = 98.0204
-
 [node name="enemy" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent") groups=["body", "cultist", "targetable"]]
 collision_layer = 36
 script = ExtResource("1_qbvdd")
@@ -155,14 +152,6 @@ offset_left = -19.0
 offset_top = -46.0
 offset_right = 21.0
 offset_bottom = -30.0
-
-[node name="cqb_awarness" type="Area2D" parent="."]
-collision_layer = 0
-collision_mask = 4
-monitorable = false
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="cqb_awarness"]
-shape = SubResource("CircleShape2D_t83n3")
 
 [connection signal="timeout" from="enemy_hand_component/burst_duration" to="enemy_hand_component" method="_on_burst_duration_timeout"]
 [connection signal="timeout" from="change_position" to="." method="_on_change_position_timeout"]
