@@ -231,15 +231,6 @@ current = true
 [node name="light" parent="." instance=ExtResource("12_p0x4g")]
 position = Vector2(0, -6)
 
-[node name="PointLight2D" parent="light" index="0"]
-texture = ExtResource("10_cb2yh")
-
-[node name="castil" parent="light" index="1"]
-texture = ExtResource("10_cb2yh")
-
-[node name="itemlight" parent="light" index="2"]
-texture = ExtResource("10_cb2yh")
-
 [node name="player" type="PointLight2D" parent="light"]
 range_item_cull_mask = 16
 texture = ExtResource("10_cb2yh")

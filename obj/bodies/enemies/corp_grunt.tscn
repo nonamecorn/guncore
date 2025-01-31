@@ -124,7 +124,9 @@ shape = SubResource("CapsuleShape2D_egrxt")
 position = Vector2(0, -14)
 hand_length = 16
 ray = NodePath("../RayCast2D")
-turn_speed = 200.0
+
+[node name="attack" parent="enemy_hand_component" index="0"]
+wait_time = 0.5
 
 [node name="gun_base" parent="enemy_hand_component/Marker2D" index="0" instance=ExtResource("4_cyios")]
 

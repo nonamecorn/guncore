@@ -128,6 +128,8 @@ func death():
 	died.emit()
 	state = IDLE
 	$player_hand_component.follow = false
+	$CanvasLayer/Inventory.hide_properly()
+	$Camera2D.follow = false
 	$death.play()
 	$CollisionShape2D.disabled = true
 	$Sprite2D.rotation_degrees = 90

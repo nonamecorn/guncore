@@ -1,0 +1,11 @@
+[gd_resource type="AudioStreamSynchronized" load_steps=3 format=3 uid="uid://cpqm7grjctrrb"]
+
+[ext_resource type="AudioStream" uid="uid://dpajqhxt7es67" path="res://snd/music/world1/locked_calm.ogg" id="1_tk54x"]
+[ext_resource type="AudioStream" uid="uid://8ia10pndk80b" path="res://snd/music/world1/locked_metal.ogg" id="2_i50op"]
+
+[resource]
+stream_count = 2
+stream_0/stream = ExtResource("1_tk54x")
+stream_0/volume = -30.0
+stream_1/stream = ExtResource("2_i50op")
+stream_1/volume = 0.0

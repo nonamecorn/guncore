@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=3 uid="uid://bf65xavyr0pes"]
+[gd_scene load_steps=14 format=3 uid="uid://bf65xavyr0pes"]
 
 [ext_resource type="Script" path="res://lvls/misc/module_connector.gd" id="1_4gpo4"]
 [ext_resource type="Texture2D" uid="uid://vcgyqkg8rba5" path="res://img/levels/N.png" id="2_nh3ni"]
@@ -9,14 +9,26 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_dtynl"]
 size = Vector2(192, 48)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_hw7nb"]
+polygon = PackedVector2Array(-96, 24, -80, 24, -80, -8, 80, -8, 80, 24, 96, 24, 96, -24, -96, -24)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_blgbc"]
 size = Vector2(18, 224)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_vc164"]
+polygon = PackedVector2Array(8, -112, 8, 112, -8, 112, -8, -112)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_k53ja"]
 size = Vector2(16, 224)
 
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_w1np2"]
+polygon = PackedVector2Array(-8, -112, -8, 112, 8, 112, 8, -112)
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_ploom"]
 size = Vector2(192, 16)
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fau60"]
+polygon = PackedVector2Array(-96, -8, 96, -8, 96, 8, -96, 8)
 
 [node name="module_connector" type="Marker2D" groups=["connector"]]
 script = ExtResource("1_4gpo4")
@@ -34,6 +46,9 @@ collision_mask = 3
 shape = SubResource("RectangleShape2D_dtynl")
 disabled = true
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="NORTH"]
+occluder = SubResource("OccluderPolygon2D_hw7nb")
+
 [node name="WEST" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(-8, 0)
@@ -48,6 +63,9 @@ position = Vector2(1, 0)
 shape = SubResource("RectangleShape2D_blgbc")
 disabled = true
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="WEST"]
+occluder = SubResource("OccluderPolygon2D_vc164")
+
 [node name="EAST" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(8, 0)
@@ -61,6 +79,9 @@ collision_mask = 3
 shape = SubResource("RectangleShape2D_k53ja")
 disabled = true
 
+[node name="LightOccluder2D" type="LightOccluder2D" parent="EAST"]
+occluder = SubResource("OccluderPolygon2D_w1np2")
+
 [node name="SOUTH" type="Sprite2D" parent="."]
 visible = false
 position = Vector2(16, 8)
@@ -73,6 +94,9 @@ collision_mask = 3
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SOUTH/StaticBody2D"]
 shape = SubResource("RectangleShape2D_ploom")
 disabled = true
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="SOUTH"]
+occluder = SubResource("OccluderPolygon2D_fau60")
 
 [node name="Polygon2D" type="Polygon2D" parent="."]
 visible = false

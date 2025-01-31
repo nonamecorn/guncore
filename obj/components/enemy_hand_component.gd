@@ -77,7 +77,7 @@ func idle_state():
 	if rng.randi_range(0,1) == 1:
 		for enemy in nearby_enemies:
 			if _in_vision_cone(enemy.global_position) and has_los(enemy):
-				print("blastin")
+				#print("blastin")
 				$attack.start()
 				get_parent().start_blastin(enemy)
 func update_nearby_npcs():

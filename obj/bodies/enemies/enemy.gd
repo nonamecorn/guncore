@@ -98,7 +98,7 @@ func _physics_process(delta):
 		CHASE:
 			move(delta)
 func start_blastin(target):
-	print("ses")
+	#print("ses")
 	current_target = target
 	$Sprite2D/idle.hide()
 	$Sprite2D/walk.show()
@@ -198,7 +198,7 @@ func hurt(amnt):
 	if state == IDLE:
 		state = RUN
 		$change_position.wait_time = 0.5
-		$enemy_hand_component.state = 2
+		$enemy_hand_component.state = 1
 
 func die():
 	if dead: return

@@ -1,10 +1,11 @@
-[gd_scene load_steps=18 format=3 uid="uid://dx085y3efeew"]
+[gd_scene load_steps=17 format=3 uid="uid://dx085y3efeew"]
 
 [ext_resource type="Script" path="res://ost_manager.gd" id="1_rbwo4"]
 [ext_resource type="AudioStream" uid="uid://dmbwqwhphmh7t" path="res://snd/music/general/attachmentbreaker.ogg" id="2_3q357"]
 [ext_resource type="AudioStream" uid="uid://dpajqhxt7es67" path="res://snd/music/world1/locked_calm.ogg" id="3_sehid"]
 [ext_resource type="AudioStream" uid="uid://cqkfwb03uptlo" path="res://snd/music/world1/customarket.ogg" id="3_xb3fa"]
 [ext_resource type="AudioStream" uid="uid://8ia10pndk80b" path="res://snd/music/world1/locked_metal.ogg" id="4_k678b"]
+[ext_resource type="AudioStream" uid="uid://cpqm7grjctrrb" path="res://others/syncronised_shaite.tres" id="6_jj6rl"]
 
 [sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_lsjum"]
 stream_count = 1
@@ -22,8 +23,12 @@ stream_0 = ExtResource("3_sehid")
 stream_count = 1
 stream_0 = ExtResource("4_k678b")
 
+[sub_resource type="AudioStreamPlaylist" id="AudioStreamPlaylist_l3wxu"]
+stream_count = 1
+stream_0 = ExtResource("6_jj6rl")
+
 [sub_resource type="AudioStreamInteractive" id="AudioStreamInteractive_gdf1j"]
-clip_count = 4
+clip_count = 5
 clip_0/name = &"Menu"
 clip_0/stream = SubResource("AudioStreamPlaylist_lsjum")
 clip_0/auto_advance = 0
@@ -36,6 +41,9 @@ clip_2/auto_advance = 0
 clip_3/name = &"Battle_metal"
 clip_3/stream = SubResource("AudioStreamPlaylist_d8r71")
 clip_3/auto_advance = 0
+clip_4/name = &"Battle"
+clip_4/stream = SubResource("AudioStreamPlaylist_l3wxu")
+clip_4/auto_advance = 0
 _transitions = {
 Vector2i(2, 2): {
 "fade_beats": 1,
@@ -63,24 +71,24 @@ Vector2i(3, 3): {
 }
 }
 
-[sub_resource type="Animation" id="Animation_t5a1h"]
+[sub_resource type="Animation" id="Animation_d81rh"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Locked_blya:stream:stream_1/volume")
+tracks/0/path = NodePath("AudioStreamPlayer:stream:clip_4/stream:stream_0:stream_1/volume")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [-60.0]
+"values": [-30.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Locked_blya:stream:stream_0/volume")
+tracks/1/path = NodePath("AudioStreamPlayer:stream:clip_4/stream:stream_0:stream_0/volume")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -90,50 +98,38 @@ tracks/1/keys = {
 "values": [0.0]
 }
 
-[sub_resource type="Animation" id="Animation_ehe52"]
-resource_name = "battle_to_shop"
-
-[sub_resource type="Animation" id="Animation_bi11s"]
-resource_name = "fade_to_battle"
+[sub_resource type="Animation" id="Animation_26ko1"]
+resource_name = "shift_metal"
 length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Locked_blya:stream:stream_1/volume")
+tracks/0/path = NodePath("AudioStreamPlayer:stream:clip_4/stream:stream_0:stream_1/volume")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0.266667),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0.0]
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(0.143587, 1),
+"update": 0,
+"values": [-30.0, 0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("Locked_blya:stream:stream_0/volume")
+tracks/1/path = NodePath("AudioStreamPlayer:stream:clip_4/stream:stream_0:stream_0/volume")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.5),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [0.0, -60.0]
+"transitions": PackedFloat32Array(1, 0.378929),
+"update": 0,
+"values": [0.0, -30.0]
 }
-
-[sub_resource type="Animation" id="Animation_jw74l"]
-resource_name = "fade_to_calm"
-
-[sub_resource type="Animation" id="Animation_uafej"]
-resource_name = "shop_to_battle"
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6byle"]
 _data = {
-"RESET": SubResource("Animation_t5a1h"),
-"battle_to_shop": SubResource("Animation_ehe52"),
-"fade_to_battle": SubResource("Animation_bi11s"),
-"fade_to_calm": SubResource("Animation_jw74l"),
-"shop_to_battle": SubResource("Animation_uafej")
+"RESET": SubResource("Animation_d81rh"),
+"shift_metal": SubResource("Animation_26ko1")
 }
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_vyx4i"]

@@ -39,7 +39,7 @@ func change_score(new_kills, new_loop):
 	loop = new_loop
 	score_changed.emit(new_kills, new_loop)
 	if people == kills:
-		OstManager.switch_track("Battle_calm")
+		OstManager.shift_calm()
 
 var people = 0
 var witnesses = []
@@ -48,6 +48,7 @@ func add_witness(witness):
 	witnesses.append(witness)
 	witnesses = array_unique(witnesses)
 	if witnesses.size() != 0:
+		OstManager.shift_metal()
 		i_see_you.emit(true)
 
 
