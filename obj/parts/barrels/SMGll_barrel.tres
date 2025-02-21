@@ -20,10 +20,10 @@ of gases in special compartment,
 allowing it to shoot in two speeds.
 Switch is stuck on low one though."
 cost = 10
-max_durability = 1000
-curr_durability = 1000
+max_durability = 1000.0
+curr_durability = 1000.0
 sprite = ExtResource("3_dlif1")
-sprite_offset = Vector2(3, 0)
+sprite_offset = Vector2(4, 0)
 bullet_strategies = Array[ExtResource("1_ikcdj")]([])
 player_strategies = Array[ExtResource("3_rfg3k")]([])
 shootin_strategies = Array[ExtResource("5_2xock")]([])

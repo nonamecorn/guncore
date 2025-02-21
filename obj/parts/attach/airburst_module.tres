@@ -15,8 +15,10 @@ item_description = "See Elysium (not Disco).
 Recomended to use with 
 airburst bullets."
 cost = 60
+max_durability = 1000.0
+curr_durability = 1000.0
 sprite = ExtResource("5_hiewr")
-sprite_offset = Vector2(0, -3)
+sprite_offset = Vector2(4, -7)
 bullet_strategies = Array[ExtResource("1_6363m")]([])
 player_strategies = Array[ExtResource("3_drpap")]([])
 shootin_strategies = Array[ExtResource("5_makya")]([ExtResource("6_pl1m6")])

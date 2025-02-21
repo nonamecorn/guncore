@@ -92,7 +92,7 @@ func asseble_gun(parts : Dictionary):
 	wear = parts.MAG.wear
 	$audio/shoting.stream = parts.MAG.sound
 	$MUZZLE.position = parts.BARREL.muzzle_position + parts.RECIEVER.barrel_position
-	$pos.position = $MUZZLE.position + Vector2.RIGHT * 5
+	$pos.position = $MUZZLE.position + Vector2.RIGHT * 5  + Vector2(0, -0.5)
 	if parts.MUZZLE != null:
 		spawn_facade(parts.MUZZLE, $MUZZLE.position + parts.MUZZLE.sprite_offset)
 		$pos.position += parts.MUZZLE.bullet_vector

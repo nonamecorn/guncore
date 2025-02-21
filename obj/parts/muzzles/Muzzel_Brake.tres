@@ -23,7 +23,7 @@ is_set = false
 
 [resource]
 script = ExtResource("2_7mp8e")
-bullet_vector = Vector2(8, 0)
+bullet_vector = Vector2(8, -0.5)
 item_name = "Muzzle brake"
 item_description = "Must have for
 Meta players."

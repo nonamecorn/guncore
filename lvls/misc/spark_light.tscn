@@ -1,7 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://ca52a43nebb5e"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_m2lye"]
-load_path = "res://.godot/imported/spark_light.png-54ddc9c1ab6bd4d2e686af65279a64c0.ctex"
 
 [node name="spark_light" type="Node2D"]
 
