@@ -13,7 +13,6 @@ const item_base = preload("res://ui/item_base.tscn")
 @export var eq_slot1 : Node
 @export var eq_slot2 : Node
 @export var eq_slot3 : Node
-@export var augs : Node
 @export var collector : Node
 @export var safe_net : Node
 @export var shop : Node
@@ -193,7 +192,7 @@ func check_popup(cursor_pos):
 func get_container_under_cursor(cursor_pos):
 	var active_containers = [grid_bkpk,
 	 eq_slot1, eq_slot2,
-	 collector, augs, shop, sell_point,
+	 collector, eq_slot3, shop, sell_point,
 	 safe_net].filter(func(thing): return thing.visible)
 	for c in active_containers:
 		if c.get_global_rect().has_point(cursor_pos):

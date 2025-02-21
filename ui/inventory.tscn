@@ -1,8 +1,9 @@
-[gd_scene load_steps=30 format=3 uid="uid://d0ex485qfg6qx"]
+[gd_scene load_steps=33 format=3 uid="uid://d0ex485qfg6qx"]
 
 [ext_resource type="Script" path="res://ui/inventory.gd" id="1_vc4ge"]
 [ext_resource type="Script" path="res://ui/texture_rect.gd" id="2_gjxwj"]
 [ext_resource type="Texture2D" uid="uid://bl5o8lhl8assn" path="res://img/ui/inventory3.png" id="2_uegg3"]
+[ext_resource type="Texture2D" uid="uid://cmay0qlukvut6" path="res://img/ui/Gunslot_1.png" id="3_3hpgi"]
 [ext_resource type="Texture2D" uid="uid://bpp86byvrxopq" path="res://img/ui/inventory_cover.png" id="4_0csks"]
 [ext_resource type="Texture2D" uid="uid://faonagr4q8jo" path="res://img/ui/UI.png" id="4_2lq67"]
 [ext_resource type="Script" path="res://ui/equipment_shaite.gd" id="4_xef72"]
@@ -19,7 +20,9 @@
 [ext_resource type="Script" path="res://ui/shop.gd" id="11_6lbvg"]
 [ext_resource type="Texture2D" uid="uid://xhcr3s0vochg" path="res://img/ui/Mag.png" id="11_x1v8h"]
 [ext_resource type="Texture2D" uid="uid://ddk3781ecrb5h" path="res://img/ui/Atachment.png" id="12_3acbc"]
+[ext_resource type="Texture2D" uid="uid://c1ajad8wboj20" path="res://img/ui/Gunslot_2.png" id="12_volt8"]
 [ext_resource type="Texture2D" uid="uid://bfr6o86yefe4g" path="res://img/ui/Guts.png" id="13_35cpt"]
+[ext_resource type="Texture2D" uid="uid://c8st3o2mike05" path="res://img/ui/Gear.png" id="13_pe0tj"]
 [ext_resource type="Texture2D" uid="uid://bkjtqix3hyjsa" path="res://img/ui/Helmet.png" id="14_3ddj3"]
 [ext_resource type="Texture2D" uid="uid://c1lee8a3t06tt" path="res://img/ui/ArmorSlot.png" id="15_isfqa"]
 [ext_resource type="Texture2D" uid="uid://ds0gmt5dgnqnp" path="res://img/ui/Hand.png" id="16_7ox2p"]
@@ -30,7 +33,7 @@
 [ext_resource type="Texture2D" uid="uid://b2lkovbldqmkk" path="res://img/big_art/jena_new.jpg" id="27_257ws"]
 [ext_resource type="PackedScene" uid="uid://ggi5lqbxx6uu" path="res://ui/ui_button.tscn" id="28_1kw70"]
 
-[node name="Inventory" type="Control" node_paths=PackedStringArray("grid_bkpk", "eq_slot1", "eq_slot2", "eq_slot3", "augs", "collector", "safe_net", "shop", "shop_dil", "sell_point", "desc_text", "le_items", "shop_items")]
+[node name="Inventory" type="Control" node_paths=PackedStringArray("grid_bkpk", "eq_slot1", "eq_slot2", "eq_slot3", "collector", "safe_net", "shop", "shop_dil", "sell_point", "desc_text", "le_items", "shop_items")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -43,7 +46,6 @@ grid_bkpk = NodePath("grid_backpack")
 eq_slot1 = NodePath("equipments/equipment_shaite")
 eq_slot2 = NodePath("equipments/equipment_shaite2")
 eq_slot3 = NodePath("equipments/equipment_shaite4")
-augs = NodePath("equipments/equipment_shaite4")
 collector = NodePath("collector")
 safe_net = NodePath("safety_net")
 shop = NodePath("shop_backpack2")
@@ -67,9 +69,9 @@ color = Color(0.627451, 0.129412, 0.243137, 0.305882)
 [node name="PanelContainer2" type="PanelContainer" parent="."]
 layout_mode = 0
 offset_left = 937.0
-offset_top = 8.0
+offset_top = 14.0
 offset_right = 1169.0
-offset_bottom = 168.0
+offset_bottom = 162.0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="PanelContainer2"]
 layout_mode = 2
@@ -95,9 +97,9 @@ stats"
 [node name="PanelContainer3" type="PanelContainer" parent="."]
 layout_mode = 0
 offset_left = 937.0
-offset_top = 168.0
+offset_top = 174.0
 offset_right = 1169.0
-offset_bottom = 328.0
+offset_bottom = 322.0
 
 [node name="NinePatchRect" type="NinePatchRect" parent="PanelContainer3"]
 layout_mode = 2
@@ -127,76 +129,72 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="equipment_shaite" type="NinePatchRect" parent="equipments"]
+[node name="equipment_shaite" type="TextureRect" parent="equipments"]
 layout_mode = 2
-offset_left = 1040.0
-offset_top = 8.0
-offset_right = 1262.0
-offset_bottom = 168.0
-texture = ExtResource("4_2lq67")
-patch_margin_left = 20
-patch_margin_top = 20
-patch_margin_right = 20
-patch_margin_bottom = 20
+offset_left = 1028.0
+offset_top = -8.0
+offset_right = 1284.0
+offset_bottom = 184.0
+texture = ExtResource("3_3hpgi")
 script = ExtResource("4_xef72")
 
 [node name="RECIEVER" type="TextureRect" parent="equipments/equipment_shaite"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 80.0
-offset_bottom = 80.0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 96.0
+offset_bottom = 96.0
 texture = ExtResource("8_ek5p5")
 stretch_mode = 4
 
 [node name="MAG" type="TextureRect" parent="equipments/equipment_shaite"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-offset_left = 80.0
-offset_top = 16.0
-offset_right = 144.0
-offset_bottom = 80.0
+offset_left = 96.0
+offset_top = 32.0
+offset_right = 160.0
+offset_bottom = 96.0
 texture = ExtResource("11_x1v8h")
 stretch_mode = 4
 
 [node name="BARREL" type="TextureRect" parent="equipments/equipment_shaite"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-offset_left = 144.0
-offset_top = 16.0
-offset_right = 208.0
-offset_bottom = 80.0
+offset_left = 160.0
+offset_top = 32.0
+offset_right = 224.0
+offset_bottom = 96.0
 texture = ExtResource("9_2shbn")
 stretch_mode = 4
 
 [node name="MUZZLE" type="TextureRect" parent="equipments/equipment_shaite"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-offset_left = 16.0
-offset_top = 80.0
-offset_right = 80.0
-offset_bottom = 144.0
+offset_left = 32.0
+offset_top = 96.0
+offset_right = 96.0
+offset_bottom = 160.0
 texture = ExtResource("10_wkiin")
 stretch_mode = 4
 
 [node name="ATTACH" type="TextureRect" parent="equipments/equipment_shaite"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-offset_left = 80.0
-offset_top = 80.0
-offset_right = 144.0
-offset_bottom = 144.0
+offset_left = 96.0
+offset_top = 96.0
+offset_right = 160.0
+offset_bottom = 160.0
 texture = ExtResource("12_3acbc")
 stretch_mode = 4
 
 [node name="GUTS" type="TextureRect" parent="equipments/equipment_shaite"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-offset_left = 144.0
-offset_top = 80.0
-offset_right = 208.0
-offset_bottom = 144.0
+offset_left = 160.0
+offset_top = 96.0
+offset_right = 224.0
+offset_bottom = 160.0
 texture = ExtResource("13_35cpt")
 stretch_mode = 4
 
@@ -204,10 +202,10 @@ stretch_mode = 4
 visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-offset_left = 11.0
-offset_top = 8.0
-offset_right = 75.0
-offset_bottom = 72.0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 96.0
+offset_bottom = 96.0
 mouse_filter = 2
 texture = ExtResource("6_uhxew")
 stretch_mode = 4
@@ -216,10 +214,10 @@ stretch_mode = 4
 visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-offset_left = 79.0
-offset_top = 8.0
-offset_right = 143.0
-offset_bottom = 72.0
+offset_left = 96.0
+offset_top = 32.0
+offset_right = 160.0
+offset_bottom = 96.0
 mouse_filter = 2
 texture = ExtResource("6_uhxew")
 stretch_mode = 4
@@ -228,10 +226,10 @@ stretch_mode = 4
 visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-offset_left = 147.0
-offset_top = 8.0
-offset_right = 211.0
-offset_bottom = 72.0
+offset_left = 160.0
+offset_top = 32.0
+offset_right = 224.0
+offset_bottom = 96.0
 mouse_filter = 2
 texture = ExtResource("6_uhxew")
 stretch_mode = 4
@@ -240,10 +238,10 @@ stretch_mode = 4
 visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-offset_left = 11.0
-offset_top = 76.0
-offset_right = 75.0
-offset_bottom = 140.0
+offset_left = 32.0
+offset_top = 96.0
+offset_right = 96.0
+offset_bottom = 160.0
 mouse_filter = 2
 texture = ExtResource("6_uhxew")
 stretch_mode = 4
@@ -252,10 +250,10 @@ stretch_mode = 4
 visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-offset_left = 79.0
-offset_top = 76.0
-offset_right = 143.0
-offset_bottom = 140.0
+offset_left = 96.0
+offset_top = 96.0
+offset_right = 160.0
+offset_bottom = 160.0
 mouse_filter = 2
 texture = ExtResource("6_uhxew")
 stretch_mode = 4
@@ -264,84 +262,80 @@ stretch_mode = 4
 visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-offset_left = 147.0
-offset_top = 76.0
-offset_right = 211.0
-offset_bottom = 140.0
+offset_left = 160.0
+offset_top = 96.0
+offset_right = 224.0
+offset_bottom = 160.0
 mouse_filter = 2
 texture = ExtResource("6_uhxew")
 stretch_mode = 4
 
-[node name="equipment_shaite2" type="NinePatchRect" parent="equipments"]
+[node name="equipment_shaite2" type="TextureRect" parent="equipments"]
 layout_mode = 2
-offset_left = 1040.0
-offset_top = 168.0
-offset_right = 1262.0
-offset_bottom = 328.0
-texture = ExtResource("4_2lq67")
-patch_margin_left = 20
-patch_margin_top = 20
-patch_margin_right = 20
-patch_margin_bottom = 20
+offset_left = 1028.0
+offset_top = 152.0
+offset_right = 1284.0
+offset_bottom = 344.0
+texture = ExtResource("12_volt8")
 script = ExtResource("4_xef72")
 
 [node name="RECIEVER" type="TextureRect" parent="equipments/equipment_shaite2"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 80.0
-offset_bottom = 80.0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 96.0
+offset_bottom = 96.0
 texture = ExtResource("8_ek5p5")
 stretch_mode = 4
 
 [node name="MAG" type="TextureRect" parent="equipments/equipment_shaite2"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-offset_left = 80.0
-offset_top = 16.0
-offset_right = 144.0
-offset_bottom = 80.0
+offset_left = 96.0
+offset_top = 32.0
+offset_right = 160.0
+offset_bottom = 96.0
 texture = ExtResource("11_x1v8h")
 stretch_mode = 4
 
 [node name="BARREL" type="TextureRect" parent="equipments/equipment_shaite2"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-offset_left = 144.0
-offset_top = 16.0
-offset_right = 208.0
-offset_bottom = 80.0
+offset_left = 160.0
+offset_top = 32.0
+offset_right = 224.0
+offset_bottom = 96.0
 texture = ExtResource("9_2shbn")
 stretch_mode = 4
 
 [node name="MUZZLE" type="TextureRect" parent="equipments/equipment_shaite2"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-offset_left = 16.0
-offset_top = 80.0
-offset_right = 80.0
-offset_bottom = 144.0
+offset_left = 32.0
+offset_top = 96.0
+offset_right = 96.0
+offset_bottom = 160.0
 texture = ExtResource("10_wkiin")
 stretch_mode = 4
 
 [node name="ATTACH" type="TextureRect" parent="equipments/equipment_shaite2"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-offset_left = 80.0
-offset_top = 80.0
-offset_right = 144.0
-offset_bottom = 144.0
+offset_left = 96.0
+offset_top = 96.0
+offset_right = 160.0
+offset_bottom = 160.0
 texture = ExtResource("12_3acbc")
 stretch_mode = 4
 
 [node name="GUTS" type="TextureRect" parent="equipments/equipment_shaite2"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-offset_left = 144.0
-offset_top = 80.0
-offset_right = 208.0
-offset_bottom = 144.0
+offset_left = 160.0
+offset_top = 96.0
+offset_right = 224.0
+offset_bottom = 160.0
 texture = ExtResource("13_35cpt")
 stretch_mode = 4
 
@@ -349,10 +343,10 @@ stretch_mode = 4
 visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-offset_left = 11.0
-offset_top = 8.0
-offset_right = 75.0
-offset_bottom = 72.0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 96.0
+offset_bottom = 96.0
 mouse_filter = 2
 texture = ExtResource("6_uhxew")
 stretch_mode = 4
@@ -361,10 +355,10 @@ stretch_mode = 4
 visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-offset_left = 79.0
-offset_top = 8.0
-offset_right = 143.0
-offset_bottom = 72.0
+offset_left = 96.0
+offset_top = 32.0
+offset_right = 160.0
+offset_bottom = 96.0
 mouse_filter = 2
 texture = ExtResource("6_uhxew")
 stretch_mode = 4
@@ -373,10 +367,10 @@ stretch_mode = 4
 visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-offset_left = 147.0
-offset_top = 8.0
-offset_right = 211.0
-offset_bottom = 72.0
+offset_left = 160.0
+offset_top = 32.0
+offset_right = 224.0
+offset_bottom = 96.0
 mouse_filter = 2
 texture = ExtResource("6_uhxew")
 stretch_mode = 4
@@ -385,10 +379,10 @@ stretch_mode = 4
 visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-offset_left = 11.0
-offset_top = 76.0
-offset_right = 75.0
-offset_bottom = 140.0
+offset_left = 32.0
+offset_top = 96.0
+offset_right = 96.0
+offset_bottom = 160.0
 mouse_filter = 2
 texture = ExtResource("6_uhxew")
 stretch_mode = 4
@@ -397,10 +391,10 @@ stretch_mode = 4
 visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-offset_left = 79.0
-offset_top = 76.0
-offset_right = 143.0
-offset_bottom = 140.0
+offset_left = 96.0
+offset_top = 96.0
+offset_right = 160.0
+offset_bottom = 160.0
 mouse_filter = 2
 texture = ExtResource("6_uhxew")
 stretch_mode = 4
@@ -409,56 +403,51 @@ stretch_mode = 4
 visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-offset_left = 147.0
-offset_top = 76.0
-offset_right = 211.0
-offset_bottom = 140.0
+offset_left = 160.0
+offset_top = 96.0
+offset_right = 224.0
+offset_bottom = 160.0
 mouse_filter = 2
 texture = ExtResource("6_uhxew")
 stretch_mode = 4
 
-[node name="equipment_shaite4" type="NinePatchRect" parent="equipments"]
+[node name="equipment_shaite4" type="TextureRect" parent="equipments"]
 layout_mode = 2
-offset_left = 1040.0
-offset_top = 332.0
-offset_right = 1264.0
-offset_bottom = 431.0
-texture = ExtResource("4_2lq67")
-region_rect = Rect2(-1, 0, 129, 128)
-patch_margin_left = 21
-patch_margin_top = 20
-patch_margin_right = 20
-patch_margin_bottom = 20
+offset_left = 1028.0
+offset_top = 322.0
+offset_right = 1284.0
+offset_bottom = 450.0
+texture = ExtResource("13_pe0tj")
 script = ExtResource("4_xef72")
 gun = false
 
 [node name="HEAD" type="TextureRect" parent="equipments/equipment_shaite4"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-offset_left = 16.0
-offset_top = 16.0
-offset_right = 80.0
-offset_bottom = 80.0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 96.0
+offset_bottom = 96.0
 texture = ExtResource("14_3ddj3")
 stretch_mode = 4
 
 [node name="BODY" type="TextureRect" parent="equipments/equipment_shaite4"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-offset_left = 80.0
-offset_top = 16.0
-offset_right = 144.0
-offset_bottom = 80.0
+offset_left = 96.0
+offset_top = 32.0
+offset_right = 160.0
+offset_bottom = 96.0
 texture = ExtResource("15_isfqa")
 stretch_mode = 4
 
 [node name="HAND" type="TextureRect" parent="equipments/equipment_shaite4"]
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-offset_left = 144.0
-offset_top = 16.0
-offset_right = 208.0
-offset_bottom = 80.0
+offset_left = 160.0
+offset_top = 32.0
+offset_right = 224.0
+offset_bottom = 96.0
 texture = ExtResource("16_7ox2p")
 stretch_mode = 4
 
@@ -466,10 +455,10 @@ stretch_mode = 4
 visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-offset_left = 12.0
-offset_top = 12.0
-offset_right = 76.0
-offset_bottom = 76.0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 96.0
+offset_bottom = 96.0
 mouse_filter = 2
 texture = ExtResource("6_uhxew")
 stretch_mode = 4
@@ -478,10 +467,10 @@ stretch_mode = 4
 visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-offset_left = 80.0
-offset_top = 12.0
-offset_right = 144.0
-offset_bottom = 76.0
+offset_left = 96.0
+offset_top = 32.0
+offset_right = 160.0
+offset_bottom = 96.0
 mouse_filter = 2
 texture = ExtResource("6_uhxew")
 stretch_mode = 4
@@ -490,10 +479,10 @@ stretch_mode = 4
 visible = false
 custom_minimum_size = Vector2(64, 64)
 layout_mode = 2
-offset_left = 148.0
-offset_top = 12.0
-offset_right = 212.0
-offset_bottom = 76.0
+offset_left = 160.0
+offset_top = 32.0
+offset_right = 224.0
+offset_bottom = 96.0
 mouse_filter = 2
 texture = ExtResource("6_uhxew")
 stretch_mode = 4
