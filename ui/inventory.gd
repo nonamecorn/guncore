@@ -279,5 +279,5 @@ func _on_link_button_pressed() -> void:
 		shop.reroll_shop()
 		GlobalVars.money -= current_reroll_cost
 		current_reroll_cost += 3
-		$ui_button/MarginContainer/LinkButton.text = "Reroll " + str(current_reroll_cost) + "$"
+		$reroll_button/MarginContainer/LinkButton.text = "Reroll " + str(current_reroll_cost) + "$"
 		money_changed.emit()

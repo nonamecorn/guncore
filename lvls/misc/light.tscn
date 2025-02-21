@@ -1,24 +1,24 @@
 [gd_scene load_steps=2 format=3 uid="uid://ddfo6c5nx4m8h"]
 
-[ext_resource type="Texture2D" uid="uid://bsrnnrtx2tib7" path="res://img/new_light.png" id="1_f8n65"]
+[ext_resource type="Texture2D" uid="uid://bl11ajc58lj38" path="res://img/big_art/light_PNG14422.png" id="1_tth3j"]
 
 [node name="light" type="Node2D"]
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
 shadow_enabled = true
-texture = ExtResource("1_f8n65")
-texture_scale = 0.5
+texture = ExtResource("1_tth3j")
+texture_scale = 2.0
 
 [node name="castil" type="PointLight2D" parent="."]
 range_item_cull_mask = 2
 shadow_enabled = true
 shadow_item_cull_mask = 2
-texture = ExtResource("1_f8n65")
-texture_scale = 0.5
+texture = ExtResource("1_tth3j")
+texture_scale = 2.0
 
 [node name="itemlight" type="PointLight2D" parent="."]
 blend_mode = 2
 range_item_cull_mask = 4
 shadow_enabled = true
-texture = ExtResource("1_f8n65")
-texture_scale = 0.5
+texture = ExtResource("1_tth3j")
+texture_scale = 2.0
