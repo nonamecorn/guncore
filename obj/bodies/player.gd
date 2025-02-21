@@ -4,15 +4,15 @@ extends  CharacterBody2D
 @onready var gun = $player_hand_component
 @onready var item_base = load("res://obj/components/item_ground_base.tscn")
 
-@export var MAX_SPEED = 180
-@export var ACCELERATION = 1000
-@export var FRICTION = 1000
+var MAX_SPEED = 200
+var ACCELERATION = 1500
+var FRICTION = 1500
 
 var current_speed = MAX_SPEED
 var current_acceleration = ACCELERATION
 var current_friction = FRICTION
 
-var health : int = 200
+var health : int = 500
 var armor : int = 0
 
 var flipped = false

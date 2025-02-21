@@ -39,16 +39,16 @@ var dills = [
 func _ready() -> void:
 	if GlobalVars.loop <= 2:
 		dills = get("dills"+str(GlobalVars.loop))
-		$RichTextLabel.text = "Jena:
+		$NinePatchRect/VBoxContainer/RichTextLabel.text = "Jena:
 			" + greetings[GlobalVars.loop]
 	else:
 		dills = [
 			"Good job! I hope you enjoyed this sneakpeak as much as i enjoyed making it."
 		]
-		$RichTextLabel.text = "Jena:
+		$NinePatchRect/VBoxContainer/RichTextLabel.text = "Jena:
 	" + dills[0]
 
 func _on_talk_button_pressed() -> void:
 	dills.shuffle()
-	$RichTextLabel.text = "Jena:
+	$NinePatchRect/VBoxContainer/RichTextLabel.text = "Jena:
 " + dills[0]

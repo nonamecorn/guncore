@@ -135,7 +135,6 @@ wait_time = 0.5
 one_shot = true
 
 [node name="change_position" type="Timer" parent="."]
-wait_time = 2.0
 autostart = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]

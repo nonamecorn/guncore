@@ -158,8 +158,6 @@ height = 24.0
 [node name="Player" type="CharacterBody2D" groups=["body", "player", "targetable"]]
 collision_layer = 36
 script = ExtResource("1_6n3fv")
-ACCELERATION = 1500
-FRICTION = 1500
 
 [node name="collector" type="Area2D" parent="."]
 position = Vector2(0, -12)
@@ -244,7 +242,7 @@ offset_top = -55.0
 offset_right = 54.0
 offset_bottom = -43.0
 theme_override_font_sizes/font_size = 8
-max_value = 200.0
+max_value = 500.0
 value = 200.0
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

@@ -123,7 +123,8 @@ func _in_vision_cone(point):
 
 func has_los(target):
 	ray.global_position = $Marker2D.get_child(0).get_point_of_fire()
-	ray.target_position = target.global_position - $Marker2D.get_child(0).get_point_of_fire()
+	var vectooor = target.global_position - $Marker2D.get_child(0).get_point_of_fire()
+	ray.target_position = vectooor.normalized() * max_viev_distance
 	ray.force_raycast_update()
 	if ray.is_colliding() and ray.get_collider() == target:
 		return true

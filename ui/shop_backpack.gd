@@ -76,7 +76,8 @@ func insert_item_iternal(item):
 		return true
 	else:
 		return false
- 
+
+
 func grab_item(pos):
 	var item = get_item_under_pos(pos)
 	if item == null:

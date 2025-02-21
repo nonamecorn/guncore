@@ -77,7 +77,9 @@ func _on_less_crucial_checks_timeout() -> void:
 			set_movement_target(static_move_position)
 		RUN:
 			pass
-			set_movement_target(get_self_circle_position(randomnum))
+			#if $wall_detector.get_overlapping_bodies().size() != 0:
+				#_on_change_position_timeout()
+			#set_movement_target(get_self_circle_position(randomnum))
 		CHASE:
 			check_witness()
 			set_movement_target(current_target.global_position)
@@ -118,7 +120,7 @@ func surround(delta):
 		return
 	if !current_target:
 		$enemy_hand_component.state = 1
-		print("wesdw")
+		#print("wesdw")
 		state = INVESTIGATE
 	$enemy_hand_component.state = 0
 	var current_pos = global_position

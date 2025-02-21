@@ -26,7 +26,7 @@ is_set = false
 [sub_resource type="Resource" id="Resource_vns21"]
 script = ExtResource("1_gkyod")
 stat_name = "wear"
-value_of_stat = 0.0
+value_of_stat = 0.5
 mult = true
 is_set = false
 

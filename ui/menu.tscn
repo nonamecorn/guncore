@@ -38,29 +38,32 @@ color = Color(0.702735, 0.286466, 0.3791, 1)
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_left = 48.0
-offset_top = 400.0
-offset_right = 240.0
-offset_bottom = 544.0
-scale = Vector2(2, 2)
+offset_left = 52.0
+offset_top = 496.0
+offset_right = 250.0
+offset_bottom = 656.0
 texture = ExtResource("1_3pwc6")
-patch_margin_left = 10
-patch_margin_top = 10
-patch_margin_right = 10
-patch_margin_bottom = 10
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
 
 [node name="MarginContainer" type="MarginContainer" parent="NinePatchRect"]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = -8.0
-grow_horizontal = 2
-grow_vertical = 2
+anchors_preset = -1
+anchor_left = 0.007
+anchor_top = 0.01
+anchor_right = 0.007
+anchor_bottom = 0.01
+offset_left = 4.614
+offset_top = 4.40001
+offset_right = 190.614
+offset_bottom = 151.4
 mouse_filter = 2
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
+theme_override_constants/margin_left = 14
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 14
+theme_override_constants/margin_bottom = 14
 
 [node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/MarginContainer"]
 layout_mode = 2
@@ -69,6 +72,7 @@ mouse_filter = 2
 [node name="Label" type="Label" parent="NinePatchRect/MarginContainer/VBoxContainer"]
 texture_filter = 1
 layout_mode = 2
+theme_override_font_sizes/font_size = 0
 text = "Guns Of
 Theseus"
 
@@ -157,15 +161,11 @@ underline = 1
 [node name="pause" parent="." instance=ExtResource("4_tqumb")]
 visible = false
 layout_mode = 1
+offset_left = -268.0
+offset_top = 172.0
+offset_right = 1012.0
+offset_bottom = 892.0
 cut = true
-
-[node name="NinePatchRect" parent="pause" index="0"]
-anchor_right = 0.0
-anchor_bottom = 0.0
-offset_left = 440.0
-offset_top = 220.0
-offset_right = 734.0
-offset_bottom = 452.0
 
 [node name="VBoxContainer" parent="pause/NinePatchRect/VBoxContainer2" index="7"]
 visible = false

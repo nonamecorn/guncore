@@ -19,6 +19,7 @@ const item_base = preload("res://ui/item_base.tscn")
 @export var shop : Node
 @export var shop_dil : Node
 @export var sell_point : Node
+@export var desc_text : Node
 
 @export var le_items : Node
 @export var shop_items : Node
@@ -64,8 +65,7 @@ func switch_to_shop():
 	safe_net.show()
 	shop.show()
 	shop_dil.show()
-	sell_point.show()
-	$ui_button.show()
+	$reroll_button.show()
 
 func switch_to_inventory():
 	collector.show()
@@ -73,7 +73,15 @@ func switch_to_inventory():
 	shop.hide()
 	shop_dil.hide()
 	sell_point.hide()
-	$ui_button.hide()
+	$reroll_button.hide()
+
+func _input(event):
+	if !visible:
+		return
+	if event is InputEventMouseButton and event.is_pressed():
+		if event.double_click:
+			#print("sda")
+			quick_grab(get_global_mouse_position())
 
 func _physics_process(_delta):
 	if !visible: 
@@ -86,7 +94,7 @@ func _physics_process(_delta):
 	elif Input.is_action_just_released("ui_left_mouse"):
 		release(cursor_pos)
 	if item_held != null:
-		item_held.global_position = cursor_pos + item_offset
+		item_held.global_position = cursor_pos - item_held.get_global_rect().size/2 #+ item_offset
 	check_popup(cursor_pos)
 
 func quick_grab(cursor_pos):
@@ -175,9 +183,12 @@ func check_popup(cursor_pos):
 	var items = le_items.get_children() + shop_items.get_children()
 	for c in items:
 		if c.get_global_rect().has_point(cursor_pos):
-			c._on_mouse_entered()
+			desc_text.text = c.desc_text
+			#c._on_mouse_entered()
+			break
 		else:
-			c._on_mouse_exited()
+			desc_text.text = ""
+			#c._on_mouse_exited()
 
 func get_container_under_cursor(cursor_pos):
 	var active_containers = [grid_bkpk,

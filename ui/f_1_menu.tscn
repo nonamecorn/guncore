@@ -3,9 +3,8 @@
 [ext_resource type="Script" path="res://ui/f_1_menu.gd" id="1_d6dr7"]
 [ext_resource type="Texture2D" uid="uid://faonagr4q8jo" path="res://img/ui/UI.png" id="1_tu7mv"]
 
-[node name="f1menu" type="Control"]
+[node name="f1menu" type="CenterContainer"]
 process_mode = 3
-layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -14,40 +13,31 @@ grow_vertical = 2
 script = ExtResource("1_d6dr7")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 236.0
-offset_top = 76.0
-offset_right = -632.0
-offset_bottom = -362.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2, 2)
+custom_minimum_size = Vector2(412, 300)
+layout_mode = 2
 texture = ExtResource("1_tu7mv")
-patch_margin_left = 10
-patch_margin_top = 10
-patch_margin_right = 10
-patch_margin_bottom = 10
-
-[node name="Label" type="Label" parent="NinePatchRect"]
-layout_mode = 0
-offset_left = 129.0
-offset_top = 9.0
-offset_right = 257.0
-offset_bottom = 32.0
-text = "Controls"
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
 
 [node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect"]
 layout_mode = 0
-offset_left = 25.0
-offset_top = 33.0
-offset_right = 185.0
-offset_bottom = 191.0
+offset_left = 22.0
+offset_top = 18.0
+offset_right = 390.0
+offset_bottom = 272.0
+
+[node name="CenterContainer" type="CenterContainer" parent="NinePatchRect/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/CenterContainer"]
+layout_mode = 2
+text = "Controls"
 
 [node name="Label9" type="Label" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "Loot parts, sell it
 to the shopkeep
 Get highest score.
@@ -55,37 +45,46 @@ Get highest score.
 
 [node name="Label10" type="Label" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "
 "
 
 [node name="Label11" type="Label" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "tab - inventory"
 
 [node name="Label2" type="Label" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "lmb - shoot, drag parts"
 
 [node name="Label8" type="Label" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "ctr + lmb - fast drag"
 
 [node name="Label6" type="Label" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "w,a,s,d - walk"
 
 [node name="Label3" type="Label" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "1,2,e - switch weapons"
 
 [node name="Label5" type="Label" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "r - reload"
 
 [node name="Label4" type="Label" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "p - soft retry"
 
 [node name="Label7" type="Label" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
+theme_override_font_sizes/font_size = 16
 text = "f1 - toggle this menu"

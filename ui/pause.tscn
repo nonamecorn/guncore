@@ -6,10 +6,8 @@
 [ext_resource type="Script" path="res://ui/slider.gd" id="3_vj4vv"]
 [ext_resource type="PackedScene" uid="uid://ggi5lqbxx6uu" path="res://ui/ui_button.tscn" id="4_ymsee"]
 
-[node name="pause" type="Control" node_paths=PackedStringArray("checkbox")]
+[node name="pause" type="CenterContainer" node_paths=PackedStringArray("checkbox")]
 process_mode = 3
-layout_mode = 3
-anchors_preset = 0
 offset_right = 1280.0
 offset_bottom = 720.0
 mouse_filter = 2
@@ -17,22 +15,13 @@ script = ExtResource("1_ye7m4")
 checkbox = NodePath("NinePatchRect/VBoxContainer2/MarginContainer/CheckBox")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = 331.0
-offset_top = 120.0
-offset_right = -659.0
-offset_bottom = -374.0
-grow_horizontal = 2
-grow_vertical = 2
-scale = Vector2(2, 2)
+custom_minimum_size = Vector2(241, 242)
+layout_mode = 2
 texture = ExtResource("2_hmej1")
-patch_margin_left = 10
-patch_margin_top = 10
-patch_margin_right = 10
-patch_margin_bottom = 10
+patch_margin_left = 20
+patch_margin_top = 20
+patch_margin_right = 20
+patch_margin_bottom = 20
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="NinePatchRect"]
 layout_mode = 1
