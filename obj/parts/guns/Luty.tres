@@ -14,7 +14,7 @@ ver_recoil = 9.0
 hor_recoil = 9.0
 mag_position = Vector2(3, 3)
 barrel_position = Vector2(7, 0)
-attach_position = Vector2(-4, -3)
+attach_position = Vector2(0, 0)
 item_name = "Luty"
 item_description = "It's illegal to make makeshift weapon!!!
 However...."

@@ -21,7 +21,7 @@ ver_recoil = 20.0
 hor_recoil = 16.0
 mag_position = Vector2(6, 0)
 barrel_position = Vector2(10, -1)
-attach_position = Vector2(-2, -2)
+attach_position = Vector2(0, 1)
 item_name = "PPsH"
 item_description = "Most powerful weapon of lost time.
 Made from accursed alloy."

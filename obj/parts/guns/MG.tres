@@ -14,7 +14,7 @@ ver_recoil = 16.0
 hor_recoil = 12.0
 mag_position = Vector2(3, 2)
 barrel_position = Vector2(9, 0)
-attach_position = Vector2(2, -3)
+attach_position = Vector2(-4, 0)
 item_name = "MG"
 item_description = "THIS IS MASCHINENGEWEHR.
 IT GEWEHRS MASCHINEN.

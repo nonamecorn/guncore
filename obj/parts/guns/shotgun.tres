@@ -42,7 +42,7 @@ ver_recoil = 10.0
 hor_recoil = 8.0
 mag_position = Vector2(4, 2)
 barrel_position = Vector2(8, -1)
-attach_position = Vector2(-1, -2)
+attach_position = Vector2(-1, 2)
 item_name = "Shotgun"
 item_description = "Offers great recoil reduction 
 at the cost of accuracy."
