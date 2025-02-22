@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://jnt2c2jul8dq" path="res://img/levels/Small_box.png" id="1_0omls"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7tq7h"]
-size = Vector2(14, 23)
+size = Vector2(14, 15)
 
 [node name="Small_box" type="CharacterBody2D" groups=["targetable"]]
 collision_layer = 35
@@ -14,5 +14,5 @@ position = Vector2(0, -9)
 texture = ExtResource("1_0omls")
 
 [node name="Small_box_collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, -5.5)
+position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_7tq7h")

@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://byviol34lt771" path="res://img/levels/Mid_box.png" id="1_gl816"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0uuf0"]
-size = Vector2(30, 18)
+size = Vector2(30, 15)
 
 [node name="Mid_box" type="CharacterBody2D" groups=["targetable"]]
 collision_layer = 35
@@ -14,5 +14,5 @@ position = Vector2(0, -10)
 texture = ExtResource("1_gl816")
 
 [node name="mid_box_collision" type="CollisionShape2D" parent="."]
-position = Vector2(0, -4)
+position = Vector2(0, -2.5)
 shape = SubResource("RectangleShape2D_0uuf0")

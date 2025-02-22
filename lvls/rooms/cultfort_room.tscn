@@ -78,7 +78,7 @@ position = Vector2(-48, 464)
 position = Vector2(-80, 336)
 
 [node name="Small_box" parent="env" instance=ExtResource("8_dfae8")]
-position = Vector2(-72, 464)
+position = Vector2(-71, 469)
 
 [node name="Mid_box2" parent="env" instance=ExtResource("7_hba5q")]
 position = Vector2(80, 304)
@@ -96,7 +96,7 @@ position = Vector2(-16, 304)
 position = Vector2(112, 384)
 
 [node name="Small_box2" parent="env" instance=ExtResource("8_dfae8")]
-position = Vector2(120, 404)
+position = Vector2(120, 400)
 
 [node name="Big_box3" parent="env" instance=ExtResource("6_34eic")]
 position = Vector2(-80, 400)
