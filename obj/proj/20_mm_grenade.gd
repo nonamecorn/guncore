@@ -11,6 +11,7 @@ func on_collision(_collider):
 	$AudioStreamPlayer2D.play()
 	$AnimatedSprite2D.show()
 	$AnimatedSprite2D.play()
+	$light.show()
 	$Sprite2D.hide()
 
 
