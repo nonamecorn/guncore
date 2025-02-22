@@ -17,9 +17,8 @@ const item_base = preload("res://ui/item_base.tscn")
 @export var safe_net : Node
 @export var shop : Node
 @export var shop_dil : Node
-@export var sell_point : Node
 @export var desc_text : Node
-
+@export var durabar : Node
 @export var le_items : Node
 @export var shop_items : Node
 #var containers = [grid_bkpk, eq_slot1, eq_slot2, collector, augs, safe_net]
@@ -71,7 +70,6 @@ func switch_to_inventory():
 	safe_net.hide()
 	shop.hide()
 	shop_dil.hide()
-	sell_point.hide()
 	$reroll_button.hide()
 
 func _input(event):
@@ -183,16 +181,20 @@ func check_popup(cursor_pos):
 	for c in items:
 		if c.get_global_rect().has_point(cursor_pos):
 			desc_text.text = c.desc_text
+			durabar.value = c.item_resource.curr_durability
+			durabar.max_value = c.item_resource.max_durability
+			durabar.show()
 			#c._on_mouse_entered()
 			break
 		else:
 			desc_text.text = ""
+			durabar.hide()
 			#c._on_mouse_exited()
 
 func get_container_under_cursor(cursor_pos):
 	var active_containers = [grid_bkpk,
 	 eq_slot1, eq_slot2,
-	 collector, eq_slot3, shop, sell_point,
+	 collector, eq_slot3, shop,
 	 safe_net].filter(func(thing): return thing.visible)
 	for c in active_containers:
 		if c.get_global_rect().has_point(cursor_pos):

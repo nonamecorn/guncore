@@ -11,7 +11,7 @@ const item_base = preload("res://ui/item_base.tscn")
 @export var popup : Node
 @export var shop_items_ctrl : Node
 
-var current_deal = []
+var current_deal : Array[Item] = []
 var current_reroll_cost
 var loaded = false
 

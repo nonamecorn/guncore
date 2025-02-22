@@ -110,6 +110,7 @@ func start_blastin(target):
 func start_chasin():
 	#if (current_target in $cqb_awarness.get_overlapping_bodies()) and state == SURROUND:
 		#return
+	GlobalVars.erase_witness(id)
 	$Sprite2D/idle.hide()
 	$Sprite2D/walk.show()
 	$enemy_hand_component.state = 1

@@ -234,6 +234,12 @@ range_item_cull_mask = 16
 texture = ExtResource("10_cb2yh")
 texture_scale = 0.5
 
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = -53.0
+offset_top = -55.0
+offset_right = -13.0
+offset_bottom = -15.0
+
 [node name="ProgressBar" type="ProgressBar" parent="."]
 light_mask = 16
 visibility_layer = 16
@@ -254,28 +260,16 @@ offset_right = 127.0
 offset_bottom = 24.0
 text = "f1 - controls"
 
-[node name="Inventory" parent="CanvasLayer" instance=ExtResource("8_wsalq")]
-visible = false
-
-[node name="pause" parent="CanvasLayer" instance=ExtResource("11_heitk")]
-visible = false
-
-[node name="f1menu" parent="CanvasLayer" instance=ExtResource("12_i05es")]
-visible = false
-
-[node name="ded_menu" parent="CanvasLayer" instance=ExtResource("13_vfuiq")]
-visible = false
-
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
 anchors_preset = 3
 anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -288.0
-offset_top = -102.0
-offset_right = -32.0
-offset_bottom = -26.0
+offset_left = -1257.0
+offset_top = -104.0
+offset_right = -1001.0
+offset_bottom = -28.0
 grow_horizontal = 0
 grow_vertical = 0
 
@@ -298,6 +292,18 @@ text = "200$"
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "140/200"
+
+[node name="Inventory" parent="CanvasLayer" instance=ExtResource("8_wsalq")]
+visible = false
+
+[node name="pause" parent="CanvasLayer" instance=ExtResource("11_heitk")]
+visible = false
+
+[node name="f1menu" parent="CanvasLayer" instance=ExtResource("12_i05es")]
+visible = false
+
+[node name="ded_menu" parent="CanvasLayer" instance=ExtResource("13_vfuiq")]
+visible = false
 
 [node name="ISY" type="Label" parent="CanvasLayer"]
 visible = false
