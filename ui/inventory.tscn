@@ -31,7 +31,7 @@
 [ext_resource type="Texture2D" uid="uid://b2lkovbldqmkk" path="res://img/big_art/jena_new.jpg" id="27_257ws"]
 [ext_resource type="PackedScene" uid="uid://ggi5lqbxx6uu" path="res://ui/ui_button.tscn" id="28_1kw70"]
 
-[node name="Inventory" type="Control" node_paths=PackedStringArray("grid_bkpk", "eq_slot1", "eq_slot2", "eq_slot3", "collector", "safe_net", "shop", "shop_dil", "desc_text", "durabar", "le_items", "shop_items")]
+[node name="Inventory" type="Control" node_paths=PackedStringArray("grid_bkpk", "eq_slot1", "eq_slot2", "eq_slot3", "collector", "safe_net", "description", "shop", "shop_dil", "desc_text", "durabar", "le_items", "shop_items")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -46,6 +46,7 @@ eq_slot2 = NodePath("equipments/equipment_shaite2")
 eq_slot3 = NodePath("equipments/equipment_shaite4")
 collector = NodePath("collector")
 safe_net = NodePath("safety_net")
+description = NodePath("Description")
 shop = NodePath("shop_backpack2")
 shop_dil = NodePath("Shop")
 desc_text = NodePath("Description/MarginContainer/VBoxContainer/RichTextLabel")
@@ -521,11 +522,29 @@ theme_override_constants/margin_bottom = 14
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Description/MarginContainer"]
 layout_mode = 2
+focus_mode = 2
 
 [node name="RichTextLabel" type="RichTextLabel" parent="Description/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-text = "sample"
+bbcode_enabled = true
+text = "sample
+
+sample
+sampl
+sample
+sample
+sample
+sample
+sample
+sample
+sample
+sample
+sample
+sample
+sample
+sample
+sample"
 
 [node name="DurabilityBar" type="ProgressBar" parent="Description/MarginContainer/VBoxContainer"]
 layout_mode = 2

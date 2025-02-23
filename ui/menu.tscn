@@ -38,10 +38,10 @@ color = Color(0.702735, 0.286466, 0.3791, 1)
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
 layout_mode = 0
-offset_left = 52.0
-offset_top = 496.0
-offset_right = 250.0
-offset_bottom = 656.0
+offset_left = 28.0
+offset_top = 536.0
+offset_right = 226.0
+offset_bottom = 696.0
 texture = ExtResource("1_3pwc6")
 patch_margin_left = 20
 patch_margin_top = 20
@@ -161,10 +161,10 @@ underline = 1
 [node name="pause" parent="." instance=ExtResource("4_tqumb")]
 visible = false
 layout_mode = 1
-offset_left = -268.0
-offset_top = 172.0
-offset_right = 1012.0
-offset_bottom = 892.0
+offset_left = -288.0
+offset_top = 212.0
+offset_right = 992.0
+offset_bottom = 932.0
 cut = true
 
 [node name="VBoxContainer" parent="pause/NinePatchRect/VBoxContainer2" index="7"]

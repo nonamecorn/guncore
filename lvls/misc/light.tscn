@@ -5,20 +5,22 @@
 [node name="light" type="Node2D"]
 
 [node name="PointLight2D" type="PointLight2D" parent="."]
+position = Vector2(-1, 0)
 shadow_enabled = true
 texture = ExtResource("1_tth3j")
-texture_scale = 2.0
+texture_scale = 3.0
 
 [node name="castil" type="PointLight2D" parent="."]
 range_item_cull_mask = 2
 shadow_enabled = true
 shadow_item_cull_mask = 2
 texture = ExtResource("1_tth3j")
-texture_scale = 2.0
+texture_scale = 3.0
 
 [node name="itemlight" type="PointLight2D" parent="."]
+position = Vector2(1, 0)
 blend_mode = 2
 range_item_cull_mask = 4
 shadow_enabled = true
 texture = ExtResource("1_tth3j")
-texture_scale = 2.0
+texture_scale = 3.0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=3 uid="uid://btw10scl5f85a"]
+[gd_scene load_steps=38 format=3 uid="uid://btw10scl5f85a"]
 
 [ext_resource type="Script" path="res://obj/bodies/player.gd" id="1_6n3fv"]
 [ext_resource type="Texture2D" uid="uid://ci5dmfqdm37at" path="res://img/bodys/GG_IdleAnim.png" id="2_qk2hj"]
@@ -14,6 +14,7 @@
 [ext_resource type="PackedScene" uid="uid://bfrhglfhp1ihi" path="res://ui/f_1_menu.tscn" id="12_i05es"]
 [ext_resource type="PackedScene" uid="uid://ddfo6c5nx4m8h" path="res://lvls/misc/light.tscn" id="12_p0x4g"]
 [ext_resource type="PackedScene" uid="uid://df86p143ocdnj" path="res://ui/ded_menu.tscn" id="13_vfuiq"]
+[ext_resource type="Texture2D" uid="uid://yi7hs54lm56q" path="res://img/ui/GLAZ.png" id="15_5cdi7"]
 [ext_resource type="Script" path="res://obj/bodies/marker_2d.gd" id="16_ku1r1"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xlh8"]
@@ -254,9 +255,9 @@ value = 200.0
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="help" type="Label" parent="CanvasLayer"]
-offset_left = 23.0
-offset_top = 16.0
-offset_right = 127.0
+offset_left = 88.0
+offset_top = 8.0
+offset_right = 296.0
 offset_bottom = 24.0
 text = "f1 - controls"
 
@@ -266,9 +267,9 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -1257.0
+offset_left = -1256.0
 offset_top = -104.0
-offset_right = -1001.0
+offset_right = -1000.0
 offset_bottom = -28.0
 grow_horizontal = 0
 grow_vertical = 0
@@ -305,13 +306,13 @@ visible = false
 [node name="ded_menu" parent="CanvasLayer" instance=ExtResource("13_vfuiq")]
 visible = false
 
-[node name="ISY" type="Label" parent="CanvasLayer"]
+[node name="ISY" type="TextureRect" parent="CanvasLayer"]
 visible = false
-offset_left = 16.0
-offset_top = 690.0
-offset_right = 160.0
-offset_bottom = 706.0
-text = "I SEE YOU"
+offset_left = 25.0
+offset_top = 560.0
+offset_right = 63.0
+offset_bottom = 600.0
+texture = ExtResource("15_5cdi7")
 
 [node name="Marker2D" type="Marker2D" parent="." groups=["crosshair"]]
 script = ExtResource("16_ku1r1")
