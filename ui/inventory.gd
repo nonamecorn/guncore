@@ -181,6 +181,7 @@ func check_popup(cursor_pos):
 	var items = le_items.get_children() + shop_items.get_children()
 	for c in items:
 		if c.get_global_rect().has_point(cursor_pos):
+			description.show()
 			desc_text.text = c.desc_text
 			durabar.value = c.item_resource.curr_durability
 			durabar.max_value = c.item_resource.max_durability
@@ -188,7 +189,7 @@ func check_popup(cursor_pos):
 			#c._on_mouse_entered()
 			break
 		else:
-			desc_text.text = ""
+			description.hide()
 			durabar.hide()
 			#c._on_mouse_exited()
 
@@ -215,10 +216,10 @@ func drop_resource(res):
 
 func return_item():
 	item_held.global_position = last_pos
-	if last_container.has_method("insert_item"):
-		last_container.insert_item(item_held)
-	elif last_container.has_method("insert_item_iternal"):
+	if last_container.has_method("insert_item_iternal"):
 		last_container.insert_item_iternal(item_held)
+	elif last_container.has_method("insert_item"):
+		last_container.insert_item(item_held)
 	else:
 		drop_item()
 	item_held = null
@@ -240,6 +241,15 @@ func sell_item():
 	item_held.item_resource.picked_up = false
 	var cost = item_held.item_resource.cost
 	GlobalVars.money += cost/2
+	money_changed.emit()
+
+func unbuy_item():
+	if !item_held: return
+	item_held.item_resource.from_shop = true
+	item_held.reparent(shop_items)
+	item_held.item_resource.picked_up = false
+	var cost = item_held.item_resource.cost
+	GlobalVars.money += cost
 	money_changed.emit()
 
 func equip_item(item_res : Item, ind : int) -> bool:

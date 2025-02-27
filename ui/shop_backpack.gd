@@ -72,7 +72,7 @@ func insert_item_iternal(item):
 		items.append(item)
 		GlobalVars.items.erase(item.item_resource)
 		if !item.item_resource.from_shop:
-			get_parent().sell_item()
+			get_parent().unbuy_item()
 		return true
 	else:
 		return false
@@ -90,12 +90,10 @@ func grab_item(pos):
 	var item = get_item_under_pos(pos)
 	if item == null:
 		return null
- 
 	var item_pos = item.global_position + Vector2(cell_size / 2, cell_size / 2)
 	var g_pos = pos_to_grid_coord(item_pos)
 	var item_size = get_grid_size(item)
 	set_grid_space(g_pos.x, g_pos.y, item_size.x, item_size.y, false)
- 
 	items.pop_at(items.find(item))
 	return item
  

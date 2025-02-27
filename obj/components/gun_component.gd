@@ -248,12 +248,13 @@ func fire():
 		bullet_inst.init(added_velocity, current_range, current_add_spd)
 		
 		var recoil_vector = Vector2(-current_ver_recoil,randf_range(-current_hor_recoil, current_hor_recoil)).rotated(global_rotation)
-		if  player_handled:
+		get_parent().get_parent().apply_recoil(recoil_vector)
+		#if player_handled:
 			#player_crosshair.global_position += recoil_vector
-			var viewscale = get_viewport_transform().get_scale()/2
-			Input.warp_mouse(get_viewport().get_mouse_position()*viewscale + recoil_vector*viewscale)
-		else:
-			get_parent().get_parent().apply_recoil(recoil_vector)
+			#var viewscale = get_viewport_transform().get_scale()/2
+			#Input.warp_mouse(get_viewport().get_mouse_position()*viewscale + recoil_vector*viewscale)
+		#else:
+			#get_parent().get_parent().apply_recoil(recoil_vector)
 	if !weapon_functional():
 		current_ammo = 0
 		display_ammo()

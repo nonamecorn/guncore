@@ -2,10 +2,11 @@ extends Node2D
 
 @export var hand_length = 34
 @export var particles : Node 
+@export var turn_speed = 200.0
 func _ready() -> void:
 	player_crosshair = get_tree().get_nodes_in_group("crosshair")[0]
 	$Marker2D.position.x = hand_length
-
+var look_vec = Vector2.ZERO
 var player_crosshair
 
 var active_base = 0
@@ -20,7 +21,7 @@ func _physics_process(_delta):
 		switch_to_base(true)
 	if Input.is_action_just_pressed("2"):
 		switch_to_base(false)
-	if Input.is_action_just_pressed("e"):
+	if Input.is_action_just_pressed("q"):
 		if active_base == 1:
 			switch_to_base(true)
 		else:
@@ -32,12 +33,21 @@ func _physics_process(_delta):
 		$Marker2D.get_child(active_base).stop_fire()
 	if Input.is_action_just_released("reload"):
 		$Marker2D.get_child(active_base).reload()
-	var look_vec = get_global_mouse_position() - global_position
+	look_vec = get_parent().get_children()[-1].global_position - global_position
+	#face_point(delta) get_global_mouse_position()
 	global_rotation = atan2(look_vec.y, look_vec.x)
 	if look_vec.x < 0 and !flipped:
 		flip()
 	if look_vec.x >= 0 and flipped:
 		flip()
+
+func face_point(delta: float):
+	var direction = look_vec
+	var angle = transform.x.angle_to(direction)
+	rotate(sign(angle) * min(delta*deg_to_rad(turn_speed), abs(angle)))
+
+func apply_recoil(recoil_vector):
+	get_parent().get_children()[-1].apply_recoil(recoil_vector)
 
 func switch_to_base(first):
 	if first:

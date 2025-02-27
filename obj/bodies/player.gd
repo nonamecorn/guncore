@@ -57,6 +57,8 @@ func _physics_process(delta):
 	if Input.is_action_just_pressed("special_button"):
 		get_tree().reload_current_scene()
 		return
+	if Input.is_action_just_pressed("e"):
+		get_item()
 	match state:
 			MOVE:
 				move_state(delta)
@@ -185,6 +187,17 @@ func get_items():
 				$CanvasLayer/Inventory.pickup_collector(sub_item)
 			continue
 		$CanvasLayer/Inventory.pickup_collector(res)
+
+func get_item():
+	if $collector.get_overlapping_areas().size() == 0:
+		return
+	var res = $collector.get_overlapping_areas()[0].pickup()
+	if res is Array: return
+	if !$CanvasLayer/Inventory.pickup_item(res):
+		var item_inst = item_base.instantiate()
+		item_inst.global_position = global_position
+		get_tree().current_scene.find_child("items").call_deferred("add_child",item_inst) 
+		item_inst.init(res)
 
 func on_assemble(parts):
 	$player_hand_component/Marker2D/gun_base.asseble_gun(parts)

@@ -13,6 +13,7 @@ config_version=5
 config/name="Guns Of Theseus"
 run/main_scene="res://ui/menu.tscn"
 config/features=PackedStringArray("4.3", "GL Compatibility")
+run/max_fps=60
 config/icon="res://icon.svg"
 
 [autoload]
@@ -29,8 +30,9 @@ window/size/viewport_height=720
 window/size/mode=4
 window/stretch/mode="viewport"
 window/stretch/aspect="ignore"
-mouse_cursor/custom_image="res://img/misc/crosshair.png"
-mouse_cursor/custom_image_hotspot=Vector2(16, 16)
+mouse_cursor/custom_image="res://img/misc/Sight.png"
+mouse_cursor/custom_image_hotspot=Vector2(32, 32)
+mouse_cursor/tooltip_position_offset=Vector2(40, 40)
 window/custom_image=""
 
 [filesystem]
@@ -138,6 +140,11 @@ e={
 ui_doubleclick={
 "deadzone": 0.5,
 "events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":1,"position":Vector2(100, 14),"global_position":Vector2(109, 60),"factor":1.0,"button_index":1,"canceled":false,"pressed":true,"double_click":false,"script":null)
+]
+}
+q={
+"deadzone": 0.5,
+"events": [Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"pressed":false,"keycode":0,"physical_keycode":81,"key_label":0,"unicode":113,"location":0,"echo":false,"script":null)
 ]
 }
 

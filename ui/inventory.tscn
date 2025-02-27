@@ -598,6 +598,8 @@ offset_bottom = 40.0
 visible = false
 layout_mode = 1
 anchors_preset = 0
+offset_top = 19.0
+offset_bottom = 19.0
 script = ExtResource("11_6lbvg")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Shop"]
