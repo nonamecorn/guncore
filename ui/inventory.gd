@@ -271,6 +271,7 @@ func pickup_item(item_res : Item):
 		drop_resource(item_res)
 		item.queue_free()
 		return false
+	$audio/grab.play()
 	return true
 
 func pickup_collector(item_res : Item):

@@ -193,11 +193,12 @@ func get_item():
 		return
 	var res = $collector.get_overlapping_areas()[0].pickup()
 	if res is Array: return
-	if !$CanvasLayer/Inventory.pickup_item(res):
-		var item_inst = item_base.instantiate()
-		item_inst.global_position = global_position
-		get_tree().current_scene.find_child("items").call_deferred("add_child",item_inst) 
-		item_inst.init(res)
+	$CanvasLayer/Inventory.pickup_item(res)
+	#if !:
+		#var item_inst = item_base.instantiate()
+		#item_inst.global_position = global_position
+		#get_tree().current_scene.find_child("items").call_deferred("add_child",item_inst) 
+		#item_inst.init(res)
 
 func on_assemble(parts):
 	$player_hand_component/Marker2D/gun_base.asseble_gun(parts)
@@ -215,7 +216,11 @@ func on_ammo_change(curr_mmo,max_mmo,ind):
 	if $player_hand_component.active_base != ind: return
 	if curr_mmo == null or max_mmo == null:
 		$CanvasLayer/VBoxContainer/ammo.text = ""
+		$AmmoBar.hide()
 	else:
+		$AmmoBar.show()
+		$AmmoBar.max_value = max_mmo
+		$AmmoBar.value = curr_mmo
 		$CanvasLayer/VBoxContainer/ammo.text = str(curr_mmo)+"/"+str(max_mmo)
 
 func on_augs_change(parts : Dictionary):
