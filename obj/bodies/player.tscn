@@ -1,4 +1,4 @@
-[gd_scene load_steps=47 format=3 uid="uid://btw10scl5f85a"]
+[gd_scene load_steps=48 format=3 uid="uid://btw10scl5f85a"]
 
 [ext_resource type="Script" path="res://obj/bodies/player.gd" id="1_6n3fv"]
 [ext_resource type="Texture2D" uid="uid://ci5dmfqdm37at" path="res://img/bodys/GG_IdleAnim.png" id="2_qk2hj"]
@@ -173,6 +173,12 @@ light_mode = 1
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_u4ay0"]
 light_mode = 1
 
+[sub_resource type="Curve" id="Curve_0p4vc"]
+min_value = 5.0
+max_value = 20.0
+_data = [Vector2(0.00699301, 20), 0.0, -46.8111, 0, 0, Vector2(1, 5), -0.290181, 0.0, 0, 0]
+point_count = 2
+
 [node name="Player" type="CharacterBody2D" groups=["body", "player", "targetable"]]
 collision_layer = 36
 script = ExtResource("1_6n3fv")
@@ -342,6 +348,13 @@ material = SubResource("CanvasItemMaterial_u4ay0")
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("17_0843d")
 script = ExtResource("18_73vwp")
+weight_to_handle = SubResource("Curve_0p4vc")
+
+[node name="Timer" type="Timer" parent="cursor"]
+wait_time = 0.2
+one_shot = true
+
+[connection signal="timeout" from="cursor/Timer" to="cursor" method="_on_timer_timeout"]
 
 [editable path="player_hand_component"]
 [editable path="hurt_box"]

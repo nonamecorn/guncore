@@ -48,6 +48,8 @@ func face_point(delta: float):
 
 func apply_recoil(recoil_vector):
 	get_parent().get_children()[-1].apply_recoil(recoil_vector)
+func set_handling_spd(weight):
+	get_parent().get_children()[-1].set_handling_spd(weight)
 
 func switch_to_base(first):
 	if first:

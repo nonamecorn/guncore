@@ -35,6 +35,7 @@ var current_add_spd
 var current_reload_time
 var alert_distance
 var wear : float
+var weight
 var firing_strategies = []
 var bullet_strategies = []
 
@@ -90,6 +91,12 @@ func asseble_gun(parts : Dictionary):
 	current_reload_time = parts.MAG.reload_time
 	alert_distance = parts.MAG.loud_dist
 	wear = parts.MAG.wear
+	
+	for part_name in parts:
+		if parts[part_name] == null: continue	
+		weight += parts[part_name].weight
+	get_parent().get_parent().set_handling_spd(weight)
+	
 	$audio/shoting.stream = parts.MAG.sound
 	$MUZZLE.position = parts.BARREL.muzzle_position + parts.RECIEVER.barrel_position
 	$pos.position = $MUZZLE.position + Vector2.RIGHT * 5  + Vector2(0, -0.5)
@@ -155,6 +162,7 @@ func dissassemble_gun():
 	firing_strategies = []
 	bullet_strategies = []
 	state = STOP
+	weight = 0
 
 func start_fire():
 	if state: return

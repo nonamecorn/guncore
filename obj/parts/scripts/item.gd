@@ -13,7 +13,7 @@ class_name Item
 @export var player_strategies : Array[BasicPlayerStrategy]
 @export var shootin_strategies : Array[BasicShootingStratagy]
 @export var changes : Array[Change]
-
+@export var weight : float = 1.0
 
 var from_shop = false
 var id : int
