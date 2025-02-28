@@ -16,8 +16,8 @@ func get_rect() -> Rect2:
 	return area_rect
 
 func _ready() -> void:
-	var bar1 = get_node("env/explosive_barrel")
-	var bar2 = get_node("env/explosive_barrel2")
-	if GlobalVars.loop > 0 and bar1 and bar2:
+	if GlobalVars.loop > 0 and has_node("env/explosive_barrel"):
+		var bar1 = get_node("env/explosive_barrel")
+		var bar2 = get_node("env/explosive_barrel2")
 		bar1.queue_free()
 		bar2.queue_free()
