@@ -247,7 +247,7 @@ func fire():
 		get_tree().current_scene.call_deferred("add_child",bullet_inst)
 		bullet_inst.init(added_velocity, current_range, current_add_spd)
 		
-		var recoil_vector = Vector2(-current_ver_recoil,randf_range(-current_hor_recoil, current_hor_recoil)).rotated(global_rotation)
+		var recoil_vector = Vector2(-current_ver_recoil,randf_range(-current_hor_recoil, current_hor_recoil))
 		get_parent().get_parent().apply_recoil(recoil_vector)
 		#if player_handled:
 			#player_crosshair.global_position += recoil_vector

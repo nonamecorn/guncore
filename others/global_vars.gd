@@ -9,7 +9,7 @@ func _ready() -> void:
 	loop = 0
 	kills = 0
 	items = []
-	money = 0
+	money = 10000
 	var gun = Randogunser.get_gun()
 	var t1 = load(gun.RECIEVER).duplicate()
 	t1.picked_up = true

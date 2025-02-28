@@ -553,9 +553,9 @@ layout_mode = 2
 visible = false
 layout_mode = 0
 offset_left = 296.0
-offset_top = 163.0
+offset_top = 187.0
 offset_right = 464.0
-offset_bottom = 187.0
+offset_bottom = 211.0
 
 [node name="LinkButton" parent="reroll_button/MarginContainer" index="0"]
 custom_minimum_size = Vector2(40, 0)

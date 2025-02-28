@@ -14,3 +14,10 @@ func get_rect() -> Rect2:
 	area_rect.position = Vector2(low_x, low_y)
 	area_rect.end = Vector2(high_x, high_y)
 	return area_rect
+
+func _ready() -> void:
+	var bar1 = get_node("env/explosive_barrel")
+	var bar2 = get_node("env/explosive_barrel2")
+	if GlobalVars.loop > 0 and bar1 and bar2:
+		bar1.queue_free()
+		bar2.queue_free()

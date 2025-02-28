@@ -1,7 +1,7 @@
 extends TextureRect
  
 var items = []
- 
+
 var grid = {}
 var cell_size = 64.0
 var grid_width = 0.0
@@ -94,6 +94,8 @@ func grab_item(pos):
 	var g_pos = pos_to_grid_coord(item_pos)
 	var item_size = get_grid_size(item)
 	set_grid_space(g_pos.x, g_pos.y, item_size.x, item_size.y, false)
+	print("1")
+	print(item.item_resource.get_name())
 	items.pop_at(items.find(item))
 	return item
  

@@ -1,4 +1,4 @@
-[gd_scene load_steps=46 format=3 uid="uid://btw10scl5f85a"]
+[gd_scene load_steps=47 format=3 uid="uid://btw10scl5f85a"]
 
 [ext_resource type="Script" path="res://obj/bodies/player.gd" id="1_6n3fv"]
 [ext_resource type="Texture2D" uid="uid://ci5dmfqdm37at" path="res://img/bodys/GG_IdleAnim.png" id="2_qk2hj"]
@@ -8,7 +8,6 @@
 [ext_resource type="PackedScene" uid="uid://ctrbcy5h47qqw" path="res://obj/components/gun_base.tscn" id="6_m4fya"]
 [ext_resource type="PackedScene" uid="uid://d0ex485qfg6qx" path="res://ui/inventory.tscn" id="8_wsalq"]
 [ext_resource type="PackedScene" uid="uid://b4ifd4nn31mq8" path="res://obj/components/hurt_box.tscn" id="9_3vqfx"]
-[ext_resource type="Texture2D" uid="uid://bsrnnrtx2tib7" path="res://img/new_light.png" id="10_cb2yh"]
 [ext_resource type="AudioStream" uid="uid://31xvcqxgens0" path="res://snd/sfx/scream.wav" id="10_ti353"]
 [ext_resource type="Texture2D" uid="uid://2bvlu8yw164k" path="res://img/ui/HPbar_bord.png" id="11_0vwss"]
 [ext_resource type="PackedScene" uid="uid://clebifn20pbo5" path="res://ui/pause.tscn" id="11_heitk"]
@@ -25,6 +24,9 @@
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xlh8"]
 radius = 47.0
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_vwi2j"]
+light_mode = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i1v84"]
 atlas = ExtResource("2_qk2hj")
@@ -103,6 +105,9 @@ animations = [{
 "name": &"default",
 "speed": 5.0
 }]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_qlhba"]
+light_mode = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rlxy1"]
 atlas = ExtResource("3_7joj7")
@@ -188,6 +193,7 @@ position = Vector2(0, -6)
 [node name="IdleAnimation" type="AnimatedSprite2D" parent="Sprite2D"]
 light_mask = 16
 visibility_layer = 16
+material = SubResource("CanvasItemMaterial_vwi2j")
 position = Vector2(0, -9)
 sprite_frames = SubResource("SpriteFrames_avorb")
 autoplay = "default"
@@ -197,6 +203,7 @@ frame_progress = 0.51957
 visible = false
 light_mask = 16
 visibility_layer = 16
+material = SubResource("CanvasItemMaterial_qlhba")
 position = Vector2(0, -8)
 sprite_frames = SubResource("SpriteFrames_8tg87")
 autoplay = "default"
@@ -241,11 +248,6 @@ current = true
 
 [node name="light" parent="." instance=ExtResource("12_p0x4g")]
 position = Vector2(0, -6)
-
-[node name="player" type="PointLight2D" parent="light"]
-range_item_cull_mask = 16
-texture = ExtResource("10_cb2yh")
-texture_scale = 0.5
 
 [node name="ProgressBar" type="TextureProgressBar" parent="."]
 material = SubResource("CanvasItemMaterial_wg18f")
