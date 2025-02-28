@@ -10,8 +10,8 @@
 [resource]
 script = ExtResource("2_s3h2p")
 base_firerate = 0.07
-ver_recoil = 12.0
-hor_recoil = 10.0
+ver_recoil = 15.0
+hor_recoil = 20.0
 mag_position = Vector2(6, 3)
 barrel_position = Vector2(11, 0)
 attach_position = Vector2(0, 1)
@@ -19,8 +19,8 @@ item_name = "RAR-180"
 item_description = "Really good weapon for
 compressing enemies."
 cost = 30
-max_durability = 500
-curr_durability = 500
+max_durability = 750.0
+curr_durability = 750.0
 sprite = ExtResource("3_4wdy8")
 sprite_offset = Vector2(0, 0)
 bullet_strategies = Array[ExtResource("1_ogic2")]([])

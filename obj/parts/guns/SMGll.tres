@@ -17,8 +17,8 @@ is_set = false
 [resource]
 script = ExtResource("2_w15kk")
 base_firerate = 0.04
-ver_recoil = 12.0
-hor_recoil = 12.0
+ver_recoil = 3.0
+hor_recoil = 16.0
 mag_position = Vector2(3, 1)
 barrel_position = Vector2(6, -1)
 attach_position = Vector2(-3, 0)

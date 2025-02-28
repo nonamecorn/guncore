@@ -10,8 +10,8 @@
 [resource]
 script = ExtResource("1_a1wfo")
 range_in_secs = 1.0
-max_spread = 15.0
-min_spread = 0.0
+max_spread = 10.0
+min_spread = 1.0
 muzzle_position = Vector2(14, 0)
 add_spd = 0.0
 item_name = "AK Barrel"

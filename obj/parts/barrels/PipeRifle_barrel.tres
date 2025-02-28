@@ -11,14 +11,14 @@
 script = ExtResource("2_awl7n")
 range_in_secs = 1.1
 max_spread = 14.0
-min_spread = 1.0
+min_spread = 2.0
 muzzle_position = Vector2(12, 0)
 add_spd = 0.0
 item_name = "Metal pipe"
 item_description = "Metal pipe"
 cost = 5
-max_durability = 1000
-curr_durability = 1000
+max_durability = 1000.0
+curr_durability = 1000.0
 sprite = ExtResource("3_2tgh6")
 sprite_offset = Vector2(6, 0)
 bullet_strategies = Array[ExtResource("1_gijct")]([])

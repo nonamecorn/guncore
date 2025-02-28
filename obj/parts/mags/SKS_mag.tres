@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Mag" load_steps=9 format=3 uid="uid://dwtt3la8ab254"]
+[gd_resource type="Resource" script_class="Mag" load_steps=10 format=3 uid="uid://dwtt3la8ab254"]
 
 [ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_cwe36"]
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_kairg"]
@@ -9,6 +9,13 @@
 [ext_resource type="AudioStream" uid="uid://bseru4wnpe0hh" path="res://snd/sfx/ar_fire.wav" id="4_ptls6"]
 [ext_resource type="Script" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="6_dvp6e"]
 
+[sub_resource type="Resource" id="Resource_b6x87"]
+script = ExtResource("1_kairg")
+stat_name = "current_ver_recoil"
+value_of_stat = 1.25
+mult = true
+is_set = false
+
 [resource]
 script = ExtResource("3_40fup")
 capacity = 10
@@ -16,14 +23,18 @@ projectile = ExtResource("2_6hs0k")
 reload_time = 2
 sound = ExtResource("4_ptls6")
 loud_dist = 400
+proj_desc = "FMJ"
+wear = 1.0
 item_name = "SES mag"
 item_description = "Least reliable mag ever.
 Even though it contains
 accursed alloy core."
 cost = 5
+max_durability = 1000.0
+curr_durability = 1000.0
 sprite = ExtResource("4_hnugq")
 sprite_offset = Vector2(2, 1)
 bullet_strategies = Array[ExtResource("1_cwe36")]([])
 player_strategies = Array[ExtResource("3_77ceb")]([])
 shootin_strategies = Array[ExtResource("6_dvp6e")]([])
-changes = Array[ExtResource("1_kairg")]([])
+changes = Array[ExtResource("1_kairg")]([SubResource("Resource_b6x87")])

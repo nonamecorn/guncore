@@ -10,14 +10,16 @@
 [resource]
 script = ExtResource("1_86k7k")
 range_in_secs = 1.0
-max_spread = 10.0
-min_spread = 3.0
+max_spread = 12.0
+min_spread = 0.0
 muzzle_position = Vector2(13, 0)
 add_spd = 0.0
 item_name = "MG Barrel"
 item_description = "Not accurate but more stable.
 "
 cost = 7
+max_durability = 1000.0
+curr_durability = 1000.0
 sprite = ExtResource("2_udx33")
 sprite_offset = Vector2(6, 0)
 bullet_strategies = Array[ExtResource("1_bp4a6")]([])

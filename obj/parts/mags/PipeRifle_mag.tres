@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Mag" load_steps=9 format=3 uid="uid://b0y0fyyip3616"]
+[gd_resource type="Resource" script_class="Mag" load_steps=10 format=3 uid="uid://b0y0fyyip3616"]
 
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_bdlx3"]
 [ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_qgmem"]
@@ -8,6 +8,13 @@
 [ext_resource type="AudioStream" uid="uid://bseru4wnpe0hh" path="res://snd/sfx/ar_fire.wav" id="4_7g401"]
 [ext_resource type="Texture2D" uid="uid://flwrm1tw2n5o" path="res://img/parts/PipeRifle_mag.png" id="4_tpy38"]
 [ext_resource type="Script" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="6_giqpd"]
+
+[sub_resource type="Resource" id="Resource_hmvnf"]
+script = ExtResource("1_bdlx3")
+stat_name = "current_ver_recoil"
+value_of_stat = 1.25
+mult = true
+is_set = false
 
 [resource]
 script = ExtResource("3_urb46")
@@ -28,4 +35,4 @@ sprite_offset = Vector2(1, 1)
 bullet_strategies = Array[ExtResource("1_qgmem")]([])
 player_strategies = Array[ExtResource("3_o2cdc")]([])
 shootin_strategies = Array[ExtResource("6_giqpd")]([])
-changes = Array[ExtResource("1_bdlx3")]([])
+changes = Array[ExtResource("1_bdlx3")]([SubResource("Resource_hmvnf")])

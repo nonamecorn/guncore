@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Mag" load_steps=9 format=3 uid="uid://qp4pc1qwwwxj"]
+[gd_resource type="Resource" script_class="Mag" load_steps=10 format=3 uid="uid://qp4pc1qwwwxj"]
 
 [ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_hwk3s"]
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_noi3w"]
@@ -8,6 +8,13 @@
 [ext_resource type="AudioStream" uid="uid://bseru4wnpe0hh" path="res://snd/sfx/ar_fire.wav" id="4_yyxgo"]
 [ext_resource type="Texture2D" uid="uid://c2n3mrufc3cwk" path="res://img/parts/AR-180_mag.png" id="5_xuioy"]
 [ext_resource type="Script" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="6_2bs1r"]
+
+[sub_resource type="Resource" id="Resource_8pbke"]
+script = ExtResource("1_noi3w")
+stat_name = "current_ver_recoil"
+value_of_stat = 1.25
+mult = true
+is_set = false
 
 [resource]
 script = ExtResource("3_s8o55")
@@ -21,11 +28,11 @@ wear = 2.0
 item_name = "RAR-180 mag"
 item_description = "Not reliable mag."
 cost = 25
-max_durability = 500
-curr_durability = 500
+max_durability = 750.0
+curr_durability = 750.0
 sprite = ExtResource("5_xuioy")
 sprite_offset = Vector2(1, 3)
 bullet_strategies = Array[ExtResource("1_hwk3s")]([])
 player_strategies = Array[ExtResource("3_aggc0")]([])
 shootin_strategies = Array[ExtResource("6_2bs1r")]([])
-changes = Array[ExtResource("1_noi3w")]([])
+changes = Array[ExtResource("1_noi3w")]([SubResource("Resource_8pbke")])

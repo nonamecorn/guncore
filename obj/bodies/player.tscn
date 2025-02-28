@@ -339,7 +339,7 @@ script = ExtResource("16_ku1r1")
 process_mode = 3
 top_level = true
 material = SubResource("CanvasItemMaterial_u4ay0")
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.4, 0.4)
 texture = ExtResource("17_0843d")
 script = ExtResource("18_73vwp")
 

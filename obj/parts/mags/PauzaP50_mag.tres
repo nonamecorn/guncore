@@ -12,14 +12,14 @@
 [sub_resource type="Resource" id="Resource_yqqof"]
 script = ExtResource("1_mchcw")
 stat_name = "current_ver_recoil"
-value_of_stat = 53.0
+value_of_stat = 30.0
 mult = false
 is_set = false
 
 [sub_resource type="Resource" id="Resource_8g72w"]
 script = ExtResource("1_mchcw")
 stat_name = "current_hor_recoil"
-value_of_stat = 53.0
+value_of_stat = 70.0
 mult = false
 is_set = false
 

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Mag" load_steps=9 format=3 uid="uid://qp2w5ha2huux"]
+[gd_resource type="Resource" script_class="Mag" load_steps=10 format=3 uid="uid://qp2w5ha2huux"]
 
 [ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_b6got"]
 [ext_resource type="Script" path="res://obj/components/change.gd" id="1_nj4ow"]
@@ -9,6 +9,13 @@
 [ext_resource type="AudioStream" uid="uid://bseru4wnpe0hh" path="res://snd/sfx/ar_fire.wav" id="4_cbhew"]
 [ext_resource type="Script" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="6_olhsx"]
 
+[sub_resource type="Resource" id="Resource_5d2ps"]
+script = ExtResource("1_nj4ow")
+stat_name = "current_ver_recoil"
+value_of_stat = 1.25
+mult = true
+is_set = false
+
 [resource]
 script = ExtResource("2_qemoy")
 capacity = 100
@@ -16,14 +23,18 @@ projectile = ExtResource("1_vqrye")
 reload_time = 6
 sound = ExtResource("4_cbhew")
 loud_dist = 400
+proj_desc = "FMJ"
+wear = 1.0
 item_name = "MG box"
 item_description = "Offers huge ammo capacity
 if you willing to be vulnerable
 50% of the time."
 cost = 50
+max_durability = 1000.0
+curr_durability = 1000.0
 sprite = ExtResource("3_u84gw")
 sprite_offset = Vector2(2, 2)
 bullet_strategies = Array[ExtResource("1_b6got")]([])
 player_strategies = Array[ExtResource("3_ydlbm")]([])
 shootin_strategies = Array[ExtResource("6_olhsx")]([])
-changes = Array[ExtResource("1_nj4ow")]([])
+changes = Array[ExtResource("1_nj4ow")]([SubResource("Resource_5d2ps")])
