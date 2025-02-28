@@ -33,14 +33,14 @@ is_set = false
 [sub_resource type="Resource" id="Resource_hl8oi"]
 script = ExtResource("1_237dl")
 stat_name = "current_min_spread"
-value_of_stat = 10.0
+value_of_stat = 8.0
 mult = false
 is_set = false
 
 [sub_resource type="Resource" id="Resource_mxrb5"]
 script = ExtResource("1_237dl")
 stat_name = "current_min_spread"
-value_of_stat = 10.0
+value_of_stat = 8.0
 mult = false
 is_set = false
 

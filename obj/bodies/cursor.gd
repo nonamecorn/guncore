@@ -11,5 +11,5 @@ func apply_recoil(recoil_vector):
 	var los_vec = global_position - get_parent().global_position
 	print(los_vec)
 	var new_len = los_vec.length() + recoil_vector.x
-	var change_vec = los_vec - (los_vec.normalized() * new_len).rotated(deg_to_rad(recoil_vector.y * 0))
+	var change_vec = los_vec - (los_vec.normalized() * new_len).rotated(deg_to_rad(recoil_vector.y))
 	global_position -= change_vec
