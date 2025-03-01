@@ -92,10 +92,11 @@ func asseble_gun(parts : Dictionary):
 	alert_distance = parts.MAG.loud_dist
 	wear = parts.MAG.wear
 	
-	for part_name in parts:
-		if parts[part_name] == null: continue	
-		weight += parts[part_name].weight
-	get_parent().get_parent().set_handling_spd(weight)
+	if player_handled:
+		for part_name in parts:
+			if parts[part_name] == null: continue	
+			weight += parts[part_name].weight
+		get_parent().get_parent().set_handling_spd(weight)
 	
 	$audio/shoting.stream = parts.MAG.sound
 	$MUZZLE.position = parts.BARREL.muzzle_position + parts.RECIEVER.barrel_position
