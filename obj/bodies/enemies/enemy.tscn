@@ -1,6 +1,6 @@
 [gd_scene load_steps=19 format=3 uid="uid://c3jo85so338er"]
 
-[ext_resource type="Script" path="res://obj/bodies/enemies/enemy.gd" id="1_qbvdd"]
+[ext_resource type="Script" uid="uid://knfk28mubgvi" path="res://obj/bodies/enemies/enemy.gd" id="1_qbvdd"]
 [ext_resource type="Texture2D" uid="uid://88j42qnvmjuu" path="res://img/bodys/cultist_IdleAnim.png" id="2_j18lw"]
 [ext_resource type="PackedScene" uid="uid://df3di7rm5cgei" path="res://obj/components/enemy_hand_component.tscn" id="2_vctv7"]
 [ext_resource type="Texture2D" uid="uid://cggvmdym607vs" path="res://img/bodys/cultist_walkanim.png" id="3_cjvif"]

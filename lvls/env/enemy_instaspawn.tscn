@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://dtae80jmikdb0"]
 
-[ext_resource type="Script" path="res://lvls/env/enemy_instaspawn.gd" id="1_iulnb"]
+[ext_resource type="Script" uid="uid://ckhgdnj64dt1b" path="res://lvls/env/enemy_instaspawn.gd" id="1_iulnb"]
 
 [node name="enemy_instaspawn" type="Marker2D"]
 script = ExtResource("1_iulnb")

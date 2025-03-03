@@ -1,7 +1,7 @@
 [gd_scene load_steps=19 format=3 uid="uid://bjahob3lmcsb2"]
 
 [ext_resource type="PackedScene" uid="uid://chohchm3nmbw8" path="res://obj/components/mother_projectile.tscn" id="1_42e10"]
-[ext_resource type="Script" path="res://obj/proj/20_mm_grenade.gd" id="2_gpwt0"]
+[ext_resource type="Script" uid="uid://p7kuc37cxak6" path="res://obj/proj/20_mm_grenade.gd" id="2_gpwt0"]
 [ext_resource type="Texture2D" uid="uid://q2ik4q3f3qgg" path="res://img/bullets/20mm_nade.png" id="3_n8pmk"]
 [ext_resource type="Texture2D" uid="uid://d26mj4qry847c" path="res://img/misc/explosion.png" id="3_s65ea"]
 [ext_resource type="AudioStream" uid="uid://jrit8ythk2v3" path="res://snd/sfx/sniper_fire.wav" id="4_nsa2q"]

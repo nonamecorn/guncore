@@ -1,9 +1,9 @@
 [gd_scene load_steps=6 format=3 uid="uid://clebifn20pbo5"]
 
-[ext_resource type="Script" path="res://ui/pause.gd" id="1_ye7m4"]
+[ext_resource type="Script" uid="uid://cj7jia3x3a8yo" path="res://ui/pause.gd" id="1_ye7m4"]
 [ext_resource type="Texture2D" uid="uid://faonagr4q8jo" path="res://img/ui/UI.png" id="2_hmej1"]
 [ext_resource type="Texture2D" uid="uid://cxm8l442in7mi" path="res://img/ui/inventory_1slot.png" id="3_sr2fl"]
-[ext_resource type="Script" path="res://ui/slider.gd" id="3_vj4vv"]
+[ext_resource type="Script" uid="uid://trai2mok2fie" path="res://ui/slider.gd" id="3_vj4vv"]
 [ext_resource type="PackedScene" uid="uid://ggi5lqbxx6uu" path="res://ui/ui_button.tscn" id="4_ymsee"]
 
 [node name="pause" type="CenterContainer" node_paths=PackedStringArray("checkbox")]

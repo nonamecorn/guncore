@@ -1,11 +1,10 @@
 [gd_scene load_steps=8 format=3 uid="uid://du82m8s6amvuo"]
 
-[ext_resource type="Script" path="res://obj/components/hand_component.gd" id="1_02xou"]
+[ext_resource type="Script" uid="uid://buooya58pxdp8" path="res://obj/components/hand_component.gd" id="1_02xou"]
 [ext_resource type="Texture2D" uid="uid://dituxt4ekcmwa" path="res://img/misc/casing.png" id="2_jmntq"]
 
 [sub_resource type="Curve" id="Curve_khjgn"]
-min_value = -101.14
-max_value = 102.14
+_limits = [-101.14, 102.14, 0.0, 1.0]
 _data = [Vector2(0, 55), 0.0, 0.0, 0, 0, Vector2(0.5, 55), 0.0, 0.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 metadata/_snap_count = 2
@@ -14,7 +13,7 @@ metadata/_snap_count = 2
 curve = SubResource("Curve_khjgn")
 
 [sub_resource type="Curve" id="Curve_ar4gn"]
-max_value = 100.0
+_limits = [0.0, 100.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.486667, 0), 0.0, 0.0, 0, 0, Vector2(0.493333, 100), 0.0, 0.0, 0, 0, Vector2(0.8, 100), 0.0, 0.0, 0, 0]
 point_count = 4
 

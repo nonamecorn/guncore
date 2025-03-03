@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c86qnbpy6bcuy"]
 
-[ext_resource type="Script" path="res://ui/item_base.gd" id="1_d0eus"]
+[ext_resource type="Script" uid="uid://24qhscmbggr0" path="res://ui/item_base.gd" id="1_d0eus"]
 [ext_resource type="Texture2D" uid="uid://faonagr4q8jo" path="res://img/ui/UI.png" id="2_4rdkq"]
 
 [node name="Item_base" type="TextureRect" node_paths=PackedStringArray("item_nametag", "item_desctag")]

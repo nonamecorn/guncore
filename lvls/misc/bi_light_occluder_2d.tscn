@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://cmowt08tkhfxs"]
 
-[ext_resource type="Script" path="res://lvls/misc/right_light_occluder_2d.gd" id="1_unh2s"]
+[ext_resource type="Script" uid="uid://vlnioxx66470" path="res://lvls/misc/right_light_occluder_2d.gd" id="1_unh2s"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fistv"]
 polygon = PackedVector2Array(0, 0, 0, -32, 2, -32, 2, 0)

@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="Body" load_steps=9 format=3 uid="uid://b7orl2t04uw80"]
 
-[ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_ichh7"]
-[ext_resource type="Script" path="res://obj/components/change.gd" id="2_3m4jm"]
-[ext_resource type="Script" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_b2hvq"]
+[ext_resource type="Script" uid="uid://cbaxfmjcm2v32" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_ichh7"]
+[ext_resource type="Script" uid="uid://c11y0uxm67td" path="res://obj/components/change.gd" id="2_3m4jm"]
+[ext_resource type="Script" uid="uid://buggsj0y7xemx" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_b2hvq"]
 [ext_resource type="Resource" uid="uid://cycdtch0hyy05" path="res://obj/parts/strategies/light_vest_strategy.tres" id="4_2a6tq"]
-[ext_resource type="Script" path="res://obj/parts/scripts/body.gd" id="4_5d2du"]
-[ext_resource type="Script" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="5_v3ene"]
+[ext_resource type="Script" uid="uid://c5qvuai5t5mo" path="res://obj/parts/scripts/body.gd" id="4_5d2du"]
+[ext_resource type="Script" uid="uid://6ct4nafsu8do" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="5_v3ene"]
 [ext_resource type="Texture2D" uid="uid://doyx7ta4vewou" path="res://img/parts/LightArmor.png" id="7_hy5qm"]
 
 [sub_resource type="Resource" id="Resource_bs7iw"]
@@ -28,3 +28,4 @@ bullet_strategies = Array[ExtResource("1_ichh7")]([])
 player_strategies = Array[ExtResource("3_b2hvq")]([ExtResource("4_2a6tq")])
 shootin_strategies = Array[ExtResource("5_v3ene")]([])
 changes = Array[ExtResource("2_3m4jm")]([SubResource("Resource_bs7iw")])
+weight = 1.0

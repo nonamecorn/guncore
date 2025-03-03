@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://duel0ahtjen7a"]
 
-[ext_resource type="Script" path="res://others/charge.gd" id="1_0gn4m"]
+[ext_resource type="Script" uid="uid://coo3xwf0d8mwb" path="res://others/charge.gd" id="1_0gn4m"]
 
 [sub_resource type="Animation" id="Animation_i4svd"]
 length = 0.001
@@ -49,9 +49,9 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_o45kp"]
 _data = {
-"RESET": SubResource("Animation_i4svd"),
-"charge": SubResource("Animation_ppjqi"),
-"discharge": SubResource("Animation_iugr4")
+&"RESET": SubResource("Animation_i4svd"),
+&"charge": SubResource("Animation_ppjqi"),
+&"discharge": SubResource("Animation_iugr4")
 }
 
 [node name="charge" type="Node2D"]

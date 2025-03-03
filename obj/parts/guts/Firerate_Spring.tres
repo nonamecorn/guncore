@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="Guts" load_steps=8 format=3 uid="uid://cv44qfhx53q5d"]
 
-[ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_uxljf"]
-[ext_resource type="Script" path="res://obj/components/change.gd" id="2_yt68s"]
-[ext_resource type="Script" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_xqsgp"]
-[ext_resource type="Script" path="res://obj/parts/scripts/mod_guts.gd" id="4_3qbrs"]
-[ext_resource type="Script" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="5_id862"]
+[ext_resource type="Script" uid="uid://cbaxfmjcm2v32" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_uxljf"]
+[ext_resource type="Script" uid="uid://c11y0uxm67td" path="res://obj/components/change.gd" id="2_yt68s"]
+[ext_resource type="Script" uid="uid://buggsj0y7xemx" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_xqsgp"]
+[ext_resource type="Script" uid="uid://na30iupk2sbp" path="res://obj/parts/scripts/mod_guts.gd" id="4_3qbrs"]
+[ext_resource type="Script" uid="uid://6ct4nafsu8do" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="5_id862"]
 [ext_resource type="Texture2D" uid="uid://dd6ekil8ocvml" path="res://img/parts/firerateSpring.png" id="6_hgt6g"]
 
 [sub_resource type="Resource" id="Resource_t5ea2"]

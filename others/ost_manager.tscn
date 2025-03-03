@@ -1,6 +1,6 @@
 [gd_scene load_steps=17 format=3 uid="uid://dx085y3efeew"]
 
-[ext_resource type="Script" path="res://ost_manager.gd" id="1_rbwo4"]
+[ext_resource type="Script" uid="uid://dkjd5x6eklmdb" path="res://ost_manager.gd" id="1_rbwo4"]
 [ext_resource type="AudioStream" uid="uid://dmbwqwhphmh7t" path="res://snd/music/general/attachmentbreaker.ogg" id="2_3q357"]
 [ext_resource type="AudioStream" uid="uid://dpajqhxt7es67" path="res://snd/music/world1/locked_calm.ogg" id="3_sehid"]
 [ext_resource type="AudioStream" uid="uid://cqkfwb03uptlo" path="res://snd/music/world1/customarket.ogg" id="3_xb3fa"]
@@ -46,25 +46,25 @@ clip_4/stream = SubResource("AudioStreamPlaylist_l3wxu")
 clip_4/auto_advance = 0
 _transitions = {
 Vector2i(2, 2): {
-"fade_beats": 1,
+"fade_beats": 1.0,
 "fade_mode": 0,
 "from_time": 0,
 "to_time": 0
 },
 Vector2i(2, 3): {
-"fade_beats": 1,
+"fade_beats": 1.0,
 "fade_mode": 3,
 "from_time": 1,
 "to_time": 0
 },
 Vector2i(3, 2): {
-"fade_beats": 1,
+"fade_beats": 1.0,
 "fade_mode": 3,
 "from_time": 1,
 "to_time": 0
 },
 Vector2i(3, 3): {
-"fade_beats": 1,
+"fade_beats": 1.0,
 "fade_mode": 0,
 "from_time": 0,
 "to_time": 0
@@ -128,8 +128,8 @@ tracks/1/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_6byle"]
 _data = {
-"RESET": SubResource("Animation_d81rh"),
-"shift_metal": SubResource("Animation_26ko1")
+&"RESET": SubResource("Animation_d81rh"),
+&"shift_metal": SubResource("Animation_26ko1")
 }
 
 [sub_resource type="AudioStreamSynchronized" id="AudioStreamSynchronized_vyx4i"]

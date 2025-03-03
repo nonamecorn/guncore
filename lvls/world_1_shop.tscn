@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://so4co8sk7w75"]
 
 [ext_resource type="PackedScene" uid="uid://8c8ht7qy60rp" path="res://lvls/rooms/shop_room.tscn" id="1_mul21"]
-[ext_resource type="Script" path="res://lvls/world_1_shop.gd" id="1_tww5b"]
+[ext_resource type="Script" uid="uid://x78ikpjp2ou1" path="res://lvls/world_1_shop.gd" id="1_tww5b"]
 [ext_resource type="PackedScene" uid="uid://btw10scl5f85a" path="res://obj/bodies/player.tscn" id="4_1ehtl"]
 
 [node name="world1" type="Node2D"]

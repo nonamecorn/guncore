@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="GunReciever" load_steps=7 format=3 uid="uid://gis3gxijahkm"]
 
-[ext_resource type="Script" path="res://obj/components/change.gd" id="1_5y7yf"]
-[ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_ogic2"]
-[ext_resource type="Script" path="res://obj/parts/scripts/reciever.gd" id="2_s3h2p"]
+[ext_resource type="Script" uid="uid://c11y0uxm67td" path="res://obj/components/change.gd" id="1_5y7yf"]
+[ext_resource type="Script" uid="uid://cbaxfmjcm2v32" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_ogic2"]
+[ext_resource type="Script" uid="uid://b6fueakk3ws6s" path="res://obj/parts/scripts/reciever.gd" id="2_s3h2p"]
 [ext_resource type="Texture2D" uid="uid://c2l7pecgvas78" path="res://img/parts/AR-180.png" id="3_4wdy8"]
-[ext_resource type="Script" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_ghgu6"]
-[ext_resource type="Script" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="5_ly1r7"]
+[ext_resource type="Script" uid="uid://buggsj0y7xemx" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_ghgu6"]
+[ext_resource type="Script" uid="uid://6ct4nafsu8do" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="5_ly1r7"]
 
 [resource]
 script = ExtResource("2_s3h2p")

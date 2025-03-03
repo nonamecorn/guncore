@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="AutoAimStrategy" load_steps=2 format=3 uid="uid://craqbchwwgn3g"]
 
-[ext_resource type="Script" path="res://obj/parts/strategies/autoaim_bullet_strategy.gd" id="1_wwafw"]
+[ext_resource type="Script" uid="uid://c8f4k3s0ei368" path="res://obj/parts/strategies/autoaim_bullet_strategy.gd" id="1_wwafw"]
 
 [resource]
 script = ExtResource("1_wwafw")

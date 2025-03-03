@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://u7c58jbl5h2"]
 
-[ext_resource type="Script" path="res://lvls/env/spawner_barrel.gd" id="1_5qnyu"]
+[ext_resource type="Script" uid="uid://c83snla4lrbwn" path="res://lvls/env/spawner_barrel.gd" id="1_5qnyu"]
 [ext_resource type="Texture2D" uid="uid://c3fwrau0tielk" path="res://img/levels/BOCHKA.png" id="2_8fq1p"]
 [ext_resource type="AudioStream" uid="uid://jrit8ythk2v3" path="res://snd/sfx/sniper_fire.wav" id="5_nyaxk"]
 

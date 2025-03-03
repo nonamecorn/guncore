@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=4 uid="uid://b720un0jadula"]
 
 [ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="1_cvnqd"]
-[ext_resource type="Script" path="res://lvls/rooms/starting_room.gd" id="1_ytocs"]
+[ext_resource type="Script" uid="uid://cwa11g81ip6nm" path="res://lvls/rooms/starting_room.gd" id="1_ytocs"]
 [ext_resource type="PackedScene" uid="uid://bf65xavyr0pes" path="res://lvls/misc/module_connector.tscn" id="2_jwvtk"]
 [ext_resource type="PackedScene" uid="uid://dww7vxteobmel" path="res://lvls/env/explosive_barrel.tscn" id="4_6lyqu"]
 

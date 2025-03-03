@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="Barrel" load_steps=8 format=3 uid="uid://bcfjwfheulta0"]
 
-[ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_0qelm"]
-[ext_resource type="Script" path="res://obj/parts/scripts/barrel.gd" id="1_dc7kp"]
-[ext_resource type="Script" path="res://obj/components/change.gd" id="1_imxsv"]
+[ext_resource type="Script" uid="uid://cbaxfmjcm2v32" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_0qelm"]
+[ext_resource type="Script" uid="uid://c5jo0hlucnsy3" path="res://obj/parts/scripts/barrel.gd" id="1_dc7kp"]
+[ext_resource type="Script" uid="uid://c11y0uxm67td" path="res://obj/components/change.gd" id="1_imxsv"]
 [ext_resource type="Texture2D" uid="uid://sblo150kol3h" path="res://img/parts/PPsH_Barrel.png" id="1_xwq3i"]
-[ext_resource type="Script" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_rx4oo"]
-[ext_resource type="Script" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="5_jk8nn"]
+[ext_resource type="Script" uid="uid://buggsj0y7xemx" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_rx4oo"]
+[ext_resource type="Script" uid="uid://6ct4nafsu8do" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="5_jk8nn"]
 
 [sub_resource type="Resource" id="Resource_c6jfo"]
 script = ExtResource("1_imxsv")

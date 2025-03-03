@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://c0ljsk8svauek"]
 
-[ext_resource type="Script" path="res://obj/components/mother_stvol.gd" id="1_lft1y"]
+[ext_resource type="Script" uid="uid://365ksubrwel5" path="res://obj/components/mother_stvol.gd" id="1_lft1y"]
 
 [node name="mother_stvol" type="Node2D"]
 script = ExtResource("1_lft1y")

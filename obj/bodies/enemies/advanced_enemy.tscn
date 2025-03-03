@@ -1,10 +1,10 @@
 [gd_scene load_steps=11 format=3 uid="uid://v1m8frkee1w6"]
 
-[ext_resource type="Script" path="res://obj/bodies/enemies/advanced_enemy.gd" id="1_8j6os"]
+[ext_resource type="Script" uid="uid://b103i4cowd0kc" path="res://obj/bodies/enemies/advanced_enemy.gd" id="1_8j6os"]
 [ext_resource type="Texture2D" uid="uid://emrwjki1a5h0" path="res://img/bodys/enemy.png" id="2_vivsu"]
 [ext_resource type="PackedScene" uid="uid://df3di7rm5cgei" path="res://obj/components/enemy_hand_component.tscn" id="3_3dy6c"]
 [ext_resource type="PackedScene" uid="uid://ctrbcy5h47qqw" path="res://obj/components/gun_base.tscn" id="4_6wx2r"]
-[ext_resource type="Script" path="res://obj/components/advances_enemy_hand_component.gd" id="4_s6ss6"]
+[ext_resource type="Script" uid="uid://dxce8lswhd7ub" path="res://obj/components/advances_enemy_hand_component.gd" id="4_s6ss6"]
 [ext_resource type="PackedScene" uid="uid://b4ifd4nn31mq8" path="res://obj/components/hurt_box.tscn" id="5_3ydd2"]
 [ext_resource type="AudioStream" uid="uid://cq5moh8342387" path="res://snd/sfx/enemydeath.wav" id="6_alxr4"]
 

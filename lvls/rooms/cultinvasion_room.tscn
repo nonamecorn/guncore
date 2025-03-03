@@ -1,6 +1,6 @@
 [gd_scene load_steps=13 format=4 uid="uid://cr60qw65p1fnu"]
 
-[ext_resource type="Script" path="res://lvls/rooms/basic_room.gd" id="1_cj3nh"]
+[ext_resource type="Script" uid="uid://wtg2bb6is60f" path="res://lvls/rooms/basic_room.gd" id="1_cj3nh"]
 [ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="2_n8b5e"]
 [ext_resource type="PackedScene" uid="uid://cmowt08tkhfxs" path="res://lvls/misc/bi_light_occluder_2d.tscn" id="3_cuj2b"]
 [ext_resource type="PackedScene" uid="uid://cpcfb5ro5if5" path="res://lvls/env/cult_spawner.tscn" id="4_2e3o1"]

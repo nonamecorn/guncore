@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="Mag" load_steps=11 format=3 uid="uid://c6lj4qaio5050"]
 
-[ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_6t1tb"]
-[ext_resource type="Script" path="res://obj/components/change.gd" id="1_xf3kg"]
+[ext_resource type="Script" uid="uid://cbaxfmjcm2v32" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_6t1tb"]
+[ext_resource type="Script" uid="uid://c11y0uxm67td" path="res://obj/components/change.gd" id="1_xf3kg"]
 [ext_resource type="PackedScene" uid="uid://b4qvivbnt8oim" path="res://obj/proj/PP_fmj.tscn" id="2_leerk"]
-[ext_resource type="Script" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_hl1iy"]
-[ext_resource type="Script" path="res://obj/parts/scripts/mag.gd" id="3_uu35d"]
+[ext_resource type="Script" uid="uid://buggsj0y7xemx" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_hl1iy"]
+[ext_resource type="Script" uid="uid://cmpw4tk5uc8e" path="res://obj/parts/scripts/mag.gd" id="3_uu35d"]
 [ext_resource type="Texture2D" uid="uid://djlytxic53v0u" path="res://img/parts/Luty_mag.png" id="4_cnp8u"]
 [ext_resource type="AudioStream" uid="uid://bc6jww2l3klia" path="res://snd/sfx/smgfire.wav" id="4_h8qqb"]
-[ext_resource type="Script" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="6_r63ac"]
+[ext_resource type="Script" uid="uid://6ct4nafsu8do" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="6_r63ac"]
 
 [sub_resource type="Resource" id="Resource_qdavb"]
 script = ExtResource("1_xf3kg")

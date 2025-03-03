@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="Mag" load_steps=9 format=3 uid="uid://ct15n3dxyjuf6"]
 
-[ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_o7ivs"]
-[ext_resource type="Script" path="res://obj/components/change.gd" id="2_7dq86"]
-[ext_resource type="Script" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_y58o8"]
+[ext_resource type="Script" uid="uid://cbaxfmjcm2v32" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_o7ivs"]
+[ext_resource type="Script" uid="uid://c11y0uxm67td" path="res://obj/components/change.gd" id="2_7dq86"]
+[ext_resource type="Script" uid="uid://buggsj0y7xemx" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_y58o8"]
 [ext_resource type="PackedScene" uid="uid://bjahob3lmcsb2" path="res://obj/proj/20mm_grenade.tscn" id="4_tyke5"]
-[ext_resource type="Script" path="res://obj/parts/scripts/mag.gd" id="5_pl6nb"]
-[ext_resource type="Script" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="6_m74mk"]
+[ext_resource type="Script" uid="uid://cmpw4tk5uc8e" path="res://obj/parts/scripts/mag.gd" id="5_pl6nb"]
+[ext_resource type="Script" uid="uid://6ct4nafsu8do" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="6_m74mk"]
 [ext_resource type="AudioStream" uid="uid://cgttv3yq8imxo" path="res://snd/sfx/grenadelauncher_fire.wav" id="7_a84u0"]
 [ext_resource type="Texture2D" uid="uid://c4ofq1bmt3210" path="res://img/parts/GL_mag.png" id="8_54nw4"]
 

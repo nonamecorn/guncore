@@ -1,7 +1,7 @@
 [gd_scene load_steps=11 format=3 uid="uid://bfnpoji3eximf"]
 
 [ext_resource type="AudioStream" uid="uid://tdmqgj55whuh" path="res://snd/sfx/doorkicker_sfx.mp3" id="1_8hqla"]
-[ext_resource type="Script" path="res://lvls/env/corp_spawner.gd" id="1_b54st"]
+[ext_resource type="Script" uid="uid://njjbg6brq0uy" path="res://lvls/env/corp_spawner.gd" id="1_b54st"]
 [ext_resource type="Texture2D" uid="uid://ddujwdae061te" path="res://img/levels/Door.png" id="2_quxrr"]
 [ext_resource type="Texture2D" uid="uid://bkc2mcskqhcr" path="res://img/levels/dorgor.png" id="4_ngo0w"]
 
@@ -114,8 +114,8 @@ tracks/4/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_yrhut"]
 _data = {
-"RESET": SubResource("Animation_vciyq"),
-"doorkick": SubResource("Animation_hweto")
+&"RESET": SubResource("Animation_vciyq"),
+&"doorkick": SubResource("Animation_hweto")
 }
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_hwg77"]
@@ -125,14 +125,13 @@ particles_anim_v_frames = 1
 particles_anim_loop = false
 
 [sub_resource type="Curve" id="Curve_khjgn"]
-min_value = -101.14
-max_value = 102.14
+_limits = [-101.14, 102.14, 0.0, 1.0]
 _data = [Vector2(0, 55), 0.0, 0.0, 0, 0, Vector2(0.5, 55), 0.0, 0.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 metadata/_snap_count = 2
 
 [sub_resource type="Curve" id="Curve_tlp7n"]
-max_value = 100.0
+_limits = [0.0, 100.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.0338983, 3.07797), 0.0, 0.0, 0, 0, Vector2(0.0610269, 99.1108), 0.0, 0.0, 0, 0, Vector2(1, 100), 0.0, 0.0, 0, 0]
 point_count = 4
 

@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="Muzzle" load_steps=10 format=3 uid="uid://dyrm53mjli02u"]
 
-[ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_dwpc5"]
-[ext_resource type="Script" path="res://obj/components/change.gd" id="2_f8dnu"]
-[ext_resource type="Script" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_e6afs"]
-[ext_resource type="Script" path="res://obj/parts/scripts/muzzle.gd" id="4_jj67x"]
-[ext_resource type="Script" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="5_rklbg"]
+[ext_resource type="Script" uid="uid://cbaxfmjcm2v32" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_dwpc5"]
+[ext_resource type="Script" uid="uid://c11y0uxm67td" path="res://obj/components/change.gd" id="2_f8dnu"]
+[ext_resource type="Script" uid="uid://buggsj0y7xemx" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_e6afs"]
+[ext_resource type="Script" uid="uid://css7ne7hivpqa" path="res://obj/parts/scripts/muzzle.gd" id="4_jj67x"]
+[ext_resource type="Script" uid="uid://6ct4nafsu8do" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="5_rklbg"]
 [ext_resource type="Texture2D" uid="uid://dptxua5xehvq6" path="res://img/parts/Silencer.png" id="6_utsma"]
 
 [sub_resource type="Resource" id="Resource_72icd"]

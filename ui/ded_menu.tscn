@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://df86p143ocdnj"]
 
 [ext_resource type="Texture2D" uid="uid://faonagr4q8jo" path="res://img/ui/UI.png" id="1_55ylk"]
-[ext_resource type="Script" path="res://ui/ded_menu.gd" id="1_twka5"]
+[ext_resource type="Script" uid="uid://bix7g4hxa8isq" path="res://ui/ded_menu.gd" id="1_twka5"]
 [ext_resource type="PackedScene" uid="uid://ggi5lqbxx6uu" path="res://ui/ui_button.tscn" id="2_w0csk"]
 
 [node name="ded_menu" type="CenterContainer"]

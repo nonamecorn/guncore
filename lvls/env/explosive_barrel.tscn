@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://dww7vxteobmel"]
 
-[ext_resource type="Script" path="res://lvls/env/explosive_barrel.gd" id="1_a0xrv"]
+[ext_resource type="Script" uid="uid://dt06m004c7xeb" path="res://lvls/env/explosive_barrel.gd" id="1_a0xrv"]
 [ext_resource type="Texture2D" uid="uid://c3fwrau0tielk" path="res://img/levels/BOCHKA.png" id="1_euo60"]
 [ext_resource type="Texture2D" uid="uid://d26mj4qry847c" path="res://img/misc/explosion.png" id="2_tbypd"]
 [ext_resource type="AudioStream" uid="uid://jrit8ythk2v3" path="res://snd/sfx/sniper_fire.wav" id="4_6tqpp"]
@@ -116,8 +116,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_nokgf"]
 _data = {
-"RESET": SubResource("Animation_khdef"),
-"explode": SubResource("Animation_eclbp")
+&"RESET": SubResource("Animation_khdef"),
+&"explode": SubResource("Animation_eclbp")
 }
 
 [node name="explosive_barrel" type="CharacterBody2D" groups=["targetable"]]

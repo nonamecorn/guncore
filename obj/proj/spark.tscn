@@ -1,7 +1,7 @@
 [gd_scene load_steps=8 format=3 uid="uid://bljl2lwsqqnpe"]
 
 [ext_resource type="Texture2D" uid="uid://cn734peosn3j8" path="res://img/bullets/spark.png" id="1_qkovq"]
-[ext_resource type="Script" path="res://obj/proj/spark.gd" id="2_uxnap"]
+[ext_resource type="Script" uid="uid://c0t440o2iom6k" path="res://obj/proj/spark.gd" id="2_uxnap"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_3ucye"]
 atlas = ExtResource("1_qkovq")

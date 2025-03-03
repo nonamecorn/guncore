@@ -1,6 +1,6 @@
 [gd_scene load_steps=21 format=3 uid="uid://byya3w7ktpqp8"]
 
-[ext_resource type="Script" path="res://obj/bodies/enemies/corp_grunt.gd" id="1_7g7ug"]
+[ext_resource type="Script" uid="uid://1g0l4n52os3y" path="res://obj/bodies/enemies/corp_grunt.gd" id="1_7g7ug"]
 [ext_resource type="Texture2D" uid="uid://bnrs5ymoqkml4" path="res://img/bodys/Corp.png" id="2_21em0"]
 [ext_resource type="Texture2D" uid="uid://dd7cjk2v8x0op" path="res://img/bodys/Corp_anim.png" id="3_06vpp"]
 [ext_resource type="PackedScene" uid="uid://df3di7rm5cgei" path="res://obj/components/enemy_hand_component.tscn" id="3_lkscu"]

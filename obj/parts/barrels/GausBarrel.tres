@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="Barrel" load_steps=11 format=3 uid="uid://bxx2dgogqnqnx"]
 
-[ext_resource type="Script" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_0ho3p"]
-[ext_resource type="Script" path="res://obj/components/change.gd" id="1_5nps4"]
-[ext_resource type="Script" path="res://obj/parts/scripts/barrel.gd" id="2_85mr3"]
-[ext_resource type="Script" path="res://obj/parts/strategies/mult_damage_strategy.gd" id="2_827ad"]
+[ext_resource type="Script" uid="uid://cbaxfmjcm2v32" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_0ho3p"]
+[ext_resource type="Script" uid="uid://c11y0uxm67td" path="res://obj/components/change.gd" id="1_5nps4"]
+[ext_resource type="Script" uid="uid://c5jo0hlucnsy3" path="res://obj/parts/scripts/barrel.gd" id="2_85mr3"]
+[ext_resource type="Script" uid="uid://cf6ojbwh3ac2r" path="res://obj/parts/strategies/mult_damage_strategy.gd" id="2_827ad"]
 [ext_resource type="Texture2D" uid="uid://csnt6o7nooloq" path="res://img/parts/Coils.png" id="3_4v7y1"]
-[ext_resource type="Script" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_ljm23"]
-[ext_resource type="Script" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="5_ww2vb"]
+[ext_resource type="Script" uid="uid://buggsj0y7xemx" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_ljm23"]
+[ext_resource type="Script" uid="uid://6ct4nafsu8do" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="5_ww2vb"]
 
 [sub_resource type="Resource" id="Resource_u15j7"]
 script = ExtResource("2_827ad")

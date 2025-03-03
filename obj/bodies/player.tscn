@@ -1,10 +1,10 @@
 [gd_scene load_steps=48 format=3 uid="uid://btw10scl5f85a"]
 
-[ext_resource type="Script" path="res://obj/bodies/player.gd" id="1_6n3fv"]
+[ext_resource type="Script" uid="uid://dtnqffdf4qucb" path="res://obj/bodies/player.gd" id="1_6n3fv"]
 [ext_resource type="Texture2D" uid="uid://ci5dmfqdm37at" path="res://img/bodys/GG_IdleAnim.png" id="2_qk2hj"]
 [ext_resource type="Texture2D" uid="uid://sn8rs4nmv400" path="res://img/bodys/GG_RunAnim.png" id="3_7joj7"]
 [ext_resource type="PackedScene" uid="uid://du82m8s6amvuo" path="res://obj/components/player_hand_component.tscn" id="3_nq5y6"]
-[ext_resource type="Script" path="res://obj/bodies/camera_2d.gd" id="4_6xs1v"]
+[ext_resource type="Script" uid="uid://yyvacvy32l6n" path="res://obj/bodies/camera_2d.gd" id="4_6xs1v"]
 [ext_resource type="PackedScene" uid="uid://ctrbcy5h47qqw" path="res://obj/components/gun_base.tscn" id="6_m4fya"]
 [ext_resource type="PackedScene" uid="uid://d0ex485qfg6qx" path="res://ui/inventory.tscn" id="8_wsalq"]
 [ext_resource type="PackedScene" uid="uid://b4ifd4nn31mq8" path="res://obj/components/hurt_box.tscn" id="9_3vqfx"]
@@ -18,9 +18,9 @@
 [ext_resource type="Texture2D" uid="uid://c37071qnixn1r" path="res://img/ui/AMMo.png" id="13_4wjbs"]
 [ext_resource type="PackedScene" uid="uid://df86p143ocdnj" path="res://ui/ded_menu.tscn" id="13_vfuiq"]
 [ext_resource type="Texture2D" uid="uid://yi7hs54lm56q" path="res://img/ui/GLAZ.png" id="15_5cdi7"]
-[ext_resource type="Script" path="res://obj/bodies/marker_2d.gd" id="16_ku1r1"]
+[ext_resource type="Script" uid="uid://de1xi3p0m26n6" path="res://obj/bodies/marker_2d.gd" id="16_ku1r1"]
 [ext_resource type="Texture2D" uid="uid://magaaipxf54u" path="res://img/misc/crosshair.png" id="17_0843d"]
-[ext_resource type="Script" path="res://obj/bodies/cursor.gd" id="18_73vwp"]
+[ext_resource type="Script" uid="uid://cba3i3beo4l66" path="res://obj/bodies/cursor.gd" id="18_73vwp"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xlh8"]
 radius = 47.0
@@ -174,8 +174,7 @@ light_mode = 1
 light_mode = 1
 
 [sub_resource type="Curve" id="Curve_0p4vc"]
-min_value = 5.0
-max_value = 20.0
+_limits = [0.99, 20.0, 0.0, 1.0]
 _data = [Vector2(0, 5), 0.0, 2.47252, 0, 0, Vector2(1, 20), 40.7143, 0.0, 0, 0]
 point_count = 2
 metadata/_snap_enabled = true

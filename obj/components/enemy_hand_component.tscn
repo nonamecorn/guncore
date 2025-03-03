@@ -1,11 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://df3di7rm5cgei"]
 
-[ext_resource type="Script" path="res://obj/components/enemy_hand_component.gd" id="1_ayyde"]
+[ext_resource type="Script" uid="uid://sp7jg83l4uuu" path="res://obj/components/enemy_hand_component.gd" id="1_ayyde"]
 [ext_resource type="Texture2D" uid="uid://dituxt4ekcmwa" path="res://img/misc/casing.png" id="2_pvhvs"]
 
 [sub_resource type="Curve" id="Curve_4vpyb"]
-min_value = -101.14
-max_value = 102.14
+_limits = [-101.14, 102.14, 0.0, 1.0]
 _data = [Vector2(0, 81.812), 0.0, 0.0, 0, 0, Vector2(0.49999, 81.812), 0.0, 0.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0]
 point_count = 3
 metadata/_snap_count = 2
@@ -14,7 +13,7 @@ metadata/_snap_count = 2
 curve = SubResource("Curve_4vpyb")
 
 [sub_resource type="Curve" id="Curve_gwugm"]
-max_value = 100.0
+_limits = [0.0, 100.0, 0.0, 1.0]
 _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.486667, 0), 0.0, 0.0, 0, 0, Vector2(0.493333, 100), 0.0, 0.0, 0, 0, Vector2(0.8, 100), 0.0, 0.0, 0, 0]
 point_count = 4
 
