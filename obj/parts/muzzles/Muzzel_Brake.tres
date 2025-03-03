@@ -10,7 +10,7 @@
 [sub_resource type="Resource" id="Resource_mj266"]
 script = ExtResource("1_1gbqs")
 stat_name = "current_ver_recoil"
-value_of_stat = 0.6
+value_of_stat = 0.5
 mult = true
 is_set = false
 

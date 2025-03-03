@@ -7,7 +7,7 @@ var firing = false
 @export var weight_to_handle : Curve
 
 func set_handling_spd(weight):
-	HANDLING_SPEED = weight_to_handle.sample(1/weight)
+	HANDLING_SPEED = weight_to_handle.sample(weight)
 	print(HANDLING_SPEED)
 
 func _physics_process(delta):

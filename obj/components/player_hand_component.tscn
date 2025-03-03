@@ -45,6 +45,6 @@ position = Vector2(34, 0)
 position = Vector2(34, 0)
 emitting = false
 amount = 6
-process_material = SubResource("ParticleProcessMaterial_k01jn")
 texture = ExtResource("2_jmntq")
 lifetime = 1.8
+process_material = SubResource("ParticleProcessMaterial_k01jn")

@@ -17,7 +17,7 @@ is_set = false
 [sub_resource type="Resource" id="Resource_eb0h0"]
 script = ExtResource("2_f8dnu")
 stat_name = "current_hor_recoil"
-value_of_stat = 0.75
+value_of_stat = 0.7
 mult = false
 is_set = false
 

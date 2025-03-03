@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Barrel" load_steps=7 format=3 uid="uid://co20kgoboc6dy"]
+[gd_resource type="Resource" script_class="Barrel" load_steps=8 format=3 uid="uid://co20kgoboc6dy"]
 
 [ext_resource type="Script" uid="uid://cbaxfmjcm2v32" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_6dn6y"]
 [ext_resource type="Script" uid="uid://c11y0uxm67td" path="res://obj/components/change.gd" id="1_l5n5n"]
@@ -6,6 +6,14 @@
 [ext_resource type="Texture2D" uid="uid://bxgaydb515okv" path="res://img/parts/PauzaP50_barrel.png" id="3_fyrhx"]
 [ext_resource type="Script" uid="uid://buggsj0y7xemx" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_n4yxq"]
 [ext_resource type="Script" uid="uid://6ct4nafsu8do" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="5_46uj7"]
+
+[sub_resource type="Resource" id="Resource_4hs6n"]
+script = ExtResource("1_l5n5n")
+stat_name = "current_hor_recoil"
+value_of_stat = 0.75
+mult = true
+is_set = false
+metadata/_custom_type_script = "uid://c11y0uxm67td"
 
 [resource]
 script = ExtResource("2_mru7b")
@@ -24,5 +32,5 @@ sprite_offset = Vector2(11, 0)
 bullet_strategies = Array[ExtResource("1_6dn6y")]([])
 player_strategies = Array[ExtResource("3_n4yxq")]([])
 shootin_strategies = Array[ExtResource("5_46uj7")]([])
-changes = Array[ExtResource("1_l5n5n")]([])
+changes = Array[ExtResource("1_l5n5n")]([SubResource("Resource_4hs6n")])
 weight = 0.7
