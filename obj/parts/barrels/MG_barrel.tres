@@ -10,7 +10,7 @@
 [resource]
 script = ExtResource("1_86k7k")
 range_in_secs = 1.0
-max_spread = 12.0
+max_spread = 10.0
 min_spread = 0.0
 muzzle_position = Vector2(13, 0)
 add_spd = 0.0
@@ -26,3 +26,4 @@ bullet_strategies = Array[ExtResource("1_bp4a6")]([])
 player_strategies = Array[ExtResource("3_b3fgn")]([])
 shootin_strategies = Array[ExtResource("5_rmp1a")]([])
 changes = Array[ExtResource("1_3r1ov")]([])
+weight = 0.5

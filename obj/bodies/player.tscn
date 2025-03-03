@@ -176,8 +176,9 @@ light_mode = 1
 [sub_resource type="Curve" id="Curve_0p4vc"]
 min_value = 5.0
 max_value = 20.0
-_data = [Vector2(0.00699301, 20), 0.0, -46.8111, 0, 0, Vector2(1, 5), -0.290181, 0.0, 0, 0]
+_data = [Vector2(0, 5), 0.0, 2.47252, 0, 0, Vector2(1, 20), 40.7143, 0.0, 0, 0]
 point_count = 2
+metadata/_snap_enabled = true
 
 [node name="Player" type="CharacterBody2D" groups=["body", "player", "targetable"]]
 collision_layer = 36

@@ -2,7 +2,7 @@ extends Sprite2D
 
 
 @export var FOLLOW_SPEED = 100.0
-@export var HANDLING_SPEED = 5.0
+@export var HANDLING_SPEED = 20.0
 var firing = false
 @export var weight_to_handle : Curve
 
@@ -12,10 +12,10 @@ func set_handling_spd(weight):
 
 func _physics_process(delta):
 	var mouse_pos = get_global_mouse_position()
-	if firing:
-		global_position = global_position.lerp(mouse_pos, delta * HANDLING_SPEED)
-	else:
-		global_position = global_position.lerp(mouse_pos, delta * FOLLOW_SPEED)
+	#if firing:
+	global_position = global_position.lerp(mouse_pos, delta * HANDLING_SPEED)
+	#else:
+		#global_position = global_position.lerp(mouse_pos, delta * FOLLOW_SPEED)
 
 func apply_recoil(recoil_vector):
 	var los_vec = global_position - get_parent().global_position

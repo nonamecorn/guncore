@@ -43,3 +43,4 @@ bullet_strategies = Array[ExtResource("1_8wokp")]([])
 player_strategies = Array[ExtResource("3_aux3w")]([])
 shootin_strategies = Array[ExtResource("6_325yl")]([])
 changes = Array[ExtResource("1_mchcw")]([SubResource("Resource_yqqof"), SubResource("Resource_8g72w")])
+weight = 0.5
