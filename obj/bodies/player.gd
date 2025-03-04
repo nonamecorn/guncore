@@ -251,8 +251,8 @@ func change_stat(name_of_stat : String, value_of_stat, mult: bool):
 func remove_all_parts(parts):
 	for part_name in parts:
 		if parts[part_name] == null: continue
-		for stratagy in parts[part_name].player_strategies:
-			stratagy.remove(self)
+		for strategy in parts[part_name].player_strategies:
+			strategy.remove(self)
 
 func on_perception_change(isy):
 	$CanvasLayer/ISY.visible = isy

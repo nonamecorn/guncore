@@ -1,18 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://c86qnbpy6bcuy"]
+[gd_scene load_steps=6 format=3 uid="uid://c86qnbpy6bcuy"]
 
-[ext_resource type="Script" uid="uid://bby0ho37501yf" path="res://ui/item_base.gd" id="1_d0eus"]
+[ext_resource type="Script" uid="uid://24qhscmbggr0" path="res://ui/item_base.gd" id="1_d0eus"]
 [ext_resource type="Texture2D" uid="uid://faonagr4q8jo" path="res://img/ui/UI.png" id="2_4rdkq"]
+[ext_resource type="Texture2D" uid="uid://bk8ny1awm3q1d" path="res://img/ui/Gun_UnderHp_bar.png" id="3_u5acf"]
+[ext_resource type="Texture2D" uid="uid://c32kgyhcjjbod" path="res://img/ui/Gun_hp.png" id="4_k8fpa"]
+[ext_resource type="Texture2D" uid="uid://dr5egd8s1pq0b" path="res://img/ui/Gun_hp_bar.png" id="5_yu3pj"]
 
-[node name="Item_base" type="TextureRect" node_paths=PackedStringArray("item_nametag", "item_desctag")]
+[node name="Item_base" type="MarginContainer" node_paths=PackedStringArray("item_nametag", "item_desctag", "durabar2")]
 custom_minimum_size = Vector2(64, 64)
-offset_right = 64.0
-offset_bottom = 64.0
+anchors_preset = -1
+anchor_right = 0.05
+anchor_bottom = 0.089
+offset_bottom = -0.0800018
 mouse_filter = 0
-expand_mode = 3
-stretch_mode = 4
 script = ExtResource("1_d0eus")
 item_nametag = NodePath("PopupPanel/MarginContainer2/MarginContainer/VBoxContainer/Label")
 item_desctag = NodePath("PopupPanel/MarginContainer2/MarginContainer/VBoxContainer/RichTextLabel")
+durabar2 = NodePath("VBoxContainer/CenterContainer/TextureProgressBar")
 
 [node name="PopupPanel" type="Popup" parent="."]
 transparent_bg = true
@@ -53,3 +57,27 @@ text = "small"
 
 [node name="DurabilityBar" type="ProgressBar" parent="PopupPanel/MarginContainer2/MarginContainer/VBoxContainer"]
 layout_mode = 2
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2
+expand_mode = 3
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+alignment = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="VBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(0, 12)
+layout_mode = 2
+texture_under = ExtResource("3_u5acf")
+texture_over = ExtResource("4_k8fpa")
+texture_progress = ExtResource("5_yu3pj")

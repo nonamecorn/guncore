@@ -12,6 +12,8 @@ var current_spread = 0
 var added_velocity : Vector2
 var state = STOP
 var gpuparticles
+var assambled = false
+
 
 var player_crosshair
 
@@ -69,6 +71,8 @@ func dispawn_facade(part_name):
 
 func asseble_gun(parts : Dictionary):
 	dissassemble_gun()
+	assambled = true
+	state = STOP
 	gun_resources = parts
 	spawn_facade(parts.RECIEVER, Vector2.ZERO)
 	spawn_facade(parts.BARREL, parts.RECIEVER.barrel_position+parts.BARREL.sprite_offset)
@@ -92,11 +96,10 @@ func asseble_gun(parts : Dictionary):
 	alert_distance = parts.MAG.loud_dist
 	wear = parts.MAG.wear
 	
-	if player_handled:
-		for part_name in parts:
-			if parts[part_name] == null: continue	
-			weight += parts[part_name].weight
-		get_parent().get_parent().set_handling_spd(weight)
+	for part_name in parts:
+		if parts[part_name] == null: continue	
+		weight += parts[part_name].weight
+	get_parent().get_parent().set_handling_spd(weight)
 	
 	$audio/shoting.stream = parts.MAG.sound
 	$MUZZLE.position = parts.BARREL.muzzle_position + parts.RECIEVER.barrel_position
@@ -155,15 +158,21 @@ func change_stat(name_of_stat : String, value_of_stat, mult: bool):
 
 
 func dissassemble_gun():
+	assambled = false
+	stop_fire()
+	$reload.stop()
+	$MAG.show()
 	dispawn_facade("RECIEVER")
 	dispawn_facade("BARREL")
 	dispawn_facade("MAG")
 	dispawn_facade("MUZZLE")
 	dispawn_facade("ATTACH")
+	current_ammo = null
 	firing_strategies = []
 	bullet_strategies = []
 	state = STOP
 	weight = 0
+	display_ammo()
 
 func start_fire():
 	if state: return
@@ -196,7 +205,7 @@ func _on_reload_timeout():
 	state = FIRE
 
 func reload():
-	if !$MAG.visible or current_ammo == current_max_ammo: return
+	if !assambled or !$MAG.visible or current_ammo == current_max_ammo: return
 	stop_fire()
 	state = STOP
 	if player_handled:
@@ -265,7 +274,8 @@ func fire():
 		#else:
 			#get_parent().get_parent().apply_recoil(recoil_vector)
 	if !weapon_functional():
-		current_ammo = 0
+		dissassemble_gun()
+		$audio/something_broke.play()
 		display_ammo()
 
 

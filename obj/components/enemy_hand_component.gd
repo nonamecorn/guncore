@@ -132,9 +132,9 @@ func has_los(target):
 
 func apply_recoil(recoil_vector):
 	if !current_target: return
-	#var direction = (current_target.global_position - global_position) + recoil_vector
-	#var angle = transform.x.angle_to(direction)
-	rotate(recoil_vector.y)
+	get_parent().get_children()[-1].apply_recoil(recoil_vector)
+func set_handling_spd(weight):
+	get_parent().get_children()[-1].set_handling_spd(weight)
 
 func flip():
 	get_parent().flip()

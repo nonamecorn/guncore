@@ -1,0 +1,28 @@
+extends Marker2D
+var current_target = null
+
+@export var FOLLOW_SPEED = 100.0
+@export var HANDLING_SPEED = 20.0
+var firing = false
+@export var weight_to_handle : Curve
+
+func set_handling_spd(weight):
+	HANDLING_SPEED = weight_to_handle.sample(weight)
+
+func _physics_process(delta):
+	current_target = get_parent().current_target
+	if !current_target: return
+	var current_target_pos = current_target.global_position
+	global_position = global_position.lerp(current_target_pos, delta * HANDLING_SPEED)
+
+func apply_recoil(recoil_vector):
+	var los_vec = global_position - get_parent().global_position
+	var new_len = los_vec.length() + recoil_vector.x
+	var change_vec = los_vec - (los_vec.normalized() * new_len).rotated(deg_to_rad(recoil_vector.y))
+	global_position -= change_vec
+	firing = true
+	$Timer.start()
+
+
+func _on_timer_timeout() -> void:
+	firing = false

@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://c3jo85so338er"]
+[gd_scene load_steps=20 format=3 uid="uid://c3jo85so338er"]
 
 [ext_resource type="Script" uid="uid://blktlux0xr8p8" path="res://obj/bodies/enemies/enemy.gd" id="1_qbvdd"]
 [ext_resource type="Texture2D" uid="uid://88j42qnvmjuu" path="res://img/bodys/cultist_IdleAnim.png" id="2_j18lw"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://ctrbcy5h47qqw" path="res://obj/components/gun_base.tscn" id="4_ohoj0"]
 [ext_resource type="PackedScene" uid="uid://b4ifd4nn31mq8" path="res://obj/components/hurt_box.tscn" id="5_eclwk"]
 [ext_resource type="AudioStream" uid="uid://cq5moh8342387" path="res://snd/sfx/enemydeath.wav" id="6_qqgv7"]
+[ext_resource type="PackedScene" uid="uid://cdyxb3haj8bag" path="res://obj/components/enemy_cursor.tscn" id="8_fupwg"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kudys"]
 light_mode = 2
@@ -152,6 +153,8 @@ offset_left = -19.0
 offset_top = -46.0
 offset_right = 21.0
 offset_bottom = -30.0
+
+[node name="enemy_cursor" parent="." instance=ExtResource("8_fupwg")]
 
 [connection signal="timeout" from="enemy_hand_component/burst_duration" to="enemy_hand_component" method="_on_burst_duration_timeout"]
 [connection signal="timeout" from="change_position" to="." method="_on_change_position_timeout"]

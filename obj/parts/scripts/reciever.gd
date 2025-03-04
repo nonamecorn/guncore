@@ -10,6 +10,6 @@ var slot : String = "RECIEVER"
 
 var stats = {
 	"Firerate": "base_firerate",
-	"Vertical Recoil": "ver_recoil",
-	"Horisontal Recoil": "hor_recoil",
+	"Ver.Rec.": "ver_recoil",
+	"Hor.Rec.": "hor_recoil",
 }

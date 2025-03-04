@@ -49,9 +49,9 @@ position = Vector2(80, 0)
 [node name="GPUParticles2D" type="GPUParticles2D" parent="."]
 emitting = false
 amount = 6
-process_material = SubResource("ParticleProcessMaterial_rhrj5")
 texture = ExtResource("2_pvhvs")
 lifetime = 1.8
+process_material = SubResource("ParticleProcessMaterial_rhrj5")
 
 [node name="Cqb_awareness" type="Area2D" parent="."]
 collision_layer = 4

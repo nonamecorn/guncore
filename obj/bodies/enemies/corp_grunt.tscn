@@ -1,6 +1,6 @@
-[gd_scene load_steps=21 format=3 uid="uid://byya3w7ktpqp8"]
+[gd_scene load_steps=22 format=3 uid="uid://byya3w7ktpqp8"]
 
-[ext_resource type="Script" uid="uid://1g0l4n52os3y" path="res://obj/bodies/enemies/corp_grunt.gd" id="1_7g7ug"]
+[ext_resource type="Script" uid="uid://duty18ebfwe3j" path="res://obj/bodies/enemies/corp_grunt.gd" id="1_7g7ug"]
 [ext_resource type="Texture2D" uid="uid://bnrs5ymoqkml4" path="res://img/bodys/Corp.png" id="2_21em0"]
 [ext_resource type="Texture2D" uid="uid://dd7cjk2v8x0op" path="res://img/bodys/Corp_anim.png" id="3_06vpp"]
 [ext_resource type="PackedScene" uid="uid://df3di7rm5cgei" path="res://obj/components/enemy_hand_component.tscn" id="3_lkscu"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b4ifd4nn31mq8" path="res://obj/components/hurt_box.tscn" id="5_sh640"]
 [ext_resource type="AudioStream" uid="uid://cq5moh8342387" path="res://snd/sfx/enemydeath.wav" id="6_82n5t"]
 [ext_resource type="PackedScene" uid="uid://bde3ba2p8ca28" path="res://lvls/misc/corp_light.tscn" id="7_gskjq"]
+[ext_resource type="PackedScene" uid="uid://cdyxb3haj8bag" path="res://obj/components/enemy_cursor.tscn" id="9_pth8w"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kudys"]
 light_mode = 2
@@ -165,6 +166,8 @@ offset_left = -19.0
 offset_top = -46.0
 offset_right = 21.0
 offset_bottom = -30.0
+
+[node name="enemy_cursor" parent="." instance=ExtResource("9_pth8w")]
 
 [connection signal="timeout" from="enemy_hand_component/burst_duration" to="enemy_hand_component" method="_on_burst_duration_timeout"]
 [connection signal="timeout" from="change_position" to="." method="_on_change_position_timeout"]

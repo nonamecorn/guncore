@@ -6,7 +6,12 @@ class_name Item
 @export_multiline var item_description : String = ''
 @export var cost : int = 5
 @export var max_durability : float = 1000.0
-@export var curr_durability : float = 1000.0
+@export var curr_durability : float = 1000.0:
+	set(val):
+		damaged.emit()
+		curr_durability = val
+	get():
+		return curr_durability
 @export var sprite : Texture2D
 @export var sprite_offset : Vector2
 @export var bullet_strategies : Array[BasicBulletStrategy]
@@ -18,6 +23,7 @@ class_name Item
 var from_shop = false
 var id : int
 signal pickup
+signal damaged
 var eq = false
 var eq_index = null
 var picked_up = false

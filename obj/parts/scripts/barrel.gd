@@ -8,7 +8,7 @@ class_name Barrel
 var slot : String = "BARREL"
 var stats = {
 	"Range": "range_in_secs",
-	"Max Spread": "max_spread",
-	"Min Spread": "min_spread",
-	"Added Speed": "add_spd",
+	"Max.Sprd.": "max_spread",
+	"Min.Sprd.": "min_spread",
+	"Add.Spd.": "add_spd",
 }

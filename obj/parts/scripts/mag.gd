@@ -14,8 +14,8 @@ var slot : String = "MAG"
 
 var stats = {
 	"Capacity": "capacity",
-	"Alert Distance": "loud_dist",
-	"Reload time": "reload_time",
+	"Alrt.Dist.": "loud_dist",
+	"Reld.time": "reload_time",
 	"Wear": "wear",
-	"Projectile Description": "proj_desc",
+	"Proj.Desc.": "proj_desc",
 }
