@@ -51,7 +51,7 @@ crosshair=""
 
 [gui]
 
-theme/custom_font="res://misc_assets/PressStart2P-Regular.ttf"
+theme/custom_font="uid://bcs4hk78mucq4"
 
 [input]
 

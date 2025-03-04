@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://ctrbcy5h47qqw"]
 
-[ext_resource type="Script" uid="uid://c3l4ht5xb7jv3" path="res://obj/components/gun_component.gd" id="1_it1k3"]
+[ext_resource type="Script" uid="uid://tedba0a53lvg" path="res://obj/components/gun_component.gd" id="1_it1k3"]
 [ext_resource type="AudioStream" uid="uid://bxglm1lbr2kpf" path="res://snd/sfx/reloadend.wav" id="2_aqcxo"]
 [ext_resource type="PackedScene" uid="uid://dk15yn20pad8s" path="res://obj/components/muzzleflash.tscn" id="2_primx"]
 [ext_resource type="AudioStream" uid="uid://grfe1fyigyx8" path="res://snd/sfx/reloadstart.wav" id="3_6g14y"]
