@@ -4,7 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://ci5dmfqdm37at" path="res://img/bodys/GG_IdleAnim.png" id="2_qk2hj"]
 [ext_resource type="Texture2D" uid="uid://sn8rs4nmv400" path="res://img/bodys/GG_RunAnim.png" id="3_7joj7"]
 [ext_resource type="PackedScene" uid="uid://du82m8s6amvuo" path="res://obj/components/player_hand_component.tscn" id="3_nq5y6"]
-[ext_resource type="Script" uid="uid://ktu81iwr6pjn" path="res://obj/bodies/camera_2d.gd" id="4_6xs1v"]
+[ext_resource type="Script" uid="uid://yyvacvy32l6n" path="res://obj/bodies/camera_2d.gd" id="4_6xs1v"]
 [ext_resource type="PackedScene" uid="uid://ctrbcy5h47qqw" path="res://obj/components/gun_base.tscn" id="6_m4fya"]
 [ext_resource type="PackedScene" uid="uid://d0ex485qfg6qx" path="res://ui/inventory.tscn" id="8_wsalq"]
 [ext_resource type="PackedScene" uid="uid://b4ifd4nn31mq8" path="res://obj/components/hurt_box.tscn" id="9_3vqfx"]
@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://c37071qnixn1r" path="res://img/ui/AMMo.png" id="13_4wjbs"]
 [ext_resource type="PackedScene" uid="uid://df86p143ocdnj" path="res://ui/ded_menu.tscn" id="13_vfuiq"]
 [ext_resource type="Texture2D" uid="uid://yi7hs54lm56q" path="res://img/ui/GLAZ.png" id="15_5cdi7"]
-[ext_resource type="Script" uid="uid://cv00flio5btg0" path="res://obj/bodies/marker_2d.gd" id="16_ku1r1"]
+[ext_resource type="Script" uid="uid://de1xi3p0m26n6" path="res://obj/bodies/marker_2d.gd" id="16_ku1r1"]
 [ext_resource type="Texture2D" uid="uid://magaaipxf54u" path="res://img/misc/crosshair.png" id="17_0843d"]
 [ext_resource type="Script" uid="uid://cba3i3beo4l66" path="res://obj/bodies/cursor.gd" id="18_73vwp"]
 

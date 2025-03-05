@@ -42,9 +42,9 @@ func _physics_process(delta):
 
 func on_collision(collider):
 	if collider and collider.get_collider().has_method("hurt"):
-		var dmg_coef = falloff.sample(max_range / $Timer.wait_time)
+		var dmg_coef = falloff.sample($Timer.time_left / $Timer.wait_time)
 		print(dmg_coef)
-		collider.get_collider().hurt(damage)
+		collider.get_collider().hurt(damage * dmg_coef)
 	active = false
 	$Sprite2D.hide()
 	create_spark()

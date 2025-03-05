@@ -1,8 +1,9 @@
-[gd_resource type="Resource" script_class="Mag" load_steps=15 format=3 uid="uid://dyx7wkgvril7s"]
+[gd_resource type="Resource" script_class="Mag" load_steps=16 format=3 uid="uid://dyx7wkgvril7s"]
 
 [ext_resource type="Script" uid="uid://c11y0uxm67td" path="res://obj/components/change.gd" id="1_237dl"]
 [ext_resource type="Script" uid="uid://cbaxfmjcm2v32" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_gnxtw"]
 [ext_resource type="PackedScene" uid="uid://b4qvivbnt8oim" path="res://obj/proj/PP_fmj.tscn" id="2_vbayn"]
+[ext_resource type="Curve" uid="uid://bkl8vdvx0bm5w" path="res://others/shotgun_falloff.tres" id="3_0mv86"]
 [ext_resource type="Script" uid="uid://buggsj0y7xemx" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_3mkxe"]
 [ext_resource type="Script" uid="uid://cmpw4tk5uc8e" path="res://obj/parts/scripts/mag.gd" id="3_xvfsu"]
 [ext_resource type="AudioStream" uid="uid://dgx3iqg0qvlql" path="res://snd/sfx/shotgun_fire.wav" id="4_ctcjj"]
@@ -60,6 +61,7 @@ sound = ExtResource("4_ctcjj")
 loud_dist = 400
 proj_desc = "Shotgun shells"
 wear = 1.0
+falloff = ExtResource("3_0mv86")
 item_name = "Shotgun mag"
 item_description = "Shoots 500% more bullets per bullet."
 cost = 40

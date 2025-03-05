@@ -88,7 +88,6 @@ animations = [{
 [node name="mother_projectile" instance=ExtResource("1_42e10")]
 motion_mode = 1
 script = ExtResource("2_gpwt0")
-damage = 150
 ap = true
 
 [node name="Sprite2D" parent="." index="0"]

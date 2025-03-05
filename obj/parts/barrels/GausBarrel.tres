@@ -10,7 +10,7 @@
 
 [sub_resource type="Resource" id="Resource_u15j7"]
 script = ExtResource("2_827ad")
-mult_damage = 2
+mult_damage = 1.5
 
 [sub_resource type="Resource" id="Resource_2mgrr"]
 script = ExtResource("1_5nps4")

@@ -143,7 +143,7 @@ func death():
 	$CanvasLayer/ded_menu.show()
 
 var incoming_damage
-func hurt(amnt):
+func hurt(amnt:float):
 	incoming_damage = amnt
 	if strategies:
 		for strategy in strategies:
