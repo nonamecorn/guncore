@@ -1,11 +1,11 @@
 [gd_resource type="Resource" script_class="Mag" load_steps=10 format=3 uid="uid://ctni2ydtjopne"]
 
-[ext_resource type="Script" uid="uid://cbaxfmjcm2v32" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_8vfmn"]
-[ext_resource type="Script" uid="uid://c11y0uxm67td" path="res://obj/components/change.gd" id="2_txvki"]
-[ext_resource type="Script" uid="uid://buggsj0y7xemx" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_11f78"]
+[ext_resource type="Script" uid="uid://bewoh33t2jvqx" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_8vfmn"]
+[ext_resource type="Script" uid="uid://cnjnlhut3rfhj" path="res://obj/components/change.gd" id="2_txvki"]
+[ext_resource type="Script" uid="uid://b6m5s83fp152l" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_11f78"]
 [ext_resource type="PackedScene" uid="uid://d1h5lojq6r4g6" path="res://obj/proj/airburst_bullet.tscn" id="4_yr8wu"]
 [ext_resource type="Script" uid="uid://cmpw4tk5uc8e" path="res://obj/parts/scripts/mag.gd" id="5_h3v4e"]
-[ext_resource type="Script" uid="uid://6ct4nafsu8do" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="6_v4v5k"]
+[ext_resource type="Script" uid="uid://bflh6grt2mc7m" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="6_v4v5k"]
 [ext_resource type="AudioStream" uid="uid://bseru4wnpe0hh" path="res://snd/sfx/ar_fire.wav" id="7_mbuar"]
 [ext_resource type="Texture2D" uid="uid://ybdhqnh2brat" path="res://img/parts/AirBurst_mag.png" id="8_6l7fk"]
 

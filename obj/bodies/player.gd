@@ -12,7 +12,7 @@ var current_speed = MAX_SPEED
 var current_acceleration = ACCELERATION
 var current_friction = FRICTION
 
-var health : int = 500
+var health : float = 500.0
 var armor : int = 0
 
 var flipped = false

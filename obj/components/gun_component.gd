@@ -38,6 +38,7 @@ var current_reload_time
 var alert_distance
 var wear : float
 var weight
+var falloff : Curve
 var firing_strategies = []
 var bullet_strategies = []
 
@@ -95,6 +96,7 @@ func asseble_gun(parts : Dictionary):
 	current_reload_time = parts.MAG.reload_time
 	alert_distance = parts.MAG.loud_dist
 	wear = parts.MAG.wear
+	falloff = parts.MAG.falloff
 	
 	for part_name in parts:
 		if parts[part_name] == null: continue	
@@ -257,7 +259,8 @@ func fire():
 		bullet_inst.global_position = get_point_of_fire()
 		bullet_inst.global_rotation_degrees = global_rotation_degrees + rng.randf_range(-current_spread, current_spread)
 		added_velocity = get_parent().get_parent().get_parent().velocity/2
-		
+		bullet_inst.falloff = falloff
+		bullet_inst.max_range = current_range
 		for strategy in bullet_strategies:
 			bullet_inst.strategies.append(strategy)
 		for strategy in firing_strategies:

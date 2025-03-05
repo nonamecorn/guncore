@@ -9,6 +9,7 @@ class_name Mag
 @export var loud_dist : int = 400
 @export var proj_desc : String = "FMJ"
 @export var wear : float = 1.0
+@export var falloff : Curve
 
 var slot : String = "MAG"
 

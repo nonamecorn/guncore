@@ -1,13 +1,14 @@
-[gd_resource type="Resource" script_class="Mag" load_steps=10 format=3 uid="uid://qp4pc1qwwwxj"]
+[gd_resource type="Resource" script_class="Mag" load_steps=11 format=3 uid="uid://qp4pc1qwwwxj"]
 
-[ext_resource type="Script" uid="uid://cbaxfmjcm2v32" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_hwk3s"]
-[ext_resource type="Script" uid="uid://c11y0uxm67td" path="res://obj/components/change.gd" id="1_noi3w"]
+[ext_resource type="Script" uid="uid://bewoh33t2jvqx" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_hwk3s"]
+[ext_resource type="Script" uid="uid://cnjnlhut3rfhj" path="res://obj/components/change.gd" id="1_noi3w"]
 [ext_resource type="PackedScene" uid="uid://ce5unulp5hnlx" path="res://obj/proj/fmj.tscn" id="2_evbt2"]
-[ext_resource type="Script" uid="uid://buggsj0y7xemx" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_aggc0"]
+[ext_resource type="Script" uid="uid://b6m5s83fp152l" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_aggc0"]
+[ext_resource type="Curve" uid="uid://jjv3e26hfi3e" path="res://others/rifle_falloff.tres" id="3_lols4"]
 [ext_resource type="Script" uid="uid://cmpw4tk5uc8e" path="res://obj/parts/scripts/mag.gd" id="3_s8o55"]
 [ext_resource type="AudioStream" uid="uid://bseru4wnpe0hh" path="res://snd/sfx/ar_fire.wav" id="4_yyxgo"]
 [ext_resource type="Texture2D" uid="uid://c2n3mrufc3cwk" path="res://img/parts/AR-180_mag.png" id="5_xuioy"]
-[ext_resource type="Script" uid="uid://6ct4nafsu8do" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="6_2bs1r"]
+[ext_resource type="Script" uid="uid://bflh6grt2mc7m" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="6_2bs1r"]
 
 [sub_resource type="Resource" id="Resource_8pbke"]
 script = ExtResource("1_noi3w")
@@ -25,6 +26,7 @@ sound = ExtResource("4_yyxgo")
 loud_dist = 400
 proj_desc = "FMJ"
 wear = 1.0
+falloff = ExtResource("3_lols4")
 item_name = "RAR-180 mag"
 item_description = "Not reliable mag."
 cost = 25

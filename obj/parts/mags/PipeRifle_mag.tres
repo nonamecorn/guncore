@@ -1,13 +1,14 @@
-[gd_resource type="Resource" script_class="Mag" load_steps=10 format=3 uid="uid://b0y0fyyip3616"]
+[gd_resource type="Resource" script_class="Mag" load_steps=11 format=3 uid="uid://b0y0fyyip3616"]
 
-[ext_resource type="Script" uid="uid://c11y0uxm67td" path="res://obj/components/change.gd" id="1_bdlx3"]
-[ext_resource type="Script" uid="uid://cbaxfmjcm2v32" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_qgmem"]
+[ext_resource type="Script" uid="uid://cnjnlhut3rfhj" path="res://obj/components/change.gd" id="1_bdlx3"]
+[ext_resource type="Script" uid="uid://bewoh33t2jvqx" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_qgmem"]
 [ext_resource type="PackedScene" uid="uid://ce5unulp5hnlx" path="res://obj/proj/fmj.tscn" id="2_cjw5m"]
-[ext_resource type="Script" uid="uid://buggsj0y7xemx" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_o2cdc"]
+[ext_resource type="Curve" uid="uid://jjv3e26hfi3e" path="res://others/rifle_falloff.tres" id="3_a3j7a"]
+[ext_resource type="Script" uid="uid://b6m5s83fp152l" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_o2cdc"]
 [ext_resource type="Script" uid="uid://cmpw4tk5uc8e" path="res://obj/parts/scripts/mag.gd" id="3_urb46"]
 [ext_resource type="AudioStream" uid="uid://bseru4wnpe0hh" path="res://snd/sfx/ar_fire.wav" id="4_7g401"]
 [ext_resource type="Texture2D" uid="uid://flwrm1tw2n5o" path="res://img/parts/PipeRifle_mag.png" id="4_tpy38"]
-[ext_resource type="Script" uid="uid://6ct4nafsu8do" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="6_giqpd"]
+[ext_resource type="Script" uid="uid://bflh6grt2mc7m" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="6_giqpd"]
 
 [sub_resource type="Resource" id="Resource_hmvnf"]
 script = ExtResource("1_bdlx3")
@@ -25,6 +26,7 @@ sound = ExtResource("4_7g401")
 loud_dist = 400
 proj_desc = "FMJ"
 wear = 1.0
+falloff = ExtResource("3_a3j7a")
 item_name = "Pipe mag"
 item_description = "Second reliable mag ever."
 cost = 5

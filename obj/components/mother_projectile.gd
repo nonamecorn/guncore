@@ -5,11 +5,13 @@ var spark = preload("res://obj/proj/spark.tscn")
 @export var speed = 500
 var move_vec : Vector2
 var mod_vec : Vector2
-@export var damage : int = 20
+@export var damage : float = 20.0
 var active = true
 var strategies = []
 var strategy_dic = {}
 var mpos = Vector2.ZERO
+var falloff : Curve
+var max_range : float
 @export var ap : bool = false
 
 var rng = RandomNumberGenerator.new()
@@ -40,6 +42,8 @@ func _physics_process(delta):
 
 func on_collision(collider):
 	if collider and collider.get_collider().has_method("hurt"):
+		var dmg_coef = falloff.sample(max_range / $Timer.wait_time)
+		print(dmg_coef)
 		collider.get_collider().hurt(damage)
 	active = false
 	$Sprite2D.hide()
