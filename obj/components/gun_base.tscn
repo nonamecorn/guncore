@@ -1,10 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://ctrbcy5h47qqw"]
+[gd_scene load_steps=11 format=3 uid="uid://ctrbcy5h47qqw"]
 
 [ext_resource type="Script" uid="uid://c3l4ht5xb7jv3" path="res://obj/components/gun_component.gd" id="1_it1k3"]
 [ext_resource type="AudioStream" uid="uid://bxglm1lbr2kpf" path="res://snd/sfx/reloadend.wav" id="2_aqcxo"]
 [ext_resource type="PackedScene" uid="uid://dk15yn20pad8s" path="res://obj/components/muzzleflash.tscn" id="2_primx"]
 [ext_resource type="AudioStream" uid="uid://grfe1fyigyx8" path="res://snd/sfx/reloadstart.wav" id="3_6g14y"]
 [ext_resource type="AudioStream" uid="uid://blt37tqho0arn" path="res://snd/sfx/silencedsmg_fire.wav" id="3_fv6p6"]
+[ext_resource type="AudioStream" uid="uid://byixmvn1xg5ex" path="res://snd/sfx/something_broke.ogg" id="6_s5lr7"]
+[ext_resource type="AudioStream" uid="uid://dhii2eqdm2a16" path="res://snd/sfx/out_of_ammo.ogg" id="7_lxys1"]
 
 [sub_resource type="Animation" id="Animation_ekmwy"]
 length = 0.001
@@ -91,6 +93,12 @@ stream = ExtResource("3_6g14y")
 bus = &"Sfx"
 
 [node name="something_broke" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("6_s5lr7")
+bus = &"Sfx"
+
+[node name="out_of_ammo" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("7_lxys1")
+volume_db = 24.0
 bus = &"Sfx"
 
 [node name="noise_alert" type="Area2D" parent="."]

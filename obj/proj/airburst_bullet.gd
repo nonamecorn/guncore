@@ -4,7 +4,8 @@ var current_bullet_obj = preload("res://obj/proj/PP_fmj.tscn")
 
 func on_collision(collider):
 	if collider and collider.get_collider().has_method("hurt"):
-		collider.get_collider().hurt(damage)
+		var dmg_coef = falloff.sample($Timer.time_left / $Timer.wait_time)
+		collider.get_collider().hurt(damage * dmg_coef)
 	active = false
 	$Sprite2D.hide()
 	create_spark()

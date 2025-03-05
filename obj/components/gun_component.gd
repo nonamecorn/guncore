@@ -178,7 +178,9 @@ func dissassemble_gun():
 
 func start_fire():
 	if state: return
-	if current_ammo <= 0: return
+	if current_ammo <= 0:
+		$audio/out_of_ammo.play()
+		return
 	fire()
 	if spread_tween: spread_tween.kill()
 	spread_tween = create_tween()
@@ -236,7 +238,7 @@ func display_ammo():
 func fire():
 	if state: return
 	for i in current_num_of_bullets:
-		if current_ammo <= 0: 
+		if current_ammo <= 0:
 			gpuparticles.emitting = false
 			empty.emit()
 			return

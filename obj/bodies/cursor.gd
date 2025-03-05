@@ -8,7 +8,7 @@ var firing = false
 
 func set_handling_spd(weight):
 	HANDLING_SPEED = weight_to_handle.sample(weight)
-	print(HANDLING_SPEED)
+	#print(HANDLING_SPEED)
 
 func _physics_process(delta):
 	var mouse_pos = get_global_mouse_position()

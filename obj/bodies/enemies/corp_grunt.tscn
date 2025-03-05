@@ -97,8 +97,6 @@ nav_agent = NodePath("NavigationAgent2D")
 position = Vector2(0, -5)
 
 [node name="idle" type="AnimatedSprite2D" parent="Sprite2D"]
-light_mask = 4
-visibility_layer = 4
 material = SubResource("CanvasItemMaterial_kudys")
 position = Vector2(0, -10)
 sprite_frames = SubResource("SpriteFrames_v8b5x")
@@ -106,8 +104,6 @@ animation = &"new_animation"
 
 [node name="walk" type="AnimatedSprite2D" parent="Sprite2D"]
 visible = false
-light_mask = 4
-visibility_layer = 4
 material = SubResource("CanvasItemMaterial_kudys")
 position = Vector2(0, -10)
 sprite_frames = SubResource("SpriteFrames_aqq6o")

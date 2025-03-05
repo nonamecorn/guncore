@@ -276,7 +276,7 @@ func buy_item():
 	item_held.item_resource.from_shop = false
 	item_held.reparent(le_items)
 	var cost = item_held.item_resource.cost
-
+	$audio/buy.play()
 	GlobalVars.money -= cost
 	money_changed.emit()
 
@@ -287,6 +287,7 @@ func sell_item():
 	item_held.item_resource.picked_up = false
 	var cost = item_held.item_resource.cost
 	GlobalVars.money += cost/2
+	$audio/buy.play()
 	money_changed.emit()
 
 func unbuy_item():
@@ -336,6 +337,7 @@ func pickup_collector(item_res : Item):
 
 func _on_link_button_pressed() -> void:
 	if  GlobalVars.money >= current_reroll_cost:
+		$audio/buy.play()
 		shop.reroll_shop()
 		GlobalVars.money -= current_reroll_cost
 		current_reroll_cost += 3
