@@ -1,6 +1,6 @@
 [gd_scene load_steps=15 format=4 uid="uid://7qiqm1rgpyuo"]
 
-[ext_resource type="Script" uid="uid://wtg2bb6is60f" path="res://lvls/rooms/basic_room.gd" id="1_mx8kl"]
+[ext_resource type="Script" uid="uid://vwmq2qoj2hpf" path="res://lvls/rooms/basic_room.gd" id="1_mx8kl"]
 [ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="2_0dw5n"]
 [ext_resource type="PackedScene" uid="uid://cmowt08tkhfxs" path="res://lvls/misc/bi_light_occluder_2d.tscn" id="3_wsgq5"]
 [ext_resource type="PackedScene" uid="uid://dww7vxteobmel" path="res://lvls/env/explosive_barrel.tscn" id="6_w8vcr"]
@@ -44,10 +44,10 @@ tile_map_data = PackedByteArray("AAADAAkAAwABAAIAAAD9/wkAAwAAAAIAAAD+/wkAAwAAAAA
 [node name="decor" type="Node2D" parent="."]
 
 [node name="BiLightOccluder2D" parent="decor" instance=ExtResource("3_wsgq5")]
-position = Vector2(-482, 320)
+position = Vector2(-64, 191)
 
 [node name="BiLightOccluder2D2" parent="decor" instance=ExtResource("3_wsgq5")]
-position = Vector2(576, 320)
+position = Vector2(97, 192)
 left = true
 
 [node name="env" type="Node2D" parent="."]

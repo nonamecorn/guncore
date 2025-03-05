@@ -27,10 +27,11 @@ func _ready():
 
 func reroll_shop():
 	flush_shop()
-	current_deal = []
+	GlobalVars.shop_items = []
 	for path in Randogunser.get_shop():
-		current_deal.append(path)
-		add_item(path)
+		var item_res = load(path).duplicate()
+		GlobalVars.shop_items.append(item_res)
+	load_save()
 
 func add_item(path):
 	if !path: return
@@ -43,6 +44,15 @@ func add_item(path):
 	shop_items_ctrl.add_child(item_inst)
 	insert_item_at_first_available_spot(item_inst)
 
+func add_item_res(res):
+	if !res: return
+	res.from_shop = true
+	var item_inst = item_base.instantiate()
+	item_inst.item_resource = res
+	item_inst.texture = res.sprite
+	shop_items_ctrl.add_child(item_inst)
+	insert_item_at_first_available_spot(item_inst)
+
 func show_shop():
 	for path in current_deal:
 		add_item(path)
@@ -52,7 +62,12 @@ func load_shop():
 		loaded = true
 		reroll_shop()
 	else:
-		show_shop()
+		load_save()
+
+func load_save():
+	for le_item in GlobalVars.shop_items:
+		add_item_res(le_item)
+
 
 func flush_shop():
 	for x in range(grid_width):
@@ -94,8 +109,9 @@ func grab_item(pos):
 	var g_pos = pos_to_grid_coord(item_pos)
 	var item_size = get_grid_size(item)
 	set_grid_space(g_pos.x, g_pos.y, item_size.x, item_size.y, false)
-	print("1")
 	print(item.item_resource.get_name())
+	var ind = GlobalVars.shop_items.find(item.item_resource)
+	GlobalVars.shop_items.pop_at(ind)
 	items.pop_at(items.find(item))
 	return item
  

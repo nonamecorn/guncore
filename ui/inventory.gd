@@ -118,6 +118,8 @@ func _physics_process(_delta):
 	if !visible: 
 		return
 	var cursor_pos = get_global_mouse_position()
+	if Input.is_action_just_pressed("quick_sell"):
+		quick_sell(cursor_pos)
 	if Input.is_action_just_pressed("quick_grab"):
 		quick_grab(cursor_pos)
 	elif Input.is_action_just_pressed("ui_left_mouse"):
@@ -150,6 +152,17 @@ func quick_grab(cursor_pos):
 				else:
 					return_item()
 
+func quick_sell(cursor_pos):
+	var c = get_container_under_cursor(cursor_pos)
+	if c != null and c.has_method("grab_item"):
+		item_held = c.grab_item(cursor_pos)
+		if item_held != null:
+			$audio/grab.play()
+			last_container = c
+			last_pos = item_held.global_position
+			item_offset = item_held.global_position - cursor_pos
+			if !shop.visible or !shop.insert_item(item_held):
+				return_item()
  
 func grab(cursor_pos):
 	var c = get_container_under_cursor(cursor_pos)

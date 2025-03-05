@@ -4,6 +4,4 @@
 light_mode = 2
 
 [node name="facade" type="Sprite2D"]
-light_mask = 4
-visibility_layer = 4
 material = SubResource("CanvasItemMaterial_cfdtx")

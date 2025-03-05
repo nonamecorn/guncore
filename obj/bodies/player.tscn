@@ -253,7 +253,6 @@ shape = SubResource("CapsuleShape2D_5x7ft")
 current = true
 
 [node name="light" parent="." instance=ExtResource("12_p0x4g")]
-position = Vector2(0, -6)
 
 [node name="ProgressBar" type="TextureProgressBar" parent="."]
 material = SubResource("CanvasItemMaterial_wg18f")

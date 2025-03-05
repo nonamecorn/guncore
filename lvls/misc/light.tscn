@@ -11,6 +11,7 @@ texture = ExtResource("1_tth3j")
 texture_scale = 3.0
 
 [node name="castil" type="PointLight2D" parent="."]
+visible = false
 range_item_cull_mask = 2
 shadow_enabled = true
 shadow_item_cull_mask = 2
@@ -18,6 +19,7 @@ texture = ExtResource("1_tth3j")
 texture_scale = 3.0
 
 [node name="itemlight" type="PointLight2D" parent="."]
+visible = false
 position = Vector2(1, 0)
 blend_mode = 2
 range_item_cull_mask = 4

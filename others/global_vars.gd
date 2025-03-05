@@ -70,3 +70,5 @@ var kills = 0
 var items = []
 var fullscreen = DisplayServer.window_get_mode()
 var money = 0
+
+var shop_items = []

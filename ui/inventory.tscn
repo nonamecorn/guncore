@@ -15,7 +15,7 @@
 [ext_resource type="Texture2D" uid="uid://os7v6mlrkik6" path="res://img/ui/Barrel.png" id="9_2shbn"]
 [ext_resource type="AudioStream" uid="uid://blk3vp6wlyhm" path="res://snd/sfx/pickup.wav" id="9_7nj7r"]
 [ext_resource type="AudioStream" uid="uid://dnq0utya1mtcx" path="res://snd/sfx/put.wav" id="10_4wjgb"]
-[ext_resource type="Script" uid="uid://dcd3mgdrr75me" path="res://ui/shop_backpack.gd" id="10_50eua"]
+[ext_resource type="Script" uid="uid://dtvfxxlyy4558" path="res://ui/shop_backpack.gd" id="10_50eua"]
 [ext_resource type="Texture2D" uid="uid://ce33vmt4u8t5q" path="res://img/ui/Muzzle.png" id="10_wkiin"]
 [ext_resource type="Script" uid="uid://dplg2ndgxwjm0" path="res://ui/shop.gd" id="11_6lbvg"]
 [ext_resource type="Texture2D" uid="uid://xhcr3s0vochg" path="res://img/ui/Mag.png" id="11_x1v8h"]
@@ -672,6 +672,7 @@ custom_minimum_size = Vector2(40, 0)
 text = "Reroll 10$"
 
 [node name="shop_backpack2" type="TextureRect" parent="." node_paths=PackedStringArray("shop_items_ctrl")]
+visible = false
 custom_minimum_size = Vector2(384, 128)
 layout_mode = 0
 offset_left = 305.0

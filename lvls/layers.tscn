@@ -11,7 +11,6 @@ tile_set = ExtResource("1_dwe3r")
 tile_set = ExtResource("1_dwe3r")
 
 [node name="Walls" type="TileMapLayer" parent="."]
-light_mask = 2
 tile_set = ExtResource("1_dwe3r")
 
 [node name="floor" type="TileMapLayer" parent="."]

@@ -3,10 +3,13 @@
 [ext_resource type="Script" uid="uid://vlnioxx66470" path="res://lvls/misc/right_light_occluder_2d.gd" id="1_unh2s"]
 
 [sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_fistv"]
-polygon = PackedVector2Array(0, 0, 0, -32, 2, -32, 2, 0)
+polygon = PackedVector2Array(0, -32, -1, -32, -1, 0, 0, 0)
 
 [node name="BiLightOccluder2D" type="LightOccluder2D"]
-position = Vector2(-258, 320)
 occluder = SubResource("OccluderPolygon2D_fistv")
-occluder_light_mask = 2
 script = ExtResource("1_unh2s")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+visible = false
+offset_top = -32.0
+offset_right = 1.0
