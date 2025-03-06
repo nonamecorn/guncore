@@ -2,11 +2,13 @@ extends TextureRect
 
 var items = {}
  
-signal assemble(parts)
+signal assemble(parts,loaded)
 signal dissassemble
 signal change(parts)
 
 @export var gun = true
+
+var quick_reload = true
 
 func _ready():
 	for slot in get_children():
@@ -100,13 +102,13 @@ func get_thing_under_pos(arr, pos):
 
 func check_assembly():
 	if items["RECIEVER"] and items["BARREL"] and items["MAG"]:
-		assemble.emit(get_parts())
+		assemble.emit(get_parts(),quick_reload)
 
 func check_dissassembly():
 	if !items["RECIEVER"] or !items["BARREL"] or !items["MAG"]:
 		dissassemble.emit()
 		return
-	assemble.emit(get_parts())
+	assemble.emit(get_parts(),quick_reload)
 	
 
 func get_parts():

@@ -70,7 +70,7 @@ func dispawn_facade(part_name):
 		child.queue_free()
 	slot.position = Vector2.ZERO
 
-func asseble_gun(parts : Dictionary):
+func asseble_gun(parts : Dictionary,loaded : bool):
 	dissassemble_gun()
 	assambled = true
 	state = STOP
@@ -144,11 +144,10 @@ func asseble_gun(parts : Dictionary):
 		gpuparticles.one_shot = false
 		gpuparticles.amount = int(1.8 / current_firerate)
 	display_ammo()
-	if player_handled:
-		reload()
+	if loaded:
+		_on_reload_timeout()
 	else:
-		current_ammo = current_max_ammo
-		state = FIRE
+		reload()
 
 
 func change_stat(name_of_stat : String, value_of_stat, mult: bool):

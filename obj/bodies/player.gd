@@ -171,7 +171,7 @@ func hurt(amnt:float):
 
 func wear_down(ammnt):
 	for part in eq_res:
-		if !eq_res[part]: continue
+		if !eq_res[part] or part == "HAND": continue
 		eq_res[part].wear_down(ammnt)
 
 func module_functional(modname) -> bool:
@@ -208,14 +208,14 @@ func get_item():
 		#get_tree().current_scene.find_child("items").call_deferred("add_child",item_inst) 
 		#item_inst.init(res)
 
-func on_assemble(parts):
-	$player_hand_component/Marker2D/gun_base.asseble_gun(parts)
+func on_assemble(parts,loaded):
+	$player_hand_component/Marker2D/gun_base.asseble_gun(parts,loaded)
 
 func on_dissassemble():
 	$player_hand_component/Marker2D/gun_base.dissassemble_gun()
 
-func on_assemble2(parts):
-	$player_hand_component/Marker2D/gun_base2.asseble_gun(parts)
+func on_assemble2(parts,loaded):
+	$player_hand_component/Marker2D/gun_base2.asseble_gun(parts,loaded)
 
 func on_dissassemble2():
 	$player_hand_component/Marker2D/gun_base2.dissassemble_gun()
@@ -240,6 +240,8 @@ func on_augs_change(parts : Dictionary):
 	current_friction = FRICTION
 	strategies = []
 	strategy_dic = {}
+	if parts.HAND != null:
+		$player_hand_component/Marker2D/Melee_component.item_res = parts.HAND
 	for part_name in parts:
 		if parts[part_name] == null or parts[part_name].broken: continue
 		for stratagy in parts[part_name].player_strategies:

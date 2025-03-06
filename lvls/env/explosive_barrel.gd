@@ -6,13 +6,7 @@ var exploded = false
 func hurt(_amnt):
 	if exploded: return
 	exploded = true
-	for body in $HurtArea2D.get_overlapping_bodies():
-		if body.has_method("hurt"):
-			body.hurt(damage)
-	$AudioStreamPlayer2D.play()
-	$AnimationPlayer.play("explode")
-	$AnimatedSprite2D.show()
-	$AnimatedSprite2D.play()
+	$explosion.explode(damage)
 	$Sprite2D.hide()
 
 

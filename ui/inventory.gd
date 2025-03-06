@@ -42,6 +42,8 @@ func load_save():
 			pickup_item(le_item)
 		else:
 			equip_item(le_item, le_item.eq_index)
+	eq_slot1.quick_reload = false
+	eq_slot2.quick_reload = false
 
 func _ready():
 	pass
@@ -51,8 +53,9 @@ func _ready():
 	#GlobalVars.items.append(load(gun.RECIEVER))
 	#GlobalVars.items.append(load(gun.MAG))
 	#GlobalVars.items.append(load(gun.BARREL))
+	pickup_item(load("res://obj/parts/hand/HE_nade.tres"))
 
-func update_stats1(parts):
+func update_stats1(parts,_loaded):
 	var stats = []
 	for part in parts:
 		var item_resource = parts[part]
@@ -62,7 +65,7 @@ func update_stats1(parts):
 				stats.append(statsting)
 	display_desc(stats,true)
 
-func update_stats2(parts):
+func update_stats2(parts,_loaded):
 	var stats = []
 	for part in parts:
 		var item_resource = parts[part]

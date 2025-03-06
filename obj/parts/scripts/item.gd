@@ -10,6 +10,7 @@ class_name Item
 	set(val):
 		damaged.emit()
 		curr_durability = val
+		broken = curr_durability<=0
 	get():
 		return curr_durability
 @export var sprite : Texture2D
@@ -27,6 +28,7 @@ signal damaged
 var eq = false
 var eq_index = null
 var picked_up = false
+var broken = false
 
 func init():
 	id = IdGiver.get_id()

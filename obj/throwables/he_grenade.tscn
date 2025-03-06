@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://djwjs4m70b5nb"]
+
+[ext_resource type="Script" uid="uid://bdiayik1vpt88" path="res://obj/throwables/he_grenade.gd" id="1_iysy5"]
+[ext_resource type="Texture2D" uid="uid://dytq005esu7p0" path="res://img/parts/nade.png" id="1_x3ct8"]
+[ext_resource type="PackedScene" uid="uid://b0j40bkjx8nfy" path="res://obj/components/explosion.tscn" id="2_iysy5"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_iysy5"]
+radius = 6.0
+
+[node name="HE_grenade" type="RigidBody2D"]
+collision_layer = 0
+collision_mask = 5
+gravity_scale = 0.0
+linear_damp = 3.0
+script = ExtResource("1_iysy5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_iysy5")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_x3ct8")
+
+[node name="explosion" parent="." instance=ExtResource("2_iysy5")]
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 3.0
+one_shot = true
+autostart = true
+
+[connection signal="animation_finished" from="explosion/AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+
+[editable path="explosion"]
