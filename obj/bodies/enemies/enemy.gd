@@ -192,14 +192,14 @@ func check_witness():
 		GlobalVars.erase_witness(id)
 
 func emitte():
-	if !$CPUParticles2D.emitting:
-		$CPUParticles2D.emitting = true
+	if !$Gore/CPUParticles2D.emitting:
+		$Gore/CPUParticles2D.emitting = true
 		return
-	elif !$CPUParticles2D2.emitting:
-		$CPUParticles2D2.emitting = true
+	elif !$Gore/CPUParticles2D2.emitting:
+		$Gore/CPUParticles2D2.emitting = true
 		return
-	elif !$CPUParticles2D3.emitting:
-		$CPUParticles2D3.emitting = true
+	elif !$Gore/CPUParticles2D3.emitting:
+		$Gore/CPUParticles2D3.emitting = true
 		return
 
 func hurt(amnt):
@@ -212,6 +212,10 @@ func hurt(amnt):
 		state = RUN
 		$change_position.wait_time = 0.5
 		$enemy_hand_component.state = 1
+
+func gib():
+	$Kult_head.emitting = true 
+	$Gore/Gore_emitter.emitting = true
 
 func die():
 	if dead: return
@@ -233,7 +237,7 @@ func die():
 #	movement_target = null
 	if health <= -30.0:
 		$Sprite2D.hide()
-		$Gore_emitter.emitting = true
+		gib()
 	$Sprite2D.rotation_degrees = 90
 	$Sprite2D/idle.set_light_mask(1)
 	$Sprite2D/idle.set_visibility_layer(1)

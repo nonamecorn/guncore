@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://byya3w7ktpqp8"]
+[gd_scene load_steps=28 format=3 uid="uid://byya3w7ktpqp8"]
 
 [ext_resource type="Script" uid="uid://1g0l4n52os3y" path="res://obj/bodies/enemies/corp_grunt.gd" id="1_7g7ug"]
 [ext_resource type="Texture2D" uid="uid://bnrs5ymoqkml4" path="res://img/bodys/Corp.png" id="2_21em0"]
@@ -8,8 +8,9 @@
 [ext_resource type="PackedScene" uid="uid://b4ifd4nn31mq8" path="res://obj/components/hurt_box.tscn" id="5_sh640"]
 [ext_resource type="AudioStream" uid="uid://cq5moh8342387" path="res://snd/sfx/enemydeath.wav" id="6_82n5t"]
 [ext_resource type="PackedScene" uid="uid://bde3ba2p8ca28" path="res://lvls/misc/corp_light.tscn" id="7_gskjq"]
-[ext_resource type="Texture2D" uid="uid://cc3nexeikrg7" path="res://img/bodys/Gore_p.png" id="9_4moh1"]
+[ext_resource type="PackedScene" uid="uid://cu2letn31qhnt" path="res://obj/components/gore.tscn" id="9_da5pd"]
 [ext_resource type="PackedScene" uid="uid://cdyxb3haj8bag" path="res://obj/components/enemy_cursor.tscn" id="9_pth8w"]
+[ext_resource type="Texture2D" uid="uid://bkrube0doa33e" path="res://img/bodys/corp_gore.png" id="10_k4mrh"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kudys"]
 light_mode = 2
@@ -87,26 +88,26 @@ height = 10.0
 radius = 7.0
 height = 26.0
 
-[sub_resource type="Curve" id="Curve_pth8w"]
-_limits = [0.0, 100.0, 0.0, 1.0]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.452514, 0), 0.0, 0.0, 0, 0, Vector2(0.458101, 100), 243.388, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_da5pd"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7jw1n"]
 particles_animation = true
-particles_anim_h_frames = 6
+particles_anim_h_frames = 2
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
-[sub_resource type="Curve" id="Curve_k4mrh"]
+[sub_resource type="Curve" id="Curve_heg8g"]
 _limits = [0.0, 100.0, 0.0, 1.0]
 _data = [Vector2(0.0170455, 0), 0.0, 0.0, 0, 0, Vector2(0.0170555, 100), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[sub_resource type="Curve" id="Curve_7jw1n"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.1, 0.9), 0.0, 0.0, 0, 0, Vector2(0.2, 1), 0.0, 0.0, 0, 0, Vector2(0.3, 0.9), 0.0, 0.0, 0, 0, Vector2(0.4, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 0.9), 0.0, 0.0, 0, 0, Vector2(0.6, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -7.69039, 0.0, 0, 0]
-point_count = 8
+[sub_resource type="Curve" id="Curve_6ti6u"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.6, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -7.69039, 0.0, 0, 0]
+point_count = 3
 metadata/_snap_enabled = true
+
+[sub_resource type="Curve" id="Curve_11ro0"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0.02, 0), 100.0, 0.0, 0, 0, Vector2(0.02, 100), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [node name="enemy" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent") groups=["body", "corp", "targetable"]]
 collision_layer = 36
@@ -185,77 +186,14 @@ offset_top = -46.0
 offset_right = 21.0
 offset_bottom = -30.0
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-position = Vector2(0, -14)
-emitting = false
-amount = 16
-one_shot = true
-explosiveness = 0.9
-emission_shape = 1
-emission_sphere_radius = 16.0
-direction = Vector2(0, -1)
-spread = 15.0
-initial_velocity_min = 200.0
-initial_velocity_max = 250.0
-angular_velocity_min = 20.0
-angular_velocity_max = 40.0
-damping_min = 20.0
-damping_max = 20.0
-damping_curve = SubResource("Curve_pth8w")
-scale_amount_min = 2.0
-scale_amount_max = 2.0
-color = Color(0.658824, 0.215686, 0.176471, 1)
-hue_variation_max = 1.0
+[node name="Gore" parent="." instance=ExtResource("9_da5pd")]
 
-[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
-position = Vector2(0, -28)
+[node name="Corp_head" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_7jw1n")
+position = Vector2(0, -20)
 emitting = false
-amount = 16
-one_shot = true
-explosiveness = 0.9
-emission_shape = 1
-emission_sphere_radius = 16.0
-direction = Vector2(0, -1)
-spread = 15.0
-initial_velocity_min = 200.0
-initial_velocity_max = 250.0
-angular_velocity_min = 20.0
-angular_velocity_max = 40.0
-damping_min = 20.0
-damping_max = 20.0
-damping_curve = SubResource("Curve_pth8w")
-scale_amount_min = 2.0
-scale_amount_max = 2.0
-color = Color(0.658824, 0.215686, 0.176471, 1)
-hue_variation_max = 1.0
-
-[node name="CPUParticles2D3" type="CPUParticles2D" parent="."]
-position = Vector2(0, -42)
-emitting = false
-amount = 16
-one_shot = true
-explosiveness = 0.9
-emission_shape = 1
-emission_sphere_radius = 16.0
-direction = Vector2(0, -1)
-spread = 15.0
-initial_velocity_min = 200.0
-initial_velocity_max = 250.0
-angular_velocity_min = 20.0
-angular_velocity_max = 40.0
-damping_min = 20.0
-damping_max = 20.0
-damping_curve = SubResource("Curve_pth8w")
-scale_amount_min = 2.0
-scale_amount_max = 2.0
-color = Color(0.658824, 0.215686, 0.176471, 1)
-hue_variation_max = 1.0
-
-[node name="Gore_emitter" type="CPUParticles2D" parent="."]
-material = SubResource("CanvasItemMaterial_da5pd")
-position = Vector2(0, -14)
-emitting = false
-texture = ExtResource("9_4moh1")
+amount = 1
+texture = ExtResource("10_k4mrh")
 lifetime = 15.0
 one_shot = true
 explosiveness = 1.0
@@ -266,11 +204,33 @@ initial_velocity_min = 100.0
 initial_velocity_max = 100.0
 damping_min = 30.0
 damping_max = 30.0
-damping_curve = SubResource("Curve_k4mrh")
+damping_curve = SubResource("Curve_heg8g")
 angle_min = -180.0
 angle_max = 180.0
-scale_amount_curve = SubResource("Curve_7jw1n")
+scale_amount_curve = SubResource("Curve_6ti6u")
+anim_offset_min = 0.5
 anim_offset_max = 1.0
+
+[node name="Corp_helmet" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_7jw1n")
+position = Vector2(0, -22)
+emitting = false
+amount = 1
+texture = ExtResource("10_k4mrh")
+lifetime = 15.0
+one_shot = true
+explosiveness = 1.0
+direction = Vector2(0, -1)
+spread = 15.0
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+damping_min = 30.0
+damping_max = 30.0
+damping_curve = SubResource("Curve_11ro0")
+angle_min = -45.0
+angle_max = 45.0
+scale_amount_curve = SubResource("Curve_6ti6u")
+anim_offset_max = 0.5
 
 [node name="enemy_cursor" parent="." instance=ExtResource("9_pth8w")]
 

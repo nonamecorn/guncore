@@ -7,8 +7,9 @@
 [ext_resource type="PackedScene" uid="uid://ctrbcy5h47qqw" path="res://obj/components/gun_base.tscn" id="4_ohoj0"]
 [ext_resource type="PackedScene" uid="uid://b4ifd4nn31mq8" path="res://obj/components/hurt_box.tscn" id="5_eclwk"]
 [ext_resource type="AudioStream" uid="uid://cq5moh8342387" path="res://snd/sfx/enemydeath.wav" id="6_qqgv7"]
+[ext_resource type="PackedScene" uid="uid://cu2letn31qhnt" path="res://obj/components/gore.tscn" id="8_7kiun"]
 [ext_resource type="PackedScene" uid="uid://cdyxb3haj8bag" path="res://obj/components/enemy_cursor.tscn" id="8_fupwg"]
-[ext_resource type="Texture2D" uid="uid://cc3nexeikrg7" path="res://img/bodys/Gore_p.png" id="8_h3jra"]
+[ext_resource type="Texture2D" uid="uid://cecke2affrpi0" path="res://img/bodys/Kult_head.png" id="9_sy2ij"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kudys"]
 light_mode = 2
@@ -79,14 +80,9 @@ height = 10.0
 radius = 7.0
 height = 26.0
 
-[sub_resource type="Curve" id="Curve_fupwg"]
-_limits = [0.0, 100.0, 0.0, 1.0]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.452514, 0), 0.0, 0.0, 0, 0, Vector2(0.458101, 100), 243.388, 0.0, 0, 0]
-point_count = 3
-
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_7kiun"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lu8ec"]
 particles_animation = true
-particles_anim_h_frames = 6
+particles_anim_h_frames = 1
 particles_anim_v_frames = 1
 particles_anim_loop = false
 
@@ -96,8 +92,8 @@ _data = [Vector2(0.0170455, 0), 0.0, 0.0, 0, 0, Vector2(0.0170555, 100), 0.0, 0.
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_lu8ec"]
-_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.1, 0.9), 0.0, 0.0, 0, 0, Vector2(0.2, 1), 0.0, 0.0, 0, 0, Vector2(0.3, 0.9), 0.0, 0.0, 0, 0, Vector2(0.4, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 0.9), 0.0, 0.0, 0, 0, Vector2(0.6, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -7.69039, 0.0, 0, 0]
-point_count = 8
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.6, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -7.69039, 0.0, 0, 0]
+point_count = 3
 metadata/_snap_enabled = true
 
 [node name="enemy" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent") groups=["body", "cultist", "targetable"]]
@@ -172,77 +168,14 @@ offset_top = -46.0
 offset_right = 21.0
 offset_bottom = -30.0
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
-position = Vector2(0, -14)
-emitting = false
-amount = 16
-one_shot = true
-explosiveness = 0.9
-emission_shape = 1
-emission_sphere_radius = 16.0
-direction = Vector2(0, -1)
-spread = 15.0
-initial_velocity_min = 200.0
-initial_velocity_max = 250.0
-angular_velocity_min = 20.0
-angular_velocity_max = 40.0
-damping_min = 20.0
-damping_max = 20.0
-damping_curve = SubResource("Curve_fupwg")
-scale_amount_min = 2.0
-scale_amount_max = 2.0
-color = Color(0.658824, 0.215686, 0.176471, 1)
-hue_variation_max = 1.0
+[node name="Gore" parent="." instance=ExtResource("8_7kiun")]
 
-[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
-position = Vector2(0, -14)
+[node name="Kult_head" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_lu8ec")
+position = Vector2(0, -20)
 emitting = false
-amount = 16
-one_shot = true
-explosiveness = 0.9
-emission_shape = 1
-emission_sphere_radius = 16.0
-direction = Vector2(0, -1)
-spread = 15.0
-initial_velocity_min = 200.0
-initial_velocity_max = 250.0
-angular_velocity_min = 20.0
-angular_velocity_max = 40.0
-damping_min = 20.0
-damping_max = 20.0
-damping_curve = SubResource("Curve_fupwg")
-scale_amount_min = 2.0
-scale_amount_max = 2.0
-color = Color(0.658824, 0.215686, 0.176471, 1)
-hue_variation_max = 1.0
-
-[node name="CPUParticles2D3" type="CPUParticles2D" parent="."]
-position = Vector2(0, -28)
-emitting = false
-amount = 16
-one_shot = true
-explosiveness = 0.9
-emission_shape = 1
-emission_sphere_radius = 16.0
-direction = Vector2(0, -1)
-spread = 15.0
-initial_velocity_min = 200.0
-initial_velocity_max = 250.0
-angular_velocity_min = 20.0
-angular_velocity_max = 40.0
-damping_min = 20.0
-damping_max = 20.0
-damping_curve = SubResource("Curve_fupwg")
-scale_amount_min = 2.0
-scale_amount_max = 2.0
-color = Color(0.658824, 0.215686, 0.176471, 1)
-hue_variation_max = 1.0
-
-[node name="Gore_emitter" type="CPUParticles2D" parent="."]
-material = SubResource("CanvasItemMaterial_7kiun")
-position = Vector2(0, -14)
-emitting = false
-texture = ExtResource("8_h3jra")
+amount = 1
+texture = ExtResource("9_sy2ij")
 lifetime = 15.0
 one_shot = true
 explosiveness = 1.0
@@ -257,6 +190,7 @@ damping_curve = SubResource("Curve_sy2ij")
 angle_min = -180.0
 angle_max = 180.0
 scale_amount_curve = SubResource("Curve_lu8ec")
+anim_offset_min = 0.5
 anim_offset_max = 1.0
 
 [node name="enemy_cursor" parent="." instance=ExtResource("8_fupwg")]
