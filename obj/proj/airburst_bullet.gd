@@ -13,6 +13,7 @@ func on_collision(collider):
 	
 	for i in 3:
 		var bullet_inst = current_bullet_obj.instantiate()
+		bullet_inst.falloff = falloff
 		bullet_inst.global_position = global_position
 		bullet_inst.global_rotation_degrees = global_rotation_degrees + rng.randf_range(-22, 22)
 		var added_velocity = Vector2.ZERO
