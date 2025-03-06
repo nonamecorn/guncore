@@ -13,6 +13,7 @@ var current_acceleration = ACCELERATION
 var current_friction = FRICTION
 
 var health : float = 500.0
+var max_health : float = 500.0
 var armor : int = 0
 
 var flipped = false
@@ -43,6 +44,7 @@ func _ready() -> void:
 	$CanvasLayer/Inventory.eq_slot2.dissassemble.connect(on_dissassemble2)
 	$CanvasLayer/Inventory.eq_slot3.change.connect(on_augs_change)
 	$CanvasLayer/Inventory.load_save()
+	$player_hand_component/Marker2D/Melee_component.hitted.connect(heal)
 	$player_hand_component/Marker2D/gun_base.ammo_changed.connect(on_ammo_change)
 	$player_hand_component/Marker2D/gun_base2.ammo_changed.connect(on_ammo_change)
 	GlobalVars.score_changed.connect(on_score_change)
@@ -141,6 +143,12 @@ func death():
 	GlobalVars.kills = 0
 	GlobalVars.loop = 0
 	$CanvasLayer/ded_menu.show()
+
+func heal(amnt):
+	health += amnt
+	health = clamp(health,0.0,max_health)
+	$CanvasLayer/VBoxContainer/hp.text = str(health)
+	$ProgressBar.value = health
 
 var incoming_damage
 func hurt(amnt:float):

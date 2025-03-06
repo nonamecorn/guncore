@@ -6,7 +6,7 @@
 [ext_resource type="AudioStream" uid="uid://grfe1fyigyx8" path="res://snd/sfx/reloadstart.wav" id="3_6g14y"]
 [ext_resource type="AudioStream" uid="uid://blt37tqho0arn" path="res://snd/sfx/silencedsmg_fire.wav" id="3_fv6p6"]
 [ext_resource type="AudioStream" uid="uid://byixmvn1xg5ex" path="res://snd/sfx/something_broke.ogg" id="6_s5lr7"]
-[ext_resource type="AudioStream" uid="uid://dhii2eqdm2a16" path="res://snd/sfx/out_of_ammo.ogg" id="7_lxys1"]
+[ext_resource type="AudioStream" uid="uid://ctq8c6n2tfnr3" path="res://snd/sfx/not_allowed_sfx.mp3" id="7_lxys1"]
 
 [sub_resource type="Animation" id="Animation_ekmwy"]
 length = 0.001

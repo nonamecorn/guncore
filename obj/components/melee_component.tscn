@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://b6plniwdocp07"]
+
+[ext_resource type="Script" uid="uid://cbarkchxnoqq6" path="res://obj/components/melee_component.gd" id="1_o2c8t"]
+[ext_resource type="AudioStream" uid="uid://dmqpt6j1j2o7c" path="res://snd/sfx/damage.mp3" id="2_qa5ed"]
+
+[node name="Melee_component" type="Node2D"]
+script = ExtResource("1_o2c8t")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 5
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+
+[node name="swoosh" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_qa5ed")

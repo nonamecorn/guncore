@@ -1,4 +1,4 @@
-[gd_scene load_steps=48 format=3 uid="uid://btw10scl5f85a"]
+[gd_scene load_steps=50 format=3 uid="uid://btw10scl5f85a"]
 
 [ext_resource type="Script" uid="uid://dtnqffdf4qucb" path="res://obj/bodies/player.gd" id="1_6n3fv"]
 [ext_resource type="Texture2D" uid="uid://ci5dmfqdm37at" path="res://img/bodys/GG_IdleAnim.png" id="2_qk2hj"]
@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://du82m8s6amvuo" path="res://obj/components/player_hand_component.tscn" id="3_nq5y6"]
 [ext_resource type="Script" uid="uid://ktu81iwr6pjn" path="res://obj/bodies/camera_2d.gd" id="4_6xs1v"]
 [ext_resource type="PackedScene" uid="uid://ctrbcy5h47qqw" path="res://obj/components/gun_base.tscn" id="6_m4fya"]
+[ext_resource type="PackedScene" uid="uid://b6plniwdocp07" path="res://obj/components/melee_component.tscn" id="7_1u1sq"]
 [ext_resource type="PackedScene" uid="uid://d0ex485qfg6qx" path="res://ui/inventory.tscn" id="8_wsalq"]
 [ext_resource type="PackedScene" uid="uid://b4ifd4nn31mq8" path="res://obj/components/hurt_box.tscn" id="9_3vqfx"]
 [ext_resource type="AudioStream" uid="uid://31xvcqxgens0" path="res://snd/sfx/scream.wav" id="10_ti353"]
@@ -159,6 +160,8 @@ animations = [{
 "speed": 10.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_kflnb"]
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_mx0ab"]
 radius = 5.0
 height = 12.0
@@ -234,6 +237,12 @@ player_handled = true
 [node name="gun_base2" parent="player_hand_component/Marker2D" index="1" instance=ExtResource("6_m4fya")]
 visible = false
 player_handled = true
+
+[node name="Melee_component" parent="player_hand_component/Marker2D" index="2" instance=ExtResource("7_1u1sq")]
+position = Vector2(25, 0)
+
+[node name="CollisionShape2D" parent="player_hand_component/Marker2D/Melee_component/Area2D" index="0"]
+shape = SubResource("CapsuleShape2D_kflnb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -3)
@@ -356,6 +365,7 @@ one_shot = true
 [connection signal="timeout" from="cursor/Timer" to="cursor" method="_on_timer_timeout"]
 
 [editable path="player_hand_component"]
+[editable path="player_hand_component/Marker2D/Melee_component"]
 [editable path="hurt_box"]
 [editable path="light"]
 [editable path="CanvasLayer/ded_menu"]

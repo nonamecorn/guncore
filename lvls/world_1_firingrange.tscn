@@ -60,6 +60,7 @@ shape = SubResource("CircleShape2D_2wvo1")
 
 [editable path="Player"]
 [editable path="Player/player_hand_component"]
+[editable path="Player/player_hand_component/Marker2D/Melee_component"]
 [editable path="Player/hurt_box"]
 [editable path="Player/light"]
 [editable path="Player/CanvasLayer/ded_menu"]
