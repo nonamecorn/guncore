@@ -191,11 +191,21 @@ func check_witness():
 	else:
 		GlobalVars.erase_witness(id)
 
-
+func emitte():
+	if !$CPUParticles2D.emitting:
+		$CPUParticles2D.emitting = true
+		return
+	elif !$CPUParticles2D2.emitting:
+		$CPUParticles2D2.emitting = true
+		return
+	elif !$CPUParticles2D3.emitting:
+		$CPUParticles2D3.emitting = true
+		return
 
 func hurt(amnt):
 	if dead: return
 	health -= amnt
+	emitte()
 	if health <= 0:
 		call_deferred("die")
 	if state == IDLE:
@@ -221,6 +231,9 @@ func die():
 	$hurt_box/CollisionShape2D.disabled = true
 	$enemy_hand_component.queue_free()
 #	movement_target = null
+	if health <= -30.0:
+		$Sprite2D.hide()
+		$Gore_emitter.emitting = true
 	$Sprite2D.rotation_degrees = 90
 	$Sprite2D/idle.set_light_mask(1)
 	$Sprite2D/idle.set_visibility_layer(1)

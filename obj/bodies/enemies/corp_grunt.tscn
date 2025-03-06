@@ -1,6 +1,6 @@
-[gd_scene load_steps=22 format=3 uid="uid://byya3w7ktpqp8"]
+[gd_scene load_steps=27 format=3 uid="uid://byya3w7ktpqp8"]
 
-[ext_resource type="Script" uid="uid://duty18ebfwe3j" path="res://obj/bodies/enemies/corp_grunt.gd" id="1_7g7ug"]
+[ext_resource type="Script" uid="uid://1g0l4n52os3y" path="res://obj/bodies/enemies/corp_grunt.gd" id="1_7g7ug"]
 [ext_resource type="Texture2D" uid="uid://bnrs5ymoqkml4" path="res://img/bodys/Corp.png" id="2_21em0"]
 [ext_resource type="Texture2D" uid="uid://dd7cjk2v8x0op" path="res://img/bodys/Corp_anim.png" id="3_06vpp"]
 [ext_resource type="PackedScene" uid="uid://df3di7rm5cgei" path="res://obj/components/enemy_hand_component.tscn" id="3_lkscu"]
@@ -8,6 +8,7 @@
 [ext_resource type="PackedScene" uid="uid://b4ifd4nn31mq8" path="res://obj/components/hurt_box.tscn" id="5_sh640"]
 [ext_resource type="AudioStream" uid="uid://cq5moh8342387" path="res://snd/sfx/enemydeath.wav" id="6_82n5t"]
 [ext_resource type="PackedScene" uid="uid://bde3ba2p8ca28" path="res://lvls/misc/corp_light.tscn" id="7_gskjq"]
+[ext_resource type="Texture2D" uid="uid://cc3nexeikrg7" path="res://img/bodys/Gore_p.png" id="9_4moh1"]
 [ext_resource type="PackedScene" uid="uid://cdyxb3haj8bag" path="res://obj/components/enemy_cursor.tscn" id="9_pth8w"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kudys"]
@@ -86,6 +87,27 @@ height = 10.0
 radius = 7.0
 height = 26.0
 
+[sub_resource type="Curve" id="Curve_pth8w"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.452514, 0), 0.0, 0.0, 0, 0, Vector2(0.458101, 100), 243.388, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_da5pd"]
+particles_animation = true
+particles_anim_h_frames = 6
+particles_anim_v_frames = 1
+particles_anim_loop = false
+
+[sub_resource type="Curve" id="Curve_k4mrh"]
+_limits = [0.0, 100.0, 0.0, 1.0]
+_data = [Vector2(0.0170455, 0), 0.0, 0.0, 0, 0, Vector2(0.0170555, 100), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_7jw1n"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.1, 0.9), 0.0, 0.0, 0, 0, Vector2(0.2, 1), 0.0, 0.0, 0, 0, Vector2(0.3, 0.9), 0.0, 0.0, 0, 0, Vector2(0.4, 1), 0.0, 0.0, 0, 0, Vector2(0.5, 0.9), 0.0, 0.0, 0, 0, Vector2(0.6, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), -7.69039, 0.0, 0, 0]
+point_count = 8
+metadata/_snap_enabled = true
+
 [node name="enemy" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent") groups=["body", "corp", "targetable"]]
 collision_layer = 36
 script = ExtResource("1_7g7ug")
@@ -162,6 +184,93 @@ offset_left = -19.0
 offset_top = -46.0
 offset_right = 21.0
 offset_bottom = -30.0
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(0, -14)
+emitting = false
+amount = 16
+one_shot = true
+explosiveness = 0.9
+emission_shape = 1
+emission_sphere_radius = 16.0
+direction = Vector2(0, -1)
+spread = 15.0
+initial_velocity_min = 200.0
+initial_velocity_max = 250.0
+angular_velocity_min = 20.0
+angular_velocity_max = 40.0
+damping_min = 20.0
+damping_max = 20.0
+damping_curve = SubResource("Curve_pth8w")
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(0.658824, 0.215686, 0.176471, 1)
+hue_variation_max = 1.0
+
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+position = Vector2(0, -28)
+emitting = false
+amount = 16
+one_shot = true
+explosiveness = 0.9
+emission_shape = 1
+emission_sphere_radius = 16.0
+direction = Vector2(0, -1)
+spread = 15.0
+initial_velocity_min = 200.0
+initial_velocity_max = 250.0
+angular_velocity_min = 20.0
+angular_velocity_max = 40.0
+damping_min = 20.0
+damping_max = 20.0
+damping_curve = SubResource("Curve_pth8w")
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(0.658824, 0.215686, 0.176471, 1)
+hue_variation_max = 1.0
+
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="."]
+position = Vector2(0, -42)
+emitting = false
+amount = 16
+one_shot = true
+explosiveness = 0.9
+emission_shape = 1
+emission_sphere_radius = 16.0
+direction = Vector2(0, -1)
+spread = 15.0
+initial_velocity_min = 200.0
+initial_velocity_max = 250.0
+angular_velocity_min = 20.0
+angular_velocity_max = 40.0
+damping_min = 20.0
+damping_max = 20.0
+damping_curve = SubResource("Curve_pth8w")
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(0.658824, 0.215686, 0.176471, 1)
+hue_variation_max = 1.0
+
+[node name="Gore_emitter" type="CPUParticles2D" parent="."]
+material = SubResource("CanvasItemMaterial_da5pd")
+position = Vector2(0, -14)
+emitting = false
+texture = ExtResource("9_4moh1")
+lifetime = 15.0
+one_shot = true
+explosiveness = 1.0
+emission_shape = 1
+emission_sphere_radius = 16.0
+direction = Vector2(0, -1)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+damping_min = 30.0
+damping_max = 30.0
+damping_curve = SubResource("Curve_k4mrh")
+angle_min = -180.0
+angle_max = 180.0
+scale_amount_curve = SubResource("Curve_7jw1n")
+anim_offset_max = 1.0
 
 [node name="enemy_cursor" parent="." instance=ExtResource("9_pth8w")]
 

@@ -17,6 +17,7 @@ collision_layer = 0
 collision_mask = 64
 script = ExtResource("2_p1ett")
 speed = 800
+damage = 100.0
 ap = true
 
 [node name="Sprite2D" parent="." index="0"]
@@ -27,10 +28,11 @@ shape = SubResource("CapsuleShape2D_ljja1")
 
 [node name="Area2D" type="Area2D" parent="." index="3"]
 collision_layer = 0
-collision_mask = 5
+collision_mask = 3
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" index="0"]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_jvv0a")
 
+[connection signal="area_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

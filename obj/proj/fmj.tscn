@@ -9,6 +9,7 @@ height = 10.0
 [node name="fmj" instance=ExtResource("1_ub8af")]
 motion_mode = 1
 speed = 715
+damage = 40.0
 
 [node name="CollisionShape2D" parent="." index="1"]
 shape = SubResource("CapsuleShape2D_qy0bh")
