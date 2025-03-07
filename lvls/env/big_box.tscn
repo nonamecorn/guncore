@@ -5,7 +5,7 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_2q7um"]
 size = Vector2(30, 15)
 
-[node name="Big_box" type="CharacterBody2D" groups=["targetable"]]
+[node name="Big_box" type="StaticBody2D" groups=["targetable"]]
 collision_layer = 35
 collision_mask = 0
 

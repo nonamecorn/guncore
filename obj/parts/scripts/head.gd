@@ -1,7 +1,9 @@
 extends Item
 class_name Head
 
-var slot : String = "HEAD"
+
+func _init():
+	slot = "HEAD"
 
 func wear_down(damage):
 	curr_durability -= damage

@@ -1,10 +1,44 @@
-[gd_scene load_steps=3 format=3 uid="uid://b6plniwdocp07"]
+[gd_scene load_steps=8 format=3 uid="uid://b6plniwdocp07"]
 
 [ext_resource type="Script" uid="uid://cbarkchxnoqq6" path="res://obj/components/melee_component.gd" id="1_o2c8t"]
+[ext_resource type="Texture2D" uid="uid://12j46uu5ogpw" path="res://img/misc/slash.png" id="2_f42rv"]
 [ext_resource type="AudioStream" uid="uid://dmqpt6j1j2o7c" path="res://snd/sfx/damage.mp3" id="2_qa5ed"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_cxvs5"]
+atlas = ExtResource("2_f42rv")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bom1t"]
+atlas = ExtResource("2_f42rv")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_k32o7"]
+atlas = ExtResource("2_f42rv")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_13rd4"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_cxvs5")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bom1t")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_k32o7")
+}, {
+"duration": 1.0,
+"texture": null
+}],
+"loop": false,
+"name": &"default",
+"speed": 15.0
+}]
 
 [node name="Melee_component" type="Node2D"]
 script = ExtResource("1_o2c8t")
+damage = 40.0
 
 [node name="Area2D" type="Area2D" parent="."]
 collision_layer = 0
@@ -14,6 +48,11 @@ monitorable = false
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_13rd4")
+frame = 3
+frame_progress = 1.0
 
 [node name="swoosh" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("2_qa5ed")
+
+[connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]

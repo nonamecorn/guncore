@@ -1,11 +1,11 @@
 [gd_scene load_steps=7 format=3 uid="uid://dcchx721txe4c"]
 
 [ext_resource type="PackedScene" uid="uid://b720un0jadula" path="res://lvls/rooms/starting_room.tscn" id="1_08hws"]
-[ext_resource type="Script" uid="uid://n840l81tcv8c" path="res://lvls/world_1.gd" id="1_ki535"]
-[ext_resource type="Script" uid="uid://n65iu11m587y" path="res://others/camera_2d.gd" id="3_5hpog"]
+[ext_resource type="Script" uid="uid://n08np8ruri7x" path="res://lvls/world_1.gd" id="1_ki535"]
+[ext_resource type="Script" uid="uid://bqcsnxx6m76e6" path="res://others/camera_2d.gd" id="3_5hpog"]
 [ext_resource type="PackedScene" uid="uid://btw10scl5f85a" path="res://obj/bodies/player.tscn" id="4_22ug0"]
 [ext_resource type="PackedScene" uid="uid://ddfo6c5nx4m8h" path="res://lvls/misc/light.tscn" id="5_h5ytn"]
-[ext_resource type="Script" uid="uid://chnsh464847oi" path="res://lvls/misc/moving_light.gd" id="6_kdott"]
+[ext_resource type="Script" uid="uid://dkovbbxakmoc5" path="res://lvls/misc/moving_light.gd" id="6_kdott"]
 
 [node name="world1" type="Node2D"]
 script = ExtResource("1_ki535")

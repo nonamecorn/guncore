@@ -12,6 +12,10 @@ func init():
 	if has_node("corps"):
 		for marker in $corps.get_children():
 			marker.init()
+	if has_node("env"):
+		for obj in $env.get_children():
+			if obj.has_method("init"):
+				obj.init()
 
 func get_exits() -> Array:
 	return markers

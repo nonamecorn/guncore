@@ -1,4 +1,6 @@
 extends Item
 class_name Guts
 
-var slot : String = "GUTS"
+
+func _init():
+	slot = "GUTS"

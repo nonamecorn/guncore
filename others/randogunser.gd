@@ -64,6 +64,7 @@ var shop_pool = [
 	"res://obj/parts/muzzles/silencer.tres",
 	"res://obj/parts/guts/Firerate_Spring.tres",
 	"res://obj/parts/guts/Fun_switch.tres",
+	"res://obj/parts/hand/HE_nade.tres",
 ]
 
 var corp_guns = [
@@ -85,6 +86,16 @@ var corp_barrels = [
 	"res://obj/parts/barrels/PauzaP50_barrel.tres",
 ]
 
+var loot_pool = [
+	"res://obj/parts/hand/HE_nade.tres",
+	"res://obj/parts/attach/airburst_module.tres",
+	"res://obj/parts/body/light_armor.tres",
+	"res://obj/parts/guts/Firerate_Spring.tres",
+	"res://obj/parts/guts/Fun_switch.tres",
+	"res://obj/parts/muzzles/grater.tres",
+	"res://obj/parts/muzzles/Muzzel_Brake.tres",
+	"res://obj/parts/muzzles/silencer.tres",
+]
 
 func get_gun() -> Dictionary:
 	recievers.shuffle()
@@ -113,4 +124,7 @@ func get_shop() -> Array:
 	shop.append(shop_pool[2])
 	#print(shop)
 	return shop
-	
+
+func get_loot() -> String:
+	loot_pool.shuffle()
+	return loot_pool[0]

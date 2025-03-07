@@ -1,4 +1,5 @@
 extends Item
 class_name Attachment
 
-var slot : String = "ATTACH"
+func _init():
+	slot = "ATTACH"

@@ -1,8 +1,8 @@
 [gd_scene load_steps=5 format=3 uid="uid://djwjs4m70b5nb"]
 
 [ext_resource type="Script" uid="uid://bdiayik1vpt88" path="res://obj/throwables/he_grenade.gd" id="1_iysy5"]
-[ext_resource type="Texture2D" uid="uid://dytq005esu7p0" path="res://img/parts/nade.png" id="1_x3ct8"]
 [ext_resource type="PackedScene" uid="uid://b0j40bkjx8nfy" path="res://obj/components/explosion.tscn" id="2_iysy5"]
+[ext_resource type="Texture2D" uid="uid://8tvasm7h44xx" path="res://img/parts/nade_activated.png" id="2_t4pj3"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_iysy5"]
 radius = 6.0
@@ -18,7 +18,7 @@ script = ExtResource("1_iysy5")
 shape = SubResource("CircleShape2D_iysy5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-texture = ExtResource("1_x3ct8")
+texture = ExtResource("2_t4pj3")
 
 [node name="explosion" parent="." instance=ExtResource("2_iysy5")]
 

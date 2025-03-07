@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://eitu7m4i8q02"]
+
+[ext_resource type="Texture2D" uid="uid://pyiy3ke2o053" path="res://img/levels/STOL.png" id="1_6txc8"]
+[ext_resource type="Script" uid="uid://ddv4odfwt2raq" path="res://lvls/env/loot_table.gd" id="1_a2og8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a2og8"]
+size = Vector2(30, 22)
+
+[node name="loot_table" type="StaticBody2D"]
+collision_layer = 35
+collision_mask = 0
+script = ExtResource("1_a2og8")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_6txc8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, 5)
+shape = SubResource("RectangleShape2D_a2og8")

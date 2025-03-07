@@ -11,7 +11,8 @@ class_name Mag
 @export var wear : float = 1.0
 @export var falloff : Curve
 
-var slot : String = "MAG"
+func _init():
+	slot = "MAG"
 
 var stats = {
 	"Capacity": "capacity",

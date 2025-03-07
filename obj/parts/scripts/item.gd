@@ -23,12 +23,19 @@ class_name Item
 
 var from_shop = false
 var id : int
+var slot
 signal pickup
 signal damaged
+signal destroy(slot)
+
 var eq = false
 var eq_index = null
 var picked_up = false
 var broken = false
+
+func destroy_item():
+	GlobalVars.items.erase(self)
+	destroy.emit(slot)
 
 func init():
 	id = IdGiver.get_id()

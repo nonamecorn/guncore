@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var cultist = load("res://obj/bodies/enemies/enemy.tscn")
 var enemy_count = 0
-@export var number_of_enemies = 3
+@export var number_of_enemies = 1
 @export var initial_state = 2
 
 func init():

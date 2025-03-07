@@ -1,12 +1,13 @@
-[gd_scene load_steps=10 format=4 uid="uid://c3pgbdnfobaqo"]
+[gd_scene load_steps=11 format=4 uid="uid://c3pgbdnfobaqo"]
 
 [ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="1_0qsy7"]
-[ext_resource type="Script" uid="uid://wtg2bb6is60f" path="res://lvls/rooms/basic_room.gd" id="1_ygdka"]
+[ext_resource type="Script" uid="uid://vwmq2qoj2hpf" path="res://lvls/rooms/basic_room.gd" id="1_ygdka"]
 [ext_resource type="PackedScene" uid="uid://bf65xavyr0pes" path="res://lvls/misc/module_connector.tscn" id="3_uvqw5"]
 [ext_resource type="PackedScene" uid="uid://dww7vxteobmel" path="res://lvls/env/explosive_barrel.tscn" id="4_lmxnw"]
 [ext_resource type="PackedScene" uid="uid://c70txah2l140m" path="res://lvls/env/big_box.tscn" id="6_ry3ej"]
 [ext_resource type="PackedScene" uid="uid://cjw5l1ahljlkm" path="res://lvls/env/mid_box.tscn" id="7_hcfla"]
 [ext_resource type="PackedScene" uid="uid://bxtkcc7g5gfh2" path="res://lvls/env/small_box.tscn" id="8_r1pft"]
+[ext_resource type="PackedScene" uid="uid://eitu7m4i8q02" path="res://lvls/env/loot_table.tscn" id="9_gwrkd"]
 [ext_resource type="PackedScene" uid="uid://cpcfb5ro5if5" path="res://lvls/env/cult_spawner.tscn" id="9_i6apq"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbyfv"]
@@ -42,15 +43,19 @@ tile_map_data = PackedByteArray("AAADAAkAAwABAAIAAAD9/wkAAwAAAAIAAAD+/wkAAwAAAAA
 
 [node name="cult_spawner" parent="enemies" instance=ExtResource("9_i6apq")]
 position = Vector2(-121, 279)
+initial_state = 1
 
 [node name="cult_spawner2" parent="enemies" instance=ExtResource("9_i6apq")]
 position = Vector2(164, 290)
+initial_state = 1
 
 [node name="cult_spawner3" parent="enemies" instance=ExtResource("9_i6apq")]
 position = Vector2(-122, 510)
+initial_state = 1
 
 [node name="cult_spawner4" parent="enemies" instance=ExtResource("9_i6apq")]
 position = Vector2(160, 521)
+initial_state = 1
 
 [node name="env" type="Node2D" parent="."]
 y_sort_enabled = true
@@ -81,6 +86,9 @@ position = Vector2(272, 516)
 
 [node name="Mid_box3" parent="env" instance=ExtResource("7_hcfla")]
 position = Vector2(272, 538)
+
+[node name="loot_table" parent="env" instance=ExtResource("9_gwrkd")]
+position = Vector2(-208, 208)
 
 [node name="Trigger" type="Area2D" parent="."]
 position = Vector2(8, 401)

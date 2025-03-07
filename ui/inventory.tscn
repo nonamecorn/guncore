@@ -10,7 +10,7 @@
 [ext_resource type="Texture2D" uid="uid://dhaleribd0wp7" path="res://img/ui/Pull.png" id="6_lojmw"]
 [ext_resource type="Texture2D" uid="uid://cxm8l442in7mi" path="res://img/ui/inventory_1slot.png" id="6_uhxew"]
 [ext_resource type="Texture2D" uid="uid://cbajf8yubuqvh" path="res://img/ui/Pull_cover.png" id="7_5ii2v"]
-[ext_resource type="Script" uid="uid://bmuutqp4gw81r" path="res://ui/collector.gd" id="7_suxgo"]
+[ext_resource type="Script" uid="uid://c6we384pyfjkm" path="res://ui/collector.gd" id="7_suxgo"]
 [ext_resource type="Texture2D" uid="uid://l2j5j658rxuy" path="res://img/ui/Reciver.png" id="8_ek5p5"]
 [ext_resource type="Texture2D" uid="uid://os7v6mlrkik6" path="res://img/ui/Barrel.png" id="9_2shbn"]
 [ext_resource type="AudioStream" uid="uid://blk3vp6wlyhm" path="res://snd/sfx/pickup.wav" id="9_7nj7r"]
@@ -32,7 +32,7 @@
 [ext_resource type="PackedScene" uid="uid://ggi5lqbxx6uu" path="res://ui/ui_button.tscn" id="28_1kw70"]
 [ext_resource type="AudioStream" uid="uid://b30uwg7j2srof" path="res://snd/sfx/buy.ogg" id="31_eeluy"]
 
-[node name="Inventory" type="Control" node_paths=PackedStringArray("grid_bkpk", "eq_slot1", "eq_slot2", "eq_slot3", "collector", "safe_net", "description", "shop", "shop_dil", "desc_text", "durabar", "le_items", "shop_items", "stats1", "stats2")]
+[node name="Inventory" type="Control" node_paths=PackedStringArray("grid_bkpk", "eq_slot1", "eq_slot2", "eq_slot3", "collector", "safe_net", "description", "shop", "shop_dil", "desc_text", "durabar", "le_items", "shop_items")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -54,8 +54,6 @@ desc_text = NodePath("Description/MarginContainer/VBoxContainer/RichTextLabel")
 durabar = NodePath("Description/MarginContainer/VBoxContainer/DurabilityBar")
 le_items = NodePath("le_items")
 shop_items = NodePath("shop_items")
-stats1 = NodePath("stats1/MarginContainer/VBoxContainer/RichTextLabel")
-stats2 = NodePath("stats2/MarginContainer/VBoxContainer/RichTextLabel")
 
 [node name="safety_net" type="ColorRect" parent="."]
 visible = false
@@ -505,7 +503,7 @@ texture = ExtResource("7_5ii2v")
 custom_minimum_size = Vector2(630, 211)
 layout_mode = 2
 offset_left = 634.0
-offset_top = 483.0
+offset_top = 174.0
 offset_right = 1264.0
 offset_bottom = 694.0
 texture = ExtResource("4_2lq67")
@@ -517,7 +515,7 @@ patch_margin_bottom = 20
 [node name="MarginContainer" type="MarginContainer" parent="Description"]
 layout_mode = 2
 offset_right = 630.0
-offset_bottom = 211.0
+offset_bottom = 507.0
 theme_override_constants/margin_left = 14
 theme_override_constants/margin_top = 14
 theme_override_constants/margin_right = 14
@@ -552,113 +550,6 @@ sample"
 
 [node name="DurabilityBar" type="ProgressBar" parent="Description/MarginContainer/VBoxContainer"]
 layout_mode = 2
-
-[node name="stats1" type="NinePatchRect" parent="."]
-layout_mode = 2
-offset_left = 768.0
-offset_top = 187.0
-offset_right = 1028.0
-offset_bottom = 471.0
-texture = ExtResource("4_2lq67")
-patch_margin_left = 20
-patch_margin_top = 20
-patch_margin_right = 20
-patch_margin_bottom = 20
-
-[node name="MarginContainer" type="MarginContainer" parent="stats1"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 14
-theme_override_constants/margin_top = 14
-theme_override_constants/margin_right = 14
-theme_override_constants/margin_bottom = 14
-
-[node name="VBoxContainer" type="VBoxContainer" parent="stats1/MarginContainer"]
-layout_mode = 2
-focus_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="stats1/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 13
-bbcode_enabled = true
-text = "sample
-
-sample
-sampl
-sample
-sample
-sample
-sample
-sample
-sample
-sample
-sample
-sample
-sample
-sample
-sample
-sample"
-fit_content = true
-scroll_active = false
-
-[node name="stats2" type="NinePatchRect" parent="."]
-layout_mode = 2
-offset_left = 1028.0
-offset_top = 187.0
-offset_right = 1264.0
-offset_bottom = 471.0
-texture = ExtResource("4_2lq67")
-patch_margin_left = 20
-patch_margin_top = 20
-patch_margin_right = 20
-patch_margin_bottom = 20
-
-[node name="MarginContainer" type="MarginContainer" parent="stats2"]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_right = 32.0
-grow_horizontal = 2
-grow_vertical = 2
-theme_override_constants/margin_left = 14
-theme_override_constants/margin_top = 14
-theme_override_constants/margin_right = 14
-theme_override_constants/margin_bottom = 14
-
-[node name="VBoxContainer" type="VBoxContainer" parent="stats2/MarginContainer"]
-layout_mode = 2
-focus_mode = 2
-
-[node name="RichTextLabel" type="RichTextLabel" parent="stats2/MarginContainer/VBoxContainer"]
-layout_mode = 2
-size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 13
-bbcode_enabled = true
-text = "sample
-
-sample
-sampl
-sample
-sample
-sample
-sample
-sample
-sample
-sample
-sample
-sample
-sample
-sample
-sample
-sample"
-fit_content = true
-scroll_active = false
 
 [node name="reroll_button" parent="." instance=ExtResource("28_1kw70")]
 visible = false

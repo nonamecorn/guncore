@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://cpae35d4rrufr"]
+[gd_scene load_steps=11 format=4 uid="uid://cpae35d4rrufr"]
 
 [ext_resource type="Script" uid="uid://vwmq2qoj2hpf" path="res://lvls/rooms/basic_room.gd" id="1_umstc"]
 [ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="2_cwbc6"]
@@ -7,6 +7,7 @@
 [ext_resource type="PackedScene" uid="uid://c70txah2l140m" path="res://lvls/env/big_box.tscn" id="6_34eic"]
 [ext_resource type="PackedScene" uid="uid://cjw5l1ahljlkm" path="res://lvls/env/mid_box.tscn" id="7_hba5q"]
 [ext_resource type="PackedScene" uid="uid://bxtkcc7g5gfh2" path="res://lvls/env/small_box.tscn" id="8_dfae8"]
+[ext_resource type="PackedScene" uid="uid://eitu7m4i8q02" path="res://lvls/env/loot_table.tscn" id="9_edfa3"]
 [ext_resource type="PackedScene" uid="uid://bf65xavyr0pes" path="res://lvls/misc/module_connector.tscn" id="9_iejqf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fbyfv"]
@@ -96,6 +97,10 @@ position = Vector2(-80, 400)
 
 [node name="Mid_box6" parent="env" instance=ExtResource("7_hba5q")]
 position = Vector2(48, 464)
+
+[node name="loot_table" parent="env" instance=ExtResource("9_edfa3")]
+position = Vector2(-208, 208)
+chance_of_drop = 30.0
 
 [node name="Trigger" type="Area2D" parent="."]
 visible = false

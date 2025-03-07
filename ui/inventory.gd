@@ -22,8 +22,6 @@ const item_base = preload("res://ui/item_base.tscn")
 @export var durabar : Node
 @export var le_items : Node
 @export var shop_items : Node
-@export var stats1 : Node
-@export var stats2 : Node
 #var containers = [grid_bkpk, eq_slot1, eq_slot2, collector, augs, safe_net]
 
 var item_held = null
@@ -45,45 +43,15 @@ func load_save():
 	eq_slot1.quick_reload = false
 	eq_slot2.quick_reload = false
 
-func _ready():
-	pass
-	eq_slot1.assemble.connect(update_stats1)
-	eq_slot2.assemble.connect(update_stats2)
-	#var gun = Randogunser.get_gun()
-	#GlobalVars.items.append(load(gun.RECIEVER))
-	#GlobalVars.items.append(load(gun.MAG))
-	#GlobalVars.items.append(load(gun.BARREL))
-	pickup_item(load("res://obj/parts/hand/HE_nade.tres"))
+func display_desc(stats : Dictionary, first : bool):
+	var stat_strings = []
+	for stat_name in stats:
+		var string = stat_name + ": " + str(stats[stat_name])
+		stat_strings.append(string)
+	desc_text.text = ""
+	for stat in stat_strings:
+		desc_text.text += stat
 
-func update_stats1(parts,_loaded):
-	var stats = []
-	for part in parts:
-		var item_resource = parts[part]
-		if item_resource and "stats" in item_resource:
-			for stat in item_resource.stats:
-				var statsting = "\n " + stat + ": " + str(item_resource.get(item_resource.stats[stat]))
-				stats.append(statsting)
-	display_desc(stats,true)
-
-func update_stats2(parts,_loaded):
-	var stats = []
-	for part in parts:
-		var item_resource = parts[part]
-		if item_resource and "stats" in item_resource:
-			for stat in item_resource.stats:
-				var statsting = "\n " + stat + ": " + str(item_resource.get(item_resource.stats[stat]))
-				stats.append(statsting)
-	display_desc(stats,false)
-
-func display_desc(stats : Array, first : bool):
-	if first: 
-		stats1.text = ""
-		for stat in stats:
-			stats1.text += stat
-		return
-	stats2.text = ""
-	for stat in stats:
-		stats2.text += stat
 
 func hide_properly():
 	$shop_backpack2.flush_shop()
@@ -346,3 +314,11 @@ func _on_link_button_pressed() -> void:
 		current_reroll_cost += 3
 		$reroll_button/MarginContainer/LinkButton.text = "Reroll " + str(current_reroll_cost) + "$"
 		money_changed.emit()
+
+
+
+
+func _on_gun_base_2_stats_changed(stats: Variant) -> void:
+	display_desc(stats, false)
+func _on_gun_base_stats_changed(stats: Variant) -> void:
+	display_desc(stats, true)

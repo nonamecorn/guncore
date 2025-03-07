@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=3 uid="uid://ctrbcy5h47qqw"]
+[gd_scene load_steps=12 format=3 uid="uid://ctrbcy5h47qqw"]
 
 [ext_resource type="Script" uid="uid://c3l4ht5xb7jv3" path="res://obj/components/gun_component.gd" id="1_it1k3"]
 [ext_resource type="AudioStream" uid="uid://bxglm1lbr2kpf" path="res://snd/sfx/reloadend.wav" id="2_aqcxo"]
@@ -7,6 +7,11 @@
 [ext_resource type="AudioStream" uid="uid://blt37tqho0arn" path="res://snd/sfx/silencedsmg_fire.wav" id="3_fv6p6"]
 [ext_resource type="AudioStream" uid="uid://byixmvn1xg5ex" path="res://snd/sfx/something_broke.ogg" id="6_s5lr7"]
 [ext_resource type="AudioStream" uid="uid://ctq8c6n2tfnr3" path="res://snd/sfx/not_allowed_sfx.mp3" id="7_lxys1"]
+
+[sub_resource type="Curve" id="Curve_lxys1"]
+_limits = [0.0, 1.0, 0.0, 20.0]
+_data = [Vector2(0, 0.47191), 0.0, 0.049955, 0, 0, Vector2(20, 1), 0.0, 0.0, 0, 0]
+point_count = 2
 
 [sub_resource type="Animation" id="Animation_ekmwy"]
 length = 0.001
@@ -48,6 +53,7 @@ _data = {
 
 [node name="gun_base" type="Node2D"]
 script = ExtResource("1_it1k3")
+pitch_shifing = SubResource("Curve_lxys1")
 
 [node name="MAG" type="Marker2D" parent="."]
 

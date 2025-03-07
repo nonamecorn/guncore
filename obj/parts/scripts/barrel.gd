@@ -5,7 +5,11 @@ class_name Barrel
 @export var min_spread : float
 @export var muzzle_position : Vector2
 @export var add_spd : float
-var slot : String = "BARREL"
+
+
+func _init():
+	slot = "BARREL"
+
 var stats = {
 	"Range": "range_in_secs",
 	"Max.Sprd.": "max_spread",

@@ -1,6 +1,6 @@
-[gd_scene load_steps=11 format=4 uid="uid://b7oj8pql257pe"]
+[gd_scene load_steps=11 format=4 uid="uid://xob2a2hqi2lk"]
 
-[ext_resource type="Script" uid="uid://wtg2bb6is60f" path="res://lvls/rooms/basic_room.gd" id="1_7koly"]
+[ext_resource type="Script" uid="uid://vwmq2qoj2hpf" path="res://lvls/rooms/basic_room.gd" id="1_7koly"]
 [ext_resource type="PackedScene" uid="uid://bf65xavyr0pes" path="res://lvls/misc/module_connector.tscn" id="2_cjjcc"]
 [ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="3_2wwxc"]
 [ext_resource type="PackedScene" uid="uid://cpcfb5ro5if5" path="res://lvls/env/cult_spawner.tscn" id="4_7wdmv"]
@@ -41,8 +41,11 @@ tile_map_data = PackedByteArray("AAADAAkAAwABAAIAAAD9/wkAAwAAAAIAAAD+/wkAAwAAAAA
 
 [node name="enemies" type="Node2D" parent="."]
 
-[node name="cult_spawner" parent="enemies" instance=ExtResource("4_7wdmv")]
-position = Vector2(-320, 552)
+[node name="cult_spawner4" parent="enemies" instance=ExtResource("4_7wdmv")]
+position = Vector2(416, 280)
+
+[node name="cult_spawner5" parent="enemies" instance=ExtResource("4_7wdmv")]
+position = Vector2(-310, 557)
 
 [node name="cult_spawner2" parent="enemies" instance=ExtResource("4_7wdmv")]
 position = Vector2(416, 280)
@@ -60,15 +63,6 @@ position = Vector2(-208, 176)
 
 [node name="env" type="Node2D" parent="."]
 y_sort_enabled = true
-
-[node name="explosive_barrel" parent="env" instance=ExtResource("4_bwa8p")]
-position = Vector2(-304, 464)
-
-[node name="explosive_barrel2" parent="env" instance=ExtResource("4_bwa8p")]
-position = Vector2(208, 240)
-
-[node name="explosive_barrel3" parent="env" instance=ExtResource("4_bwa8p")]
-position = Vector2(116, 602)
 
 [node name="Big_box" parent="env" instance=ExtResource("6_1tixf")]
 position = Vector2(272, 197)
@@ -102,6 +96,15 @@ position = Vector2(-336, 203)
 
 [node name="Small_box2" parent="env" instance=ExtResource("8_8r555")]
 position = Vector2(-440, 217)
+
+[node name="explosive_barrel" parent="env" instance=ExtResource("4_bwa8p")]
+position = Vector2(-304, 464)
+
+[node name="explosive_barrel2" parent="env" instance=ExtResource("4_bwa8p")]
+position = Vector2(208, 240)
+
+[node name="explosive_barrel3" parent="env" instance=ExtResource("4_bwa8p")]
+position = Vector2(116, 602)
 
 [node name="Trigger" type="Area2D" parent="."]
 position = Vector2(8, 401)
