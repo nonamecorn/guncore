@@ -21,14 +21,14 @@ func _physics_process(_delta):
 		switch_to_base(true)
 	if Input.is_action_just_pressed("2"):
 		switch_to_base(false)
-	if Input.is_action_just_pressed("ui_right_mouse"):
+	if Input.is_action_just_pressed("3"):
 		$Marker2D/Melee_component.use_hand()
 	if Input.is_action_just_pressed("q"):
 		if active_base == 1:
 			switch_to_base(true)
 		else:
 			switch_to_base(false)
-	if Input.is_action_just_pressed("3"):
+	if Input.is_action_just_pressed("ui_right_mouse"):
 		$Marker2D.get_child(2).attack()
 	if Input.is_action_just_pressed("ui_left_mouse"):
 		$Marker2D.get_child(active_base).start_fire()

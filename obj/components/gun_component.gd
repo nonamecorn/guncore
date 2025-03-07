@@ -91,7 +91,6 @@ func asseble_gun(parts : Dictionary,loaded : bool):
 	stats.current_spread = stats.current_min_spread
 	stats.current_range = parts.BARREL.range_in_secs
 	stats.current_max_ammo = parts.MAG.capacity
-	stats.current_ammo = 0
 	stats.current_bullet_obj = parts.MAG.projectile
 	stats.current_num_of_bullets = 1
 	stats.current_ver_recoil = parts.RECIEVER.ver_recoil
@@ -101,6 +100,7 @@ func asseble_gun(parts : Dictionary,loaded : bool):
 	stats.alert_distance = parts.MAG.loud_dist
 	stats.wear = parts.MAG.wear
 	falloff = parts.MAG.falloff
+	current_ammo = 0
 	for part_name in parts:
 		if parts[part_name] == null: continue	
 		stats.weight += parts[part_name].weight
@@ -146,11 +146,11 @@ func asseble_gun(parts : Dictionary,loaded : bool):
 	else:
 		gpuparticles.one_shot = false
 		gpuparticles.amount = int(1.8 / stats.current_firerate)
-	display_ammo()
 	if loaded:
 		_on_reload_timeout()
 	else:
 		reload()
+	ammo_changed.emit(0,1,get_index())
 	stats_changed.emit(stats)
 
 
@@ -208,10 +208,10 @@ func stop_fire():
 func _on_reload_timeout():
 	stop_fire()
 	current_ammo = stats.current_max_ammo
-	display_ammo()
 	if player_handled: $audio/reload_end_cue.play()
 	$MAG.show()
 	state = FIRE
+	display_ammo()
 
 func reload():
 	if !assambled or !$MAG.visible or current_ammo == stats.current_max_ammo: return

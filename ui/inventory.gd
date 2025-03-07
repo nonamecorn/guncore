@@ -43,7 +43,7 @@ func load_save():
 	eq_slot1.quick_reload = false
 	eq_slot2.quick_reload = false
 
-func display_desc(stats : Dictionary, first : bool):
+func display_desc(stats : Dictionary, _first : bool):
 	var stat_strings = []
 	for stat_name in stats:
 		var string = stat_name + ": " + str(stats[stat_name])

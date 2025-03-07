@@ -298,13 +298,14 @@ offset_bottom = 600.0
 texture = ExtResource("15_5cdi7")
 
 [node name="help" type="Label" parent="CanvasLayer"]
-offset_left = 24.0
-offset_top = 19.0
-offset_right = 232.0
-offset_bottom = 35.0
+offset_left = 34.0
+offset_top = 28.0
+offset_right = 242.0
+offset_bottom = 44.0
 text = "f1 - controls"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+visible = false
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -324,11 +325,6 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "200 hp"
 
-[node name="money" type="Label" parent="CanvasLayer/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 16
-text = "200$"
-
 [node name="ammo" type="Label" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
@@ -345,6 +341,14 @@ visible = false
 
 [node name="ded_menu" parent="CanvasLayer" instance=ExtResource("13_vfuiq")]
 visible = false
+
+[node name="money" type="Label" parent="CanvasLayer"]
+offset_left = 34.0
+offset_top = 652.0
+offset_right = 382.0
+offset_bottom = 668.0
+theme_override_font_sizes/font_size = 16
+text = "200$"
 
 [node name="Marker2D" type="Marker2D" parent="." groups=["crosshair"]]
 script = ExtResource("16_ku1r1")

@@ -128,6 +128,7 @@ func check_dissassembly():
 
 func destroy_item(slot):
 	var item = grab_item_at_spot(slot)
+	item.item_resource.destroy.disconnect(destroy_item)
 	item.queue_free()
 
 func get_parts():

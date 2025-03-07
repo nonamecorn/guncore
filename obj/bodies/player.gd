@@ -34,7 +34,8 @@ func _ready() -> void:
 	on_score_change(GlobalVars.kills, GlobalVars.loop)
 	hurt(0)
 	refresh()
-	on_ammo_change(null,null,0)
+	if GlobalVars.loop == 0:
+		on_ammo_change(null,null,0)
 	$hurt_box.damaged.connect(hurt)
 	$CanvasLayer/Inventory.money_changed.connect(refresh)
 	$CanvasLayer/Inventory.drop.connect(drop)
@@ -125,7 +126,7 @@ func flip():
 	$Sprite2D.scale.x *= -1
 
 func refresh():
-	$CanvasLayer/VBoxContainer/money.text = str(GlobalVars.money)+"$"
+	$CanvasLayer/money.text = str(GlobalVars.money)+"$"
 
 func death():
 	velocity = Vector2.ZERO
@@ -140,6 +141,7 @@ func death():
 	$Sprite2D/IdleAnimation.show()
 	$Sprite2D/IdleAnimation.stop()
 	$Sprite2D/RunninAnnimation.hide()
+	$player_hand_component.hide()
 	GlobalVars.kills = 0
 	GlobalVars.loop = 0
 	$CanvasLayer/ded_menu.show()

@@ -150,6 +150,9 @@ wait_time = 0.5
 
 [node name="gun_base" parent="enemy_hand_component/Marker2D" index="0" instance=ExtResource("4_cyios")]
 
+[node name="CollisionShape2D" parent="enemy_hand_component/Cqb_awareness" index="0"]
+debug_color = Color(0.46164, 0.451452, 0.986457, 0)
+
 [node name="burst_duration" type="Timer" parent="enemy_hand_component"]
 wait_time = 0.5
 one_shot = true

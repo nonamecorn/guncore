@@ -15,11 +15,6 @@ func _ready():
 		items.append(load(item))
 	item_resources.append_array(items.slice(slice[0], slice[1]))
 
-func init(_item):
-	pass
-	#item_resource = item.duplicate()
-	#item_resource.pickup.connect(destroy)
-	#item_resource.id = IdGiver.get_id()
 
 func pickup() -> Array[Item]:
 	return(item_resources)

@@ -8,7 +8,7 @@ var rng = RandomNumberGenerator.new()
 
 func init() -> void:
 	rng.randomize()
-	#if rng.randf_range(0.0,100.0) <= chance_of_drop: return
+	if rng.randf_range(0.0,100.0) <= chance_of_drop: return
 	var item_inst = item_base.instantiate()
 	get_tree().current_scene.find_child("items").call_deferred("add_child",item_inst)
 	item_inst.global_position = global_position
