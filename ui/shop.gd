@@ -45,12 +45,10 @@ func _ready() -> void:
 		default_text = "Jena:\n\n" + greetings[GlobalVars.loop]
 	else:
 		dills = [
-			"Good job! I hope you enjoyed this sneakpeak as much as i enjoyed making it."
+			"Good job! I hope you enjoyed this demo as much as i enjoyed making it."
 		]
-		default_text = "Jena:
-	" + dills[0]
+		default_text = "Jena:\n\n" + dills[0]
 
 func _on_talk_button_pressed() -> void:
 	dills.shuffle()
-	get_parent().default_text = "Jena:
-" + dills[0]
+	get_parent().default_text = "Jena:\n\n" + dills[0]
