@@ -234,6 +234,7 @@ func weapon_functional():
 	for part in gun_resources:
 		if !gun_resources[part]: continue
 		if gun_resources[part].curr_durability <= 0:
+			gun_resources[part].destroy_item()
 			return false
 	return true
 
@@ -295,6 +296,7 @@ func fire():
 		dissassemble_gun()
 		$audio/something_broke.play()
 		display_ammo()
+		stop_fire()
 
 
 func _on_single_shot_timeout() -> void:

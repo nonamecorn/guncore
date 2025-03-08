@@ -30,7 +30,8 @@ func insert_item(item):
 			get_parent().get_parent().buy_item()
 		else: return false
 	item.item_resource.pickup.emit()
-	item.item_resource.destroy.connect(destroy_item)
+	if !item.item_resource.destroy.is_connected(destroy_item):
+		item.item_resource.destroy.connect(destroy_item)
 	items[item_slot] = item
 	if gun:
 		check_assembly()
@@ -59,7 +60,8 @@ func insert_item_at_spot(item, slot):
 	item.item_resource.eq = true
 	item.item_resource.eq_index = get_index()
 	item.item_resource.pick_up()
-	item.item_resource.destroy.connect(destroy_item)
+	if !item.item_resource.destroy.is_connected(destroy_item):
+		item.item_resource.destroy.connect(destroy_item)
 	var da_slot = find_child(slot)
 	var item_pos = da_slot.get("global_position") + da_slot.get("size") / 2 - item.size / 2
 	item.global_position = item_pos

@@ -8,7 +8,7 @@ var angle : float
 
 func _physics_process(_delta: float) -> void:
 	angle = (player.global_position - global_position).angle()
-	if tan(angle) < 0 and !left:
+	if tan(angle) <= 0 and !left:
 		switch(true)
 		return
 	if tan(angle) > 0 and left:

@@ -198,7 +198,6 @@ func check_popup(cursor_pos):
 	var items = le_items.get_children() + shop_items.get_children()
 	for c in items:
 		if c.get_global_rect().has_point(cursor_pos):
-			description.show()
 			desc_text.text = c.desc_text
 			durabar.value = c.item_resource.curr_durability
 			durabar.max_value = c.item_resource.max_durability
@@ -206,7 +205,6 @@ func check_popup(cursor_pos):
 			#c._on_mouse_entered()
 			break
 		else:
-			description.hide()
 			durabar.hide()
 			#c._on_mouse_exited()
 

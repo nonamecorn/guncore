@@ -28,8 +28,8 @@
 [ext_resource type="Texture2D" uid="uid://ds0gmt5dgnqnp" path="res://img/ui/Hand.png" id="16_7ox2p"]
 [ext_resource type="Texture2D" uid="uid://c422ygxdmneag" path="res://img/ui/shop.png" id="20_8ghwf"]
 [ext_resource type="Texture2D" uid="uid://dduylcjk7w1y3" path="res://img/ui/shop_cover.png" id="22_fsjln"]
-[ext_resource type="Texture2D" uid="uid://b2lkovbldqmkk" path="res://img/big_art/jena_new.jpg" id="27_257ws"]
 [ext_resource type="PackedScene" uid="uid://ggi5lqbxx6uu" path="res://ui/ui_button.tscn" id="28_1kw70"]
+[ext_resource type="Texture2D" uid="uid://ico8iqe8rerl" path="res://img/big_art/jena_new.png" id="28_eeluy"]
 [ext_resource type="AudioStream" uid="uid://b30uwg7j2srof" path="res://snd/sfx/buy.ogg" id="31_eeluy"]
 
 [node name="Inventory" type="Control" node_paths=PackedStringArray("grid_bkpk", "eq_slot1", "eq_slot2", "eq_slot3", "collector", "safe_net", "description", "shop", "shop_dil", "desc_text", "durabar", "le_items", "shop_items")]
@@ -76,10 +76,10 @@ grow_vertical = 2
 
 [node name="equipment_shaite" type="TextureRect" parent="equipments"]
 layout_mode = 2
-offset_left = 794.0
-offset_top = 12.0
-offset_right = 1050.0
-offset_bottom = 204.0
+offset_left = 821.0
+offset_top = 5.0
+offset_right = 1077.0
+offset_bottom = 197.0
 texture = ExtResource("3_3hpgi")
 script = ExtResource("4_xef72")
 
@@ -229,10 +229,10 @@ stretch_mode = 4
 
 [node name="equipment_shaite2" type="TextureRect" parent="equipments"]
 layout_mode = 2
-offset_left = 1006.0
-offset_top = 12.0
-offset_right = 1262.0
-offset_bottom = 204.0
+offset_left = 1031.0
+offset_top = 6.0
+offset_right = 1287.0
+offset_bottom = 198.0
 texture = ExtResource("12_volt8")
 script = ExtResource("4_xef72")
 
@@ -382,10 +382,10 @@ stretch_mode = 4
 
 [node name="equipment_shaite4" type="TextureRect" parent="equipments"]
 layout_mode = 2
-offset_left = 536.0
-offset_top = 42.0
-offset_right = 792.0
-offset_bottom = 170.0
+offset_left = 612.0
+offset_top = 68.0
+offset_right = 868.0
+offset_bottom = 196.0
 texture = ExtResource("13_pe0tj")
 script = ExtResource("4_xef72")
 gun = false
@@ -515,7 +515,7 @@ patch_margin_bottom = 20
 [node name="MarginContainer" type="MarginContainer" parent="Description"]
 layout_mode = 2
 offset_right = 630.0
-offset_bottom = 507.0
+offset_bottom = 518.0
 theme_override_constants/margin_left = 14
 theme_override_constants/margin_top = 14
 theme_override_constants/margin_right = 14
@@ -528,7 +528,6 @@ focus_mode = 2
 [node name="RichTextLabel" type="RichTextLabel" parent="Description/MarginContainer/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme_override_font_sizes/normal_font_size = 13
 bbcode_enabled = true
 text = "sample
 
@@ -597,7 +596,6 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="Shop" type="Control" parent="."]
-visible = false
 layout_mode = 1
 anchors_preset = 0
 offset_top = 19.0
@@ -632,7 +630,7 @@ offset_bottom = 250.424
 [node name="TextureRect" type="TextureRect" parent="Shop/NinePatchRect/VBoxContainer"]
 custom_minimum_size = Vector2(212, 212)
 layout_mode = 2
-texture = ExtResource("27_257ws")
+texture = ExtResource("28_eeluy")
 expand_mode = 1
 stretch_mode = 4
 
