@@ -14,7 +14,7 @@ var rooms0 = [
 ]
 var rooms1 = [
 	"res://lvls/rooms/combat_room.tscn",
-	"res://lvls/rooms/corpbreach_room.tscn",
+	"uid://cpae35d4rrufr",
 	"res://lvls/rooms/combat_room.tscn",
 ]
 var rooms = [
@@ -22,7 +22,7 @@ var rooms = [
 	"res://lvls/rooms/combat_room.tscn",
 	"res://lvls/rooms/cultfort_room.tscn",
 	"res://lvls/rooms/cultinvasion_room.tscn",
-	"res://lvls/rooms/corpbreach_room.tscn",
+	"uid://cpae35d4rrufr",
 ]
 @export var roomcount = 5
 @export var debug = false

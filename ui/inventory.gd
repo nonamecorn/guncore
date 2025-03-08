@@ -76,7 +76,7 @@ func hide_popup():
 		c._on_mouse_exited()
 
 func switch_to_shop():
-	default_text = shop.default_text
+	default_text = shop_dil.default_text
 	collector.hide()
 	safe_net.show()
 	shop.show()
