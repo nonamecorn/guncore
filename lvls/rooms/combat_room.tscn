@@ -1,8 +1,9 @@
-[gd_scene load_steps=11 format=4 uid="uid://xob2a2hqi2lk"]
+[gd_scene load_steps=12 format=4 uid="uid://xob2a2hqi2lk"]
 
 [ext_resource type="Script" uid="uid://wtg2bb6is60f" path="res://lvls/rooms/basic_room.gd" id="1_7koly"]
 [ext_resource type="PackedScene" uid="uid://bf65xavyr0pes" path="res://lvls/misc/module_connector.tscn" id="2_cjjcc"]
 [ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="3_2wwxc"]
+[ext_resource type="PackedScene" uid="uid://cmowt08tkhfxs" path="res://lvls/misc/bi_light_occluder_2d.tscn" id="3_j3urm"]
 [ext_resource type="PackedScene" uid="uid://cpcfb5ro5if5" path="res://lvls/env/cult_spawner.tscn" id="4_7wdmv"]
 [ext_resource type="PackedScene" uid="uid://dww7vxteobmel" path="res://lvls/env/explosive_barrel.tscn" id="4_bwa8p"]
 [ext_resource type="PackedScene" uid="uid://c70txah2l140m" path="res://lvls/env/big_box.tscn" id="6_1tixf"]
@@ -38,6 +39,20 @@ tile_map_data = PackedByteArray("AADw/wsABwABAAAAAADx/wsABwABAAAAAADy/wsABwABAAA
 tile_map_data = PackedByteArray("AAADAAkAAwABAAIAAAD9/wkAAwAAAAIAAAD+/wkAAwAAAAAAAAD//wkAAwAAAAAAAAAAAAkAAwAAAAAAAAABAAkAAwAAAAAAAAACAAkAAwAAAAAAAAD6/wkAAwABAAIAAAD5/wkAAwAAAAAAAAD4/wkAAwACAAIAAAD4/wcAAwAEAAIAAAD4/wgAAwADAAAAAAD4/wYAAwADAAEAAAAGAAkAAwAAAAIAAAAHAAkAAwADAAIAAAAHAAgAAwADAAAAAAAHAAcAAwAEAAIAAAAEAAYAAwAAAAIAAAAHAAYAAwADAAEAAAAGAAYAAwACAAAAAAAFAAYAAwAAAAAAAAD4/w8AAwAAAAAAAAD5/w8AAwAAAAAAAAD6/w8AAwABAAIAAAD9/w8AAwAAAAIAAAD+/w8AAwAAAAAAAAD//w8AAwAAAAAAAAAAAA8AAwABAAAAAAABAA8AAwAAAAAAAAACAA8AAwAAAAAAAAADAA8AAwABAAIAAAAGAA8AAwAAAAIAAAAHAA8AAwADAAEAAAAHABAAAwAEAAEAAAAHABEAAwADAAAAAAAHABIAAwAEAAIAAAD6/wYAAwAAAAIAAAD7/wYAAwABAAAAAAD8/wYAAwABAAIAAAD5/xIAAwAAAAIAAAD6/xIAAwABAAAAAAD7/xIAAwABAAIAAAD3/w8AAwAAAAIAAAD3/wYAAwAAAAIAAADz/woAAwAAAAIAAAD2/woAAwABAAIAAAD1/woAAwABAAAAAAD0/woAAwAAAAAAAAARAA8AAwAAAAAAAAAQAA8AAwACAAAAAAAPAA8AAwAAAAAAAAAOAA8AAwABAAAAAAANAA8AAwAAAAIAAAAJAA8AAwABAAIAAAAIAA8AAwACAAEAAAAIABAAAwADAAAAAAAIABEAAwAEAAIAAAAIABIAAwAEAAEAAAARAAYAAwAAAAAAAAAQAAYAAwAAAAAAAAAPAAYAAwACAAAAAAAOAAYAAwABAAAAAAANAAYAAwAAAAAAAAAMAAYAAwACAAAAAAALAAYAAwAAAAIAAAA=")
 
 [node name="decor" type="Node2D" parent="."]
+
+[node name="BiLightOccluder2D" parent="decor" instance=ExtResource("3_j3urm")]
+position = Vector2(-64, 192)
+left = true
+
+[node name="BiLightOccluder2D2" parent="decor" instance=ExtResource("3_j3urm")]
+position = Vector2(97, 192)
+
+[node name="BiLightOccluder2D3" parent="decor" instance=ExtResource("3_j3urm")]
+position = Vector2(-480, 320)
+left = true
+
+[node name="BiLightOccluder2D4" parent="decor" instance=ExtResource("3_j3urm")]
+position = Vector2(577, 320)
 
 [node name="enemies" type="Node2D" parent="."]
 
