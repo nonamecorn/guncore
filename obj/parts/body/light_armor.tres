@@ -10,7 +10,7 @@
 
 [sub_resource type="Resource" id="Resource_bs7iw"]
 script = ExtResource("2_3m4jm")
-stat_name = "current_speed"
+stat_name = "speed"
 value_of_stat = -20.0
 mult = false
 is_set = false

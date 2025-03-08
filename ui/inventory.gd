@@ -22,6 +22,9 @@ const item_base = preload("res://ui/item_base.tscn")
 @export var durabar : Node
 @export var le_items : Node
 @export var shop_items : Node
+
+@export var see_stats1 : Node
+@export var see_stats2 : Node
 #var containers = [grid_bkpk, eq_slot1, eq_slot2, collector, augs, safe_net]
 
 var item_held = null
@@ -34,6 +37,8 @@ signal money_changed
 
 var current_reroll_cost = 10
 
+var default_text = "..."
+var popup_items = []
 func load_save():
 	for le_item in GlobalVars.items:
 		if !le_item.eq:
@@ -43,14 +48,21 @@ func load_save():
 	eq_slot1.quick_reload = false
 	eq_slot2.quick_reload = false
 
-func display_desc(stats : Dictionary, _first : bool):
+func display_desc(stats : Dictionary, first : bool):
+	var formated_stats = stats.duplicate()
+	formated_stats.erase("bullet_obj")
 	var stat_strings = []
-	for stat_name in stats:
-		var string = stat_name + ": " + str(stats[stat_name])
+	for stat_name in formated_stats:
+		var string = stat_name + ": " + str(formated_stats[stat_name]) + "\n"
 		stat_strings.append(string)
-	desc_text.text = ""
+	if first:
+		see_stats1.desc_text = ""
+		for stat in stat_strings:
+			see_stats1.desc_text += stat
+		return
+	see_stats2.desc_text = ""
 	for stat in stat_strings:
-		desc_text.text += stat
+		see_stats2.desc_text += stat
 
 
 func hide_properly():
@@ -64,6 +76,7 @@ func hide_popup():
 		c._on_mouse_exited()
 
 func switch_to_shop():
+	default_text = shop.default_text
 	collector.hide()
 	safe_net.show()
 	shop.show()
@@ -71,6 +84,7 @@ func switch_to_shop():
 	$reroll_button.show()
 
 func switch_to_inventory():
+	default_text = "..."
 	collector.show()
 	safe_net.hide()
 	shop.hide()
@@ -195,16 +209,17 @@ func swap(c2, cursor_pos):
 		return_item()
 
 func check_popup(cursor_pos):
-	var items = le_items.get_children() + shop_items.get_children()
-	for c in items:
+	popup_items = le_items.get_children() + shop_items.get_children() + [see_stats1, see_stats2]
+	for c in popup_items:
 		if c.get_global_rect().has_point(cursor_pos):
 			desc_text.text = c.desc_text
-			durabar.value = c.item_resource.curr_durability
-			durabar.max_value = c.item_resource.max_durability
-			durabar.show()
-			#c._on_mouse_entered()
+			if "item_resource" in c:
+				durabar.value = c.item_resource.curr_durability
+				durabar.max_value = c.item_resource.max_durability
+				durabar.show()
 			break
 		else:
+			desc_text.text = default_text
 			durabar.hide()
 			#c._on_mouse_exited()
 

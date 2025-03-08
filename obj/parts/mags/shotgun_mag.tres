@@ -12,42 +12,42 @@
 
 [sub_resource type="Resource" id="Resource_7xlcd"]
 script = ExtResource("1_237dl")
-stat_name = "current_num_of_bullets"
+stat_name = "num_of_bullets"
 value_of_stat = 4.0
 mult = false
 is_set = false
 
 [sub_resource type="Resource" id="Resource_dgm67"]
 script = ExtResource("1_237dl")
-stat_name = "current_ver_recoil"
+stat_name = "ver_recoil"
 value_of_stat = 1.0
 mult = true
 is_set = false
 
 [sub_resource type="Resource" id="Resource_74d1m"]
 script = ExtResource("1_237dl")
-stat_name = "current_hor_recoil"
+stat_name = "hor_recoil"
 value_of_stat = 1.25
 mult = true
 is_set = false
 
 [sub_resource type="Resource" id="Resource_hl8oi"]
 script = ExtResource("1_237dl")
-stat_name = "current_min_spread"
+stat_name = "min_spread"
 value_of_stat = 8.0
 mult = false
 is_set = false
 
 [sub_resource type="Resource" id="Resource_mxrb5"]
 script = ExtResource("1_237dl")
-stat_name = "current_min_spread"
+stat_name = "min_spread"
 value_of_stat = 8.0
 mult = false
 is_set = false
 
 [sub_resource type="Resource" id="Resource_jrte4"]
 script = ExtResource("1_237dl")
-stat_name = "current_range"
+stat_name = "range"
 value_of_stat = 0.6
 mult = true
 is_set = false

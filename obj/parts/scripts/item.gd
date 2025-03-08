@@ -11,6 +11,7 @@ class_name Item
 		damaged.emit()
 		curr_durability = val
 		broken = curr_durability<=0
+		if broken: destroy_item()
 	get():
 		return curr_durability
 @export var sprite : Texture2D

@@ -14,7 +14,7 @@ mult_damage = 1.5
 
 [sub_resource type="Resource" id="Resource_2mgrr"]
 script = ExtResource("1_5nps4")
-stat_name = "current_hor_recoil"
+stat_name = "hor_recoil"
 value_of_stat = 1.5
 mult = true
 is_set = false

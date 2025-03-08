@@ -28,7 +28,7 @@ func throw():
 
 func use_hand():
 	if !item_res: return
-	item_res.destroy_item()
+	item_res.curr_durability -= 1
 	match item_res.type:
 		1:
 			throw()

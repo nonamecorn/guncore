@@ -1,9 +1,10 @@
-[gd_scene load_steps=32 format=3 uid="uid://d0ex485qfg6qx"]
+[gd_scene load_steps=34 format=3 uid="uid://d0ex485qfg6qx"]
 
 [ext_resource type="Script" uid="uid://dqpu0fasi3eh4" path="res://ui/inventory.gd" id="1_vc4ge"]
 [ext_resource type="Script" uid="uid://bqbaom3tws3xl" path="res://ui/texture_rect.gd" id="2_gjxwj"]
 [ext_resource type="Texture2D" uid="uid://bl5o8lhl8assn" path="res://img/ui/inventory3.png" id="2_uegg3"]
 [ext_resource type="Texture2D" uid="uid://cmay0qlukvut6" path="res://img/ui/Gunslot_1.png" id="3_3hpgi"]
+[ext_resource type="Script" uid="uid://cykvwmdq23ck4" path="res://ui/see_stats.gd" id="3_bb8wr"]
 [ext_resource type="Texture2D" uid="uid://bpp86byvrxopq" path="res://img/ui/inventory_cover.png" id="4_0csks"]
 [ext_resource type="Texture2D" uid="uid://faonagr4q8jo" path="res://img/ui/UI.png" id="4_2lq67"]
 [ext_resource type="Script" uid="uid://dbq31ndb5l1vm" path="res://ui/equipment_shaite.gd" id="4_xef72"]
@@ -17,7 +18,7 @@
 [ext_resource type="AudioStream" uid="uid://dnq0utya1mtcx" path="res://snd/sfx/put.wav" id="10_4wjgb"]
 [ext_resource type="Script" uid="uid://dtvfxxlyy4558" path="res://ui/shop_backpack.gd" id="10_50eua"]
 [ext_resource type="Texture2D" uid="uid://ce33vmt4u8t5q" path="res://img/ui/Muzzle.png" id="10_wkiin"]
-[ext_resource type="Script" uid="uid://dplg2ndgxwjm0" path="res://ui/shop.gd" id="11_6lbvg"]
+[ext_resource type="Script" uid="uid://dvdjpuaghhgha" path="res://ui/shop.gd" id="11_6lbvg"]
 [ext_resource type="Texture2D" uid="uid://xhcr3s0vochg" path="res://img/ui/Mag.png" id="11_x1v8h"]
 [ext_resource type="Texture2D" uid="uid://ddk3781ecrb5h" path="res://img/ui/Atachment.png" id="12_3acbc"]
 [ext_resource type="Texture2D" uid="uid://c1ajad8wboj20" path="res://img/ui/Gunslot_2.png" id="12_volt8"]
@@ -26,13 +27,14 @@
 [ext_resource type="Texture2D" uid="uid://bkjtqix3hyjsa" path="res://img/ui/Helmet.png" id="14_3ddj3"]
 [ext_resource type="Texture2D" uid="uid://c1lee8a3t06tt" path="res://img/ui/ArmorSlot.png" id="15_isfqa"]
 [ext_resource type="Texture2D" uid="uid://ds0gmt5dgnqnp" path="res://img/ui/Hand.png" id="16_7ox2p"]
+[ext_resource type="Texture2D" uid="uid://c3plgap64ejfc" path="res://img/ui/Stas.png" id="16_bb8wr"]
 [ext_resource type="Texture2D" uid="uid://c422ygxdmneag" path="res://img/ui/shop.png" id="20_8ghwf"]
 [ext_resource type="Texture2D" uid="uid://dduylcjk7w1y3" path="res://img/ui/shop_cover.png" id="22_fsjln"]
 [ext_resource type="PackedScene" uid="uid://ggi5lqbxx6uu" path="res://ui/ui_button.tscn" id="28_1kw70"]
 [ext_resource type="Texture2D" uid="uid://ico8iqe8rerl" path="res://img/big_art/jena_new.png" id="28_eeluy"]
 [ext_resource type="AudioStream" uid="uid://b30uwg7j2srof" path="res://snd/sfx/buy.ogg" id="31_eeluy"]
 
-[node name="Inventory" type="Control" node_paths=PackedStringArray("grid_bkpk", "eq_slot1", "eq_slot2", "eq_slot3", "collector", "safe_net", "description", "shop", "shop_dil", "desc_text", "durabar", "le_items", "shop_items")]
+[node name="Inventory" type="Control" node_paths=PackedStringArray("grid_bkpk", "eq_slot1", "eq_slot2", "eq_slot3", "collector", "safe_net", "description", "shop", "shop_dil", "desc_text", "durabar", "le_items", "shop_items", "see_stats1", "see_stats2")]
 process_mode = 3
 layout_mode = 3
 anchors_preset = 15
@@ -54,6 +56,8 @@ desc_text = NodePath("Description/MarginContainer/VBoxContainer/RichTextLabel")
 durabar = NodePath("Description/MarginContainer/VBoxContainer/DurabilityBar")
 le_items = NodePath("le_items")
 shop_items = NodePath("shop_items")
+see_stats1 = NodePath("equipments/equipment_shaite/see_stats1")
+see_stats2 = NodePath("equipments/equipment_shaite2/see_stats2")
 
 [node name="safety_net" type="ColorRect" parent="."]
 visible = false
@@ -76,10 +80,10 @@ grow_vertical = 2
 
 [node name="equipment_shaite" type="TextureRect" parent="equipments"]
 layout_mode = 2
-offset_left = 821.0
-offset_top = 5.0
-offset_right = 1077.0
-offset_bottom = 197.0
+offset_left = 1040.0
+offset_top = 8.0
+offset_right = 1296.0
+offset_bottom = 200.0
 texture = ExtResource("3_3hpgi")
 script = ExtResource("4_xef72")
 
@@ -227,12 +231,22 @@ mouse_filter = 2
 texture = ExtResource("6_uhxew")
 stretch_mode = 4
 
+[node name="see_stats1" type="TextureRect" parent="equipments/equipment_shaite"]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 24.0
+offset_right = 3.0
+offset_bottom = 96.0
+scale = Vector2(2, 2)
+texture = ExtResource("16_bb8wr")
+script = ExtResource("3_bb8wr")
+
 [node name="equipment_shaite2" type="TextureRect" parent="equipments"]
 layout_mode = 2
-offset_left = 1031.0
-offset_top = 6.0
-offset_right = 1287.0
-offset_bottom = 198.0
+offset_left = 1040.0
+offset_top = 176.0
+offset_right = 1296.0
+offset_bottom = 368.0
 texture = ExtResource("12_volt8")
 script = ExtResource("4_xef72")
 
@@ -380,12 +394,22 @@ mouse_filter = 2
 texture = ExtResource("6_uhxew")
 stretch_mode = 4
 
+[node name="see_stats2" type="TextureRect" parent="equipments/equipment_shaite2"]
+layout_mode = 0
+offset_left = -24.0
+offset_top = 24.0
+offset_right = 3.0
+offset_bottom = 96.0
+scale = Vector2(2, 2)
+texture = ExtResource("16_bb8wr")
+script = ExtResource("3_bb8wr")
+
 [node name="equipment_shaite4" type="TextureRect" parent="equipments"]
 layout_mode = 2
-offset_left = 612.0
-offset_top = 68.0
-offset_right = 868.0
-offset_bottom = 196.0
+offset_left = 1040.0
+offset_top = 344.0
+offset_right = 1296.0
+offset_bottom = 472.0
 texture = ExtResource("13_pe0tj")
 script = ExtResource("4_xef72")
 gun = false
@@ -464,10 +488,10 @@ stretch_mode = 4
 
 [node name="grid_backpack" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 305.0
-offset_top = 492.0
-offset_right = 625.0
-offset_bottom = 684.0
+offset_left = 640.0
+offset_top = 504.0
+offset_right = 960.0
+offset_bottom = 696.0
 mouse_filter = 2
 texture = ExtResource("2_uegg3")
 expand_mode = 1
@@ -484,10 +508,10 @@ texture = ExtResource("4_0csks")
 
 [node name="collector" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 28.0
-offset_top = 44.0
-offset_right = 284.0
-offset_bottom = 684.0
+offset_left = 280.0
+offset_top = 504.0
+offset_right = 536.0
+offset_bottom = 696.0
 texture = ExtResource("6_lojmw")
 script = ExtResource("7_suxgo")
 
@@ -496,16 +520,15 @@ layout_mode = 0
 offset_left = -32.0
 offset_top = -32.0
 offset_right = 288.0
-offset_bottom = 672.0
+offset_bottom = 224.0
 texture = ExtResource("7_5ii2v")
 
 [node name="Description" type="NinePatchRect" parent="."]
-custom_minimum_size = Vector2(630, 211)
 layout_mode = 2
-offset_left = 634.0
-offset_top = 174.0
-offset_right = 1264.0
-offset_bottom = 694.0
+offset_left = 272.0
+offset_top = 8.0
+offset_right = 976.0
+offset_bottom = 456.0
 texture = ExtResource("4_2lq67")
 patch_margin_left = 20
 patch_margin_top = 20
@@ -514,8 +537,8 @@ patch_margin_bottom = 20
 
 [node name="MarginContainer" type="MarginContainer" parent="Description"]
 layout_mode = 2
-offset_right = 630.0
-offset_bottom = 518.0
+offset_right = 704.0
+offset_bottom = 448.0
 theme_override_constants/margin_left = 14
 theme_override_constants/margin_top = 14
 theme_override_constants/margin_right = 14
@@ -551,25 +574,23 @@ sample"
 layout_mode = 2
 
 [node name="reroll_button" parent="." instance=ExtResource("28_1kw70")]
-visible = false
 layout_mode = 0
-offset_left = 296.0
-offset_top = 187.0
-offset_right = 464.0
-offset_bottom = 211.0
+offset_left = 80.0
+offset_top = 480.0
+offset_right = 248.0
+offset_bottom = 504.0
 
 [node name="LinkButton" parent="reroll_button/MarginContainer" index="0"]
 custom_minimum_size = Vector2(40, 0)
 text = "Reroll 10$"
 
 [node name="shop_backpack2" type="TextureRect" parent="." node_paths=PackedStringArray("shop_items_ctrl")]
-visible = false
-custom_minimum_size = Vector2(384, 128)
+custom_minimum_size = Vector2(0, 128)
 layout_mode = 0
-offset_left = 305.0
-offset_top = 44.0
-offset_right = 689.0
-offset_bottom = 172.0
+offset_left = 48.0
+offset_top = 320.0
+offset_right = 240.0
+offset_bottom = 448.0
 texture = ExtResource("20_8ghwf")
 stretch_mode = 4
 script = ExtResource("10_50eua")
@@ -603,12 +624,11 @@ offset_bottom = 19.0
 script = ExtResource("11_6lbvg")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Shop"]
-custom_minimum_size = Vector2(276, 600)
 layout_mode = 0
-offset_left = 18.0
-offset_top = 14.0
-offset_right = 294.0
-offset_bottom = 674.0
+offset_left = 16.0
+offset_top = -11.0
+offset_right = 270.0
+offset_bottom = 276.0
 texture = ExtResource("4_2lq67")
 patch_margin_left = 20
 patch_margin_top = 20
@@ -622,10 +642,10 @@ anchor_left = 0.065
 anchor_top = 0.026
 anchor_right = 0.065
 anchor_bottom = 0.026
-offset_left = 14.06
-offset_top = 6.424
-offset_right = 226.06
-offset_bottom = 250.424
+offset_left = 3.41
+offset_top = 15.538
+offset_right = 215.41
+offset_bottom = 259.538
 
 [node name="TextureRect" type="TextureRect" parent="Shop/NinePatchRect/VBoxContainer"]
 custom_minimum_size = Vector2(212, 212)
@@ -639,13 +659,6 @@ layout_mode = 2
 
 [node name="LinkButton" parent="Shop/NinePatchRect/VBoxContainer/ui_button2/MarginContainer" index="0"]
 text = "Talk"
-
-[node name="RichTextLabel" type="RichTextLabel" parent="Shop/NinePatchRect/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/normal_font_size = 16
-text = "Bella:
-Now... Dont make any sudden moves."
-fit_content = true
 
 [node name="audio" type="Node" parent="."]
 

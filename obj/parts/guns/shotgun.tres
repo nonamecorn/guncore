@@ -9,28 +9,28 @@
 
 [sub_resource type="Resource" id="Resource_n7t7f"]
 script = ExtResource("1_dvuud")
-stat_name = "current_min_spread"
+stat_name = "min_spread"
 value_of_stat = 1.5
 mult = true
 is_set = false
 
 [sub_resource type="Resource" id="Resource_4x21f"]
 script = ExtResource("1_dvuud")
-stat_name = "current_max_spread"
+stat_name = "max_spread"
 value_of_stat = 1.5
 mult = true
 is_set = false
 
 [sub_resource type="Resource" id="Resource_y4o5x"]
 script = ExtResource("1_dvuud")
-stat_name = "current_ver_recoil"
+stat_name = "ver_recoil"
 value_of_stat = 0.5
 mult = true
 is_set = false
 
 [sub_resource type="Resource" id="Resource_kbdtn"]
 script = ExtResource("1_dvuud")
-stat_name = "current_hor_recoil"
+stat_name = "hor_recoil"
 value_of_stat = 0.5
 mult = true
 is_set = false

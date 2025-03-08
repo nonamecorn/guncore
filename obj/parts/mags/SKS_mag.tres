@@ -12,7 +12,7 @@
 
 [sub_resource type="Resource" id="Resource_b6x87"]
 script = ExtResource("1_kairg")
-stat_name = "current_ver_recoil"
+stat_name = "ver_recoil"
 value_of_stat = 1.25
 mult = true
 is_set = false

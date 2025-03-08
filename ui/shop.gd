@@ -36,19 +36,21 @@ var jolly_greetings = [
 var dills = [
 ]
 
+var default_text
+
 func _ready() -> void:
+	default_text = "" 
 	if GlobalVars.loop <= 2:
 		dills = get("dills"+str(GlobalVars.loop))
-		$NinePatchRect/VBoxContainer/RichTextLabel.text = "Jena:
-			" + greetings[GlobalVars.loop]
+		default_text = "Jena:\n\n" + greetings[GlobalVars.loop]
 	else:
 		dills = [
 			"Good job! I hope you enjoyed this sneakpeak as much as i enjoyed making it."
 		]
-		$NinePatchRect/VBoxContainer/RichTextLabel.text = "Jena:
+		default_text = "Jena:
 	" + dills[0]
 
 func _on_talk_button_pressed() -> void:
 	dills.shuffle()
-	$NinePatchRect/VBoxContainer/RichTextLabel.text = "Jena:
+	get_parent().default_text = "Jena:
 " + dills[0]

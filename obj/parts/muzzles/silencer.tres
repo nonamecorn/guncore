@@ -16,14 +16,14 @@ is_set = false
 
 [sub_resource type="Resource" id="Resource_eb0h0"]
 script = ExtResource("2_f8dnu")
-stat_name = "current_hor_recoil"
+stat_name = "hor_recoil"
 value_of_stat = 0.7
 mult = false
 is_set = false
 
 [sub_resource type="Resource" id="Resource_r3g33"]
 script = ExtResource("2_f8dnu")
-stat_name = "current_add_spd"
+stat_name = "add_spd"
 value_of_stat = 50.0
 mult = false
 is_set = false

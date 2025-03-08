@@ -9,7 +9,7 @@
 
 [sub_resource type="Resource" id="Resource_t5ea2"]
 script = ExtResource("2_yt68s")
-stat_name = "current_firerate"
+stat_name = "firerate"
 value_of_stat = 0.75
 mult = true
 is_set = false

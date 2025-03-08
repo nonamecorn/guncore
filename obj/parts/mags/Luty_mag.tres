@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Mag" load_steps=12 format=3 uid="uid://c6lj4qaio5050"]
+[gd_resource type="Resource" script_class="Mag" load_steps=11 format=3 uid="uid://c6lj4qaio5050"]
 
 [ext_resource type="Script" uid="uid://cbaxfmjcm2v32" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_6t1tb"]
 [ext_resource type="Script" uid="uid://c11y0uxm67td" path="res://obj/components/change.gd" id="1_xf3kg"]
@@ -12,14 +12,7 @@
 
 [sub_resource type="Resource" id="Resource_qdavb"]
 script = ExtResource("1_xf3kg")
-stat_name = "current_ver_recoil"
-value_of_stat = -3.0
-mult = false
-is_set = false
-
-[sub_resource type="Resource" id="Resource_12bbn"]
-script = ExtResource("1_xf3kg")
-stat_name = "current_hor_recoil"
+stat_name = "ver_recoil"
 value_of_stat = -3.0
 mult = false
 is_set = false
@@ -44,5 +37,5 @@ sprite_offset = Vector2(1, 3)
 bullet_strategies = Array[ExtResource("1_6t1tb")]([])
 player_strategies = Array[ExtResource("3_hl1iy")]([])
 shootin_strategies = Array[ExtResource("6_r63ac")]([])
-changes = Array[ExtResource("1_xf3kg")]([SubResource("Resource_qdavb"), SubResource("Resource_12bbn")])
+changes = Array[ExtResource("1_xf3kg")]([SubResource("Resource_qdavb")])
 weight = 0.2
