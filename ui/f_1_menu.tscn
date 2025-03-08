@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bfrhglfhp1ihi"]
 
-[ext_resource type="Script" uid="uid://dno2fcgv4jel7" path="res://ui/f_1_menu.gd" id="1_d6dr7"]
+[ext_resource type="Script" uid="uid://14xxyyvp41xj" path="res://ui/f_1_menu.gd" id="1_d6dr7"]
 [ext_resource type="Texture2D" uid="uid://faonagr4q8jo" path="res://img/ui/UI.png" id="1_tu7mv"]
 
 [node name="f1menu" type="CenterContainer"]
@@ -28,63 +28,25 @@ offset_top = 18.0
 offset_right = 390.0
 offset_bottom = 272.0
 
-[node name="CenterContainer" type="CenterContainer" parent="NinePatchRect/VBoxContainer"]
+[node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRect/VBoxContainer"]
 layout_mode = 2
-
-[node name="Label" type="Label" parent="NinePatchRect/VBoxContainer/CenterContainer"]
-layout_mode = 2
-text = "Controls"
-
-[node name="Label9" type="Label" parent="NinePatchRect/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 16
-text = "Loot parts, sell it
+size_flags_vertical = 3
+text = "Controls:
+Loot parts, sell it
 to the shopkeep
 Get highest score.
-"
 
-[node name="Label10" type="Label" parent="NinePatchRect/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 16
-text = "
-"
-
-[node name="Label11" type="Label" parent="NinePatchRect/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 16
-text = "tab - inventory"
-
-[node name="Label2" type="Label" parent="NinePatchRect/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 16
-text = "lmb - shoot, drag parts"
-
-[node name="Label8" type="Label" parent="NinePatchRect/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 16
-text = "ctr + lmb - fast drag"
-
-[node name="Label6" type="Label" parent="NinePatchRect/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 16
-text = "w,a,s,d - walk"
-
-[node name="Label3" type="Label" parent="NinePatchRect/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 16
-text = "1,2,e - switch weapons"
-
-[node name="Label5" type="Label" parent="NinePatchRect/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 16
-text = "r - reload"
-
-[node name="Label4" type="Label" parent="NinePatchRect/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 16
-text = "p - soft retry"
-
-[node name="Label7" type="Label" parent="NinePatchRect/VBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 16
-text = "f1 - toggle this menu"
+tab - inventory
+lmb - shoot, drag parts
+rmb - melee
+w,a,s,d - walk
+1,2,q - switch weapons
+3 - use grenade slot
+e - pick up parts
+r - reload
+p - soft retry
+ctr + lmb - fast drag
+alt + lmb - fast sell
+f1 - toggle this menu"
+fit_content = true
+scroll_active = false
