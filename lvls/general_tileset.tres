@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=38 format=3 uid="uid://6c0up61qo7l2"]
+[gd_resource type="TileSet" load_steps=39 format=3 uid="uid://6c0up61qo7l2"]
 
 [ext_resource type="Texture2D" uid="uid://cfv7m5boehwdu" path="res://img/levels/ceiling_tileset.png" id="1_etbpj"]
 [ext_resource type="Texture2D" uid="uid://dpghkg3bb01ux" path="res://img/levels/MOST.png" id="2_0okir"]
@@ -6,6 +6,7 @@
 [ext_resource type="Texture2D" uid="uid://2fbgfpt0qk07" path="res://img/levels/SewerTileSet.png" id="4_k4swy"]
 [ext_resource type="Texture2D" uid="uid://ddoe8n7jwixuq" path="res://img/levels/SewerTileSet_n.png" id="5_33ae3"]
 [ext_resource type="Texture2D" uid="uid://dukrl40d7m0oh" path="res://img/levels/WaterAnim.png" id="6_galtf"]
+[ext_resource type="Texture2D" uid="uid://bs8f63envuise" path="res://img/levels/pipelins_n.png" id="7_eflrj"]
 [ext_resource type="Texture2D" uid="uid://bfeiavarq0xvs" path="res://img/walls_and_floor.png" id="7_wpu8x"]
 [ext_resource type="Texture2D" uid="uid://bvow5hcmwu5x5" path="res://img/levels/SewerTileSetwalls.png" id="8_7nd2h"]
 
@@ -378,6 +379,7 @@ polygon = PackedVector2Array(-16, -16, 16, -16, 16, 16, -16, 16)
 
 [sub_resource type="CanvasTexture" id="CanvasTexture_krwfs"]
 diffuse_texture = ExtResource("7_wpu8x")
+normal_texture = ExtResource("7_eflrj")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_mklfd"]
 texture = SubResource("CanvasTexture_krwfs")

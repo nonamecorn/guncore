@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cj7jia3x3a8yo" path="res://ui/pause.gd" id="1_ye7m4"]
 [ext_resource type="Texture2D" uid="uid://faonagr4q8jo" path="res://img/ui/UI.png" id="2_hmej1"]
 [ext_resource type="Texture2D" uid="uid://cxm8l442in7mi" path="res://img/ui/inventory_1slot.png" id="3_sr2fl"]
-[ext_resource type="Script" uid="uid://trai2mok2fie" path="res://ui/slider.gd" id="3_vj4vv"]
+[ext_resource type="Script" uid="uid://c3hx078ws34bh" path="res://ui/slider.gd" id="3_vj4vv"]
 [ext_resource type="PackedScene" uid="uid://ggi5lqbxx6uu" path="res://ui/ui_button.tscn" id="4_ymsee"]
 
 [node name="pause" type="CenterContainer" node_paths=PackedStringArray("checkbox")]
@@ -15,7 +15,7 @@ script = ExtResource("1_ye7m4")
 checkbox = NodePath("NinePatchRect/VBoxContainer2/MarginContainer/CheckBox")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-custom_minimum_size = Vector2(241, 242)
+custom_minimum_size = Vector2(241, 265.6)
 layout_mode = 2
 texture = ExtResource("2_hmej1")
 patch_margin_left = 20
@@ -29,10 +29,10 @@ anchors_preset = 14
 anchor_top = 0.5
 anchor_right = 1.0
 anchor_bottom = 0.5
-offset_left = 16.0
-offset_top = -109.0
-offset_right = -17.0
-offset_bottom = 110.0
+offset_left = 17.0
+offset_top = -115.8
+offset_right = -16.0
+offset_bottom = 112.2
 grow_horizontal = 2
 grow_vertical = 2
 
@@ -83,6 +83,18 @@ bus_name = "Sfx"
 [node name="VBoxContainer" type="VBoxContainer" parent="NinePatchRect/VBoxContainer2"]
 layout_mode = 2
 
+[node name="ui_button2" parent="NinePatchRect/VBoxContainer2/VBoxContainer" instance=ExtResource("4_ymsee")]
+layout_mode = 2
+
+[node name="LinkButton" parent="NinePatchRect/VBoxContainer2/VBoxContainer/ui_button2/MarginContainer" index="0"]
+text = "Resume"
+
+[node name="ui_button" parent="NinePatchRect/VBoxContainer2/VBoxContainer" instance=ExtResource("4_ymsee")]
+layout_mode = 2
+
+[node name="LinkButton" parent="NinePatchRect/VBoxContainer2/VBoxContainer/ui_button/MarginContainer" index="0"]
+text = "Retry"
+
 [node name="qbutton" type="MarginContainer" parent="NinePatchRect/VBoxContainer2/VBoxContainer"]
 layout_mode = 2
 mouse_filter = 2
@@ -108,14 +120,10 @@ layout_mode = 2
 text = "Quit"
 underline = 1
 
-[node name="ui_button" parent="NinePatchRect/VBoxContainer2/VBoxContainer" instance=ExtResource("4_ymsee")]
-layout_mode = 2
-
-[node name="LinkButton" parent="NinePatchRect/VBoxContainer2/VBoxContainer/ui_button/MarginContainer" index="0"]
-text = "retry"
-
 [connection signal="toggled" from="NinePatchRect/VBoxContainer2/MarginContainer/CheckBox" to="." method="_on_fulcreen_toggled"]
-[connection signal="pressed" from="NinePatchRect/VBoxContainer2/VBoxContainer/qbutton/MarginContainer/LinkButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer2/VBoxContainer/ui_button2/MarginContainer/LinkButton" to="." method="_on_link_button_pressed"]
 [connection signal="pressed" from="NinePatchRect/VBoxContainer2/VBoxContainer/ui_button/MarginContainer/LinkButton" to="." method="_on_retry_button_pressed"]
+[connection signal="pressed" from="NinePatchRect/VBoxContainer2/VBoxContainer/qbutton/MarginContainer/LinkButton" to="." method="_on_quit_button_pressed"]
 
+[editable path="NinePatchRect/VBoxContainer2/VBoxContainer/ui_button2"]
 [editable path="NinePatchRect/VBoxContainer2/VBoxContainer/ui_button"]

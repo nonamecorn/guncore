@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=3 uid="uid://cgjq0v6xmx2g3"]
+[gd_scene load_steps=7 format=3 uid="uid://cgjq0v6xmx2g3"]
 
-[ext_resource type="Script" uid="uid://dd6whmnct8p8b" path="res://ui/menu.gd" id="1_2c1oq"]
+[ext_resource type="Script" uid="uid://c7bgtqwcg7g1y" path="res://ui/menu.gd" id="1_2c1oq"]
 [ext_resource type="Texture2D" uid="uid://faonagr4q8jo" path="res://img/ui/UI.png" id="1_3pwc6"]
 [ext_resource type="Texture2D" uid="uid://cxm8l442in7mi" path="res://img/ui/inventory_1slot.png" id="2_npt6o"]
 [ext_resource type="Texture2D" uid="uid://b4imob3yw4gm8" path="res://img/big_art/deepfried_17345737466020.jpg" id="2_oqyi2"]
 [ext_resource type="PackedScene" uid="uid://clebifn20pbo5" path="res://ui/pause.tscn" id="4_tqumb"]
+[ext_resource type="PackedScene" uid="uid://bfrhglfhp1ihi" path="res://ui/f_1_menu.tscn" id="6_jbsda"]
 
 [node name="Menu" type="Control"]
 process_mode = 3
@@ -173,9 +174,17 @@ visible = false
 [node name="ui_button" parent="pause/NinePatchRect/VBoxContainer2/VBoxContainer" index="1"]
 visible = false
 
+[node name="f1menu" parent="." instance=ExtResource("6_jbsda")]
+layout_mode = 1
+offset_left = 824.0
+offset_top = 36.0
+offset_right = -44.0
+offset_bottom = -384.0
+
 [connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/Startbutton/MarginContainer/LinkButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/Optionsbutton2/MarginContainer/LinkButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/Quitbutton3/MarginContainer/LinkButton" to="." method="_on_quit_button_pressed"]
 
 [editable path="pause"]
+[editable path="pause/NinePatchRect/VBoxContainer2/VBoxContainer/ui_button2"]
 [editable path="pause/NinePatchRect/VBoxContainer2/VBoxContainer/ui_button"]

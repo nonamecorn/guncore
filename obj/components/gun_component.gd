@@ -150,6 +150,7 @@ func asseble_gun(parts : Dictionary,loaded : bool):
 		_on_reload_timeout()
 	else:
 		reload()
+	reset_spread()
 	ammo_changed.emit(0,1,get_index())
 	stats_changed.emit(stats)
 
@@ -180,6 +181,10 @@ func dissassemble_gun():
 	state = STOP
 	stats.weight = 0
 	display_ammo()
+
+func reset_spread():
+	spread = stats.min_spread
+	if spread_tween: spread_tween.kill()
 
 func start_fire():
 	if state: return
@@ -234,6 +239,7 @@ func weapon_functional():
 	for part in gun_resources:
 		if !gun_resources[part]: continue
 		if gun_resources[part].curr_durability <= 0:
+			gun_resources[part].destry_item()
 			return false
 	return true
 

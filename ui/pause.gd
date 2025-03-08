@@ -37,10 +37,6 @@ func toggle_off():
 	get_tree().paused = false
 	visible = false
 
-func _on_button_pressed():
-	pass # Replace with function body.
-
-
 func _on_fulcreen_toggled(toggled_on):
 	if toggled_on:
 		GlobalVars.fullscreen = true
@@ -61,3 +57,7 @@ func _on_retry_button_pressed() -> void:
 	get_tree().paused = !get_tree().paused
 	GlobalVars._ready()
 	get_tree().call_deferred("change_scene_to_file","res://lvls/world_1.tscn")
+
+
+func _on_link_button_pressed() -> void:
+	toggle_off()

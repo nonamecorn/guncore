@@ -28,10 +28,12 @@ func throw():
 
 func use_hand():
 	if !item_res: return
-	item_res.curr_durability -= 1
+	#item_res.curr_durability -= 1
 	match item_res.type:
 		1:
 			throw()
+	print("ses")
+	item_res.destry_item()
 	item_res = null
 
 

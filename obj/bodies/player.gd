@@ -8,9 +8,9 @@ var MAX_SPEED = 200
 var ACCELERATION = 1500
 var FRICTION = 1500
 
-var current_speed = MAX_SPEED
-var current_acceleration = ACCELERATION
-var current_friction = FRICTION
+var speed = MAX_SPEED
+var acceleration = ACCELERATION
+var friction = FRICTION
 
 var health : float = 500.0
 var max_health : float = 500.0
@@ -110,11 +110,11 @@ func move_state(delta):
 	if input_vector != Vector2.ZERO:
 		$Sprite2D/IdleAnimation.hide()
 		$Sprite2D/RunninAnnimation.show()
-		velocity = velocity.move_toward(input_vector * current_speed,delta * current_acceleration)
+		velocity = velocity.move_toward(input_vector * speed,delta * acceleration)
 	else:
 		$Sprite2D/IdleAnimation.show()
 		$Sprite2D/RunninAnnimation.hide()
-		velocity = velocity.move_toward(Vector2.ZERO, delta * current_friction)
+		velocity = velocity.move_toward(Vector2.ZERO, delta * friction)
 	move_and_slide()
 
 func play():
@@ -126,7 +126,7 @@ func flip():
 	$Sprite2D.scale.x *= -1
 
 func refresh():
-	$CanvasLayer/money.text = str(GlobalVars.money)+"$"
+	$CanvasLayer/VBoxContainer/money.text = str(GlobalVars.money)+"$"
 
 func death():
 	velocity = Vector2.ZERO
@@ -237,9 +237,9 @@ func on_augs_change(parts : Dictionary):
 	if !parts: return
 	remove_all_parts(parts)
 	eq_res = parts
-	current_speed = MAX_SPEED
-	current_acceleration = ACCELERATION
-	current_friction = FRICTION
+	speed = MAX_SPEED
+	acceleration = ACCELERATION
+	friction = FRICTION
 	strategies = []
 	strategy_dic = {}
 	if parts.HAND != null:
@@ -271,4 +271,4 @@ func on_perception_change(isy):
 
 func on_score_change(new_kills, new_loop):
 	if health <= 0: return
-	$CanvasLayer/VBoxContainer/stats.text = "kills: " + str(new_kills) + " loop: " + str(new_loop)
+	$CanvasLayer/VBoxContainer/stats.text = "kills: " + str(new_kills) + "\nloop: " + str(new_loop)

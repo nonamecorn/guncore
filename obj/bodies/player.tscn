@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://btw10scl5f85a"]
+[gd_scene load_steps=49 format=3 uid="uid://btw10scl5f85a"]
 
 [ext_resource type="Script" uid="uid://dtnqffdf4qucb" path="res://obj/bodies/player.gd" id="1_6n3fv"]
 [ext_resource type="Texture2D" uid="uid://ci5dmfqdm37at" path="res://img/bodys/GG_IdleAnim.png" id="2_qk2hj"]
@@ -13,7 +13,6 @@
 [ext_resource type="Texture2D" uid="uid://2bvlu8yw164k" path="res://img/ui/HPbar_bord.png" id="11_0vwss"]
 [ext_resource type="PackedScene" uid="uid://clebifn20pbo5" path="res://ui/pause.tscn" id="11_heitk"]
 [ext_resource type="Texture2D" uid="uid://cta3ue682n5ec" path="res://img/ui/UnderHP.png" id="11_jodjr"]
-[ext_resource type="PackedScene" uid="uid://bfrhglfhp1ihi" path="res://ui/f_1_menu.tscn" id="12_i05es"]
 [ext_resource type="PackedScene" uid="uid://ddfo6c5nx4m8h" path="res://lvls/misc/light.tscn" id="12_p0x4g"]
 [ext_resource type="Texture2D" uid="uid://buyqvcdad2fx3" path="res://img/ui/HPbar.png" id="12_s6hsp"]
 [ext_resource type="Texture2D" uid="uid://c37071qnixn1r" path="res://img/ui/AMMo.png" id="13_4wjbs"]
@@ -283,6 +282,7 @@ offset_right = 34.0
 offset_bottom = -55.0
 max_value = 500.0
 step = 0.1
+value = 500.0
 texture_under = ExtResource("11_jodjr")
 texture_over = ExtResource("11_0vwss")
 texture_progress = ExtResource("13_4wjbs")
@@ -297,15 +297,7 @@ offset_right = 63.0
 offset_bottom = 600.0
 texture = ExtResource("15_5cdi7")
 
-[node name="help" type="Label" parent="CanvasLayer"]
-offset_left = 34.0
-offset_top = 28.0
-offset_right = 242.0
-offset_bottom = 44.0
-text = "f1 - controls"
-
 [node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
-visible = false
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -315,17 +307,25 @@ offset_right = 372.0
 offset_bottom = -28.0
 grow_vertical = 0
 
-[node name="stats" type="Label" parent="CanvasLayer/VBoxContainer"]
+[node name="money" type="Label" parent="CanvasLayer/VBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
-text = "kills: 0 loop: 0"
+text = "200$"
+
+[node name="stats" type="RichTextLabel" parent="CanvasLayer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "kills: 0 
+loop: 0"
 
 [node name="hp" type="Label" parent="CanvasLayer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "200 hp"
 
 [node name="ammo" type="Label" parent="CanvasLayer/VBoxContainer"]
+visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "140/200"
@@ -336,19 +336,8 @@ visible = false
 [node name="pause" parent="CanvasLayer" instance=ExtResource("11_heitk")]
 visible = false
 
-[node name="f1menu" parent="CanvasLayer" instance=ExtResource("12_i05es")]
-visible = false
-
 [node name="ded_menu" parent="CanvasLayer" instance=ExtResource("13_vfuiq")]
 visible = false
-
-[node name="money" type="Label" parent="CanvasLayer"]
-offset_left = 34.0
-offset_top = 652.0
-offset_right = 382.0
-offset_bottom = 668.0
-theme_override_font_sizes/font_size = 16
-text = "200$"
 
 [node name="Marker2D" type="Marker2D" parent="." groups=["crosshair"]]
 script = ExtResource("16_ku1r1")

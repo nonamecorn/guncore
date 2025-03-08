@@ -488,10 +488,10 @@ stretch_mode = 4
 
 [node name="grid_backpack" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 640.0
-offset_top = 504.0
-offset_right = 960.0
-offset_bottom = 696.0
+offset_left = 637.0
+offset_top = 501.0
+offset_right = 957.0
+offset_bottom = 693.0
 mouse_filter = 2
 texture = ExtResource("2_uegg3")
 expand_mode = 1
@@ -508,10 +508,10 @@ texture = ExtResource("4_0csks")
 
 [node name="collector" type="TextureRect" parent="."]
 layout_mode = 0
-offset_left = 280.0
-offset_top = 504.0
-offset_right = 536.0
-offset_bottom = 696.0
+offset_left = 274.0
+offset_top = 501.0
+offset_right = 530.0
+offset_bottom = 693.0
 texture = ExtResource("6_lojmw")
 script = ExtResource("7_suxgo")
 
@@ -525,10 +525,10 @@ texture = ExtResource("7_5ii2v")
 
 [node name="Description" type="NinePatchRect" parent="."]
 layout_mode = 2
-offset_left = 272.0
-offset_top = 8.0
-offset_right = 976.0
-offset_bottom = 456.0
+offset_left = 263.0
+offset_top = 30.0
+offset_right = 967.0
+offset_bottom = 354.0
 texture = ExtResource("4_2lq67")
 patch_margin_left = 20
 patch_margin_top = 20
@@ -538,7 +538,7 @@ patch_margin_bottom = 20
 [node name="MarginContainer" type="MarginContainer" parent="Description"]
 layout_mode = 2
 offset_right = 704.0
-offset_bottom = 448.0
+offset_bottom = 322.0
 theme_override_constants/margin_left = 14
 theme_override_constants/margin_top = 14
 theme_override_constants/margin_right = 14
@@ -569,58 +569,19 @@ sample
 sample
 sample
 sample"
+scroll_active = false
 
 [node name="DurabilityBar" type="ProgressBar" parent="Description/MarginContainer/VBoxContainer"]
 layout_mode = 2
 
-[node name="reroll_button" parent="." instance=ExtResource("28_1kw70")]
-layout_mode = 0
-offset_left = 80.0
-offset_top = 480.0
-offset_right = 248.0
-offset_bottom = 504.0
-
-[node name="LinkButton" parent="reroll_button/MarginContainer" index="0"]
-custom_minimum_size = Vector2(40, 0)
-text = "Reroll 10$"
-
-[node name="shop_backpack2" type="TextureRect" parent="." node_paths=PackedStringArray("shop_items_ctrl")]
-custom_minimum_size = Vector2(0, 128)
-layout_mode = 0
-offset_left = 48.0
-offset_top = 320.0
-offset_right = 240.0
-offset_bottom = 448.0
-texture = ExtResource("20_8ghwf")
-stretch_mode = 4
-script = ExtResource("10_50eua")
-shop_items_ctrl = NodePath("../shop_items")
-
-[node name="TextureRect" type="TextureRect" parent="shop_backpack2"]
-layout_mode = 0
-offset_left = -32.0
-offset_top = -32.0
-offset_right = 96.0
-offset_bottom = 64.0
-scale = Vector2(2, 2)
-mouse_filter = 2
-texture = ExtResource("22_fsjln")
-
-[node name="le_items" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="shop_items" type="Control" parent="."]
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
 [node name="Shop" type="Control" parent="."]
+visible = false
 layout_mode = 1
 anchors_preset = 0
-offset_top = 19.0
-offset_bottom = 19.0
+offset_left = -6.0
+offset_top = 41.0
+offset_right = -6.0
+offset_bottom = 41.0
 script = ExtResource("11_6lbvg")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="Shop"]
@@ -660,6 +621,51 @@ layout_mode = 2
 [node name="LinkButton" parent="Shop/NinePatchRect/VBoxContainer/ui_button2/MarginContainer" index="0"]
 text = "Talk"
 
+[node name="reroll_button" parent="." instance=ExtResource("28_1kw70")]
+visible = false
+layout_mode = 0
+offset_left = 58.0
+offset_top = 486.0
+offset_right = 226.0
+offset_bottom = 510.0
+
+[node name="LinkButton" parent="reroll_button/MarginContainer" index="0"]
+custom_minimum_size = Vector2(40, 0)
+text = "Reroll 10$"
+
+[node name="shop_backpack2" type="TextureRect" parent="." node_paths=PackedStringArray("shop_items_ctrl")]
+visible = false
+custom_minimum_size = Vector2(0, 128)
+layout_mode = 0
+offset_left = 46.0
+offset_top = 343.0
+offset_right = 238.0
+offset_bottom = 471.0
+texture = ExtResource("20_8ghwf")
+stretch_mode = 4
+script = ExtResource("10_50eua")
+shop_items_ctrl = NodePath("../shop_items")
+
+[node name="TextureRect" type="TextureRect" parent="shop_backpack2"]
+layout_mode = 0
+offset_left = -32.0
+offset_top = -32.0
+offset_right = 96.0
+offset_bottom = 64.0
+scale = Vector2(2, 2)
+mouse_filter = 2
+texture = ExtResource("22_fsjln")
+
+[node name="le_items" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="shop_items" type="Control" parent="."]
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
 [node name="audio" type="Node" parent="."]
 
 [node name="grab" type="AudioStreamPlayer" parent="audio"]
@@ -675,8 +681,8 @@ stream = ExtResource("31_eeluy")
 volume_db = 10.0
 bus = &"Sfx"
 
-[connection signal="pressed" from="reroll_button/MarginContainer/LinkButton" to="." method="_on_link_button_pressed"]
 [connection signal="pressed" from="Shop/NinePatchRect/VBoxContainer/ui_button2/MarginContainer/LinkButton" to="Shop" method="_on_talk_button_pressed"]
+[connection signal="pressed" from="reroll_button/MarginContainer/LinkButton" to="." method="_on_link_button_pressed"]
 
-[editable path="reroll_button"]
 [editable path="Shop/NinePatchRect/VBoxContainer/ui_button2"]
+[editable path="reroll_button"]

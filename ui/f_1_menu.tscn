@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://bfrhglfhp1ihi"]
 
-[ext_resource type="Script" uid="uid://14xxyyvp41xj" path="res://ui/f_1_menu.gd" id="1_d6dr7"]
+[ext_resource type="Script" uid="uid://dno2fcgv4jel7" path="res://ui/f_1_menu.gd" id="1_d6dr7"]
 [ext_resource type="Texture2D" uid="uid://faonagr4q8jo" path="res://img/ui/UI.png" id="1_tu7mv"]
 
 [node name="f1menu" type="CenterContainer"]
@@ -44,9 +44,7 @@ w,a,s,d - walk
 3 - use grenade slot
 e - pick up parts
 r - reload
-p - soft retry
 ctr + lmb - fast drag
-alt + lmb - fast sell
-f1 - toggle this menu"
+alt + lmb - fast sell"
 fit_content = true
 scroll_active = false

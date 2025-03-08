@@ -14,7 +14,7 @@ grow_vertical = 2
 script = ExtResource("1_twka5")
 
 [node name="NinePatchRect" type="NinePatchRect" parent="."]
-custom_minimum_size = Vector2(269, 146)
+custom_minimum_size = Vector2(269, 130)
 layout_mode = 2
 texture = ExtResource("1_55ylk")
 patch_margin_left = 20
@@ -38,6 +38,7 @@ offset_right = 246.0
 offset_bottom = 114.0
 
 [node name="Label2" type="Label" parent="NinePatchRect/VBoxContainer"]
+visible = false
 layout_mode = 2
 text = "p - soft retry"
 

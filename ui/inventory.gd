@@ -77,7 +77,6 @@ func hide_popup():
 
 func switch_to_shop():
 	default_text = shop_dil.default_text
-	collector.hide()
 	safe_net.show()
 	shop.show()
 	shop_dil.show()
@@ -85,7 +84,6 @@ func switch_to_shop():
 
 func switch_to_inventory():
 	default_text = "..."
-	collector.show()
 	safe_net.hide()
 	shop.hide()
 	shop_dil.hide()

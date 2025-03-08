@@ -41,6 +41,26 @@ tile_map_data = PackedByteArray("AAD6/wkAAwABAAIAAAD5/wkAAwAAAAAAAAD4/wkAAwACAAI
 
 [node name="decor" type="Node2D" parent="."]
 
+[node name="BiLightOccluder2D" parent="decor" instance=ExtResource("3_pmt02")]
+position = Vector2(-256, 320)
+left = true
+
+[node name="BiLightOccluder2D2" parent="decor" instance=ExtResource("3_pmt02")]
+position = Vector2(-64, 192)
+
+[node name="BiLightOccluder2D3" parent="decor" instance=ExtResource("3_pmt02")]
+position = Vector2(97, 192)
+
+[node name="BiLightOccluder2D4" parent="decor" instance=ExtResource("3_pmt02")]
+position = Vector2(289, 320)
+
+[node name="BiLightOccluder2D5" parent="decor" instance=ExtResource("3_pmt02")]
+position = Vector2(-31, 448)
+
+[node name="BiLightOccluder2D6" parent="decor" instance=ExtResource("3_pmt02")]
+position = Vector2(64, 448)
+left = true
+
 [node name="enemies" type="Node2D" parent="."]
 
 [node name="cult_spawner" parent="enemies" instance=ExtResource("4_kx6j8")]
@@ -90,6 +110,10 @@ position = Vector2(104, 528)
 [node name="Big_box2" parent="env" instance=ExtResource("6_n2cbn")]
 position = Vector2(144, 496)
 
+[node name="loot_table" parent="env" instance=ExtResource("11_ae2nj")]
+position = Vector2(-81, 486)
+chance_of_drop = 30.0
+
 [node name="Trigger" type="Area2D" parent="."]
 visible = false
 position = Vector2(8, 401)
@@ -121,30 +145,6 @@ orientation = 2
 position = Vector2(0, 704)
 type = 1
 orientation = 3
-
-[node name="BiLightOccluder2D" parent="." instance=ExtResource("3_pmt02")]
-position = Vector2(-256, 320)
-left = true
-
-[node name="BiLightOccluder2D2" parent="." instance=ExtResource("3_pmt02")]
-position = Vector2(-64, 192)
-
-[node name="BiLightOccluder2D3" parent="." instance=ExtResource("3_pmt02")]
-position = Vector2(97, 192)
-
-[node name="BiLightOccluder2D4" parent="." instance=ExtResource("3_pmt02")]
-position = Vector2(289, 320)
-
-[node name="BiLightOccluder2D5" parent="." instance=ExtResource("3_pmt02")]
-position = Vector2(-31, 448)
-
-[node name="BiLightOccluder2D6" parent="." instance=ExtResource("3_pmt02")]
-position = Vector2(64, 448)
-left = true
-
-[node name="loot_table" parent="." instance=ExtResource("11_ae2nj")]
-position = Vector2(-81, 486)
-chance_of_drop = 30.0
 
 [connection signal="body_entered" from="Trigger" to="." method="_on_trigger_body_entered"]
 [connection signal="body_exited" from="Trigger" to="." method="_on_trigger_body_exited"]

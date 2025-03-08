@@ -1,6 +1,10 @@
 extends Resource
 class_name Item
 
+var eq = false
+var eq_index = null
+var picked_up = false
+var broken = false
 
 @export var item_name : String = ""
 @export_multiline var item_description : String = ''
@@ -10,8 +14,7 @@ class_name Item
 	set(val):
 		damaged.emit()
 		curr_durability = val
-		broken = curr_durability<=0
-		if broken: destroy_item()
+		broken = (curr_durability<=0.0)
 	get():
 		return curr_durability
 @export var sprite : Texture2D
@@ -29,12 +32,7 @@ signal pickup
 signal damaged
 signal destroy(slot)
 
-var eq = false
-var eq_index = null
-var picked_up = false
-var broken = false
-
-func destroy_item():
+func destry_item():
 	GlobalVars.items.erase(self)
 	destroy.emit(slot)
 
