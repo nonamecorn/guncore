@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cgjq0v6xmx2g3"]
+[gd_scene load_steps=9 format=3 uid="uid://cgjq0v6xmx2g3"]
 
 [ext_resource type="Script" uid="uid://c7bgtqwcg7g1y" path="res://ui/menu.gd" id="1_2c1oq"]
 [ext_resource type="Texture2D" uid="uid://faonagr4q8jo" path="res://img/ui/UI.png" id="1_3pwc6"]
@@ -6,6 +6,8 @@
 [ext_resource type="Texture2D" uid="uid://b4imob3yw4gm8" path="res://img/big_art/deepfried_17345737466020.jpg" id="2_oqyi2"]
 [ext_resource type="PackedScene" uid="uid://clebifn20pbo5" path="res://ui/pause.tscn" id="4_tqumb"]
 [ext_resource type="PackedScene" uid="uid://bfrhglfhp1ihi" path="res://ui/f_1_menu.tscn" id="6_jbsda"]
+[ext_resource type="Script" uid="uid://dhliv446tbuhm" path="res://ui/discord_shill.gd" id="7_0bcp5"]
+[ext_resource type="Texture2D" uid="uid://n4aogexuaadv" path="res://img/misc/discot.png" id="7_l8jcj"]
 
 [node name="Menu" type="Control"]
 process_mode = 3
@@ -181,9 +183,20 @@ offset_top = 36.0
 offset_right = -44.0
 offset_bottom = -384.0
 
+[node name="DiscordShill" type="TextureButton" parent="."]
+layout_mode = 0
+offset_left = 1152.0
+offset_top = 604.0
+offset_right = 1184.0
+offset_bottom = 636.0
+scale = Vector2(3, 3)
+texture_normal = ExtResource("7_l8jcj")
+script = ExtResource("7_0bcp5")
+
 [connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/Startbutton/MarginContainer/LinkButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/Optionsbutton2/MarginContainer/LinkButton" to="." method="_on_options_button_pressed"]
 [connection signal="pressed" from="NinePatchRect/MarginContainer/VBoxContainer/Quitbutton3/MarginContainer/LinkButton" to="." method="_on_quit_button_pressed"]
+[connection signal="pressed" from="DiscordShill" to="DiscordShill" method="_on_pressed"]
 
 [editable path="pause"]
 [editable path="pause/NinePatchRect/VBoxContainer2/VBoxContainer/ui_button2"]

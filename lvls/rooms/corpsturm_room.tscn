@@ -47,6 +47,7 @@ left = true
 
 [node name="BiLightOccluder2D2" parent="decor" instance=ExtResource("3_pmt02")]
 position = Vector2(-64, 192)
+left = true
 
 [node name="BiLightOccluder2D3" parent="decor" instance=ExtResource("3_pmt02")]
 position = Vector2(97, 192)
