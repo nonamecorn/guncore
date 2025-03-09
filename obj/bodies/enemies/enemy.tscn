@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=3 uid="uid://c3jo85so338er"]
+[gd_scene load_steps=26 format=3 uid="uid://c3jo85so338er"]
 
 [ext_resource type="Script" uid="uid://knfk28mubgvi" path="res://obj/bodies/enemies/enemy.gd" id="1_qbvdd"]
 [ext_resource type="Texture2D" uid="uid://88j42qnvmjuu" path="res://img/bodys/cultist_IdleAnim.png" id="2_j18lw"]
@@ -10,6 +10,7 @@
 [ext_resource type="PackedScene" uid="uid://cu2letn31qhnt" path="res://obj/components/gore.tscn" id="8_7kiun"]
 [ext_resource type="PackedScene" uid="uid://cdyxb3haj8bag" path="res://obj/components/enemy_cursor.tscn" id="8_fupwg"]
 [ext_resource type="Texture2D" uid="uid://cecke2affrpi0" path="res://img/bodys/Kult_head.png" id="9_sy2ij"]
+[ext_resource type="Curve" uid="uid://cmgoohqyv8bvo" path="res://others/handling.tres" id="11_sy2ij"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kudys"]
 light_mode = 2
@@ -194,6 +195,7 @@ anim_offset_min = 0.5
 anim_offset_max = 1.0
 
 [node name="enemy_cursor" parent="." instance=ExtResource("8_fupwg")]
+weight_to_handle = ExtResource("11_sy2ij")
 
 [connection signal="timeout" from="enemy_hand_component/burst_duration" to="enemy_hand_component" method="_on_burst_duration_timeout"]
 [connection signal="timeout" from="change_position" to="." method="_on_change_position_timeout"]

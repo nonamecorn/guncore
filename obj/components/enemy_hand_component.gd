@@ -8,6 +8,8 @@ var angle_between_rays = 10
 var max_viev_distance = 600
 var current_target
 
+@onready var cursor = get_parent().get_children()[-1]
+
 var bodies = []
 var nearby_allies = []
 var nearby_enemies = []
@@ -59,7 +61,7 @@ func _physics_process(delta: float) -> void:
 		update_current_target()
 
 func firing_state():
-	look_vec = (current_target.global_position - global_position).normalized()
+	look_vec = (cursor.global_position - global_position).normalized()
 	if !_in_vision_cone(current_target.global_position) or !has_los(current_target):
 		if current_target in $Cqb_awareness.get_overlapping_bodies():
 			return
@@ -132,7 +134,7 @@ func has_los(target):
 
 func apply_recoil(recoil_vector):
 	if !current_target: return
-	get_parent().get_children()[-1].apply_recoil(recoil_vector)
+	cursor.apply_recoil(recoil_vector)
 func set_handling_spd(weight):
 	get_parent().get_children()[-1].set_handling_spd(weight)
 

@@ -21,6 +21,7 @@
 [ext_resource type="Script" uid="uid://cv00flio5btg0" path="res://obj/bodies/marker_2d.gd" id="16_ku1r1"]
 [ext_resource type="Texture2D" uid="uid://magaaipxf54u" path="res://img/misc/crosshair.png" id="17_0843d"]
 [ext_resource type="Script" uid="uid://cba3i3beo4l66" path="res://obj/bodies/cursor.gd" id="18_73vwp"]
+[ext_resource type="Curve" uid="uid://cmgoohqyv8bvo" path="res://others/handling.tres" id="22_1u1sq"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0xlh8"]
 radius = 47.0
@@ -174,12 +175,6 @@ light_mode = 1
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_u4ay0"]
 light_mode = 1
-
-[sub_resource type="Curve" id="Curve_0p4vc"]
-_limits = [0.99, 20.0, 0.0, 5.0]
-_data = [Vector2(0, 20), 0.0, -7.41341, 0, 0, Vector2(5, 2.891), -0.754448, 0.0, 0, 0]
-point_count = 2
-metadata/_snap_enabled = true
 
 [node name="Player" type="CharacterBody2D" groups=["body", "player", "targetable"]]
 collision_layer = 36
@@ -349,7 +344,8 @@ material = SubResource("CanvasItemMaterial_u4ay0")
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("17_0843d")
 script = ExtResource("18_73vwp")
-weight_to_handle = SubResource("Curve_0p4vc")
+weight_to_handle = ExtResource("22_1u1sq")
+player_handled = true
 
 [node name="Timer" type="Timer" parent="cursor"]
 wait_time = 0.2
