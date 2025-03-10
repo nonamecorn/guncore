@@ -23,7 +23,7 @@ texture = ExtResource("2_t4pj3")
 [node name="explosion" parent="." instance=ExtResource("2_iysy5")]
 
 [node name="Timer" type="Timer" parent="."]
-wait_time = 3.0
+wait_time = 1.5
 one_shot = true
 autostart = true
 

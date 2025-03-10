@@ -32,7 +32,6 @@ func use_hand():
 	match item_res.type:
 		1:
 			throw()
-	print("ses")
 	item_res.destry_item()
 	item_res = null
 
