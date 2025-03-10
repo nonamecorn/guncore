@@ -5,7 +5,7 @@ var state = IDLE
 var look_vec = Vector2.ZERO
 var angle_cone_of_vission = 55
 var angle_between_rays = 10
-var max_viev_distance = 600
+@export var max_viev_distance = 600
 var current_target
 
 @onready var cursor = get_parent().get_children()[-1]
@@ -76,12 +76,12 @@ func firing_state():
 
 func idle_state():
 	look_vec = get_parent().direction
-	if rng.randi_range(0,1) == 1:
-		for enemy in nearby_enemies:
-			if _in_vision_cone(enemy.global_position) and has_los(enemy):
-				#print("blastin")
-				$attack.start()
-				get_parent().start_blastin(enemy)
+	if rng.randi_range(0,1) == 1: return
+	for enemy in nearby_enemies:
+		if _in_vision_cone(enemy.global_position) and has_los(enemy):
+			#print("blastin")
+			$attack.start()
+			get_parent().start_blastin(enemy)
 func update_nearby_npcs():
 	nearby_allies = []
 	nearby_enemies = []

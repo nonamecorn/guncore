@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=4 uid="uid://7qiqm1rgpyuo"]
+[gd_scene load_steps=16 format=4 uid="uid://7qiqm1rgpyuo"]
 
 [ext_resource type="Script" uid="uid://wtg2bb6is60f" path="res://lvls/rooms/basic_room.gd" id="1_mx8kl"]
 [ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="2_0dw5n"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://byya3w7ktpqp8" path="res://obj/bodies/enemies/corp_grunt.tscn" id="11_2o28g"]
 [ext_resource type="PackedScene" uid="uid://bclbae2vfelms" path="res://obj/components/item_ground_container.tscn" id="12_0x7t6"]
 [ext_resource type="Texture2D" uid="uid://ddjhs2u4288mg" path="res://img/big_art/864f2c686ce3a8fb0832caf124d0ba0e.png" id="13_ep58p"]
+[ext_resource type="PackedScene" uid="uid://cnkd44q6hevqu" path="res://obj/bodies/enemies/corp_sniper.tscn" id="14_82tms"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vfr7w"]
 size = Vector2(1039, 409)
@@ -153,6 +154,10 @@ orientation = 3
 position = Vector2(-80, 414)
 scale = Vector2(0.183541, 0.169308)
 texture = ExtResource("13_ep58p")
+
+[node name="enemy" parent="." instance=ExtResource("14_82tms")]
+position = Vector2(-437, 255)
+group = "cult"
 
 [connection signal="body_entered" from="Trigger" to="." method="_on_trigger_body_entered"]
 

@@ -89,7 +89,7 @@ func _physics_process(delta):
 	if dead: return
 	match state:
 		IDLE:
-			direction = (get_self_circle_position(randomnum) - global_position).normalized() 
+			pass
 		SURROUND:
 			surround(delta)
 			static_move_position = current_target.global_position

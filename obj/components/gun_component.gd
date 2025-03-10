@@ -273,7 +273,7 @@ func fire():
 			$audio/silenced_shooting.pitch_scale = get_pitch()
 			$audio/silenced_shooting.play()
 		for body in $noise_alert.get_overlapping_bodies():
-				if body.has_method("alert"):
+				if body.has_method("alert") and body != get_parent().get_parent():
 					body.alert(global_position)
 		
 		var bullet_inst = stats.bullet_obj.instantiate()
