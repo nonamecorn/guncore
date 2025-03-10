@@ -104,7 +104,7 @@ func start_blastin(target):
 	current_target = target
 	$Sprite2D/idle.hide()
 	$Sprite2D/walk.show()
-	$enemy_hand_component.state = 0
+	$enemy_hand_component.switch_to_fire()
 	state = SURROUND
 
 func start_chasin():
@@ -113,17 +113,17 @@ func start_chasin():
 	GlobalVars.erase_witness(id)
 	$Sprite2D/idle.hide()
 	$Sprite2D/walk.show()
-	$enemy_hand_component.state = 1
+	$enemy_hand_component.switch_to_idle()
 	state = INVESTIGATE
 
 func surround(delta):
 	if nav_agent.is_navigation_finished():
 		return
 	if !current_target:
-		$enemy_hand_component.state = 1
+		$enemy_hand_component.switch_to_idle()
 		#print("wesdw")
 		state = INVESTIGATE
-	$enemy_hand_component.state = 0
+	$enemy_hand_component.switch_to_fire()
 	var current_pos = global_position
 	var next_path = nav_agent.get_next_path_position()
 	var new_velocity = (next_path - current_pos).normalized()
@@ -137,7 +137,7 @@ func run(delta):
 
 func move(delta):
 	if nav_agent.is_navigation_finished():
-		$enemy_hand_component.state = 1
+		$enemy_hand_component.switch_to_idle()
 		state = RUN
 		return
 	var current_pos = global_position
@@ -169,7 +169,7 @@ func get_self_circle_position(random) -> Vector2:
 
 func alert(alert_position):
 	if dead or state == SURROUND: return
-	$enemy_hand_component.state = 1
+	$enemy_hand_component.switch_to_idle()
 	$change_position.wait_time = 2
 	static_move_position = alert_position
 	set_movement_target(static_move_position)
@@ -211,7 +211,7 @@ func hurt(amnt):
 	if state == IDLE:
 		state = RUN
 		$change_position.wait_time = 0.5
-		$enemy_hand_component.state = 1
+		$enemy_hand_component.switch_to_idle()
 
 func gib():
 	$Kult_head.emitting = true 

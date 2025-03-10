@@ -1,7 +1,6 @@
 extends Enemy
 
 var in_danger = false
-var previous_state : int = IDLE
 var look_vec
 
 func _ready():
@@ -11,7 +10,7 @@ func _ready():
 	rng.randomize()
 	randomnum = rng.randf()
 	$hurt_box.damaged.connect(hurt)
-	parts = Randogunser.get_corp_gun()
+	parts = Randogunser.get_scout_kit()
 	for part in parts:
 		if parts[part]:
 			unique_parts[part] = load(parts[part])
@@ -29,11 +28,10 @@ func _on_less_crucial_checks_timeout() -> void:
 		IDLE:
 			direction = (get_self_circle_position(randomnum) - global_position).normalized() 
 		SURROUND:
-			pass
-			#if !current_target or !is_instance_valid(current_target):
-				#return
-			#check_witness()
-			#set_movement_target(get_circle_position(randomnum))
+			if !current_target or !is_instance_valid(current_target):
+				return
+			check_witness()
+			set_movement_target(get_circle_position(randomnum))
 		INVESTIGATE:
 			direction = look_vec
 			#set_movement_target(static_move_position)
@@ -52,7 +50,8 @@ func _physics_process(delta):
 		IDLE:
 			pass
 		SURROUND:
-			pass
+			surround(delta)
+			static_move_position = current_target.global_position
 		INVESTIGATE:
 			pass
 			#direction = static_move_position
@@ -63,21 +62,24 @@ func _physics_process(delta):
 
 func alert(alert_position):
 	if dead or state == SURROUND: return
-	$enemy_hand_component.state = 1
-	$change_position.wait_time = 2
+	#print("alert")
 	look_vec = alert_position - global_position
+	#print(look_vec)
+	if look_vec.length() <= 30.0:
+		return
+	$enemy_hand_component.switch_to_idle()
+	$change_position.wait_time = 2
 	#set_movement_target(static_move_position)
 	$AlertTimer.start()
-	previous_state = INVESTIGATE
 	state = INVESTIGATE
 
 func start_blastin(target):
 	in_danger = true
 	#print("ses")
 	current_target = target
-	$Sprite2D/idle.hide()
+	#$Sprite2D/idle.hide()
 	#$Sprite2D/walk.show()
-	$enemy_hand_component.state = 0
+	$enemy_hand_component.switch_to_fire()
 	#state = IDLE
 
 func start_chasin():
@@ -85,10 +87,11 @@ func start_chasin():
 	#if (current_target in $cqb_awarness.get_overlapping_bodies()) and state == SURROUND:
 		#return
 	GlobalVars.erase_witness(id)
-	$Sprite2D/idle.hide()
+	#$Sprite2D/idle.hide()
 	#$Sprite2D/walk.show()
-	$enemy_hand_component.state = 1
-	state = previous_state
+	$enemy_hand_component.switch_to_idle()
+	if state == SURROUND:
+		state = RUN
 
 func hurt(amnt):
 	if dead: return
@@ -100,12 +103,58 @@ func hurt(amnt):
 		state = RUN
 		$AlertTimer.start()
 		$change_position.wait_time = 0.5
-		$enemy_hand_component.state = 1
+		$enemy_hand_component.switch_to_idle()
 
 func _on_alert_timer_timeout() -> void:
 	if !in_danger:
+		$Sprite2D/idle.show()
+		$Sprite2D/walk.hide()
 		$change_position.wait_time = 2
-		$enemy_hand_component.state = 1
+		$enemy_hand_component.switch_to_idle()
 		$AlertTimer.stop()
-		previous_state = IDLE
 		state = IDLE
+
+
+func _on_cqb_awareness_body_entered(body: Node2D) -> void:
+	if body.is_in_group(group) or !body.has_method("hurt"): return
+	#print(group)
+	in_danger = true
+	current_target = body
+	$Sprite2D/idle.hide()
+	$Sprite2D/walk.show()
+	$enemy_hand_component.switch_to_fire()
+	$AlertTimer.start()
+	state = SURROUND
+	#state = IDLE
+
+func die():
+	if dead: return
+	var invent = []
+	for part in unique_parts:
+		if unique_parts[part]:
+			invent.append(unique_parts[part])
+	invent.shuffle()
+	drop(invent[0])
+	dead = true
+	state = IDLE
+	current_target = null
+	
+	$death.play()
+	$less_crucial_checks.stop()
+	$CollisionShape2D.disabled = true
+	$hurt_box/CollisionShape2D.disabled = true
+	$enemy_hand_component.queue_free()
+	$AlertTimer.stop()
+#	movement_target = null
+	if health <= -30.0:
+		$Sprite2D.hide()
+		gib()
+	$Sprite2D.rotation_degrees = 90
+	$Sprite2D/idle.set_light_mask(1)
+	$Sprite2D/idle.set_visibility_layer(1)
+	$Sprite2D/idle.material = null
+	$Sprite2D/idle.show()
+	$Sprite2D/idle.stop()
+	$Sprite2D/walk.hide()
+	GlobalVars.erase_witness(id)
+	GlobalVars.change_score(GlobalVars.kills + 1, GlobalVars.loop)

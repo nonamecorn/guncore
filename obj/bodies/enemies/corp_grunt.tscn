@@ -1,10 +1,11 @@
-[gd_scene load_steps=29 format=3 uid="uid://byya3w7ktpqp8"]
+[gd_scene load_steps=30 format=3 uid="uid://byya3w7ktpqp8"]
 
 [ext_resource type="Script" uid="uid://1g0l4n52os3y" path="res://obj/bodies/enemies/corp_grunt.gd" id="1_7g7ug"]
 [ext_resource type="Texture2D" uid="uid://bnrs5ymoqkml4" path="res://img/bodys/Corp.png" id="2_21em0"]
 [ext_resource type="Texture2D" uid="uid://dd7cjk2v8x0op" path="res://img/bodys/Corp_anim.png" id="3_06vpp"]
 [ext_resource type="PackedScene" uid="uid://df3di7rm5cgei" path="res://obj/components/enemy_hand_component.tscn" id="3_lkscu"]
 [ext_resource type="PackedScene" uid="uid://ctrbcy5h47qqw" path="res://obj/components/gun_base.tscn" id="4_cyios"]
+[ext_resource type="Texture2D" uid="uid://bms4asqw38vst" path="res://img/Eyes_light.png" id="5_7jw1n"]
 [ext_resource type="PackedScene" uid="uid://b4ifd4nn31mq8" path="res://obj/components/hurt_box.tscn" id="5_sh640"]
 [ext_resource type="AudioStream" uid="uid://cq5moh8342387" path="res://snd/sfx/enemydeath.wav" id="6_82n5t"]
 [ext_resource type="PackedScene" uid="uid://bde3ba2p8ca28" path="res://lvls/misc/corp_light.tscn" id="7_gskjq"]
@@ -137,6 +138,9 @@ frame_progress = 0.10251
 [node name="corp_light" parent="Sprite2D" instance=ExtResource("7_gskjq")]
 position = Vector2(4, -17)
 
+[node name="PointLight2D" parent="Sprite2D/corp_light" index="0"]
+texture = ExtResource("5_7jw1n")
+
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_egrxt")
@@ -243,5 +247,6 @@ weight_to_handle = ExtResource("12_k4mrh")
 [connection signal="timeout" from="change_position" to="." method="_on_change_position_timeout"]
 [connection signal="timeout" from="less_crucial_checks" to="." method="_on_less_crucial_checks_timeout"]
 
+[editable path="Sprite2D/corp_light"]
 [editable path="enemy_hand_component"]
 [editable path="hurt_box"]

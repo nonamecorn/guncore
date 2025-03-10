@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://cnkd44q6hevqu"]
+[gd_scene load_steps=30 format=3 uid="uid://cnkd44q6hevqu"]
 
 [ext_resource type="Script" uid="uid://c1o5swrhmmkln" path="res://obj/bodies/enemies/corp_sniper.gd" id="1_avm2j"]
 [ext_resource type="Texture2D" uid="uid://m6ja7mjslnoy" path="res://img/bodys/CorpScout.png" id="2_avm2j"]
@@ -85,6 +85,9 @@ animations = [{
 radius = 4.0
 height = 10.0
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_avm2j"]
+radius = 72.111
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ykghs"]
 radius = 7.0
 height = 26.0
@@ -152,6 +155,7 @@ wait_time = 0.5
 [node name="gun_base" parent="enemy_hand_component/Marker2D" index="0" instance=ExtResource("6_pub0d")]
 
 [node name="CollisionShape2D" parent="enemy_hand_component/Cqb_awareness" index="0"]
+shape = SubResource("CircleShape2D_avm2j")
 debug_color = Color(0.46164, 0.451452, 0.986457, 0)
 
 [node name="burst_duration" type="Timer" parent="enemy_hand_component"]
@@ -241,6 +245,7 @@ wait_time = 5.0
 [node name="enemy_cursor" parent="." instance=ExtResource("11_aen4t")]
 weight_to_handle = ExtResource("12_dtrxd")
 
+[connection signal="body_entered" from="enemy_hand_component/Cqb_awareness" to="." method="_on_cqb_awareness_body_entered"]
 [connection signal="timeout" from="enemy_hand_component/burst_duration" to="enemy_hand_component" method="_on_burst_duration_timeout"]
 [connection signal="timeout" from="change_position" to="." method="_on_change_position_timeout"]
 [connection signal="timeout" from="less_crucial_checks" to="." method="_on_less_crucial_checks_timeout"]

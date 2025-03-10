@@ -67,6 +67,21 @@ var shop_pool = [
 	"res://obj/parts/hand/HE_nade.tres",
 ]
 
+var scout_guns = [
+	"res://obj/parts/guns/CAWS.tres",
+	"res://obj/parts/guns/AR-180.tres",
+	"res://obj/parts/guns/PauzaP50.tres",
+]
+var scout_mags = [
+	"res://obj/parts/mags/SMGll_mag.tres",
+	"res://obj/parts/mags/AR-180_mag.tres",
+	"res://obj/parts/mags/PauzaP50_mag.tres",
+]
+var scout_barrels = [
+	"res://obj/parts/barrels/AR-180_barrel.tres",
+	"res://obj/parts/barrels/CAWS_barrel.tres",
+	"res://obj/parts/barrels/long_barrel.tres",
+]
 var corp_guns = [
 	"res://obj/parts/guns/CAWS.tres",
 	"res://obj/parts/guns/AR-180.tres",
@@ -96,8 +111,12 @@ var loot_pool = [
 	"res://obj/parts/muzzles/Muzzel_Brake.tres",
 	"res://obj/parts/muzzles/silencer.tres",
 ]
+var rng = RandomNumberGenerator.new()
+func _ready() -> void:
+	rng.randomize()
 
 func get_gun() -> Dictionary:
+	gun_preset.clear()
 	recievers.shuffle()
 	mags.shuffle()
 	barrels.shuffle()
@@ -108,6 +127,7 @@ func get_gun() -> Dictionary:
 
 
 func get_corp_gun() -> Dictionary:
+	gun_preset.clear()
 	corp_guns.shuffle()
 	corp_mags.shuffle()
 	corp_barrels.shuffle()
@@ -128,3 +148,15 @@ func get_shop() -> Array:
 func get_loot() -> String:
 	loot_pool.shuffle()
 	return loot_pool[0]
+
+func get_scout_kit() -> Dictionary:
+	gun_preset.clear()
+	scout_guns.shuffle()
+	scout_mags.shuffle()
+	scout_barrels.shuffle()
+	gun_preset.RECIEVER = scout_guns[0]
+	gun_preset.BARREL = scout_barrels[0]
+	gun_preset.MAG = scout_mags[0]
+	if rng.randf_range(0.0,1.0) >= 0.4:
+		gun_preset.MUZZLE = "res://obj/parts/muzzles/silencer.tres"
+	return gun_preset

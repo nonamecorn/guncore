@@ -82,6 +82,15 @@ func idle_state():
 			#print("blastin")
 			$attack.start()
 			get_parent().start_blastin(enemy)
+
+func switch_to_fire():
+	state = FIRING
+
+func switch_to_idle():
+	_on_burst_duration_timeout()
+	$attack.stop()
+	state = IDLE
+
 func update_nearby_npcs():
 	nearby_allies = []
 	nearby_enemies = []

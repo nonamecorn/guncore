@@ -157,7 +157,6 @@ texture = ExtResource("13_ep58p")
 
 [node name="enemy" parent="." instance=ExtResource("14_82tms")]
 position = Vector2(-437, 255)
-group = "cult"
 
 [connection signal="body_entered" from="Trigger" to="." method="_on_trigger_body_entered"]
 

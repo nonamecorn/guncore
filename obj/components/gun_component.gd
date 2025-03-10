@@ -188,8 +188,8 @@ func reset_spread():
 
 func start_fire():
 	if state: return
-	if ammo <= 0 and player_handled:
-		$audio/out_of_ammo.play()
+	if ammo <= 0:
+		if player_handled: $audio/out_of_ammo.play()
 		return
 	fire()
 	if spread_tween: spread_tween.kill()
@@ -273,7 +273,7 @@ func fire():
 			$audio/silenced_shooting.pitch_scale = get_pitch()
 			$audio/silenced_shooting.play()
 		for body in $noise_alert.get_overlapping_bodies():
-				if body.has_method("alert") and body != get_parent().get_parent():
+				if body.has_method("alert"):
 					body.alert(global_position)
 		
 		var bullet_inst = stats.bullet_obj.instantiate()
