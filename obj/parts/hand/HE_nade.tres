@@ -1,10 +1,10 @@
 [gd_resource type="Resource" script_class="Hand" load_steps=8 format=3 uid="uid://c3u81vatq8r1o"]
 
-[ext_resource type="Script" uid="uid://bewoh33t2jvqx" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_4mqi8"]
-[ext_resource type="Script" uid="uid://cnjnlhut3rfhj" path="res://obj/components/change.gd" id="2_w8euv"]
-[ext_resource type="Script" uid="uid://b6m5s83fp152l" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_ayv5c"]
+[ext_resource type="Script" uid="uid://cbaxfmjcm2v32" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_4mqi8"]
+[ext_resource type="Script" uid="uid://c11y0uxm67td" path="res://obj/components/change.gd" id="2_w8euv"]
+[ext_resource type="Script" uid="uid://buggsj0y7xemx" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_ayv5c"]
 [ext_resource type="Script" uid="uid://lh5dk0th7eun" path="res://obj/parts/scripts/hand.gd" id="4_gly3i"]
-[ext_resource type="Script" uid="uid://bflh6grt2mc7m" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="5_t4288"]
+[ext_resource type="Script" uid="uid://6ct4nafsu8do" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="5_t4288"]
 [ext_resource type="Texture2D" uid="uid://dytq005esu7p0" path="res://img/parts/nade.png" id="6_ayv5c"]
 [ext_resource type="PackedScene" uid="uid://djwjs4m70b5nb" path="res://obj/throwables/he_grenade.tscn" id="6_w8euv"]
 
