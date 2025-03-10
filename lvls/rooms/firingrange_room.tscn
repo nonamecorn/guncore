@@ -106,11 +106,15 @@ enemy = ExtResource("11_2o28g")
 
 [node name="item_ground_container" parent="env" instance=ExtResource("12_0x7t6")]
 position = Vector2(520, 256)
-slice = Array[int]([0, 22])
+slice = Array[int]([0, 12])
 
 [node name="item_ground_container2" parent="env" instance=ExtResource("12_0x7t6")]
 position = Vector2(384, 256)
-slice = Array[int]([22, 50])
+slice = Array[int]([12, 24])
+
+[node name="item_ground_container3" parent="env" instance=ExtResource("12_0x7t6")]
+position = Vector2(286, 258)
+slice = Array[int]([24, 36])
 
 [node name="Trigger" type="Area2D" parent="."]
 visible = false
