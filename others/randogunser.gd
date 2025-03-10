@@ -79,7 +79,7 @@ var scout_mags = [
 ]
 var scout_barrels = [
 	"res://obj/parts/barrels/AR-180_barrel.tres",
-	"res://obj/parts/barrels/CAWS_barrel.tres",
+	"res://obj/parts/barrels/GausBarrel.tres",
 	"res://obj/parts/barrels/long_barrel.tres",
 ]
 var corp_guns = [
