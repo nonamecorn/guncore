@@ -92,7 +92,6 @@ var corp_mags = [
 	"res://obj/parts/mags/AR-180_mag.tres",
 	"res://obj/parts/mags/CAWS_mag.tres",
 	"res://obj/parts/mags/SMGll_mag.tres",
-	"res://obj/parts/mags/PauzaP50_mag.tres",
 ]
 var corp_barrels = [
 	"res://obj/parts/barrels/AR-180_barrel.tres",

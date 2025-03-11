@@ -83,7 +83,16 @@ func asseble_gun(parts : Dictionary,loaded : bool):
 	spawn_facade(parts.BARREL, parts.RECIEVER.barrel_position+parts.BARREL.sprite_offset)
 	spawn_facade(parts.MAG, parts.RECIEVER.mag_position+parts.MAG.sprite_offset)
 	if parts.has("ATTACH") and parts.ATTACH:
-		spawn_facade(parts.ATTACH, parts.RECIEVER.attach_position+parts.ATTACH.sprite_offset)
+		if parts.ATTACH.needs_facade:
+			spawn_facade(parts.ATTACH, parts.RECIEVER.attach_position+parts.ATTACH.sprite_offset)
+		else:
+			var attach_inst
+			attach_inst = parts.ATTACH.attach_node.instaniate()
+			$ATTACH.add_child(attach_inst)
+			if parts.ATTACH.is_underbarrel:
+				$ATTACH.position = parts.RECIEVER.underbarrel_position+parts.ATTACH.sprite_offset
+			else:
+				$ATTACH.position = parts.RECIEVER.attach_position+parts.ATTACH.sprite_offset
 	
 	stats.firerate = parts.RECIEVER.base_firerate
 	stats.max_spread = parts.BARREL.max_spread

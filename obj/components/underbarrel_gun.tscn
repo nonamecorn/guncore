@@ -1,0 +1,99 @@
+[gd_scene load_steps=11 format=3 uid="uid://bbfvtmjrb8qkj"]
+
+[ext_resource type="Script" uid="uid://dy21l78bmjae3" path="res://obj/components/underbarrel_gun.gd" id="1_okcg0"]
+[ext_resource type="PackedScene" uid="uid://dk15yn20pad8s" path="res://obj/components/muzzleflash.tscn" id="1_w2ikv"]
+[ext_resource type="AudioStream" uid="uid://blt37tqho0arn" path="res://snd/sfx/silencedsmg_fire.wav" id="2_okcg0"]
+[ext_resource type="AudioStream" uid="uid://bxglm1lbr2kpf" path="res://snd/sfx/reloadend.wav" id="3_r0mtq"]
+[ext_resource type="AudioStream" uid="uid://grfe1fyigyx8" path="res://snd/sfx/reloadstart.wav" id="4_541en"]
+[ext_resource type="AudioStream" uid="uid://byixmvn1xg5ex" path="res://snd/sfx/something_broke.ogg" id="5_c11l4"]
+[ext_resource type="AudioStream" uid="uid://ctq8c6n2tfnr3" path="res://snd/sfx/not_allowed_sfx.mp3" id="6_0b5ky"]
+
+[sub_resource type="Animation" id="Animation_ekmwy"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pos/muzzleflash:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_jafnf"]
+resource_name = "fire"
+length = 0.05
+step = 0.01
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("pos/muzzleflash:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.04),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_8hgl5"]
+_data = {
+&"RESET": SubResource("Animation_ekmwy"),
+&"fire": SubResource("Animation_jafnf")
+}
+
+[node name="underbarrel_gun" type="Node2D"]
+script = ExtResource("1_okcg0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="pos" type="Marker2D" parent="."]
+
+[node name="muzzleflash" parent="pos" instance=ExtResource("1_w2ikv")]
+visible = false
+
+[node name="audio" type="Node2D" parent="."]
+
+[node name="silenced_shooting" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("2_okcg0")
+bus = &"Sfx"
+
+[node name="shoting" type="AudioStreamPlayer2D" parent="audio"]
+bus = &"Sfx"
+
+[node name="reload_end_cue" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("3_r0mtq")
+bus = &"Sfx"
+
+[node name="reload_start_cue" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("4_541en")
+bus = &"Sfx"
+
+[node name="something_broke" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("5_c11l4")
+bus = &"Sfx"
+
+[node name="out_of_ammo" type="AudioStreamPlayer2D" parent="audio"]
+stream = ExtResource("6_0b5ky")
+volume_db = 24.0
+bus = &"Sfx"
+
+[node name="noise_alert" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
+monitorable = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="noise_alert"]
+debug_color = Color(0.713726, 0.486275, 0, 0)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_8hgl5")
+}
+
+[editable path="pos/muzzleflash"]
+[editable path="pos/muzzleflash/light2"]

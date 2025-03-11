@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="Mag" load_steps=13 format=3 uid="uid://b5fcw8hnl0k5d"]
 
 [ext_resource type="Script" uid="uid://c11y0uxm67td" path="res://obj/components/change.gd" id="1_gi1mc"]
-[ext_resource type="Script" uid="uid://cbaxfmjcm2v32" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_hdoi6"]
+[ext_resource type="Script" uid="uid://bewoh33t2jvqx" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_hdoi6"]
 [ext_resource type="PackedScene" uid="uid://b4qvivbnt8oim" path="res://obj/proj/PP_fmj.tscn" id="2_gw1fa"]
 [ext_resource type="Script" uid="uid://cmpw4tk5uc8e" path="res://obj/parts/scripts/mag.gd" id="3_52elb"]
 [ext_resource type="Curve" uid="uid://dcxu8qyysqkch" path="res://others/pistol_falloff.tres" id="3_tknrc"]
@@ -45,8 +45,6 @@ item_name = "SMGll mag"
 item_description = "Subsonic rounds.
 Popular among
 Stealth corps.
-Recomended to
-use with silencer.
 "
 cost = 30
 max_durability = 1000.0

@@ -6,6 +6,7 @@ class_name GunReciever
 @export var mag_position : Vector2
 @export var barrel_position : Vector2
 @export var attach_position : Vector2 = Vector2.ZERO
+@export var underbarrel_position : Vector2 = Vector2.ZERO
 
 func _init():
 	slot = "RECIEVER"
