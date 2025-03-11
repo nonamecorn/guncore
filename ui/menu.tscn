@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=3 uid="uid://cgjq0v6xmx2g3"]
 
-[ext_resource type="Script" uid="uid://c7bgtqwcg7g1y" path="res://ui/menu.gd" id="1_2c1oq"]
+[ext_resource type="Script" uid="uid://dd6whmnct8p8b" path="res://ui/menu.gd" id="1_2c1oq"]
 [ext_resource type="Texture2D" uid="uid://faonagr4q8jo" path="res://img/ui/UI.png" id="1_3pwc6"]
 [ext_resource type="Texture2D" uid="uid://cxm8l442in7mi" path="res://img/ui/inventory_1slot.png" id="2_npt6o"]
 [ext_resource type="Texture2D" uid="uid://b4imob3yw4gm8" path="res://img/big_art/deepfried_17345737466020.jpg" id="2_oqyi2"]
