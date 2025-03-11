@@ -23,6 +23,7 @@ var rooms = [
 	"res://lvls/rooms/cultfort_room.tscn",
 	"res://lvls/rooms/cultinvasion_room.tscn",
 	"uid://cpae35d4rrufr",
+	"res://lvls/rooms/corp_base.tscn"
 ]
 @export var roomcount = 5
 @export var debug = false

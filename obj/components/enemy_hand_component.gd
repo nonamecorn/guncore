@@ -87,8 +87,8 @@ func switch_to_fire():
 	state = FIRING
 
 func switch_to_idle():
-	_on_burst_duration_timeout()
-	$attack.stop()
+	#_on_burst_duration_timeout()
+	#$attack.stop()
 	state = IDLE
 
 func update_nearby_npcs():
