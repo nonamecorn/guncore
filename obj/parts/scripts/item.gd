@@ -15,6 +15,8 @@ var broken = false
 		damaged.emit()
 		curr_durability = val
 		broken = (curr_durability<=0.0)
+		if broken:
+			destry_item()
 	get():
 		return curr_durability
 @export var sprite : Texture2D

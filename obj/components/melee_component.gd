@@ -28,12 +28,12 @@ func throw():
 
 func use_hand():
 	if !item_res: return
-	#item_res.curr_durability -= 1
+	item_res.curr_durability -= 1
 	match item_res.type:
 		1:
 			throw()
-	item_res.destry_item()
-	item_res = null
+	if item_res.curr_durability <= 0:
+		item_res = null
 
 
 func _on_animated_sprite_2d_animation_finished() -> void:

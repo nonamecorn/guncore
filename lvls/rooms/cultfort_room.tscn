@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=4 uid="uid://b34xqbrfcaydt"]
+[gd_scene load_steps=12 format=4 uid="uid://ccwlq7dd2dkk5"]
 
 [ext_resource type="Script" uid="uid://wtg2bb6is60f" path="res://lvls/rooms/basic_room.gd" id="1_umstc"]
 [ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="2_cwbc6"]
@@ -15,6 +15,7 @@
 size = Vector2(530, 409)
 
 [node name="BasicRoom" type="Node2D"]
+z_index = -1
 y_sort_enabled = true
 script = ExtResource("1_umstc")
 
@@ -69,6 +70,7 @@ position = Vector2(0, 424)
 initial_state = 1
 
 [node name="env" type="Node2D" parent="."]
+z_as_relative = false
 y_sort_enabled = true
 
 [node name="explosive_barrel" parent="env" instance=ExtResource("5_qygaf")]

@@ -20,6 +20,7 @@ size = Vector2(216, 227)
 size = Vector2(216, 188.5)
 
 [node name="BasicRoom" type="Node2D"]
+z_index = -1
 y_sort_enabled = true
 script = ExtResource("1_4khgk")
 
@@ -113,6 +114,7 @@ position = Vector2(695, 1273)
 enemy = ExtResource("11_5p5dl")
 
 [node name="env" type="Node2D" parent="."]
+z_as_relative = false
 y_sort_enabled = true
 
 [node name="Big_box" parent="env" instance=ExtResource("6_7rgyl")]

@@ -12,6 +12,7 @@ script = ExtResource("1_tww5b")
 color = Color(0.47788, 0.47788, 0.47788, 1)
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = -2
 offset_left = -12507.0
 offset_top = -7552.0
 offset_right = 15602.0

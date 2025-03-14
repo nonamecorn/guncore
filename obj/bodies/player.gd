@@ -174,7 +174,7 @@ func hurt(amnt:float):
 func wear_down(ammnt):
 	for part in eq_res:
 		if !eq_res[part] or part == "HAND": continue
-		eq_res[part].wear_down(ammnt)
+		eq_res[part].curr_durability -= ammnt
 
 func module_functional(modname) -> bool:
 	if eq_res[modname].curr_durability <= 0:

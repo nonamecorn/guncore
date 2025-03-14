@@ -1,10 +1,10 @@
 [gd_scene load_steps=7 format=3 uid="uid://bqlon1lbmmq8v"]
 
-[ext_resource type="Script" uid="uid://x78ikpjp2ou1" path="res://lvls/world_1_shop.gd" id="1_oil8l"]
+[ext_resource type="Script" uid="uid://hu3v12i1ua7f" path="res://lvls/world_1_shop.gd" id="1_oil8l"]
 [ext_resource type="PackedScene" uid="uid://7qiqm1rgpyuo" path="res://lvls/rooms/firingrange_room.tscn" id="2_4gfqm"]
 [ext_resource type="PackedScene" uid="uid://btw10scl5f85a" path="res://obj/bodies/player.tscn" id="3_kaahk"]
-[ext_resource type="Script" uid="uid://6l72tjjepbi4" path="res://lvls/music_switch1.gd" id="4_xwk6c"]
-[ext_resource type="Script" uid="uid://bqqwqj4acfgui" path="res://lvls/music_switch2.gd" id="5_1knlo"]
+[ext_resource type="Script" uid="uid://dw3apyvgcgg8n" path="res://lvls/music_switch1.gd" id="4_xwk6c"]
+[ext_resource type="Script" uid="uid://d2273bxqt8xun" path="res://lvls/music_switch2.gd" id="5_1knlo"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_2wvo1"]
 radius = 20.025
@@ -17,6 +17,7 @@ script = ExtResource("1_oil8l")
 color = Color(0.355314, 0.355314, 0.355314, 1)
 
 [node name="ColorRect" type="ColorRect" parent="."]
+z_index = -2
 offset_left = -12507.0
 offset_top = -7552.0
 offset_right = 15602.0

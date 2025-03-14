@@ -208,6 +208,8 @@ func swap(c2, cursor_pos):
 
 func check_popup(cursor_pos):
 	popup_items = le_items.get_children() + shop_items.get_children() + [see_stats1, see_stats2]
+	if item_held != null:
+		pass
 	for c in popup_items:
 		if c.get_global_rect().has_point(cursor_pos):
 			desc_text.text = c.desc_text

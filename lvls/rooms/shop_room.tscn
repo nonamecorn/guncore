@@ -1,14 +1,14 @@
 [gd_scene load_steps=12 format=4 uid="uid://8c8ht7qy60rp"]
 
-[ext_resource type="Script" path="res://lvls/rooms/starting_room.gd" id="1_8435x"]
-[ext_resource type="PackedScene" path="res://lvls/layers.tscn" id="2_o1o1j"]
-[ext_resource type="PackedScene" path="res://lvls/env/small_box.tscn" id="3_8ysjy"]
-[ext_resource type="Script" path="res://lvls/rooms/shop_area.gd" id="3_s8k6d"]
-[ext_resource type="Texture2D" path="res://img/levels/shop.png" id="4_iu0jg"]
-[ext_resource type="Script" path="res://lvls/rooms/exit.gd" id="5_qjsor"]
-[ext_resource type="Texture2D" path="res://img/levels/Lift.png" id="6_1368m"]
-[ext_resource type="PackedScene" path="res://lvls/env/big_box.tscn" id="7_lprkh"]
-[ext_resource type="PackedScene" path="res://lvls/env/mid_box.tscn" id="8_7fm53"]
+[ext_resource type="Script" uid="uid://cnmey37n2k7b6" path="res://lvls/rooms/starting_room.gd" id="1_8435x"]
+[ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="2_o1o1j"]
+[ext_resource type="PackedScene" uid="uid://bxtkcc7g5gfh2" path="res://lvls/env/small_box.tscn" id="3_8ysjy"]
+[ext_resource type="Script" uid="uid://cj1vnlw3gtuok" path="res://lvls/rooms/shop_area.gd" id="3_s8k6d"]
+[ext_resource type="Texture2D" uid="uid://brmf3ey1nsbk4" path="res://img/levels/shop.png" id="4_iu0jg"]
+[ext_resource type="Script" uid="uid://cdq6pckc7awvu" path="res://lvls/rooms/exit.gd" id="5_qjsor"]
+[ext_resource type="Texture2D" uid="uid://sdso0p2h0m1g" path="res://img/levels/Lift.png" id="6_1368m"]
+[ext_resource type="PackedScene" uid="uid://c70txah2l140m" path="res://lvls/env/big_box.tscn" id="7_lprkh"]
+[ext_resource type="PackedScene" uid="uid://cjw5l1ahljlkm" path="res://lvls/env/mid_box.tscn" id="8_7fm53"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v2n3q"]
 size = Vector2(86, 21)
@@ -17,6 +17,7 @@ size = Vector2(86, 21)
 radius = 24.0
 
 [node name="shopinging room" type="Node2D"]
+z_index = -1
 y_sort_enabled = true
 script = ExtResource("1_8435x")
 
@@ -69,13 +70,17 @@ texture = ExtResource("6_1368m")
 position = Vector2(0, 23)
 shape = SubResource("CircleShape2D_301ny")
 
-[node name="Big_box" parent="." instance=ExtResource("7_lprkh")]
+[node name="env" type="Node2D" parent="."]
+z_as_relative = false
+y_sort_enabled = true
+
+[node name="Big_box" parent="env" instance=ExtResource("7_lprkh")]
 position = Vector2(747, 243)
 
-[node name="Mid_box" parent="." instance=ExtResource("8_7fm53")]
+[node name="Mid_box" parent="env" instance=ExtResource("8_7fm53")]
 position = Vector2(697, 298)
 
-[node name="Small_box" parent="." instance=ExtResource("3_8ysjy")]
+[node name="Small_box" parent="env" instance=ExtResource("3_8ysjy")]
 position = Vector2(706, 248)
 
 [connection signal="body_entered" from="shop_area" to="shop_area" method="_on_body_entered"]
