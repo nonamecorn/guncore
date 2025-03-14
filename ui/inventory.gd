@@ -56,10 +56,12 @@ func display_desc(stats : Dictionary, first : bool):
 		var string = stat_name + ": " + str(formated_stats[stat_name]) + "\n"
 		stat_strings.append(string)
 	if first:
+		see_stats1.stats = stats
 		see_stats1.desc_text = ""
 		for stat in stat_strings:
 			see_stats1.desc_text += stat
 		return
+	see_stats2.stats = stats
 	see_stats2.desc_text = ""
 	for stat in stat_strings:
 		see_stats2.desc_text += stat
@@ -207,11 +209,16 @@ func swap(c2, cursor_pos):
 		return_item()
 
 func check_popup(cursor_pos):
-	popup_items = le_items.get_children() + shop_items.get_children() + [see_stats1, see_stats2]
-	if item_held != null:
-		pass
+	popup_items = [see_stats1, see_stats2] + le_items.get_children() + shop_items.get_children()
 	for c in popup_items:
 		if c.get_global_rect().has_point(cursor_pos):
+			if item_held != null and "stats" in item_held.item_resource and c.has_method("calc_diff"):
+				var num_stats = {}
+				var item_stats = item_held.item_resource.stats
+				for stat in item_stats:
+					num_stats[item_stats[stat]] = item_held.item_resource.get(item_stats[stat])
+				desc_text.text = c.calc_diff(num_stats)
+				break
 			desc_text.text = c.desc_text
 			if "item_resource" in c:
 				durabar.value = c.item_resource.curr_durability
