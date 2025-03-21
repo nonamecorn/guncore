@@ -71,7 +71,7 @@ func _on_less_crucial_checks_timeout() -> void:
 		SURROUND:
 			if !current_target or !is_instance_valid(current_target):
 				return
-			check_witness()
+			#check_witness()
 			set_movement_target(get_circle_position(randomnum))
 		INVESTIGATE:
 			set_movement_target(static_move_position)
@@ -81,7 +81,7 @@ func _on_less_crucial_checks_timeout() -> void:
 				#_on_change_position_timeout()
 			#set_movement_target(get_self_circle_position(randomnum))
 		CHASE:
-			check_witness()
+			#check_witness()
 			set_movement_target(current_target.global_position)
 
 
@@ -186,7 +186,7 @@ func drop(item : Item):
 	item_inst.init(item)
 
 func check_witness():
-	if current_target.is_in_group("player"):
+	if is_instance_valid(current_target) and current_target.is_in_group("player"):
 		GlobalVars.add_witness(id)
 	else:
 		GlobalVars.erase_witness(id)

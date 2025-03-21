@@ -70,6 +70,7 @@ func firing_state():
 				current_target = enemy
 				#print("blastin")
 				$attack.start()
+				get_parent().check_witness()
 				get_parent().start_blastin(current_target)
 				return
 		get_parent().start_chasin()
@@ -79,6 +80,7 @@ func idle_state():
 	if rng.randi_range(0,1) == 1: return
 	for enemy in nearby_enemies:
 		if _in_vision_cone(enemy.global_position) and has_los(enemy):
+			get_parent().check_witness()
 			#print("blastin")
 			$attack.start()
 			get_parent().start_blastin(enemy)
@@ -144,7 +146,7 @@ func has_los(target):
 func apply_recoil(recoil_vector):
 	if !current_target: return
 	cursor.apply_recoil(recoil_vector)
-func set_handling_spd(weight):
+func set_handling_spd(weight, _ind):
 	get_parent().get_children()[-1].set_handling_spd(weight)
 
 func flip():

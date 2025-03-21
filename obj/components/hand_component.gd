@@ -3,6 +3,7 @@ extends Node2D
 @export var hand_length = 34
 @export var particles : Node 
 @export var turn_speed = 200.0
+@export var cursor : Node
 func _ready() -> void:
 	player_crosshair = get_tree().get_nodes_in_group("crosshair")[0]
 	$Marker2D.position.x = hand_length
@@ -51,8 +52,9 @@ func face_point(delta: float):
 
 func apply_recoil(recoil_vector):
 	get_parent().get_children()[-1].apply_recoil(recoil_vector)
-func set_handling_spd(weight):
-	get_parent().get_children()[-1].set_handling_spd(weight)
+func set_handling_spd(weight, ind):
+	if active_base != ind: return
+	cursor.set_handling_spd(weight)
 
 func switch_to_base(first):
 	if first:
@@ -61,12 +63,14 @@ func switch_to_base(first):
 		$Marker2D/gun_base.show()
 		$Marker2D/gun_base2.hide()
 		$Marker2D/gun_base.display_ammo()
+		cursor.set_handling_spd($Marker2D/gun_base.stats.weight)
 	else:
 		$Marker2D.get_child(active_base).stop_fire()
 		active_base = 1
 		$Marker2D/gun_base.hide()
 		$Marker2D/gun_base2.show()
 		$Marker2D/gun_base2.display_ammo()
+		cursor.set_handling_spd($Marker2D/gun_base.stats.weight)
 
 func flip():
 	get_parent().flip()

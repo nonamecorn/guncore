@@ -26,12 +26,12 @@ func _on_less_crucial_checks_timeout() -> void:
 	$Label.text = str(state, $enemy_hand_component.state)
 	match state:
 		IDLE:
-			check_witness()
+			#check_witness()
 			direction = (get_self_circle_position(randomnum) - global_position).normalized() 
 		SURROUND:
 			if !current_target or !is_instance_valid(current_target):
 				return
-			check_witness()
+			#check_witness()
 			set_movement_target(get_circle_position(randomnum))
 		INVESTIGATE:
 			direction = look_vec

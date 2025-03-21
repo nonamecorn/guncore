@@ -218,9 +218,10 @@ zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 script = ExtResource("4_6xs1v")
 
-[node name="player_hand_component" parent="." instance=ExtResource("3_nq5y6")]
+[node name="player_hand_component" parent="." node_paths=PackedStringArray("cursor") instance=ExtResource("3_nq5y6")]
 position = Vector2(0, -12)
 hand_length = 6
+cursor = NodePath("../cursor")
 
 [node name="Marker2D" parent="player_hand_component" index="0"]
 position = Vector2(9, 0)

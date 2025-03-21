@@ -113,7 +113,7 @@ func asseble_gun(parts : Dictionary,loaded : bool):
 	for part_name in parts:
 		if parts[part_name] == null: continue	
 		stats.weight += parts[part_name].weight
-	get_parent().get_parent().set_handling_spd(stats.weight)
+	get_parent().get_parent().set_handling_spd(stats.weight, get_index())
 	
 	$audio/shoting.stream = parts.MAG.sound
 	$MUZZLE.position = parts.BARREL.muzzle_position + parts.RECIEVER.barrel_position
