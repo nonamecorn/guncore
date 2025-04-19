@@ -70,7 +70,7 @@ func switch_to_base(first):
 		$Marker2D/gun_base.hide()
 		$Marker2D/gun_base2.show()
 		$Marker2D/gun_base2.display_ammo()
-		cursor.set_handling_spd($Marker2D/gun_base.stats.weight)
+		cursor.set_handling_spd($Marker2D/gun_base2.stats.weight)
 
 func flip():
 	get_parent().flip()

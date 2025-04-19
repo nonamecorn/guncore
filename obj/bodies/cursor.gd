@@ -10,6 +10,7 @@ var look_pos = Vector2.ZERO
 var current_target
 
 func set_handling_spd(weight):
+	if !weight: return
 	HANDLING_SPEED = weight_to_handle.sample(weight)
 	#print(HANDLING_SPEED)
 
