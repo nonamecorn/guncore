@@ -68,6 +68,8 @@ func display_desc(stats : Dictionary, first : bool):
 
 
 func hide_properly():
+	if item_held:
+		return_item()
 	$shop_backpack2.flush_shop()
 	hide_popup()
 	hide()
