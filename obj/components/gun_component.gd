@@ -267,7 +267,7 @@ func fire():
 	if state: return
 	for i in num_of_bullets:
 		if ammo <= 0:
-
+			firing = false
 			empty.emit()
 			return
 		ammo -= 1
@@ -318,7 +318,7 @@ func eject_brass():
 	brass_inst.global_rotation = global_rotation + rng.randf_range(-PI/8, PI/8)
 	brass_inst.get_child(0).texture = brass_texture
 	added_velocity = get_parent().get_parent().get_parent().velocity/2
-	get_tree().current_scene.y_sort.call_deferred("add_child",brass_inst)
+	get_tree().current_scene.find_child("ysort").call_deferred("add_child",brass_inst)
 	#brass_inst.init(added_velocity, lifetime)
 func eject_mag():
 	var brass_inst = brass_obj.instantiate()
@@ -327,7 +327,7 @@ func eject_mag():
 	brass_inst.get_child(0).texture = $MAG.get_child(0).texture
 	brass_inst.velocity_range = [200, 300] 
 	added_velocity = get_parent().get_parent().get_parent().velocity/2
-	get_tree().current_scene.y_sort.call_deferred("add_child",brass_inst)
+	get_tree().current_scene.find_child("ysort").call_deferred("add_child",brass_inst)
 	#brass_inst.init(added_velocity, lifetime)
 #func muzzle_flash():
 	#var muzzle_inst = muzzle_obj.instantiate()

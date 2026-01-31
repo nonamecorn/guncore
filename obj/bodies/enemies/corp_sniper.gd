@@ -14,7 +14,7 @@ func _ready():
 	for part in parts:
 		if parts[part]:
 			unique_parts[part] = load(parts[part])
-	$enemy_hand_component/Marker2D/gun_base.asseble_gun(unique_parts,true)
+	$enemy_hand_component/Marker2D.get_child(0).asseble_gun(unique_parts,true)
 
 func gib():
 	$Corp_head.emitting = true 

@@ -60,17 +60,17 @@ func switch_to_base(first):
 	if first:
 		$Marker2D.get_child(active_base).stop_fire()
 		active_base = 0
-		$Marker2D/gun_base.show()
-		$Marker2D/gun_base2.hide()
-		$Marker2D/gun_base.display_ammo()
-		cursor.set_handling_spd($Marker2D/gun_base.stats.weight)
+		$Marker2D.get_child(0).show()
+		$Marker2D.get_child(1).hide()
+		$Marker2D.get_child(0).display_ammo()
+		cursor.set_handling_spd($Marker2D.get_child(0).stats.weight)
 	else:
 		$Marker2D.get_child(active_base).stop_fire()
 		active_base = 1
-		$Marker2D/gun_base.hide()
-		$Marker2D/gun_base2.show()
-		$Marker2D/gun_base2.display_ammo()
-		cursor.set_handling_spd($Marker2D/gun_base2.stats.weight)
+		$Marker2D.get_child(0).hide()
+		$Marker2D.get_child(1).show()
+		$Marker2D.get_child(1).display_ammo()
+		cursor.set_handling_spd($Marker2D.get_child(1).stats.weight)
 
 func flip():
 	get_parent().flip()

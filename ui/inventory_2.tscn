@@ -1,0 +1,77 @@
+[gd_scene format=3 uid="uid://dauxqidknjlil"]
+
+[ext_resource type="PackedScene" uid="uid://qh51xv03x1h0" path="res://ui/inventory_cell.tscn" id="1_4d80l"]
+[ext_resource type="Script" uid="uid://b4k3k8lxq1aa8" path="res://ui/texture_rect.gd" id="1_b1gai"]
+
+[node name="Inventory2" type="Control" unique_id=1092211059]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_b1gai")
+
+[node name="Backpack" type="GridContainer" parent="." unique_id=155957023]
+layout_mode = 0
+offset_left = 425.0
+offset_top = 440.0
+offset_right = 465.0
+offset_bottom = 480.0
+theme_override_constants/h_separation = 0
+theme_override_constants/v_separation = 0
+columns = 6
+
+[node name="InventoryCell" parent="Backpack" unique_id=653112565 instance=ExtResource("1_4d80l")]
+layout_mode = 2
+
+[node name="InventoryCell2" parent="Backpack" unique_id=1258869402 instance=ExtResource("1_4d80l")]
+layout_mode = 2
+
+[node name="InventoryCell3" parent="Backpack" unique_id=526769924 instance=ExtResource("1_4d80l")]
+layout_mode = 2
+
+[node name="InventoryCell4" parent="Backpack" unique_id=1168272450 instance=ExtResource("1_4d80l")]
+layout_mode = 2
+
+[node name="InventoryCell5" parent="Backpack" unique_id=489035896 instance=ExtResource("1_4d80l")]
+layout_mode = 2
+
+[node name="InventoryCell6" parent="Backpack" unique_id=1238040729 instance=ExtResource("1_4d80l")]
+layout_mode = 2
+
+[node name="InventoryCell7" parent="Backpack" unique_id=291033314 instance=ExtResource("1_4d80l")]
+layout_mode = 2
+
+[node name="InventoryCell8" parent="Backpack" unique_id=1024370933 instance=ExtResource("1_4d80l")]
+layout_mode = 2
+
+[node name="InventoryCell9" parent="Backpack" unique_id=1655392659 instance=ExtResource("1_4d80l")]
+layout_mode = 2
+
+[node name="InventoryCell10" parent="Backpack" unique_id=1667967254 instance=ExtResource("1_4d80l")]
+layout_mode = 2
+
+[node name="InventoryCell11" parent="Backpack" unique_id=248265158 instance=ExtResource("1_4d80l")]
+layout_mode = 2
+
+[node name="InventoryCell12" parent="Backpack" unique_id=743878837 instance=ExtResource("1_4d80l")]
+layout_mode = 2
+
+[node name="InventoryCell13" parent="Backpack" unique_id=1992921037 instance=ExtResource("1_4d80l")]
+layout_mode = 2
+
+[node name="InventoryCell14" parent="Backpack" unique_id=1531319060 instance=ExtResource("1_4d80l")]
+layout_mode = 2
+
+[node name="InventoryCell15" parent="Backpack" unique_id=666507723 instance=ExtResource("1_4d80l")]
+layout_mode = 2
+
+[node name="InventoryCell16" parent="Backpack" unique_id=1785715065 instance=ExtResource("1_4d80l")]
+layout_mode = 2
+
+[node name="InventoryCell17" parent="Backpack" unique_id=1897618943 instance=ExtResource("1_4d80l")]
+layout_mode = 2
+
+[node name="InventoryCell18" parent="Backpack" unique_id=2129801357 instance=ExtResource("1_4d80l")]
+layout_mode = 2

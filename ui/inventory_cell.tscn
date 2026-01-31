@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://qh51xv03x1h0"]
+
+[ext_resource type="Texture2D" uid="uid://dpdcmyiyv1l1w" path="res://img/ui/new_inventory_1slot.png" id="1_lvxw8"]
+
+[node name="InventoryCell" type="TextureRect" unique_id=653112565]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_lvxw8")

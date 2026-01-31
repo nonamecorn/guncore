@@ -7,13 +7,12 @@
 [ext_resource type="PackedScene" uid="uid://ddfo6c5nx4m8h" path="res://lvls/misc/light.tscn" id="5_h5ytn"]
 [ext_resource type="Script" uid="uid://chnsh464847oi" path="res://lvls/misc/moving_light.gd" id="6_kdott"]
 
-[node name="world1" type="Node2D" unique_id=204737107 node_paths=PackedStringArray("y_sort")]
+[node name="world1" type="Node2D" unique_id=204737107]
 script = ExtResource("1_ki535")
-y_sort = NodePath("ysort/items")
 roomcount = 3
 
 [node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1534910039]
-color = Color(0.129558, 0.129558, 0.129558, 1)
+color = Color(0, 0, 0, 1)
 
 [node name="ColorRect" type="ColorRect" parent="." unique_id=2001995956]
 z_index = -2

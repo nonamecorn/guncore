@@ -1,17 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://so4co8sk7w75"]
+[gd_scene format=3 uid="uid://so4co8sk7w75"]
 
 [ext_resource type="PackedScene" uid="uid://8c8ht7qy60rp" path="res://lvls/rooms/shop_room.tscn" id="1_mul21"]
-[ext_resource type="Script" uid="uid://hu3v12i1ua7f" path="res://lvls/world_1_shop.gd" id="1_tww5b"]
+[ext_resource type="Script" uid="uid://x78ikpjp2ou1" path="res://lvls/world_1_shop.gd" id="1_tww5b"]
 [ext_resource type="PackedScene" uid="uid://btw10scl5f85a" path="res://obj/bodies/player.tscn" id="4_1ehtl"]
 
-[node name="world1" type="Node2D"]
+[node name="world1" type="Node2D" unique_id=1764729298]
 y_sort_enabled = true
 script = ExtResource("1_tww5b")
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
-color = Color(0.47788, 0.47788, 0.47788, 1)
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1597605351]
+color = Color(0.42595553, 0.42595553, 0.4259555, 1)
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=86182722]
 z_index = -2
 offset_left = -12507.0
 offset_top = -7552.0
@@ -19,15 +19,17 @@ offset_right = 15602.0
 offset_bottom = 11581.0
 color = Color(0.168627, 0.0784314, 0.141176, 1)
 
-[node name="modules" type="Node2D" parent="."]
+[node name="ysort" type="Node2D" parent="." unique_id=1922118424]
+
+[node name="modules" type="Node2D" parent="ysort" unique_id=637751539]
 y_sort_enabled = true
 
-[node name="shopinging room" parent="modules" instance=ExtResource("1_mul21")]
+[node name="shopinging room" parent="ysort/modules" unique_id=465534159 instance=ExtResource("1_mul21")]
 
-[node name="enemies" type="Node2D" parent="."]
+[node name="enemies" type="Node2D" parent="ysort" unique_id=2058928048]
 y_sort_enabled = true
 
-[node name="items" type="Node2D" parent="."]
+[node name="items" type="Node2D" parent="ysort" unique_id=651182763]
 
-[node name="Player" parent="." instance=ExtResource("4_1ehtl")]
+[node name="Player" parent="ysort" unique_id=665338029 instance=ExtResource("4_1ehtl")]
 position = Vector2(527, 323)

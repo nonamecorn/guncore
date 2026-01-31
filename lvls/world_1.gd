@@ -1,6 +1,5 @@
 extends Node2D
 
-@export var y_sort : Node2D
 var exits = []
 var rects = []
 var room_obj_path = "res://lvls/rooms/basic_room.tscn"
