@@ -56,7 +56,7 @@ func _unhandled_input(_event: InputEvent) -> void:
 	#if event.is_action_pressed("ui_cancel") and state != TAB_MENU:
 		#$CanvasLayer/pause.toggle_on()
 
-func _physics_process(delta):
+func _process(delta):
 	if Input.is_action_just_pressed("special_button"):
 		get_tree().reload_current_scene()
 		return

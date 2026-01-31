@@ -17,7 +17,7 @@ compatibility/default_parent_skeleton_in_mesh_instance_3d=true
 config/name="GUNCORE"
 run/main_scene="res://ui/menu.tscn"
 config/features=PackedStringArray("4.6", "GL Compatibility")
-run/max_fps=60
+run/max_fps=300
 config/icon="uid://bwpp2ba4pph73"
 config/windows_native_icon="res://new_icon.ico"
 
@@ -28,6 +28,10 @@ Randogunser="*res://others/randogunser.gd"
 GlobalVars="*res://others/global_vars.gd"
 OstManager="*res://others/ost_manager.tscn"
 
+[debug]
+
+settings/stdout/print_fps=true
+
 [display]
 
 window/size/viewport_width=1280
@@ -35,6 +39,7 @@ window/size/viewport_height=720
 window/size/mode=4
 window/stretch/mode="viewport"
 window/stretch/aspect="ignore"
+window/vsync/vsync_mode=0
 mouse_cursor/custom_image="res://img/misc/Sight.png"
 mouse_cursor/custom_image_hotspot=Vector2(32, 32)
 mouse_cursor/tooltip_position_offset=Vector2(40, 40)
@@ -191,6 +196,5 @@ ui_right_mouse={
 [rendering]
 
 textures/canvas_textures/default_texture_filter=0
-rendering_device/driver.windows="d3d12"
 rendering_device/fallback_to_d3d12=false
 textures/vram_compression/import_etc2_astc=true
