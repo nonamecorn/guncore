@@ -1,20 +1,21 @@
-[gd_scene load_steps=7 format=3 uid="uid://dr7vc82ttnai6"]
+[gd_scene format=3 uid="uid://dr7vc82ttnai6"]
 
 [ext_resource type="PackedScene" uid="uid://b720un0jadula" path="res://lvls/rooms/starting_room.tscn" id="1_08hws"]
 [ext_resource type="Script" uid="uid://n840l81tcv8c" path="res://lvls/world_1.gd" id="1_ki535"]
-[ext_resource type="Script" uid="uid://bqcsnxx6m76e6" path="res://others/camera_2d.gd" id="3_5hpog"]
+[ext_resource type="Script" uid="uid://n65iu11m587y" path="res://others/camera_2d.gd" id="3_5hpog"]
 [ext_resource type="PackedScene" uid="uid://btw10scl5f85a" path="res://obj/bodies/player.tscn" id="4_22ug0"]
 [ext_resource type="PackedScene" uid="uid://ddfo6c5nx4m8h" path="res://lvls/misc/light.tscn" id="5_h5ytn"]
 [ext_resource type="Script" uid="uid://chnsh464847oi" path="res://lvls/misc/moving_light.gd" id="6_kdott"]
 
-[node name="world1" type="Node2D"]
+[node name="world1" type="Node2D" unique_id=204737107 node_paths=PackedStringArray("y_sort")]
 script = ExtResource("1_ki535")
+y_sort = NodePath("ysort/items")
 roomcount = 3
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
+[node name="CanvasModulate" type="CanvasModulate" parent="." unique_id=1534910039]
 color = Color(0.129558, 0.129558, 0.129558, 1)
 
-[node name="ColorRect" type="ColorRect" parent="."]
+[node name="ColorRect" type="ColorRect" parent="." unique_id=2001995956]
 z_index = -2
 offset_left = -12507.0
 offset_top = -7552.0
@@ -22,40 +23,40 @@ offset_right = 15602.0
 offset_bottom = 11581.0
 color = Color(0.168627, 0.0784314, 0.141176, 1)
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1049515684]
 position = Vector2(524, 159)
 script = ExtResource("3_5hpog")
 
-[node name="ysort" type="Node2D" parent="."]
+[node name="ysort" type="Node2D" parent="." unique_id=1913397899]
 y_sort_enabled = true
 
-[node name="modules" type="Node2D" parent="ysort"]
+[node name="modules" type="Node2D" parent="ysort" unique_id=1718142095]
 y_sort_enabled = true
 
-[node name="starting room" parent="ysort/modules" instance=ExtResource("1_08hws")]
+[node name="starting room" parent="ysort/modules" unique_id=1325481179 instance=ExtResource("1_08hws")]
 
-[node name="enemies" type="Node2D" parent="ysort"]
+[node name="enemies" type="Node2D" parent="ysort" unique_id=1051561702]
 y_sort_enabled = true
 
-[node name="Player" parent="ysort/enemies" instance=ExtResource("4_22ug0")]
+[node name="Player" parent="ysort/enemies" unique_id=254545906 instance=ExtResource("4_22ug0")]
 position = Vector2(513, 145)
 
-[node name="items" type="Node2D" parent="ysort"]
+[node name="items" type="Node2D" parent="ysort" unique_id=611275120]
 y_sort_enabled = true
 
-[node name="environment" type="Node2D" parent="ysort"]
+[node name="environment" type="Node2D" parent="ysort" unique_id=148648298]
 
-[node name="make_room" type="Timer" parent="."]
+[node name="make_room" type="Timer" parent="." unique_id=1447899625]
 
-[node name="light" parent="." instance=ExtResource("5_h5ytn")]
+[node name="light" parent="." unique_id=1389171261 instance=ExtResource("5_h5ytn")]
 visible = false
 position = Vector2(730, 229)
 script = ExtResource("6_kdott")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=491346875]
 visible = false
 
-[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer" unique_id=1754515301]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -65,7 +66,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 color = Color(0.510665, 0.183224, 0.232565, 1)
 
-[node name="Label" type="Label" parent="CanvasLayer/ColorRect"]
+[node name="Label" type="Label" parent="CanvasLayer/ColorRect" unique_id=1888719351]
 layout_mode = 0
 offset_left = 191.0
 offset_top = 118.0

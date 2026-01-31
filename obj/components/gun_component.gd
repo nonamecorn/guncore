@@ -10,8 +10,9 @@ var point_of_shooting = Vector2(0,0)
 var spread_tween
 @onready var rng = RandomNumberGenerator.new()
 @export var player_handled = false
-var ammo
-var spread = 0
+var firing : bool
+var ammo := 0
+var spread := 0.0
 var added_velocity : Vector2
 var state = STOP
 var assambled = false
@@ -30,13 +31,11 @@ enum {
 }
 signal empty
 signal ammo_changed(current,max,ind)
-signal stats_changed(stats)
+#signal stats_changed(stats)
 
-
-#@export var mag_position : Vector2
-#@export var barrel_position : Vector2
-#@export var attach_position : Vector2 = Vector2.ZERO
-#@export var underbarrel_position : Vector2 = Vector2.ZERO
+#@export var muzzle_obj : PackedScene
+@onready var brass_obj = preload("res://obj/components/brass.tscn")
+@export var brass_texture: Texture
 @export var ver_recoil: float
 @export var hor_recoil: float
 @export var damage: float #needs implementing
@@ -48,19 +47,19 @@ signal stats_changed(stats)
 	"ATTACH": null,
 }
 
-@export var max_spread: float = 1.0
-@export var min_spread: float = 0.0
-@export var max_ammo: int = 1
-@export var num_of_bullets: int = 1
-@export var bullet_obj: PackedScene
-@export var brass_texture: Texture
-@export var lifetime: float = 1.0
-@export var noise_radius: float = 500.0
-@export var anim_firerate: float = 1.0
-@export var anim_reload: float = 1.0
-@export var add_spd : float
-@export var wear : float
-@export var weight : float
+var max_spread: float = 1.0
+var min_spread: float = 0.0
+var max_ammo: int = 1
+var num_of_bullets: int = 1
+var bullet_obj: PackedScene
+
+var lifetime: float = 1.0
+var noise_radius: float = 500.0
+var anim_firerate: float = 1.0
+var anim_reload: float = 1.0
+var add_spd : float
+var wear : float
+var weight : float
 
 var falloff : Curve
 var firing_strategies = []
@@ -69,7 +68,6 @@ var bullet_strategies = []
 var silenced = false
 
 func _ready() -> void:
-	  
 	if player_handled:
 		$Render.material = null
 		player_crosshair = get_tree().get_nodes_in_group("crosshair")[0]
@@ -191,7 +189,7 @@ func dissassemble_gun():
 	dispawn_facade("MAG")
 	dispawn_facade("MUZZLE")
 	dispawn_facade("ATTACH")
-	ammo = null
+	ammo = 0
 	firing_strategies = []
 	bullet_strategies = []
 	state = STOP
@@ -207,7 +205,8 @@ func start_fire():
 	if ammo <= 0:
 		if player_handled: $audio/out_of_ammo.play()
 		return
-	fire()
+	$AnimationPlayer.play("fire")
+	firing = true
 	if spread_tween: spread_tween.kill()
 	spread_tween = create_tween()
 	spread_tween.tween_property(self, "spread", max_spread, anim_firerate*max_ammo)
@@ -215,6 +214,7 @@ func start_fire():
 func stop_fire():
 	if state: return
 	if spread_tween: spread_tween.kill()
+	firing = false
 	spread_tween = create_tween()
 	spread_tween.tween_property(self, "spread", min_spread, anim_firerate*max_ammo)
 
@@ -237,6 +237,7 @@ func reload():
 		$audio/reload_start_cue.play()
 	mag.hide()
 	spread = min_spread
+	$AnimationPlayer.play("reload")
 
 func wear_down():
 	for part in gun_resources:
@@ -274,7 +275,7 @@ func fire():
 		wear_down()
 		
 		if !silenced:
-			$AnimationPlayer.play("fire")
+			
 			$audio/shoting.pitch_scale = get_pitch()
 			$audio/shoting.play()
 		else:
@@ -310,3 +311,35 @@ func fire():
 		$audio/something_broke.play()
 		display_ammo()
 		stop_fire()
+
+func eject_brass():
+	var brass_inst = brass_obj.instantiate()
+	brass_inst.global_position = $ejector.global_position
+	brass_inst.global_rotation = global_rotation + rng.randf_range(-PI/8, PI/8)
+	brass_inst.get_child(0).texture = brass_texture
+	added_velocity = get_parent().get_parent().get_parent().velocity/2
+	get_tree().current_scene.y_sort.call_deferred("add_child",brass_inst)
+	#brass_inst.init(added_velocity, lifetime)
+func eject_mag():
+	var brass_inst = brass_obj.instantiate()
+	brass_inst.global_position = $MAG.global_position
+	brass_inst.global_rotation = global_rotation + rng.randf_range(-PI/8, PI/8) -sign(global_scale.y)*PI/2
+	brass_inst.get_child(0).texture = $MAG.get_child(0).texture
+	brass_inst.velocity_range = [200, 300] 
+	added_velocity = get_parent().get_parent().get_parent().velocity/2
+	get_tree().current_scene.y_sort.call_deferred("add_child",brass_inst)
+	#brass_inst.init(added_velocity, lifetime)
+#func muzzle_flash():
+	#var muzzle_inst = muzzle_obj.instantiate()
+	#muzzle_inst.global_position = $pos.position
+	#muzzle_inst.global_rotation = global_rotation
+	#get_tree().current_scene.call_deferred("add_child",muzzle_inst)
+
+
+func _on_animation_player_animation_finished(anim_name: StringName) -> void:
+	if firing and anim_name == "fire" and state == FIRE:
+		$AnimationPlayer.play("fire")
+	if anim_name == "reload":
+		_on_reload_timeout()
+		if firing:
+			$AnimationPlayer.play("fire")

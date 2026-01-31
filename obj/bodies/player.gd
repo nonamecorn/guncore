@@ -46,8 +46,8 @@ func _ready() -> void:
 	$CanvasLayer/Inventory.eq_slot3.change.connect(on_augs_change)
 	$CanvasLayer/Inventory.load_save()
 	$player_hand_component/Marker2D/Melee_component.hitted.connect(heal)
-	$player_hand_component/Marker2D/gun_base.ammo_changed.connect(on_ammo_change)
-	$player_hand_component/Marker2D/gun_base2.ammo_changed.connect(on_ammo_change)
+	$player_hand_component/Marker2D.get_child(0).ammo_changed.connect(on_ammo_change)
+	$player_hand_component/Marker2D.get_child(1).ammo_changed.connect(on_ammo_change)
 	GlobalVars.score_changed.connect(on_score_change)
 	GlobalVars.i_see_you.connect(on_perception_change)
 

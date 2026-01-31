@@ -1,7 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d3fradp8eqxii"]
+[gd_scene format=3 uid="uid://d3fradp8eqxii"]
 
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_cfdtx"]
 light_mode = 2
 
-[node name="facade" type="Sprite2D"]
+[node name="facade" type="Sprite2D" unique_id=180272142]
 material = SubResource("CanvasItemMaterial_cfdtx")

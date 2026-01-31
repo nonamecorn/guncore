@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="Mag" format=3 uid="uid://bdwhjqlgkbp5s"]
+
+[ext_resource type="Script" uid="uid://bewoh33t2jvqx" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_d2ei1"]
+[ext_resource type="Script" uid="uid://c11y0uxm67td" path="res://obj/components/change.gd" id="2_qqof8"]
+[ext_resource type="Script" uid="uid://buggsj0y7xemx" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_vdryf"]
+[ext_resource type="PackedScene" uid="uid://ce5unulp5hnlx" path="res://obj/proj/fmj.tscn" id="4_ejj5u"]
+[ext_resource type="Script" uid="uid://cmpw4tk5uc8e" path="res://obj/parts/scripts/mag.gd" id="5_ouy2m"]
+[ext_resource type="Script" uid="uid://6ct4nafsu8do" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="6_3xa22"]
+[ext_resource type="Texture2D" uid="uid://bc8mkue15m111" path="res://img/parts2/mag/FOAD_mag.png" id="7_qqof8"]
+[ext_resource type="AudioStream" uid="uid://bc6jww2l3klia" path="res://snd/sfx/smgfire.wav" id="7_vdryf"]
+
+[sub_resource type="Curve" id="Curve_qqof8"]
+_data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.7256637, 0.77628636), -1.1176261, -1.1176261, 0, 0, Vector2(0.9867256, 0.45413876), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[resource]
+script = ExtResource("5_ouy2m")
+sound = ExtResource("7_vdryf")
+falloff = SubResource("Curve_qqof8")
+sprite = ExtResource("7_qqof8")
+metadata/_custom_type_script = "uid://cmpw4tk5uc8e"

@@ -53,7 +53,6 @@ position = Vector2(-2, 1)
 position = Vector2(3, 0)
 
 [node name="Reciever" type="Sprite2D" parent="." unique_id=694329754]
-position = Vector2(-5, 0)
 texture = ExtResource("2_dxiyw")
 
 [node name="MUZZLE" type="Marker2D" parent="." unique_id=1380711274]
@@ -64,6 +63,9 @@ position = Vector2(-4, -4)
 
 [node name="ATTACH2" type="Marker2D" parent="." unique_id=1575347318]
 position = Vector2(-3, -4)
+
+[node name="ejector" type="Marker2D" parent="." unique_id=1134795720]
+position = Vector2(2, -1)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1651363459]
 shape = SubResource("RectangleShape2D_lxys1")
@@ -122,6 +124,8 @@ texture = ExtResource("12_4iw40")
 [node name="Phand" type="Sprite2D" parent="." unique_id=1564190309]
 position = Vector2(9, 0)
 texture = ExtResource("12_4iw40")
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]
 
 [editable path="pos/muzzleflash"]
 [editable path="pos/muzzleflash/light2"]

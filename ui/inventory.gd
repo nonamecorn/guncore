@@ -343,7 +343,7 @@ func _on_link_button_pressed() -> void:
 
 
 
-#func _on_gun_base_2_stats_changed(stats: Variant) -> void:
-	#display_desc(stats, false)
+func _on_gun_base_2_stats_changed(stats: Variant) -> void:
+	display_desc(stats, false)
 #func _on_gun_base_stats_changed(stats: Variant) -> void:
 	#display_desc(stats, true)

@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://c2xdspphbg04m"]
+
+[ext_resource type="Texture2D" uid="uid://dlxfi8ytm1bqx" path="res://img/misc/Medium_casing.png" id="1_47sbs"]
+[ext_resource type="Script" uid="uid://bchkthm3pnk03" path="res://obj/components/brass.gd" id="1_x8cn8"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_x8cn8"]
+radius = 1.0
+height = 6.0
+
+[node name="Brass" type="RigidBody2D" unique_id=1839790171]
+z_index = 5
+y_sort_enabled = true
+collision_layer = 0
+gravity_scale = 0.0
+linear_damp = 10.0
+angular_damp = 5.0
+script = ExtResource("1_x8cn8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1087472487]
+position = Vector2(0.5, 0.5)
+texture = ExtResource("1_47sbs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=868117256]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_x8cn8")
+
+[node name="Timer" type="Timer" parent="." unique_id=690834176]
+wait_time = 10.0
+one_shot = true
+autostart = true
+
+[node name="FallTimer" type="Timer" parent="." unique_id=931950655]
+wait_time = 0.3
+one_shot = true
+autostart = true
+
+[node name="above" type="Timer" parent="." unique_id=957391436]
+wait_time = 0.2
+one_shot = true
+autostart = true
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="timeout" from="FallTimer" to="." method="_on_fall_timer_timeout"]
+[connection signal="timeout" from="above" to="." method="_on_ysort_timeout"]

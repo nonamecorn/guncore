@@ -5,6 +5,7 @@
 [ext_resource type="Texture2D" uid="uid://sn8rs4nmv400" path="res://img/bodys/GG_RunAnim.png" id="3_7joj7"]
 [ext_resource type="PackedScene" uid="uid://du82m8s6amvuo" path="res://obj/components/player_hand_component.tscn" id="3_nq5y6"]
 [ext_resource type="Script" uid="uid://yyvacvy32l6n" path="res://obj/bodies/camera_2d.gd" id="4_6xs1v"]
+[ext_resource type="PackedScene" uid="uid://beeabqpl43msb" path="res://obj/guns/foad.tscn" id="6_kflnb"]
 [ext_resource type="PackedScene" uid="uid://ctrbcy5h47qqw" path="res://obj/components/gun_base.tscn" id="6_m4fya"]
 [ext_resource type="PackedScene" uid="uid://b6plniwdocp07" path="res://obj/components/melee_component.tscn" id="7_1u1sq"]
 [ext_resource type="PackedScene" uid="uid://d0ex485qfg6qx" path="res://ui/inventory.tscn" id="8_wsalq"]
@@ -191,6 +192,7 @@ shape = SubResource("CircleShape2D_0xlh8")
 debug_color = Color(0.448094, 0.413853, 0.530235, 0.42)
 
 [node name="Sprite2D" type="Node2D" parent="." unique_id=1734505677]
+y_sort_enabled = true
 position = Vector2(0, -4)
 
 [node name="IdleAnimation" type="AnimatedSprite2D" parent="Sprite2D" unique_id=1896416210]
@@ -226,8 +228,7 @@ cursor = NodePath("../cursor")
 [node name="Marker2D" parent="player_hand_component" index="0"]
 position = Vector2(9, 0)
 
-[node name="gun_base" parent="player_hand_component/Marker2D" index="0" unique_id=2142253726 instance=ExtResource("6_m4fya")]
-player_handled = true
+[node name="FOAD" parent="player_hand_component/Marker2D" index="0" unique_id=577689113 instance=ExtResource("6_kflnb")]
 
 [node name="gun_base2" parent="player_hand_component/Marker2D" index="1" unique_id=470573214 instance=ExtResource("6_m4fya")]
 visible = false
@@ -352,8 +353,6 @@ player_handled = true
 wait_time = 0.2
 one_shot = true
 
-[connection signal="stats_changed" from="player_hand_component/Marker2D/gun_base" to="CanvasLayer/Inventory" method="_on_gun_base_stats_changed"]
-[connection signal="stats_changed" from="player_hand_component/Marker2D/gun_base2" to="CanvasLayer/Inventory" method="_on_gun_base_2_stats_changed"]
 [connection signal="timeout" from="cursor/Timer" to="cursor" method="_on_timer_timeout"]
 
 [editable path="player_hand_component"]

@@ -1,3 +1,4 @@
 [gd_scene format=3 uid="uid://dwt8kf16nqxu1"]
 
-[node name="facade" type="Sprite2D"]
+[node name="facade" type="Sprite2D" unique_id=521182761]
+centered = false

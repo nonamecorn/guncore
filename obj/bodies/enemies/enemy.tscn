@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://88j42qnvmjuu" path="res://img/bodys/cultist_IdleAnim.png" id="2_j18lw"]
 [ext_resource type="PackedScene" uid="uid://df3di7rm5cgei" path="res://obj/components/enemy_hand_component.tscn" id="2_vctv7"]
 [ext_resource type="Texture2D" uid="uid://cggvmdym607vs" path="res://img/bodys/cultist_walkanim.png" id="3_cjvif"]
-[ext_resource type="PackedScene" uid="uid://ctrbcy5h47qqw" path="res://obj/components/gun_base.tscn" id="4_ohoj0"]
 [ext_resource type="PackedScene" uid="uid://b4ifd4nn31mq8" path="res://obj/components/hurt_box.tscn" id="5_eclwk"]
+[ext_resource type="PackedScene" uid="uid://beeabqpl43msb" path="res://obj/guns/foad.tscn" id="5_sy2ij"]
 [ext_resource type="AudioStream" uid="uid://cq5moh8342387" path="res://snd/sfx/enemydeath.wav" id="6_qqgv7"]
 [ext_resource type="PackedScene" uid="uid://cu2letn31qhnt" path="res://obj/components/gore.tscn" id="8_7kiun"]
 [ext_resource type="PackedScene" uid="uid://cdyxb3haj8bag" path="res://obj/components/enemy_cursor.tscn" id="8_fupwg"]
@@ -80,9 +80,6 @@ animations = [{
 radius = 4.0
 height = 10.0
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_sy2ij"]
-viewport_path = NodePath("SubViewport")
-
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ykghs"]
 radius = 7.0
 height = 26.0
@@ -136,10 +133,7 @@ position = Vector2(0, -14)
 hand_length = 16
 ray = NodePath("../RayCast2D")
 
-[node name="gun_base" parent="enemy_hand_component/Marker2D" index="0" unique_id=688671522 instance=ExtResource("4_ohoj0")]
-
-[node name="Sprite2D" parent="enemy_hand_component/Marker2D/gun_base" index="0" unique_id=1460667944]
-texture = SubResource("ViewportTexture_sy2ij")
+[node name="FOAD" parent="enemy_hand_component/Marker2D" index="0" unique_id=577689113 instance=ExtResource("5_sy2ij")]
 
 [node name="burst_duration" type="Timer" parent="enemy_hand_component" unique_id=1366927086]
 wait_time = 0.5
@@ -211,7 +205,4 @@ weight_to_handle = ExtResource("11_sy2ij")
 [connection signal="timeout" from="less_crucial_checks" to="." method="_on_less_crucial_checks_timeout"]
 
 [editable path="enemy_hand_component"]
-[editable path="enemy_hand_component/Marker2D/gun_base"]
-[editable path="enemy_hand_component/Marker2D/gun_base/pos/muzzleflash"]
-[editable path="enemy_hand_component/Marker2D/gun_base/pos/muzzleflash/light2"]
 [editable path="hurt_box"]

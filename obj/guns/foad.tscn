@@ -1,8 +1,10 @@
 [gd_scene format=3 uid="uid://beeabqpl43msb"]
 
 [ext_resource type="PackedScene" uid="uid://ctrbcy5h47qqw" path="res://obj/components/gun_base.tscn" id="1_kwsex"]
-[ext_resource type="Texture2D" uid="uid://bc8mkue15m111" path="res://img/parts2/mag/FOAD_mag.png" id="2_wsvm0"]
-[ext_resource type="Texture2D" uid="uid://bt83v54xwehd4" path="res://img/parts2/barrel/FOAD_barrel.png" id="3_mp8aq"]
+[ext_resource type="Texture2D" uid="uid://dlxfi8ytm1bqx" path="res://img/misc/Medium_casing.png" id="2_6ey2s"]
+[ext_resource type="Script" uid="uid://pegu5tln4i1u" path="res://obj/parts/scripts/item.gd" id="2_k01fg"]
+[ext_resource type="Resource" uid="uid://clwomb4qelbku" path="res://obj/newparts/barrels/FOAD_barrel.tres" id="3_0fpqu"]
+[ext_resource type="Resource" uid="uid://bdwhjqlgkbp5s" path="res://obj/newparts/mags/FOAD_mag.tres" id="4_4b2ux"]
 [ext_resource type="Texture2D" uid="uid://doxn8pp40a4g" path="res://img/parts2/reciver/FOAD_anim.png" id="4_6ey2s"]
 
 [sub_resource type="Animation" id="Animation_k01fg"]
@@ -70,43 +72,43 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("MAG/FoadMag:visible")
+tracks/5/path = NodePath("Phand:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
+"update": 0,
+"values": [Vector2(5, 1)]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Phand:position")
+tracks/6/path = NodePath("Phand2:position")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(5, 1)]
+"values": [Vector2(-5, 2)]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Phand2:position")
+tracks/7/path = NodePath("Phand2:rotation")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-5, 2)]
+"values": [0.0]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Phand2:rotation")
+tracks/8/path = NodePath("Phand:rotation")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -118,14 +120,14 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("Phand:rotation")
+tracks/9/path = NodePath("MAG:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"update": 1,
+"values": [true]
 }
 
 [sub_resource type="Animation" id="Animation_0fpqu"]
@@ -151,11 +153,14 @@ tracks/1/path = NodePath(".")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
+"times": PackedFloat32Array(0, 0.03),
+"transitions": PackedFloat32Array(1, 1),
 "values": [{
 "args": [],
 "method": &"fire"
+}, {
+"args": [],
+"method": &"eject_brass"
 }]
 }
 tracks/2/type = "value"
@@ -180,7 +185,7 @@ tracks/3/keys = {
 "times": PackedFloat32Array(0, 0.035, 0.055, 0.07),
 "transitions": PackedFloat32Array(1, 2, 2, 2),
 "update": 0,
-"values": [0.0, -0.05235988, 0.017453292519943295, 0.0]
+"values": [0.0, -0.05235988, 0.01745329251994329, 0.0]
 }
 
 [sub_resource type="Animation" id="Animation_wsvm0"]
@@ -250,62 +255,76 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("MAG/FoadMag:visible")
+tracks/5/path = NodePath("Phand:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
-"times": PackedFloat32Array(0, 0.745, 0.92),
-"transitions": PackedFloat32Array(1, 1, 1),
-"update": 1,
-"values": [true, false, true]
-}
-tracks/6/type = "value"
-tracks/6/imported = false
-tracks/6/enabled = true
-tracks/6/path = NodePath("Phand:position")
-tracks/6/interp = 1
-tracks/6/loop_wrap = true
-tracks/6/keys = {
 "times": PackedFloat32Array(0.0025, 0.3, 0.5, 0.6, 0.745, 0.92, 1.065, 1.16, 1.3, 1.4),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(5, 1), Vector2(5, 1), Vector2(0.8408551, 3.4763775), Vector2(0.8408551, 3.4763775), Vector2(1, 11), Vector2(-8, 7), Vector2(2, 7), Vector2(2, 4), Vector2(1, 3), Vector2(5, 1)]
 }
-tracks/7/type = "value"
-tracks/7/imported = false
-tracks/7/enabled = true
-tracks/7/path = NodePath("Phand2:position")
-tracks/7/interp = 1
-tracks/7/loop_wrap = true
-tracks/7/keys = {
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("Phand2:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
 "times": PackedFloat32Array(0.0025, 1.345, 1.43, 1.49, 1.55, 1.6, 1.7, 1.8),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
 "update": 0,
 "values": [Vector2(-5, 2), Vector2(-5, 2), Vector2(1, -3), Vector2(0, -3), Vector2(-1, -3), Vector2(-3, -3), Vector2(-3, -3), Vector2(-5, 2)]
 }
-tracks/8/type = "value"
-tracks/8/imported = false
-tracks/8/enabled = true
-tracks/8/path = NodePath("Phand2:rotation")
-tracks/8/interp = 1
-tracks/8/loop_wrap = true
-tracks/8/keys = {
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("Phand2:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.0]
 }
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("Phand:rotation")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("Phand:rotation")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
 "times": PackedFloat32Array(0, 0.5, 0.6, 0.745, 1.3974999),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1),
 "update": 0,
 "values": [0.0, 0.0, -0.17453292519943295, 0.0, 0.0]
+}
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = true
+tracks/9/path = NodePath("MAG:visible")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0, 0.745, 0.92),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [true, false, true]
+}
+tracks/10/type = "method"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath(".")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0.74),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"eject_mag"
+}]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_4b2ux"]
@@ -315,45 +334,45 @@ _data = {
 &"reload": SubResource("Animation_wsvm0")
 }
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_wsvm0"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_mp8aq"]
 viewport_path = NodePath("SubViewport")
 
 [node name="FOAD" unique_id=577689113 instance=ExtResource("1_kwsex")]
+brass_texture = ExtResource("2_6ey2s")
+default_modules = Dictionary[String, ExtResource("2_k01fg")]({
+"ATTACH": null,
+"BARREL": ExtResource("3_0fpqu"),
+"MAG": ExtResource("4_4b2ux"),
+"MUZZLE": null
+})
 
 [node name="AnimationPlayer" parent="." index="0" unique_id=233868523]
 libraries/ = SubResource("AnimationLibrary_4b2ux")
 
 [node name="Render" parent="." index="1" unique_id=1460667944]
-texture = SubResource("ViewportTexture_wsvm0")
+texture = SubResource("ViewportTexture_mp8aq")
 
 [node name="MAG" parent="." index="2" unique_id=1762944442]
 position = Vector2(-3, 0)
 
-[node name="FoadMag" type="Sprite2D" parent="MAG" index="0" unique_id=348224648]
-visible = false
-position = Vector2(0, -1)
-texture = ExtResource("2_wsvm0")
-centered = false
-
 [node name="BARREL" parent="." index="3" unique_id=1481952309]
-position = Vector2(4, -5)
-
-[node name="FoadBarrel" type="Sprite2D" parent="BARREL" index="0" unique_id=1942600761]
-position = Vector2(-3, 0)
-texture = ExtResource("3_mp8aq")
-centered = false
+position = Vector2(1, -5)
 
 [node name="Reciever" parent="." index="4" unique_id=694329754]
+position = Vector2(-5, 0)
 texture = ExtResource("4_6ey2s")
 hframes = 5
 
-[node name="CollisionShape2D" parent="." index="8" unique_id=1651363459]
+[node name="ejector" parent="." index="8" unique_id=1134795720]
+position = Vector2(-3, -2)
+
+[node name="CollisionShape2D" parent="." index="9" unique_id=1651363459]
 visible = false
 
-[node name="Phand2" parent="." index="13" unique_id=956056910]
+[node name="Phand2" parent="." index="14" unique_id=956056910]
 position = Vector2(-5, 2)
 
-[node name="Phand" parent="." index="14" unique_id=1564190309]
+[node name="Phand" parent="." index="15" unique_id=1564190309]
 position = Vector2(5, 1)
 
 [editable path="pos/muzzleflash"]

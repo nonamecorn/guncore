@@ -1,13 +1,13 @@
-[gd_scene load_steps=30 format=3 uid="uid://byya3w7ktpqp8"]
+[gd_scene format=3 uid="uid://byya3w7ktpqp8"]
 
 [ext_resource type="Script" uid="uid://1g0l4n52os3y" path="res://obj/bodies/enemies/corp_grunt.gd" id="1_7g7ug"]
 [ext_resource type="Texture2D" uid="uid://bnrs5ymoqkml4" path="res://img/bodys/Corp.png" id="2_21em0"]
 [ext_resource type="Texture2D" uid="uid://dd7cjk2v8x0op" path="res://img/bodys/Corp_anim.png" id="3_06vpp"]
 [ext_resource type="PackedScene" uid="uid://df3di7rm5cgei" path="res://obj/components/enemy_hand_component.tscn" id="3_lkscu"]
-[ext_resource type="PackedScene" uid="uid://ctrbcy5h47qqw" path="res://obj/components/gun_base.tscn" id="4_cyios"]
 [ext_resource type="Texture2D" uid="uid://bms4asqw38vst" path="res://img/Eyes_light.png" id="5_7jw1n"]
 [ext_resource type="PackedScene" uid="uid://b4ifd4nn31mq8" path="res://obj/components/hurt_box.tscn" id="5_sh640"]
 [ext_resource type="AudioStream" uid="uid://cq5moh8342387" path="res://snd/sfx/enemydeath.wav" id="6_82n5t"]
+[ext_resource type="PackedScene" uid="uid://beeabqpl43msb" path="res://obj/guns/foad.tscn" id="7_7jw1n"]
 [ext_resource type="PackedScene" uid="uid://bde3ba2p8ca28" path="res://lvls/misc/corp_light.tscn" id="7_gskjq"]
 [ext_resource type="PackedScene" uid="uid://cu2letn31qhnt" path="res://obj/components/gore.tscn" id="9_da5pd"]
 [ext_resource type="PackedScene" uid="uid://cdyxb3haj8bag" path="res://obj/components/enemy_cursor.tscn" id="9_pth8w"]
@@ -111,23 +111,23 @@ _limits = [0.0, 100.0, 0.0, 1.0]
 _data = [Vector2(0.02, 0), 100.0, 0.0, 0, 0, Vector2(0.02, 100), 0.0, 0.0, 0, 0]
 point_count = 2
 
-[node name="enemy" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent") groups=["body", "corp", "targetable"]]
+[node name="enemy" type="CharacterBody2D" unique_id=1640458138 node_paths=PackedStringArray("nav_agent") groups=["body", "corp", "targetable"]]
 collision_layer = 36
 script = ExtResource("1_7g7ug")
 health = 100
 group = "corp"
 nav_agent = NodePath("NavigationAgent2D")
 
-[node name="Sprite2D" type="Node2D" parent="."]
+[node name="Sprite2D" type="Node2D" parent="." unique_id=1838553806]
 position = Vector2(0, -5)
 
-[node name="idle" type="AnimatedSprite2D" parent="Sprite2D"]
+[node name="idle" type="AnimatedSprite2D" parent="Sprite2D" unique_id=1048675775]
 material = SubResource("CanvasItemMaterial_kudys")
 position = Vector2(0, -10)
 sprite_frames = SubResource("SpriteFrames_v8b5x")
 animation = &"new_animation"
 
-[node name="walk" type="AnimatedSprite2D" parent="Sprite2D"]
+[node name="walk" type="AnimatedSprite2D" parent="Sprite2D" unique_id=612382756]
 visible = false
 material = SubResource("CanvasItemMaterial_kudys")
 position = Vector2(0, -10)
@@ -135,17 +135,17 @@ sprite_frames = SubResource("SpriteFrames_aqq6o")
 autoplay = "default"
 frame_progress = 0.10251
 
-[node name="corp_light" parent="Sprite2D" instance=ExtResource("7_gskjq")]
+[node name="corp_light" parent="Sprite2D" unique_id=1607879275 instance=ExtResource("7_gskjq")]
 position = Vector2(4, -17)
 
 [node name="PointLight2D" parent="Sprite2D/corp_light" index="0"]
 texture = ExtResource("5_7jw1n")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=833183100]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_egrxt")
 
-[node name="enemy_hand_component" parent="." node_paths=PackedStringArray("ray") instance=ExtResource("3_lkscu")]
+[node name="enemy_hand_component" parent="." unique_id=703375037 node_paths=PackedStringArray("ray") instance=ExtResource("3_lkscu")]
 position = Vector2(0, -14)
 hand_length = 16
 ray = NodePath("../RayCast2D")
@@ -153,50 +153,50 @@ ray = NodePath("../RayCast2D")
 [node name="attack" parent="enemy_hand_component" index="0"]
 wait_time = 0.5
 
-[node name="gun_base" parent="enemy_hand_component/Marker2D" index="0" instance=ExtResource("4_cyios")]
+[node name="FOAD" parent="enemy_hand_component/Marker2D" index="0" unique_id=577689113 instance=ExtResource("7_7jw1n")]
 
 [node name="CollisionShape2D" parent="enemy_hand_component/Cqb_awareness" index="0"]
 debug_color = Color(0.46164, 0.451452, 0.986457, 0)
 
-[node name="burst_duration" type="Timer" parent="enemy_hand_component"]
+[node name="burst_duration" type="Timer" parent="enemy_hand_component" unique_id=1323029059]
 wait_time = 0.5
 one_shot = true
 
-[node name="change_position" type="Timer" parent="."]
+[node name="change_position" type="Timer" parent="." unique_id=114923368]
 autostart = true
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=941843444]
 target_desired_distance = 15.0
 
-[node name="hurt_box" parent="." instance=ExtResource("5_sh640")]
+[node name="hurt_box" parent="." unique_id=279804602 instance=ExtResource("5_sh640")]
 position = Vector2(0, -14)
 
 [node name="CollisionShape2D" parent="hurt_box" index="0"]
 shape = SubResource("CapsuleShape2D_ykghs")
 
-[node name="death" type="AudioStreamPlayer2D" parent="."]
+[node name="death" type="AudioStreamPlayer2D" parent="." unique_id=76712452]
 stream = ExtResource("6_82n5t")
 bus = &"Sfx"
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=989269030]
 position = Vector2(0, -14)
 target_position = Vector2(632, 0)
 collision_mask = 32
 
-[node name="less_crucial_checks" type="Timer" parent="."]
+[node name="less_crucial_checks" type="Timer" parent="." unique_id=558858039]
 wait_time = 0.062
 autostart = true
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=189192431]
 visible = false
 offset_left = -19.0
 offset_top = -46.0
 offset_right = 21.0
 offset_bottom = -30.0
 
-[node name="Gore" parent="." instance=ExtResource("9_da5pd")]
+[node name="Gore" parent="." unique_id=1341250428 instance=ExtResource("9_da5pd")]
 
-[node name="Corp_head" type="CPUParticles2D" parent="."]
+[node name="Corp_head" type="CPUParticles2D" parent="." unique_id=1487070779]
 material = SubResource("CanvasItemMaterial_7jw1n")
 position = Vector2(0, -20)
 emitting = false
@@ -219,7 +219,7 @@ scale_amount_curve = SubResource("Curve_6ti6u")
 anim_offset_min = 0.5
 anim_offset_max = 1.0
 
-[node name="Corp_helmet" type="CPUParticles2D" parent="."]
+[node name="Corp_helmet" type="CPUParticles2D" parent="." unique_id=1527927767]
 material = SubResource("CanvasItemMaterial_7jw1n")
 position = Vector2(0, -22)
 emitting = false
@@ -240,7 +240,7 @@ angle_max = 45.0
 scale_amount_curve = SubResource("Curve_6ti6u")
 anim_offset_max = 0.5
 
-[node name="enemy_cursor" parent="." instance=ExtResource("9_pth8w")]
+[node name="enemy_cursor" parent="." unique_id=613528324 instance=ExtResource("9_pth8w")]
 weight_to_handle = ExtResource("12_k4mrh")
 
 [connection signal="timeout" from="enemy_hand_component/burst_duration" to="enemy_hand_component" method="_on_burst_duration_timeout"]
