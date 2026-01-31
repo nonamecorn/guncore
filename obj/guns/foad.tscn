@@ -2,13 +2,13 @@
 
 [ext_resource type="PackedScene" uid="uid://ctrbcy5h47qqw" path="res://obj/components/gun_base.tscn" id="1_kwsex"]
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_yxyd6"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_kwsex"]
 viewport_path = NodePath("SubViewport")
 
 [node name="FOAD" unique_id=577689113 instance=ExtResource("1_kwsex")]
 
-[node name="Render" parent="." index="0" unique_id=1460667944]
-texture = SubResource("ViewportTexture_yxyd6")
+[node name="Render" parent="." index="1" unique_id=1460667944]
+texture = SubResource("ViewportTexture_kwsex")
 
 [editable path="pos/muzzleflash"]
 [editable path="pos/muzzleflash/light2"]
