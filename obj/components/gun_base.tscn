@@ -11,6 +11,7 @@
 [ext_resource type="Resource" uid="uid://knr31207p64p" path="res://obj/parts/barrels/AK_barrel.tres" id="4_2625t"]
 [ext_resource type="AudioStream" uid="uid://byixmvn1xg5ex" path="res://snd/sfx/something_broke.ogg" id="6_s5lr7"]
 [ext_resource type="AudioStream" uid="uid://ctq8c6n2tfnr3" path="res://snd/sfx/not_allowed_sfx.mp3" id="7_lxys1"]
+[ext_resource type="Texture2D" uid="uid://blcids4cqqvay" path="res://img/bodys/phand.png" id="12_4iw40"]
 
 [sub_resource type="Curve" id="Curve_lxys1"]
 _limits = [0.0, 1.0, 0.0, 20.0]
@@ -113,6 +114,14 @@ monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="noise_alert" unique_id=1250987726]
 debug_color = Color(0.713726, 0.486275, 0, 0)
+
+[node name="Phand2" type="Sprite2D" parent="." unique_id=956056910]
+position = Vector2(-5, 3)
+texture = ExtResource("12_4iw40")
+
+[node name="Phand" type="Sprite2D" parent="." unique_id=1564190309]
+position = Vector2(9, 0)
+texture = ExtResource("12_4iw40")
 
 [editable path="pos/muzzleflash"]
 [editable path="pos/muzzleflash/light2"]
