@@ -1,10 +1,14 @@
-[gd_scene load_steps=12 format=3 uid="uid://ctrbcy5h47qqw"]
+[gd_scene format=3 uid="uid://ctrbcy5h47qqw"]
 
 [ext_resource type="Script" uid="uid://c3l4ht5xb7jv3" path="res://obj/components/gun_component.gd" id="1_it1k3"]
 [ext_resource type="AudioStream" uid="uid://bxglm1lbr2kpf" path="res://snd/sfx/reloadend.wav" id="2_aqcxo"]
+[ext_resource type="Texture2D" uid="uid://lq7apfdt1n32" path="res://img/parts/AK.png" id="2_dxiyw"]
+[ext_resource type="Script" uid="uid://pegu5tln4i1u" path="res://obj/parts/scripts/item.gd" id="2_h8yh0"]
 [ext_resource type="PackedScene" uid="uid://dk15yn20pad8s" path="res://obj/components/muzzleflash.tscn" id="2_primx"]
 [ext_resource type="AudioStream" uid="uid://grfe1fyigyx8" path="res://snd/sfx/reloadstart.wav" id="3_6g14y"]
 [ext_resource type="AudioStream" uid="uid://blt37tqho0arn" path="res://snd/sfx/silencedsmg_fire.wav" id="3_fv6p6"]
+[ext_resource type="Resource" uid="uid://bnbmkb8n34y75" path="res://obj/parts/mags/akmag.tres" id="3_l7m5r"]
+[ext_resource type="Resource" uid="uid://knr31207p64p" path="res://obj/parts/barrels/AK_barrel.tres" id="4_2625t"]
 [ext_resource type="AudioStream" uid="uid://byixmvn1xg5ex" path="res://snd/sfx/something_broke.ogg" id="6_s5lr7"]
 [ext_resource type="AudioStream" uid="uid://ctq8c6n2tfnr3" path="res://snd/sfx/not_allowed_sfx.mp3" id="7_lxys1"]
 
@@ -13,37 +17,21 @@ _limits = [0.0, 1.0, 0.0, 20.0]
 _data = [Vector2(0, 0.47191), 0.0, 0.049955, 0, 0, Vector2(20, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lxys1"]
+light_mode = 2
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_lxys1"]
+viewport_path = NodePath("SubViewport")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lxys1"]
+
 [sub_resource type="Animation" id="Animation_ekmwy"]
 length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("pos/muzzleflash:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [false]
-}
 
 [sub_resource type="Animation" id="Animation_jafnf"]
 resource_name = "fire"
 length = 0.05
 step = 0.01
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("pos/muzzleflash:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.04),
-"transitions": PackedFloat32Array(1, 1),
-"update": 1,
-"values": [true, false]
-}
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_8hgl5"]
 _data = {
@@ -51,79 +39,95 @@ _data = {
 &"fire": SubResource("Animation_jafnf")
 }
 
-[node name="gun_base" type="Node2D"]
+[node name="gun_base" type="Area2D" unique_id=577689113 node_paths=PackedStringArray("mag", "barrel", "muzzle", "attach")]
 script = ExtResource("1_it1k3")
 pitch_shifing = SubResource("Curve_lxys1")
+mag = NodePath("SubViewport/MAG")
+barrel = NodePath("SubViewport/BARREL")
+muzzle = NodePath("SubViewport/MUZZLE")
+attach = NodePath("SubViewport/ATTACH")
+default_modules = Dictionary[String, ExtResource("2_h8yh0")]({
+"ATTACH": null,
+"BARREL": ExtResource("4_2625t"),
+"MAG": ExtResource("3_l7m5r"),
+"MUZZLE": null
+})
 
-[node name="MAG" type="Marker2D" parent="."]
-position = Vector2(4, 2)
+[node name="Render" type="Sprite2D" parent="." unique_id=1460667944]
+material = SubResource("CanvasItemMaterial_lxys1")
+texture = SubResource("ViewportTexture_lxys1")
 
-[node name="RECIEVER" type="Marker2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1651363459]
+shape = SubResource("RectangleShape2D_lxys1")
 
-[node name="BARREL" type="Marker2D" parent="."]
+[node name="SubViewport" type="SubViewport" parent="." unique_id=1029796940]
+disable_3d = true
+transparent_bg = true
+canvas_item_default_texture_filter = 0
+size = Vector2i(256, 256)
 
-[node name="MUZZLE" type="Marker2D" parent="."]
+[node name="Reciever" type="Sprite2D" parent="SubViewport" unique_id=694329754]
+position = Vector2(-5, 0)
+texture = ExtResource("2_dxiyw")
 
-[node name="ATTACH" type="Marker2D" parent="."]
+[node name="MAG" type="Marker2D" parent="SubViewport" unique_id=1762944442]
+position = Vector2(-2, 1)
 
-[node name="pos" type="Marker2D" parent="."]
+[node name="BARREL" type="Marker2D" parent="SubViewport" unique_id=1481952309]
+position = Vector2(3, 0)
 
-[node name="muzzleflash" parent="pos" instance=ExtResource("2_primx")]
+[node name="MUZZLE" type="Marker2D" parent="SubViewport" unique_id=1380711274]
+position = Vector2(3, 0)
+
+[node name="ATTACH" type="Marker2D" parent="SubViewport" unique_id=1429512227]
+position = Vector2(-4, -4)
+
+[node name="ATTACH2" type="Marker2D" parent="SubViewport" unique_id=1575347318]
+position = Vector2(-3, -4)
+
+[node name="Camera2D" type="Camera2D" parent="SubViewport" unique_id=1787214868]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=921547545]
+libraries/ = SubResource("AnimationLibrary_8hgl5")
+
+[node name="pos" type="Marker2D" parent="." unique_id=1562127439]
+
+[node name="muzzleflash" parent="pos" unique_id=283036096 instance=ExtResource("2_primx")]
 visible = false
 
-[node name="firerate" type="Timer" parent="."]
-wait_time = 0.05
+[node name="audio" type="Node2D" parent="." unique_id=238975974]
 
-[node name="reload" type="Timer" parent="."]
-wait_time = 0.1
-one_shot = true
-
-[node name="single_shot" type="Timer" parent="."]
-wait_time = 0.1
-one_shot = true
-
-[node name="audio" type="Node2D" parent="."]
-
-[node name="silenced_shooting" type="AudioStreamPlayer2D" parent="audio"]
+[node name="silenced_shooting" type="AudioStreamPlayer2D" parent="audio" unique_id=1098232768]
 stream = ExtResource("3_fv6p6")
 bus = &"Sfx"
 
-[node name="shoting" type="AudioStreamPlayer2D" parent="audio"]
+[node name="shoting" type="AudioStreamPlayer2D" parent="audio" unique_id=1511102791]
 bus = &"Sfx"
 
-[node name="reload_end_cue" type="AudioStreamPlayer2D" parent="audio"]
+[node name="reload_end_cue" type="AudioStreamPlayer2D" parent="audio" unique_id=2029523074]
 stream = ExtResource("2_aqcxo")
 bus = &"Sfx"
 
-[node name="reload_start_cue" type="AudioStreamPlayer2D" parent="audio"]
+[node name="reload_start_cue" type="AudioStreamPlayer2D" parent="audio" unique_id=607505535]
 stream = ExtResource("3_6g14y")
 bus = &"Sfx"
 
-[node name="something_broke" type="AudioStreamPlayer2D" parent="audio"]
+[node name="something_broke" type="AudioStreamPlayer2D" parent="audio" unique_id=725820895]
 stream = ExtResource("6_s5lr7")
 bus = &"Sfx"
 
-[node name="out_of_ammo" type="AudioStreamPlayer2D" parent="audio"]
+[node name="out_of_ammo" type="AudioStreamPlayer2D" parent="audio" unique_id=1864425256]
 stream = ExtResource("7_lxys1")
 volume_db = 24.0
 bus = &"Sfx"
 
-[node name="noise_alert" type="Area2D" parent="."]
+[node name="noise_alert" type="Area2D" parent="." unique_id=1281025392]
 collision_layer = 0
 collision_mask = 4
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="noise_alert"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="noise_alert" unique_id=1250987726]
 debug_color = Color(0.713726, 0.486275, 0, 0)
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_8hgl5")
-}
-
-[connection signal="timeout" from="firerate" to="." method="fire"]
-[connection signal="timeout" from="reload" to="." method="_on_reload_timeout"]
-[connection signal="timeout" from="single_shot" to="." method="_on_single_shot_timeout"]
 
 [editable path="pos/muzzleflash"]
 [editable path="pos/muzzleflash/light2"]

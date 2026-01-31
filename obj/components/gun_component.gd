@@ -1,5 +1,8 @@
 extends Node2D
 
+class_name Gun
+var modules : Array
+
 var facade = preload("res://obj/components/facade.tscn")
 var p_facade = preload("res://obj/components/p_facade.tscn")
 var gun_resources
@@ -11,9 +14,13 @@ var ammo
 var spread = 0
 var added_velocity : Vector2
 var state = STOP
-var gpuparticles
 var assambled = false
 @export var pitch_shifing : Curve
+
+@export var mag : Marker2D
+@export var barrel : Marker2D
+@export var muzzle : Marker2D
+@export var attach : Marker2D
 
 var player_crosshair
 
@@ -25,22 +32,36 @@ signal empty
 signal ammo_changed(current,max,ind)
 signal stats_changed(stats)
 
-var stats = {
-	"bullet_obj": null,
-	"firerate": null,
-	"max_ammo": null,
-	"max_spread": null,
-	"min_spread": null,
-	"range": null,
-	"num_of_bullets": null,
-	"ver_recoil": null,
-	"hor_recoil": null,
-	"add_spd": null,
-	"reload_time": null,
-	"alert_distance": null,
-	"wear": null,
-	"weight": null,
+
+#@export var mag_position : Vector2
+#@export var barrel_position : Vector2
+#@export var attach_position : Vector2 = Vector2.ZERO
+#@export var underbarrel_position : Vector2 = Vector2.ZERO
+@export var ver_recoil: float
+@export var hor_recoil: float
+@export var damage: float #needs implementing
+
+@export var default_modules : Dictionary[String,Item] = {
+	"MAG": null,
+	"BARREL": null,
+	"MUZZLE": null,
+	"ATTACH": null,
 }
+
+@export var max_spread: float = 1.0
+@export var min_spread: float = 0.0
+@export var max_ammo: int = 1
+@export var num_of_bullets: int = 1
+@export var bullet_obj: PackedScene
+@export var brass_texture: Texture
+@export var lifetime: float = 1.0
+@export var noise_radius: float = 500.0
+@export var anim_firerate: float = 1.0
+@export var anim_reload: float = 1.0
+@export var add_spd : float
+@export var wear : float
+@export var weight : float
+
 var falloff : Curve
 var firing_strategies = []
 var bullet_strategies = []
@@ -50,76 +71,72 @@ var silenced = false
 func _ready() -> void:
 	  
 	if player_handled:
+		$Render.material = null
 		player_crosshair = get_tree().get_nodes_in_group("crosshair")[0]
 	rng.randomize()
+	asseble_gun(default_modules)
 
 func get_point_of_fire() -> Vector2:
 	return $pos.global_position
 
 func spawn_facade(part,offset):
 	var facade_inst
-	if player_handled:
-		facade_inst = p_facade.instantiate()
-	else:
-		facade_inst = facade.instantiate()
+	facade_inst = p_facade.instantiate()
+	#if player_handled:
+		#facade_inst = p_facade.instantiate()
+	#else:
+		#facade_inst = facade.instantiate()
 	facade_inst.texture = part.sprite
 	var slot = find_child(part.slot)
 	slot.add_child(facade_inst)
 	slot.position = offset
+	print("huh")
 
-func dispawn_facade(part_name):
-	var slot = find_child(part_name)
+func dispawn_facade(part_name : String):
+	var slot = get(part_name.to_lower())
 	if slot.get_child_count() == 0: return
 	for child in slot.get_children():
 		child.queue_free()
 	slot.position = Vector2.ZERO
 
-func asseble_gun(parts : Dictionary,loaded : bool):
+func asseble_gun(parts : Dictionary,loaded : bool = true):
 	dissassemble_gun()
 	assambled = true
 	state = STOP
 	gun_resources = parts
-	spawn_facade(parts.RECIEVER, Vector2.ZERO)
-	spawn_facade(parts.BARREL, parts.RECIEVER.barrel_position+parts.BARREL.sprite_offset)
-	spawn_facade(parts.MAG, parts.RECIEVER.mag_position+parts.MAG.sprite_offset)
+	spawn_facade(parts.BARREL, barrel.position+parts.BARREL.sprite_offset)
+	spawn_facade(parts.MAG, mag.position+parts.MAG.sprite_offset)
 	if parts.has("ATTACH") and parts.ATTACH:
 		if parts.ATTACH.needs_facade:
-			spawn_facade(parts.ATTACH, parts.RECIEVER.attach_position+parts.ATTACH.sprite_offset)
+			spawn_facade(parts.ATTACH, attach.position+parts.ATTACH.sprite_offset)
 		else:
 			var attach_inst
 			attach_inst = parts.ATTACH.attach_node.instaniate()
-			$ATTACH.add_child(attach_inst)
-			if parts.ATTACH.is_underbarrel:
-				$ATTACH.position = parts.RECIEVER.underbarrel_position+parts.ATTACH.sprite_offset
-			else:
-				$ATTACH.position = parts.RECIEVER.attach_position+parts.ATTACH.sprite_offset
-	
-	stats.firerate = parts.RECIEVER.base_firerate
-	stats.max_spread = parts.BARREL.max_spread
-	stats.min_spread = parts.BARREL.min_spread
-	stats.spread = stats.min_spread
-	stats.range = parts.BARREL.range_in_secs
-	stats.max_ammo = parts.MAG.capacity
-	stats.bullet_obj = parts.MAG.projectile
-	stats.num_of_bullets = 1
-	stats.ver_recoil = parts.RECIEVER.ver_recoil
-	stats.hor_recoil = parts.RECIEVER.hor_recoil
-	stats.add_spd = parts.BARREL.add_spd
-	stats.reload_time = parts.MAG.reload_time
-	stats.alert_distance = parts.MAG.loud_dist
-	stats.wear = parts.MAG.wear
+			attach.add_child(attach_inst)
+
+	max_spread = parts.BARREL.max_spread
+	min_spread = parts.BARREL.min_spread
+	spread = min_spread
+	lifetime = parts.BARREL.range_in_secs
+	max_ammo = parts.MAG.capacity
+	bullet_obj = parts.MAG.projectile
+	num_of_bullets = 1
+	add_spd = parts.BARREL.add_spd
+	anim_reload = parts.MAG.reload_time
+	noise_radius = parts.MAG.loud_dist
+	wear = parts.MAG.wear
 	falloff = parts.MAG.falloff
 	ammo = 0
 	for part_name in parts:
 		if parts[part_name] == null: continue	
-		stats.weight += parts[part_name].weight
-	get_parent().get_parent().set_handling_spd(stats.weight, get_index())
+		weight += parts[part_name].weight
+	get_parent().get_parent().set_handling_spd(weight, get_index())
 	
 	$audio/shoting.stream = parts.MAG.sound
-	$MUZZLE.position = parts.BARREL.muzzle_position + parts.RECIEVER.barrel_position
-	$pos.position = $MUZZLE.position + Vector2.RIGHT * 5  + Vector2(0, -0.5)
+	muzzle.position = parts.BARREL.muzzle_position + barrel.position
+	$pos.position = muzzle.position + Vector2.RIGHT * 5  + Vector2(0, -0.5)
 	if parts.MUZZLE != null:
-		spawn_facade(parts.MUZZLE, $MUZZLE.position + parts.MUZZLE.sprite_offset)
+		spawn_facade(parts.MUZZLE, muzzle.position + parts.MUZZLE.sprite_offset)
 		$pos.position += parts.MUZZLE.bullet_vector
 	
 	for part_name in parts:
@@ -135,51 +152,41 @@ func asseble_gun(parts : Dictionary,loaded : bool):
 		for stratagy in parts[part_name].shootin_strategies:
 			firing_strategies.append(stratagy)
 	
-	if stats.firerate != 0:
-		$firerate.wait_time = stats.firerate
-	$reload.wait_time = stats.reload_time
 	var alert_shape = CircleShape2D.new()
-	alert_shape.radius = stats.alert_distance
+	alert_shape.radius = noise_radius
 	$noise_alert/CollisionShape2D.shape = alert_shape
-	if stats.alert_distance <= 200:
+	if noise_radius <= 200:
 		silenced = true
 		$pos/muzzleflash/light2.hide()
 	else:
 		silenced = false
 		$pos/muzzleflash/light2.show()
-	gpuparticles = get_parent().get_parent().particles
-	gpuparticles.global_position = $MAG.global_position + Vector2(0,-3)
-	if stats.firerate == 0:
-		gpuparticles.one_shot = true
-		gpuparticles.amount = 18
-	else:
-		gpuparticles.one_shot = false
-		gpuparticles.amount = int(1.8 / stats.firerate)
+
 	if loaded:
 		_on_reload_timeout()
 	else:
 		reload()
 	reset_spread()
+	#$Sprite2D.texture = $SubViewport.get_texture()
 	ammo_changed.emit(0,1,get_index())
-	stats_changed.emit(stats)
+	#stats_changed.emit(stats)
 
 
 func change_stat(name_of_stat : String, value_of_stat, mult: bool):
 	#var temp = get(name_of_stat)
+	if !get(name_of_stat): return
 	if mult:
-		stats[name_of_stat] *= value_of_stat
+		set(name_of_stat, get(name_of_stat) * value_of_stat)
 		#set(name_of_stat, temp*value_of_stat)
 		return
 	#set(name_of_stat, temp+value_of_stat)
-	stats[name_of_stat] += value_of_stat
+	set(name_of_stat,get(name_of_stat) + value_of_stat)
 
 
 func dissassemble_gun():
 	assambled = false
 	stop_fire()
-	$reload.stop()
-	$MAG.show()
-	dispawn_facade("RECIEVER")
+	mag.show()
 	dispawn_facade("BARREL")
 	dispawn_facade("MAG")
 	dispawn_facade("MUZZLE")
@@ -188,11 +195,11 @@ func dissassemble_gun():
 	firing_strategies = []
 	bullet_strategies = []
 	state = STOP
-	stats.weight = 0
+	weight = 0
 	display_ammo()
 
 func reset_spread():
-	spread = stats.min_spread
+	spread = min_spread
 	if spread_tween: spread_tween.kill()
 
 func start_fire():
@@ -203,46 +210,38 @@ func start_fire():
 	fire()
 	if spread_tween: spread_tween.kill()
 	spread_tween = create_tween()
-	spread_tween.tween_property(self, "spread", stats.max_spread, stats.firerate*stats.max_ammo)
-	if stats.firerate == 0:
-		gpuparticles.emitting = true
-		$single_shot.start()
-		return
-	gpuparticles.emitting = true
-	$firerate.start()
+	spread_tween.tween_property(self, "spread", max_spread, anim_firerate*max_ammo)
 
 func stop_fire():
 	if state: return
 	if spread_tween: spread_tween.kill()
 	spread_tween = create_tween()
-	spread_tween.tween_property(self, "spread", stats.min_spread, stats.firerate*stats.max_ammo)
-	gpuparticles.emitting = false
-	$firerate.stop()
+	spread_tween.tween_property(self, "spread", min_spread, anim_firerate*max_ammo)
+
 
 func _on_reload_timeout():
 	stop_fire()
-	ammo = stats.max_ammo
+	ammo = max_ammo
 	if player_handled: $audio/reload_end_cue.play()
-	$MAG.show()
+	mag.show()
 	state = FIRE
 	display_ammo()
 
 func reload():
-	if !assambled or !$MAG.visible or ammo == stats.max_ammo: return
+	if !assambled or !mag.visible or ammo == max_ammo: return
 	stop_fire()
 	state = STOP
 	if player_handled:
 		ammo = 0
 		display_ammo()
 		$audio/reload_start_cue.play()
-	$reload.start()
-	$MAG.hide()
-	spread = stats.min_spread
+	mag.hide()
+	spread = min_spread
 
 func wear_down():
 	for part in gun_resources:
 		if !gun_resources[part]: continue
-		gun_resources[part].curr_durability -= stats.wear
+		gun_resources[part].curr_durability -= wear
 
 func weapon_functional():
 	for part in gun_resources:
@@ -253,7 +252,7 @@ func weapon_functional():
 	return true
 
 func display_ammo():
-	ammo_changed.emit(ammo,stats.max_ammo,get_index())
+	ammo_changed.emit(ammo,max_ammo,get_index())
 
 func get_pitch() -> float:
 	if ammo <= 20:
@@ -265,9 +264,9 @@ func get_pitch() -> float:
 
 func fire():
 	if state: return
-	for i in stats.num_of_bullets:
+	for i in num_of_bullets:
 		if ammo <= 0:
-			gpuparticles.emitting = false
+
 			empty.emit()
 			return
 		ammo -= 1
@@ -285,20 +284,20 @@ func fire():
 				if body.has_method("alert"):
 					body.alert(global_position)
 		
-		var bullet_inst = stats.bullet_obj.instantiate()
+		var bullet_inst = bullet_obj.instantiate()
 		bullet_inst.global_position = get_point_of_fire()
 		bullet_inst.global_rotation_degrees = global_rotation_degrees + rng.randf_range(-spread, spread)
 		added_velocity = get_parent().get_parent().get_parent().velocity/2
 		bullet_inst.falloff = falloff
-		bullet_inst.max_range = stats.range
+		bullet_inst.max_range = lifetime
 		for strategy in bullet_strategies:
 			bullet_inst.strategies.append(strategy)
 		for strategy in firing_strategies:
 			strategy.apply_strategy(bullet_inst, self)
 		get_tree().current_scene.call_deferred("add_child",bullet_inst)
-		bullet_inst.init(added_velocity, stats.range, stats.add_spd)
+		bullet_inst.init(added_velocity, lifetime, add_spd)
 		
-		var recoil_vector = Vector2(-stats.ver_recoil,randf_range(-stats.hor_recoil, stats.hor_recoil))
+		var recoil_vector = Vector2(-ver_recoil,randf_range(-hor_recoil, hor_recoil))
 		get_parent().get_parent().apply_recoil(recoil_vector)
 		#if player_handled:
 			#player_crosshair.global_position += recoil_vector
@@ -311,7 +310,3 @@ func fire():
 		$audio/something_broke.play()
 		display_ammo()
 		stop_fire()
-
-
-func _on_single_shot_timeout() -> void:
-	gpuparticles.emitting = false

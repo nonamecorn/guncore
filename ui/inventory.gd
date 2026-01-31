@@ -314,6 +314,9 @@ func pickup_item(item_res : Item):
 	$audio/grab.play()
 	return true
 
+func pickup_gun(gun : Gun):
+	pass
+
 func pickup_collector(item_res : Item):
 	var item = item_base.instantiate()
 	item.item_resource = item_res
@@ -340,7 +343,7 @@ func _on_link_button_pressed() -> void:
 
 
 
-func _on_gun_base_2_stats_changed(stats: Variant) -> void:
-	display_desc(stats, false)
-func _on_gun_base_stats_changed(stats: Variant) -> void:
-	display_desc(stats, true)
+#func _on_gun_base_2_stats_changed(stats: Variant) -> void:
+	#display_desc(stats, false)
+#func _on_gun_base_stats_changed(stats: Variant) -> void:
+	#display_desc(stats, true)

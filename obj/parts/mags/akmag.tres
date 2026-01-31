@@ -1,7 +1,7 @@
-[gd_resource type="Resource" script_class="Mag" load_steps=11 format=3 uid="uid://bnbmkb8n34y75"]
+[gd_resource type="Resource" script_class="Mag" format=3 uid="uid://bnbmkb8n34y75"]
 
 [ext_resource type="Script" uid="uid://cmpw4tk5uc8e" path="res://obj/parts/scripts/mag.gd" id="1_4qlor"]
-[ext_resource type="Script" uid="uid://cbaxfmjcm2v32" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_13vdg"]
+[ext_resource type="Script" uid="uid://bewoh33t2jvqx" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_13vdg"]
 [ext_resource type="Texture2D" uid="uid://bbvmwcguamenp" path="res://img/parts/AK_Mag.png" id="1_51pky"]
 [ext_resource type="Script" uid="uid://c11y0uxm67td" path="res://obj/components/change.gd" id="1_c5x6n"]
 [ext_resource type="PackedScene" uid="uid://ce5unulp5hnlx" path="res://obj/proj/fmj.tscn" id="2_44mwl"]
@@ -15,27 +15,16 @@ script = ExtResource("1_c5x6n")
 stat_name = "ver_recoil"
 value_of_stat = 1.25
 mult = true
-is_set = false
 
 [resource]
 script = ExtResource("1_4qlor")
-capacity = 30
-projectile = ExtResource("2_44mwl")
 reload_time = 2
 sound = ExtResource("4_x0m4p")
-loud_dist = 400
-proj_desc = "FMJ"
-wear = 1.0
 falloff = ExtResource("3_inrea")
 item_name = "AK mag"
 item_description = "Most reliable mag ever."
 cost = 15
-max_durability = 1000.0
-curr_durability = 1000.0
 sprite = ExtResource("1_51pky")
 sprite_offset = Vector2(3, 4)
-bullet_strategies = Array[ExtResource("1_13vdg")]([])
-player_strategies = Array[ExtResource("3_bo5ae")]([])
-shootin_strategies = Array[ExtResource("6_h30mm")]([])
 changes = Array[ExtResource("1_c5x6n")]([SubResource("Resource_7ixf7")])
 weight = 0.3

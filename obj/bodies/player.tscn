@@ -1,4 +1,4 @@
-[gd_scene load_steps=49 format=3 uid="uid://btw10scl5f85a"]
+[gd_scene format=3 uid="uid://btw10scl5f85a"]
 
 [ext_resource type="Script" uid="uid://dtnqffdf4qucb" path="res://obj/bodies/player.gd" id="1_6n3fv"]
 [ext_resource type="Texture2D" uid="uid://ci5dmfqdm37at" path="res://img/bodys/GG_IdleAnim.png" id="2_qk2hj"]
@@ -18,7 +18,7 @@
 [ext_resource type="Texture2D" uid="uid://c37071qnixn1r" path="res://img/ui/AMMo.png" id="13_4wjbs"]
 [ext_resource type="PackedScene" uid="uid://df86p143ocdnj" path="res://ui/ded_menu.tscn" id="13_vfuiq"]
 [ext_resource type="Texture2D" uid="uid://yi7hs54lm56q" path="res://img/ui/GLAZ.png" id="15_5cdi7"]
-[ext_resource type="Script" uid="uid://cv00flio5btg0" path="res://obj/bodies/marker_2d.gd" id="16_ku1r1"]
+[ext_resource type="Script" uid="uid://de1xi3p0m26n6" path="res://obj/bodies/marker_2d.gd" id="16_ku1r1"]
 [ext_resource type="Texture2D" uid="uid://magaaipxf54u" path="res://img/misc/crosshair.png" id="17_0843d"]
 [ext_resource type="Script" uid="uid://cba3i3beo4l66" path="res://obj/bodies/cursor.gd" id="18_73vwp"]
 [ext_resource type="Curve" uid="uid://cmgoohqyv8bvo" path="res://others/handling.tres" id="22_1u1sq"]
@@ -176,24 +176,24 @@ light_mode = 1
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_u4ay0"]
 light_mode = 1
 
-[node name="Player" type="CharacterBody2D" groups=["body", "player", "targetable"]]
+[node name="Player" type="CharacterBody2D" unique_id=1083425115 groups=["body", "player", "targetable"]]
 collision_layer = 36
 script = ExtResource("1_6n3fv")
 
-[node name="collector" type="Area2D" parent="."]
+[node name="collector" type="Area2D" parent="." unique_id=1011215088]
 position = Vector2(0, -12)
 collision_layer = 0
 collision_mask = 8
 monitorable = false
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="collector"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="collector" unique_id=979561026]
 shape = SubResource("CircleShape2D_0xlh8")
 debug_color = Color(0.448094, 0.413853, 0.530235, 0.42)
 
-[node name="Sprite2D" type="Node2D" parent="."]
+[node name="Sprite2D" type="Node2D" parent="." unique_id=1734505677]
 position = Vector2(0, -4)
 
-[node name="IdleAnimation" type="AnimatedSprite2D" parent="Sprite2D"]
+[node name="IdleAnimation" type="AnimatedSprite2D" parent="Sprite2D" unique_id=1896416210]
 light_mask = 16
 visibility_layer = 16
 material = SubResource("CanvasItemMaterial_vwi2j")
@@ -202,7 +202,7 @@ sprite_frames = SubResource("SpriteFrames_avorb")
 autoplay = "default"
 frame_progress = 0.51957
 
-[node name="RunninAnnimation" type="AnimatedSprite2D" parent="Sprite2D"]
+[node name="RunninAnnimation" type="AnimatedSprite2D" parent="Sprite2D" unique_id=1605468862]
 visible = false
 light_mask = 16
 visibility_layer = 16
@@ -212,13 +212,13 @@ sprite_frames = SubResource("SpriteFrames_8tg87")
 autoplay = "default"
 frame_progress = 0.692477
 
-[node name="Camera2D" type="Camera2D" parent="."]
+[node name="Camera2D" type="Camera2D" parent="." unique_id=501109314]
 ignore_rotation = false
 zoom = Vector2(2, 2)
 position_smoothing_enabled = true
 script = ExtResource("4_6xs1v")
 
-[node name="player_hand_component" parent="." node_paths=PackedStringArray("cursor") instance=ExtResource("3_nq5y6")]
+[node name="player_hand_component" parent="." unique_id=302523134 node_paths=PackedStringArray("cursor") instance=ExtResource("3_nq5y6")]
 position = Vector2(0, -12)
 hand_length = 6
 cursor = NodePath("../cursor")
@@ -226,39 +226,39 @@ cursor = NodePath("../cursor")
 [node name="Marker2D" parent="player_hand_component" index="0"]
 position = Vector2(9, 0)
 
-[node name="gun_base" parent="player_hand_component/Marker2D" index="0" instance=ExtResource("6_m4fya")]
+[node name="gun_base" parent="player_hand_component/Marker2D" index="0" unique_id=2142253726 instance=ExtResource("6_m4fya")]
 player_handled = true
 
-[node name="gun_base2" parent="player_hand_component/Marker2D" index="1" instance=ExtResource("6_m4fya")]
+[node name="gun_base2" parent="player_hand_component/Marker2D" index="1" unique_id=470573214 instance=ExtResource("6_m4fya")]
 visible = false
 player_handled = true
 
-[node name="Melee_component" parent="player_hand_component/Marker2D" index="2" instance=ExtResource("7_1u1sq")]
+[node name="Melee_component" parent="player_hand_component/Marker2D" index="2" unique_id=1649942114 instance=ExtResource("7_1u1sq")]
 position = Vector2(25, 0)
 
 [node name="CollisionShape2D" parent="player_hand_component/Marker2D/Melee_component/Area2D" index="0"]
 shape = SubResource("CapsuleShape2D_kflnb")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=949549380]
 position = Vector2(0, -3)
 shape = SubResource("CapsuleShape2D_mx0ab")
 
-[node name="death" type="AudioStreamPlayer2D" parent="."]
+[node name="death" type="AudioStreamPlayer2D" parent="." unique_id=1232673322]
 stream = ExtResource("10_ti353")
 bus = &"Sfx"
 
-[node name="hurt_box" parent="." instance=ExtResource("9_3vqfx")]
+[node name="hurt_box" parent="." unique_id=1283115616 instance=ExtResource("9_3vqfx")]
 position = Vector2(0, -12)
 
 [node name="CollisionShape2D" parent="hurt_box" index="0"]
 shape = SubResource("CapsuleShape2D_5x7ft")
 
-[node name="AudioListener2D" type="AudioListener2D" parent="."]
+[node name="AudioListener2D" type="AudioListener2D" parent="." unique_id=427001134]
 current = true
 
-[node name="light" parent="." instance=ExtResource("12_p0x4g")]
+[node name="light" parent="." unique_id=108132158 instance=ExtResource("12_p0x4g")]
 
-[node name="ProgressBar" type="TextureProgressBar" parent="."]
+[node name="ProgressBar" type="TextureProgressBar" parent="." unique_id=699247771]
 material = SubResource("CanvasItemMaterial_wg18f")
 offset_left = -34.0
 offset_top = -53.0
@@ -270,7 +270,7 @@ texture_under = ExtResource("11_jodjr")
 texture_over = ExtResource("11_0vwss")
 texture_progress = ExtResource("12_s6hsp")
 
-[node name="AmmoBar" type="TextureProgressBar" parent="."]
+[node name="AmmoBar" type="TextureProgressBar" parent="." unique_id=413522798]
 material = SubResource("CanvasItemMaterial_wg18f")
 offset_left = -34.0
 offset_top = -65.0
@@ -283,9 +283,9 @@ texture_under = ExtResource("11_jodjr")
 texture_over = ExtResource("11_0vwss")
 texture_progress = ExtResource("13_4wjbs")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=977666856]
 
-[node name="ISY" type="TextureRect" parent="CanvasLayer"]
+[node name="ISY" type="TextureRect" parent="CanvasLayer" unique_id=891924058]
 visible = false
 offset_left = 25.0
 offset_top = 560.0
@@ -293,7 +293,7 @@ offset_right = 63.0
 offset_bottom = 600.0
 texture = ExtResource("15_5cdi7")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer" unique_id=928615020]
 anchors_preset = 2
 anchor_top = 1.0
 anchor_bottom = 1.0
@@ -303,42 +303,42 @@ offset_right = 372.0
 offset_bottom = -28.0
 grow_vertical = 0
 
-[node name="money" type="Label" parent="CanvasLayer/VBoxContainer"]
+[node name="money" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1353214005]
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "200$"
 
-[node name="stats" type="RichTextLabel" parent="CanvasLayer/VBoxContainer"]
+[node name="stats" type="RichTextLabel" parent="CanvasLayer/VBoxContainer" unique_id=1443244551]
 layout_mode = 2
 size_flags_vertical = 3
 text = "kills: 0 
 loop: 0"
 
-[node name="hp" type="Label" parent="CanvasLayer/VBoxContainer"]
+[node name="hp" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=1348484054]
 visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "200 hp"
 
-[node name="ammo" type="Label" parent="CanvasLayer/VBoxContainer"]
+[node name="ammo" type="Label" parent="CanvasLayer/VBoxContainer" unique_id=444533705]
 visible = false
 layout_mode = 2
 theme_override_font_sizes/font_size = 16
 text = "140/200"
 
-[node name="Inventory" parent="CanvasLayer" instance=ExtResource("8_wsalq")]
+[node name="Inventory" parent="CanvasLayer" unique_id=396163184 instance=ExtResource("8_wsalq")]
 visible = false
 
-[node name="pause" parent="CanvasLayer" instance=ExtResource("11_heitk")]
+[node name="pause" parent="CanvasLayer" unique_id=1714739727 instance=ExtResource("11_heitk")]
 visible = false
 
-[node name="ded_menu" parent="CanvasLayer" instance=ExtResource("13_vfuiq")]
+[node name="ded_menu" parent="CanvasLayer" unique_id=1312110600 instance=ExtResource("13_vfuiq")]
 visible = false
 
-[node name="Marker2D" type="Marker2D" parent="." groups=["crosshair"]]
+[node name="Marker2D" type="Marker2D" parent="." unique_id=351177812 groups=["crosshair"]]
 script = ExtResource("16_ku1r1")
 
-[node name="cursor" type="Sprite2D" parent="."]
+[node name="cursor" type="Sprite2D" parent="." unique_id=1830722958]
 process_mode = 3
 top_level = true
 material = SubResource("CanvasItemMaterial_u4ay0")
@@ -348,7 +348,7 @@ script = ExtResource("18_73vwp")
 weight_to_handle = ExtResource("22_1u1sq")
 player_handled = true
 
-[node name="Timer" type="Timer" parent="cursor"]
+[node name="Timer" type="Timer" parent="cursor" unique_id=1447096060]
 wait_time = 0.2
 one_shot = true
 

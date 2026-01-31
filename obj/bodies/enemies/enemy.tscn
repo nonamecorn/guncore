@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://c3jo85so338er"]
+[gd_scene format=3 uid="uid://c3jo85so338er"]
 
 [ext_resource type="Script" uid="uid://knfk28mubgvi" path="res://obj/bodies/enemies/enemy.gd" id="1_qbvdd"]
 [ext_resource type="Texture2D" uid="uid://88j42qnvmjuu" path="res://img/bodys/cultist_IdleAnim.png" id="2_j18lw"]
@@ -12,7 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://cecke2affrpi0" path="res://img/bodys/Kult_head.png" id="9_sy2ij"]
 [ext_resource type="Curve" uid="uid://cmgoohqyv8bvo" path="res://others/handling.tres" id="11_sy2ij"]
 
-[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_kudys"]
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_gr7od"]
 light_mode = 2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_y204q"]
@@ -43,6 +43,9 @@ animations = [{
 "name": &"default",
 "speed": 1.0
 }]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_sy2ij"]
+light_mode = 2
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_gq02c"]
 atlas = ExtResource("3_cjvif")
@@ -77,6 +80,9 @@ animations = [{
 radius = 4.0
 height = 10.0
 
+[sub_resource type="ViewportTexture" id="ViewportTexture_sy2ij"]
+viewport_path = NodePath("SubViewport")
+
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ykghs"]
 radius = 7.0
 height = 26.0
@@ -97,81 +103,84 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.6, 1), 0.0, 0.0, 0, 0, Vector2
 point_count = 3
 metadata/_snap_enabled = true
 
-[node name="enemy" type="CharacterBody2D" node_paths=PackedStringArray("nav_agent") groups=["body", "cultist", "targetable"]]
+[node name="enemy" type="CharacterBody2D" unique_id=858302578 node_paths=PackedStringArray("nav_agent") groups=["body", "cultist", "targetable"]]
 collision_layer = 36
 script = ExtResource("1_qbvdd")
 group = "cultist"
 nav_agent = NodePath("NavigationAgent2D")
 
-[node name="Sprite2D" type="Node2D" parent="."]
+[node name="Sprite2D" type="Node2D" parent="." unique_id=496348255]
 position = Vector2(0, -5)
 
-[node name="idle" type="AnimatedSprite2D" parent="Sprite2D"]
-material = SubResource("CanvasItemMaterial_kudys")
+[node name="idle" type="AnimatedSprite2D" parent="Sprite2D" unique_id=769588784]
+material = SubResource("CanvasItemMaterial_gr7od")
 position = Vector2(0, -10)
 sprite_frames = SubResource("SpriteFrames_v8b5x")
 autoplay = "default"
 frame_progress = 0.288172
 
-[node name="walk" type="AnimatedSprite2D" parent="Sprite2D"]
+[node name="walk" type="AnimatedSprite2D" parent="Sprite2D" unique_id=583377713]
 visible = false
-material = SubResource("CanvasItemMaterial_kudys")
+material = SubResource("CanvasItemMaterial_sy2ij")
 position = Vector2(0, -10)
 sprite_frames = SubResource("SpriteFrames_aqq6o")
 autoplay = "default"
 frame_progress = 0.10251
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=503721553]
 rotation = 1.5708
 shape = SubResource("CapsuleShape2D_egrxt")
 
-[node name="enemy_hand_component" parent="." node_paths=PackedStringArray("ray") instance=ExtResource("2_vctv7")]
+[node name="enemy_hand_component" parent="." unique_id=827021455 node_paths=PackedStringArray("ray") instance=ExtResource("2_vctv7")]
 position = Vector2(0, -14)
 hand_length = 16
 ray = NodePath("../RayCast2D")
 
-[node name="gun_base" parent="enemy_hand_component/Marker2D" index="0" instance=ExtResource("4_ohoj0")]
+[node name="gun_base" parent="enemy_hand_component/Marker2D" index="0" unique_id=688671522 instance=ExtResource("4_ohoj0")]
 
-[node name="burst_duration" type="Timer" parent="enemy_hand_component"]
+[node name="Sprite2D" parent="enemy_hand_component/Marker2D/gun_base" index="0" unique_id=1460667944]
+texture = SubResource("ViewportTexture_sy2ij")
+
+[node name="burst_duration" type="Timer" parent="enemy_hand_component" unique_id=1366927086]
 wait_time = 0.5
 one_shot = true
 
-[node name="change_position" type="Timer" parent="."]
+[node name="change_position" type="Timer" parent="." unique_id=1733723705]
 wait_time = 2.0
 autostart = true
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=983155894]
 target_desired_distance = 15.0
 
-[node name="hurt_box" parent="." instance=ExtResource("5_eclwk")]
+[node name="hurt_box" parent="." unique_id=664631103 instance=ExtResource("5_eclwk")]
 position = Vector2(0, -14)
 
 [node name="CollisionShape2D" parent="hurt_box" index="0"]
 shape = SubResource("CapsuleShape2D_ykghs")
 
-[node name="death" type="AudioStreamPlayer2D" parent="."]
+[node name="death" type="AudioStreamPlayer2D" parent="." unique_id=1156031797]
 stream = ExtResource("6_qqgv7")
 bus = &"Sfx"
 
-[node name="RayCast2D" type="RayCast2D" parent="."]
+[node name="RayCast2D" type="RayCast2D" parent="." unique_id=1281892912]
 position = Vector2(0, -14)
 target_position = Vector2(632, 0)
 collision_mask = 32
 
-[node name="less_crucial_checks" type="Timer" parent="."]
+[node name="less_crucial_checks" type="Timer" parent="." unique_id=636693816]
 wait_time = 0.5
 autostart = true
 
-[node name="Label" type="Label" parent="."]
+[node name="Label" type="Label" parent="." unique_id=1328982733]
 visible = false
 offset_left = -19.0
 offset_top = -46.0
 offset_right = 21.0
 offset_bottom = -30.0
 
-[node name="Gore" parent="." instance=ExtResource("8_7kiun")]
+[node name="Gore" parent="." unique_id=89306240 instance=ExtResource("8_7kiun")]
 
-[node name="Kult_head" type="CPUParticles2D" parent="."]
+[node name="Kult_head" type="CPUParticles2D" parent="." unique_id=189656700]
 material = SubResource("CanvasItemMaterial_lu8ec")
 position = Vector2(0, -20)
 emitting = false
@@ -194,7 +203,7 @@ scale_amount_curve = SubResource("Curve_lu8ec")
 anim_offset_min = 0.5
 anim_offset_max = 1.0
 
-[node name="enemy_cursor" parent="." instance=ExtResource("8_fupwg")]
+[node name="enemy_cursor" parent="." unique_id=257734721 instance=ExtResource("8_fupwg")]
 weight_to_handle = ExtResource("11_sy2ij")
 
 [connection signal="timeout" from="enemy_hand_component/burst_duration" to="enemy_hand_component" method="_on_burst_duration_timeout"]
@@ -202,4 +211,7 @@ weight_to_handle = ExtResource("11_sy2ij")
 [connection signal="timeout" from="less_crucial_checks" to="." method="_on_less_crucial_checks_timeout"]
 
 [editable path="enemy_hand_component"]
+[editable path="enemy_hand_component/Marker2D/gun_base"]
+[editable path="enemy_hand_component/Marker2D/gun_base/pos/muzzleflash"]
+[editable path="enemy_hand_component/Marker2D/gun_base/pos/muzzleflash/light2"]
 [editable path="hurt_box"]

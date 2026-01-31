@@ -203,6 +203,8 @@ func get_item():
 		return
 	var res = $collector.get_overlapping_areas()[0].pickup()
 	if res is Array: return
+	if res is Gun:
+		$CanvasLayer/Inventory.pickup_gun(res)
 	$CanvasLayer/Inventory.pickup_item(res)
 	#if !:
 		#var item_inst = item_base.instantiate()
