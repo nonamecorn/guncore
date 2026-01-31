@@ -1,10 +1,11 @@
 [gd_scene format=3 uid="uid://ce5unulp5hnlx"]
 
 [ext_resource type="PackedScene" uid="uid://chohchm3nmbw8" path="res://obj/components/mother_projectile.tscn" id="1_ub8af"]
+[ext_resource type="Texture2D" uid="uid://7huiq5ko16jf" path="res://img/bullets/medium_bullet.png" id="2_wewih"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qy0bh"]
-radius = 2.0
-height = 10.0
+radius = 1.0
+height = 6.0
 
 [node name="fmj" unique_id=1500006773 instance=ExtResource("1_ub8af")]
 collision_mask = 2
@@ -12,8 +13,12 @@ motion_mode = 1
 speed = 715
 damage = 40.0
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="Sprite2D" parent="." index="0" unique_id=1668944366]
+modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
+texture = ExtResource("2_wewih")
+
+[node name="CollisionShape2D" parent="." index="1" unique_id=1811247549]
 shape = SubResource("CapsuleShape2D_qy0bh")
 
-[node name="Timer" parent="." index="2"]
+[node name="Timer" parent="." index="2" unique_id=1885178200]
 wait_time = 0.001

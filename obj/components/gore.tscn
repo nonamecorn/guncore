@@ -1,4 +1,4 @@
-[gd_scene load_steps=6 format=3 uid="uid://cu2letn31qhnt"]
+[gd_scene format=3 uid="uid://cu2letn31qhnt"]
 
 [ext_resource type="Texture2D" uid="uid://cc3nexeikrg7" path="res://img/bodys/Gore_p.png" id="1_4m74l"]
 
@@ -23,9 +23,10 @@ _data = [Vector2(0, 1), 0.0, 0.0, 0, 0, Vector2(0.1, 0.9), 0.0, 0.0, 0, 0, Vecto
 point_count = 8
 metadata/_snap_enabled = true
 
-[node name="Gore" type="Node2D"]
+[node name="Gore" type="Node2D" unique_id=483677197]
 
-[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=584919869]
+modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
 position = Vector2(0, -14)
 emitting = false
 amount = 16
@@ -47,7 +48,8 @@ scale_amount_max = 2.0
 color = Color(0.658824, 0.215686, 0.176471, 1)
 hue_variation_max = 1.0
 
-[node name="CPUParticles2D2" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D2" type="CPUParticles2D" parent="." unique_id=1768912100]
+modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
 position = Vector2(0, -14)
 emitting = false
 amount = 16
@@ -69,7 +71,8 @@ scale_amount_max = 2.0
 color = Color(0.658824, 0.215686, 0.176471, 1)
 hue_variation_max = 1.0
 
-[node name="CPUParticles2D3" type="CPUParticles2D" parent="."]
+[node name="CPUParticles2D3" type="CPUParticles2D" parent="." unique_id=557719996]
+modulate = Color(1.8247963, 1.8247963, 1.8247963, 1)
 position = Vector2(0, -28)
 emitting = false
 amount = 16
@@ -91,7 +94,7 @@ scale_amount_max = 2.0
 color = Color(0.658824, 0.215686, 0.176471, 1)
 hue_variation_max = 1.0
 
-[node name="Gore_emitter" type="CPUParticles2D" parent="."]
+[node name="Gore_emitter" type="CPUParticles2D" parent="." unique_id=623408168]
 material = SubResource("CanvasItemMaterial_4m74l")
 position = Vector2(0, -14)
 emitting = false

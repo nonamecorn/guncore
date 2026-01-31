@@ -130,7 +130,7 @@ func asseble_gun(parts : Dictionary,loaded : bool = true):
 		weight += parts[part_name].weight
 	get_parent().get_parent().set_handling_spd(weight, get_index())
 	
-	$audio/shoting.stream = parts.MAG.sound
+	#$audio/shoting.stream = parts.MAG.sound
 	muzzle.position = parts.BARREL.muzzle_position + barrel.position
 	$pos.position = muzzle.position + Vector2.RIGHT * 5  + Vector2(0, -0.5)
 	if parts.MUZZLE != null:
@@ -239,10 +239,10 @@ func reload():
 	spread = min_spread
 	$AnimationPlayer.play("reload")
 
-func wear_down():
-	for part in gun_resources:
-		if !gun_resources[part]: continue
-		gun_resources[part].curr_durability -= wear
+#func wear_down():
+	#for part in gun_resources:
+		#if !gun_resources[part]: continue
+		#gun_resources[part].curr_durability -= wear
 
 func weapon_functional():
 	for part in gun_resources:
@@ -272,7 +272,7 @@ func fire():
 			return
 		ammo -= 1
 		display_ammo()
-		wear_down()
+		#wear_down()
 		
 		if !silenced:
 			

@@ -7,6 +7,15 @@
 [ext_resource type="PackedScene" uid="uid://ddfo6c5nx4m8h" path="res://lvls/misc/light.tscn" id="5_h5ytn"]
 [ext_resource type="Script" uid="uid://chnsh464847oi" path="res://lvls/misc/moving_light.gd" id="6_kdott"]
 
+[sub_resource type="Environment" id="Environment_3i0yf"]
+background_mode = 3
+tonemap_mode = 4
+glow_enabled = true
+glow_normalized = true
+glow_intensity = 2.0
+glow_blend_mode = 0
+glow_hdr_threshold = 1.1
+
 [node name="world1" type="Node2D" unique_id=204737107]
 script = ExtResource("1_ki535")
 roomcount = 3
@@ -74,5 +83,8 @@ offset_bottom = 173.0
 theme_override_font_sizes/font_size = 40
 text = "LOADING
 "
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=174308708]
+environment = SubResource("Environment_3i0yf")
 
 [connection signal="timeout" from="make_room" to="." method="_on_make_room_timeout"]

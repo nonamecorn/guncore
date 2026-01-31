@@ -198,3 +198,4 @@ ui_right_mouse={
 textures/canvas_textures/default_texture_filter=0
 rendering_device/fallback_to_d3d12=false
 textures/vram_compression/import_etc2_astc=true
+viewport/hdr_2d=true
