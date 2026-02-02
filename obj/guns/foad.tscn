@@ -6,7 +6,6 @@
 [ext_resource type="Resource" uid="uid://clwomb4qelbku" path="res://obj/newparts/barrels/FOAD_barrel.tres" id="3_0fpqu"]
 [ext_resource type="Resource" uid="uid://bdwhjqlgkbp5s" path="res://obj/newparts/mags/FOAD_mag.tres" id="4_4b2ux"]
 [ext_resource type="Texture2D" uid="uid://doxn8pp40a4g" path="res://img/parts2/reciver/FOAD_anim.png" id="4_6ey2s"]
-[ext_resource type="Script" uid="uid://b8dvhatlmmxyw" path="res://others/animation_node_resolver.gd" id="6_4b2ux"]
 [ext_resource type="Texture2D" uid="uid://q0gjtfmpgyr7" path="res://img/misc/new_muzzleflash.png" id="7_k01fg"]
 [ext_resource type="AudioStream" uid="uid://bseru4wnpe0hh" path="res://snd/sfx/ar_fire.wav" id="8_0fpqu"]
 
@@ -397,7 +396,7 @@ _data = {
 &"reload": SubResource("Animation_wsvm0")
 }
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_4b2ux"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_0fpqu"]
 viewport_path = NodePath("SubViewport")
 
 [node name="FOAD" unique_id=577689113 instance=ExtResource("1_kwsex")]
@@ -414,13 +413,12 @@ default_modules = Dictionary[String, ExtResource("2_k01fg")]({
 [node name="AnimationPlayer" parent="." index="0" unique_id=233868523]
 libraries/ = SubResource("AnimationLibrary_4b2ux")
 
-[node name="Resolver" type="Node" parent="AnimationPlayer" index="0" unique_id=1840142536 node_paths=PackedStringArray("root_node", "animation_p")]
-script = ExtResource("6_4b2ux")
+[node name="Node" parent="AnimationPlayer" index="0" unique_id=1025461610 node_paths=PackedStringArray("root_node", "animation_p")]
 root_node = NodePath("../..")
 animation_p = NodePath("..")
 
 [node name="Render" parent="." index="1" unique_id=1460667944]
-texture = SubResource("ViewportTexture_4b2ux")
+texture = SubResource("ViewportTexture_0fpqu")
 
 [node name="ejector" parent="." index="2" unique_id=1134795720]
 position = Vector2(-3, -2)
@@ -428,13 +426,13 @@ position = Vector2(-3, -2)
 [node name="CollisionShape2D" parent="." index="3" unique_id=1651363459]
 visible = false
 
-[node name="MAG" parent="SubViewport" parent_id_path=PackedInt32Array(1029796940) index="0" unique_id=1762944442]
+[node name="MAG" parent="SubViewport" parent_id_path=PackedInt32Array(1029796940) index="1" unique_id=1762944442]
 position = Vector2(-3, 0)
 
-[node name="BARREL" parent="SubViewport" parent_id_path=PackedInt32Array(1029796940) index="1" unique_id=1481952309]
+[node name="BARREL" parent="SubViewport" parent_id_path=PackedInt32Array(1029796940) index="2" unique_id=1481952309]
 position = Vector2(1, -5)
 
-[node name="Reciever" parent="SubViewport" parent_id_path=PackedInt32Array(1029796940) index="2" unique_id=694329754]
+[node name="Reciever" parent="SubViewport" parent_id_path=PackedInt32Array(1029796940) index="3" unique_id=694329754]
 position = Vector2(-5, 0)
 texture = ExtResource("4_6ey2s")
 hframes = 5

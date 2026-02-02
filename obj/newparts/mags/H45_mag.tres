@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Mag" format=3 uid="uid://cy48dt6mxqrer"]
+
+[ext_resource type="Script" uid="uid://bewoh33t2jvqx" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_nas0t"]
+[ext_resource type="Script" uid="uid://c11y0uxm67td" path="res://obj/components/change.gd" id="2_tt6dc"]
+[ext_resource type="Script" uid="uid://buggsj0y7xemx" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_1yo3m"]
+[ext_resource type="Curve" uid="uid://dcxu8qyysqkch" path="res://others/pistol_falloff.tres" id="3_w1ib4"]
+[ext_resource type="Script" uid="uid://cmpw4tk5uc8e" path="res://obj/parts/scripts/mag.gd" id="5_7aab3"]
+[ext_resource type="PackedScene" uid="uid://b4qvivbnt8oim" path="res://obj/proj/PP_fmj.tscn" id="5_7by45"]
+[ext_resource type="Script" uid="uid://6ct4nafsu8do" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="6_7by45"]
+[ext_resource type="Texture2D" uid="uid://cg657ja4g62qi" path="res://img/parts2/mag/H45_mag.png" id="8_c8cmf"]
+
+[resource]
+script = ExtResource("5_7aab3")
+projectile = ExtResource("5_7by45")
+falloff = ExtResource("3_w1ib4")
+sprite = ExtResource("8_c8cmf")
+metadata/_custom_type_script = "uid://cmpw4tk5uc8e"

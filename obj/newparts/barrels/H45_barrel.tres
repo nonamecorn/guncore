@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="Barrel" format=3 uid="uid://etm5baicqbr"]
+
+[ext_resource type="Script" uid="uid://bewoh33t2jvqx" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_23n04"]
+[ext_resource type="Script" uid="uid://c11y0uxm67td" path="res://obj/components/change.gd" id="2_83l70"]
+[ext_resource type="Script" uid="uid://buggsj0y7xemx" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="3_503nw"]
+[ext_resource type="Script" uid="uid://c5jo0hlucnsy3" path="res://obj/parts/scripts/barrel.gd" id="4_d0y3y"]
+[ext_resource type="Script" uid="uid://6ct4nafsu8do" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="5_0w27k"]
+[ext_resource type="Texture2D" uid="uid://dmty6cd76qton" path="res://img/parts2/barrel/H45_barrel.png" id="6_83l70"]
+
+[resource]
+script = ExtResource("4_d0y3y")
+range_in_secs = 1.0
+max_spread = 5.0
+sprite = ExtResource("6_83l70")
+metadata/_custom_type_script = "uid://c5jo0hlucnsy3"

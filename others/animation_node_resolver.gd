@@ -8,10 +8,6 @@ extends Node
 @export var root_node : Node
 @export var animation_p : AnimationPlayer
 
-func _ready() -> void:
-	print(animation_p.root_node)
-
-
 func resolve():
 	print("asfasfsds")
 	for a_name in animation_p.get_animation_list():

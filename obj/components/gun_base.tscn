@@ -9,6 +9,7 @@
 [ext_resource type="AudioStream" uid="uid://blt37tqho0arn" path="res://snd/sfx/silencedsmg_fire.wav" id="3_fv6p6"]
 [ext_resource type="Resource" uid="uid://bnbmkb8n34y75" path="res://obj/parts/mags/akmag.tres" id="3_l7m5r"]
 [ext_resource type="Resource" uid="uid://knr31207p64p" path="res://obj/parts/barrels/AK_barrel.tres" id="4_2625t"]
+[ext_resource type="Script" uid="uid://b8dvhatlmmxyw" path="res://others/animation_node_resolver.gd" id="5_h8yh0"]
 [ext_resource type="AudioStream" uid="uid://byixmvn1xg5ex" path="res://snd/sfx/something_broke.ogg" id="6_s5lr7"]
 [ext_resource type="AudioStream" uid="uid://ctq8c6n2tfnr3" path="res://snd/sfx/not_allowed_sfx.mp3" id="7_lxys1"]
 [ext_resource type="Texture2D" uid="uid://blcids4cqqvay" path="res://img/bodys/phand.png" id="12_4iw40"]
@@ -42,6 +43,9 @@ default_modules = Dictionary[String, ExtResource("2_h8yh0")]({
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=233868523]
 
+[node name="Node" type="Node" parent="AnimationPlayer" unique_id=1025461610]
+script = ExtResource("5_h8yh0")
+
 [node name="Render" type="Sprite2D" parent="." unique_id=1460667944]
 material = SubResource("CanvasItemMaterial_lxys1")
 texture = SubResource("ViewportTexture_lxys1")
@@ -58,6 +62,8 @@ transparent_bg = true
 canvas_item_default_texture_filter = 0
 size = Vector2i(256, 256)
 
+[node name="Camera2D" type="Camera2D" parent="SubViewport" unique_id=1787214868]
+
 [node name="MAG" type="Marker2D" parent="SubViewport" unique_id=1762944442]
 position = Vector2(-2, 1)
 
@@ -72,8 +78,6 @@ position = Vector2(3, 0)
 
 [node name="ATTACH" type="Marker2D" parent="SubViewport" unique_id=1429512227]
 position = Vector2(-4, -4)
-
-[node name="Camera2D" type="Camera2D" parent="SubViewport" unique_id=1787214868]
 
 [node name="pos" type="Marker2D" parent="." unique_id=1562127439]
 
