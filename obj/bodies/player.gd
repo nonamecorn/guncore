@@ -37,14 +37,14 @@ func _ready() -> void:
 	if GlobalVars.loop == 0:
 		on_ammo_change(null,null,0)
 	$hurt_box.damaged.connect(hurt)
-	$CanvasLayer/Inventory.money_changed.connect(refresh)
-	$CanvasLayer/Inventory.drop.connect(drop)
-	$CanvasLayer/Inventory.eq_slot1.assemble.connect(on_assemble)
-	$CanvasLayer/Inventory.eq_slot1.dissassemble.connect(on_dissassemble)
-	$CanvasLayer/Inventory.eq_slot2.assemble.connect(on_assemble2)
-	$CanvasLayer/Inventory.eq_slot2.dissassemble.connect(on_dissassemble2)
-	$CanvasLayer/Inventory.eq_slot3.change.connect(on_augs_change)
-	$CanvasLayer/Inventory.load_save()
+	#$CanvasLayer/Inventory.money_changed.connect(refresh)
+	#$CanvasLayer/Inventory.drop.connect(drop)
+	#$CanvasLayer/Inventory.eq_slot1.assemble.connect(on_assemble)
+	#$CanvasLayer/Inventory.eq_slot1.dissassemble.connect(on_dissassemble)
+	#$CanvasLayer/Inventory.eq_slot2.assemble.connect(on_assemble2)
+	#$CanvasLayer/Inventory.eq_slot2.dissassemble.connect(on_dissassemble2)
+	#$CanvasLayer/Inventory.eq_slot3.change.connect(on_augs_change)
+	#$CanvasLayer/Inventory.load_save()
 	$player_hand_component/Marker2D/Melee_component.hitted.connect(heal)
 	$player_hand_component/Marker2D.get_child(0).ammo_changed.connect(on_ammo_change)
 	$player_hand_component/Marker2D.get_child(1).ammo_changed.connect(on_ammo_change)
@@ -75,22 +75,22 @@ func tab_state():
 	$Sprite2D/IdleAnimation.show()
 	$Sprite2D/RunninAnnimation.hide()
 	if Input.is_action_just_pressed("ui_tab") or Input.is_action_just_pressed("ui_cancel"):
-		$CanvasLayer/Inventory.hide_properly()
-		$CanvasLayer/Inventory.switch_to_inventory()
+		#$CanvasLayer/Inventory.hide_properly()
+		#$CanvasLayer/Inventory.switch_to_inventory()
 		$player_hand_component.follow = true
 		$Camera2D.follow = true
 		state = MOVE
 
 
 
-func open_shop():
-	$CanvasLayer/Inventory.switch_to_shop()
-	get_items()
-	$CanvasLayer/Inventory.show()
-	$CanvasLayer/Inventory/shop_backpack2.load_shop()
-	$Camera2D.follow = false
-	$player_hand_component.follow = false
-	state = TAB_MENU
+#func open_shop():
+	#$CanvasLayer/Inventory.switch_to_shop()
+	#get_items()
+	#$CanvasLayer/Inventory.show()
+	#$CanvasLayer/Inventory/shop_backpack2.load_shop()
+	#$Camera2D.follow = false
+	#$player_hand_component.follow = false
+	#state = TAB_MENU
 
 func get_input_dir():
 	return Vector2(
@@ -101,8 +101,8 @@ func get_input_dir():
 func move_state(delta):
 	if Input.is_action_just_pressed("ui_tab"):
 		
-		get_items()
-		$CanvasLayer/Inventory.show()
+		#get_items()
+		#$CanvasLayer/Inventory.show()
 		$Camera2D.follow = false
 		$player_hand_component.follow = false
 		state = TAB_MENU
@@ -133,7 +133,7 @@ func death():
 	died.emit()
 	state = IDLE
 	$player_hand_component.follow = false
-	$CanvasLayer/Inventory.hide_properly()
+	#$CanvasLayer/Inventory.hide_properly()
 	$Camera2D.follow = false
 	$death.play()
 	$CollisionShape2D.disabled = true
@@ -188,24 +188,24 @@ func drop(item : Item):
 	get_tree().current_scene.find_child("items").call_deferred("add_child",item_inst) 
 	item_inst.init(item)
 
-func get_items():
-	$CanvasLayer/Inventory.collector.flush()
-	for item in $collector.get_overlapping_areas():
-		var res = item.pickup()
-		if res is Array:
-			for sub_item in res:
-				$CanvasLayer/Inventory.pickup_collector(sub_item)
-			continue
-		$CanvasLayer/Inventory.pickup_collector(res)
+#func get_items():
+	#$CanvasLayer/Inventory.collector.flush()
+	#for item in $collector.get_overlapping_areas():
+		#var res = item.pickup()
+		#if res is Array:
+			#for sub_item in res:
+				#$CanvasLayer/Inventory.pickup_collector(sub_item)
+			#continue
+		#$CanvasLayer/Inventory.pickup_collector(res)
 
 func get_item():
 	if $collector.get_overlapping_areas().size() == 0:
 		return
 	var res = $collector.get_overlapping_areas()[0].pickup()
 	if res is Array: return
-	if res is Gun:
-		$CanvasLayer/Inventory.pickup_gun(res)
-	$CanvasLayer/Inventory.pickup_item(res)
+	#if res is Gun:
+		#$CanvasLayer/Inventory.pickup_gun(res)
+	#$CanvasLayer/Inventory.pickup_item(res)
 	#if !:
 		#var item_inst = item_base.instantiate()
 		#item_inst.global_position = global_position

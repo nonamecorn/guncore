@@ -302,6 +302,16 @@ func equip_item(item_res : Item, ind : int) -> bool:
 		return false
 	return true
 
+func equip_gun(gun_res : GunResource, ind : int = 0):
+	var item = item_base.instantiate()
+	item.item_resource = gun_res
+	item.texture = gun_res.sprite
+	le_items.add_child(item)
+	if !$equipments.get_child(ind).insert_item_at_spot(item, "GUN"):
+		item.queue_free()
+		return false
+	return true
+
 func pickup_item(item_res : Item):
 	var item = item_base.instantiate()
 	item.item_resource = item_res
@@ -314,9 +324,6 @@ func pickup_item(item_res : Item):
 	$audio/grab.play()
 	return true
 
-func pickup_gun(gun : Gun):
-	pass
-
 func pickup_collector(item_res : Item):
 	var item = item_base.instantiate()
 	item.item_resource = item_res
@@ -327,10 +334,6 @@ func pickup_collector(item_res : Item):
 		return false
 	return true
 
-
-
-
-
 func _on_link_button_pressed() -> void:
 	if  GlobalVars.money >= current_reroll_cost:
 		$audio/buy.play()
@@ -339,9 +342,6 @@ func _on_link_button_pressed() -> void:
 		current_reroll_cost += 3
 		$reroll_button/MarginContainer/LinkButton.text = "Reroll " + str(current_reroll_cost) + "$"
 		money_changed.emit()
-
-
-
 
 func _on_gun_base_2_stats_changed(stats: Variant) -> void:
 	display_desc(stats, false)

@@ -28,7 +28,6 @@
 [ext_resource type="Texture2D" uid="uid://c1lee8a3t06tt" path="res://img/ui/ArmorSlot.png" id="15_isfqa"]
 [ext_resource type="Texture2D" uid="uid://ds0gmt5dgnqnp" path="res://img/ui/Hand.png" id="16_7ox2p"]
 [ext_resource type="Texture2D" uid="uid://c3plgap64ejfc" path="res://img/ui/Stas.png" id="16_bb8wr"]
-[ext_resource type="Script" uid="uid://bia3wei78itu6" path="res://ui/weapon_slot.gd" id="18_o7akx"]
 [ext_resource type="Texture2D" uid="uid://dpdcmyiyv1l1w" path="res://img/ui/new_inventory_1slot.png" id="18_y8phs"]
 [ext_resource type="PackedScene" uid="uid://qh51xv03x1h0" path="res://ui/inventory_cell.tscn" id="19_o7akx"]
 [ext_resource type="Texture2D" uid="uid://c422ygxdmneag" path="res://img/ui/shop.png" id="20_8ghwf"]
@@ -498,7 +497,6 @@ offset_top = 75.0
 offset_right = 1258.0
 offset_bottom = 259.0
 theme_override_constants/separation = 0
-script = ExtResource("18_o7akx")
 
 [node name="Weapon" type="NinePatchRect" parent="equipments/WeaponSlot" unique_id=201280218]
 custom_minimum_size = Vector2(0, 120)

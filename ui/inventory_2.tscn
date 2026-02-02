@@ -14,10 +14,10 @@ script = ExtResource("1_b1gai")
 
 [node name="Backpack" type="GridContainer" parent="." unique_id=155957023]
 layout_mode = 0
-offset_left = 425.0
-offset_top = 440.0
-offset_right = 465.0
-offset_bottom = 480.0
+offset_left = 422.0
+offset_top = 513.0
+offset_right = 806.0
+offset_bottom = 705.0
 theme_override_constants/h_separation = 0
 theme_override_constants/v_separation = 0
 columns = 6

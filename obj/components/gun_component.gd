@@ -1,7 +1,5 @@
 extends Node2D
-
 class_name Gun
-var modules : Array
 
 var facade = preload("res://obj/components/facade.tscn")
 var p_facade = preload("res://obj/components/p_facade.tscn")
@@ -41,7 +39,15 @@ signal ammo_changed(current,max,ind)
 @export var damage: float #needs implementing
 @export var semiauto: bool
 
+@onready var resource : GunResource = GunResource.new()
+
 @export var default_modules : Dictionary[String,Item] = {
+	"MAG": null,
+	"BARREL": null,
+	"MUZZLE": null,
+	"ATTACH": null,
+}
+var modules : Dictionary[String,Item] = {
 	"MAG": null,
 	"BARREL": null,
 	"MUZZLE": null,
@@ -69,6 +75,7 @@ var bullet_strategies = []
 var silenced = false
 
 func _ready() -> void:
+	resource.sprite = $SubViewport.get_texture()
 	if player_handled:
 		$Render.material = null
 		player_crosshair = get_tree().get_nodes_in_group("crosshair")[0]
@@ -89,7 +96,7 @@ func spawn_facade(part,offset):
 	var slot = find_child(part.slot)
 	slot.add_child(facade_inst)
 	slot.position = offset
-	print("huh")
+
 
 func dispawn_facade(part_name : String):
 	var slot = get(part_name.to_lower())
