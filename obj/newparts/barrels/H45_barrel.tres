@@ -11,5 +11,7 @@
 script = ExtResource("4_d0y3y")
 range_in_secs = 1.0
 max_spread = 5.0
+muzzle_position = Vector2(9, 2)
 sprite = ExtResource("6_83l70")
+weight = 0.1
 metadata/_custom_type_script = "uid://c5jo0hlucnsy3"

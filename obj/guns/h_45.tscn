@@ -1,10 +1,12 @@
 [gd_scene format=3 uid="uid://b5hq85f0qptls"]
 
 [ext_resource type="PackedScene" uid="uid://ctrbcy5h47qqw" path="res://obj/components/gun_base.tscn" id="1_4yooc"]
+[ext_resource type="Texture2D" uid="uid://dituxt4ekcmwa" path="res://img/misc/casing.png" id="2_cp7rr"]
 [ext_resource type="Script" uid="uid://pegu5tln4i1u" path="res://obj/parts/scripts/item.gd" id="2_wb2wk"]
 [ext_resource type="Resource" uid="uid://etm5baicqbr" path="res://obj/newparts/barrels/H45_barrel.tres" id="3_cp7rr"]
 [ext_resource type="Texture2D" uid="uid://dkujhdxkbbnim" path="res://img/parts2/reciver/H45.png" id="4_wb2wk"]
 [ext_resource type="Resource" uid="uid://cy48dt6mxqrer" path="res://obj/newparts/mags/H45_mag.tres" id="4_wpmsp"]
+[ext_resource type="Texture2D" uid="uid://q0gjtfmpgyr7" path="res://img/misc/new_muzzleflash.png" id="6_pqlpl"]
 
 [sub_resource type="Animation" id="Animation_cp7rr"]
 length = 0.001
@@ -35,7 +37,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("SubViewport/Reciever:frame")
+tracks/2/path = NodePath("Reciever:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -71,7 +73,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("SubViewport/MAG:position")
+tracks/5/path = NodePath("MAG:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -91,6 +93,30 @@ tracks/6/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 0,
 "values": [0.6981317]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("pos/muzzleflash:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+tracks/8/type = "value"
+tracks/8/imported = false
+tracks/8/enabled = true
+tracks/8/path = NodePath("pos/muzzleflash:frame")
+tracks/8/interp = 1
+tracks/8/loop_wrap = true
+tracks/8/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
 }
 
 [sub_resource type="Animation" id="Animation_wpmsp"]
@@ -124,11 +150,11 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("SubViewport/Reciever:frame")
+tracks/2/path = NodePath("Reciever:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.015, 0.03, 0.045, 0.06, 0.08, 0.1),
+"times": PackedFloat32Array(0, 0.0175, 0.035, 0.0525, 0.07, 0.095, 0.115),
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [0, 1, 2, 3, 2, 1, 0]
@@ -150,10 +176,34 @@ tracks/3/keys = {
 "method": &"eject_brass"
 }]
 }
+tracks/4/type = "value"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("pos/muzzleflash:visible")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0, 0.0575),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/5/type = "value"
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/path = NodePath("pos/muzzleflash:frame")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/keys = {
+"times": PackedFloat32Array(0, 0.0125, 0.025, 0.0375, 0.05),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 2, 3, 4]
+}
 
 [sub_resource type="Animation" id="Animation_4yooc"]
 resource_name = "reload"
-length = 1.99
+length = 1.5
 step = 0.01
 tracks/0/type = "value"
 tracks/0/imported = false
@@ -182,7 +232,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("SubViewport/Reciever:frame")
+tracks/2/path = NodePath("Reciever:frame")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -218,7 +268,7 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("SubViewport/MAG:position")
+tracks/5/path = NodePath("MAG:position")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
@@ -242,7 +292,7 @@ tracks/6/keys = {
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("SubViewport/MAG:visible")
+tracks/7/path = NodePath("MAG:visible")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
@@ -254,7 +304,7 @@ tracks/7/keys = {
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("SubViewport/MAG:rotation")
+tracks/8/path = NodePath("MAG:rotation")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
@@ -289,8 +339,10 @@ _data = {
 viewport_path = NodePath("SubViewport")
 
 [node name="H45" unique_id=577689113 instance=ExtResource("1_4yooc")]
+brass_texture = ExtResource("2_cp7rr")
 ver_recoil = 2.0
-hor_recoil = 2.0
+hor_recoil = 15.0
+semiauto = true
 default_modules = Dictionary[String, ExtResource("2_wb2wk")]({
 "ATTACH": null,
 "BARREL": ExtResource("3_cp7rr"),
@@ -305,33 +357,37 @@ libraries/ = SubResource("AnimationLibrary_tlcnt")
 root_node = NodePath("../..")
 animation_p = NodePath("..")
 
-[node name="Render" parent="." index="1" unique_id=1460667944]
-texture = SubResource("ViewportTexture_rko2n")
-
-[node name="ejector" parent="." index="2" unique_id=1134795720]
-position = Vector2(-4, -3)
-
-[node name="CollisionShape2D" parent="." index="3" unique_id=1651363459]
+[node name="CollisionShape2D" parent="." index="1" unique_id=1651363459]
 visible = false
 
-[node name="MAG" parent="SubViewport" parent_id_path=PackedInt32Array(1029796940) index="1" unique_id=1762944442]
+[node name="Render" parent="." index="2" unique_id=1460667944]
+texture = SubResource("ViewportTexture_rko2n")
+
+[node name="MAG" parent="." index="3" unique_id=1762944442]
 visible = false
 position = Vector2(-6, -1)
 
-[node name="BARREL" parent="SubViewport" parent_id_path=PackedInt32Array(1029796940) index="2" unique_id=1481952309]
+[node name="BARREL" parent="." index="4" unique_id=1481952309]
 position = Vector2(-1, -4)
 
-[node name="Reciever" parent="SubViewport" parent_id_path=PackedInt32Array(1029796940) index="3" unique_id=694329754]
+[node name="Reciever" parent="." index="5" unique_id=694329754]
 texture = ExtResource("4_wb2wk")
 hframes = 4
 
-[node name="pos" parent="." index="5" unique_id=1562127439]
+[node name="ejector" parent="." index="8" unique_id=1134795720]
+position = Vector2(-4, -3)
+
+[node name="pos" parent="." index="10" unique_id=1562127439]
 position = Vector2(9, 0)
 
-[node name="Phand2" parent="." index="8" unique_id=956056910]
+[node name="muzzleflash" parent="pos" index="0" unique_id=283036096]
+texture = ExtResource("6_pqlpl")
+hframes = 5
+
+[node name="Phand2" parent="." index="13" unique_id=956056910]
 position = Vector2(-4, 3)
 
-[node name="Phand" parent="." index="9" unique_id=1564190309]
+[node name="Phand" parent="." index="14" unique_id=1564190309]
 position = Vector2(-2, 2)
 rotation = 0.6981317
 

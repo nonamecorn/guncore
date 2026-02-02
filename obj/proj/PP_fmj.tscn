@@ -1,17 +1,19 @@
-[gd_scene load_steps=4 format=3 uid="uid://b4qvivbnt8oim"]
+[gd_scene format=3 uid="uid://b4qvivbnt8oim"]
 
 [ext_resource type="PackedScene" uid="uid://chohchm3nmbw8" path="res://obj/components/mother_projectile.tscn" id="1_fcwy0"]
-[ext_resource type="Texture2D" uid="uid://c7h7i2je2y351" path="res://img/bullets/bullet_small.png" id="2_mig7x"]
+[ext_resource type="Texture2D" uid="uid://di2xhlfusxdx7" path="res://img/bullets/small_bullet.png" id="2_fkm4v"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_qb4s6"]
 radius = 2.0
 height = 6.0
 
-[node name="mother_projectile" instance=ExtResource("1_fcwy0")]
+[node name="mother_projectile" unique_id=1200986616 instance=ExtResource("1_fcwy0")]
 collision_mask = 2
+speed = 600
 
-[node name="Sprite2D" parent="." index="0"]
-texture = ExtResource("2_mig7x")
+[node name="Sprite2D" parent="." index="0" unique_id=1668944366]
+modulate = Color(1.353256, 1.353256, 1.353256, 1)
+texture = ExtResource("2_fkm4v")
 
-[node name="CollisionShape2D" parent="." index="1"]
+[node name="CollisionShape2D" parent="." index="1" unique_id=1811247549]
 shape = SubResource("CapsuleShape2D_qb4s6")

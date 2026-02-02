@@ -39,6 +39,7 @@ signal ammo_changed(current,max,ind)
 @export var ver_recoil: float
 @export var hor_recoil: float
 @export var damage: float #needs implementing
+@export var semiauto: bool
 
 @export var default_modules : Dictionary[String,Item] = {
 	"MAG": null,
@@ -337,7 +338,7 @@ func eject_mag():
 
 
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
-	if firing and anim_name == "fire" and state == FIRE:
+	if firing and anim_name == "fire" and state == FIRE and !semiauto:
 		$AnimationPlayer.play("fire")
 	if anim_name == "reload":
 		_on_reload_timeout()

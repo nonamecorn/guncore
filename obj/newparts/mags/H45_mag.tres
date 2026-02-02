@@ -11,7 +11,9 @@
 
 [resource]
 script = ExtResource("5_7aab3")
+capacity = 15
 projectile = ExtResource("5_7by45")
 falloff = ExtResource("3_w1ib4")
 sprite = ExtResource("8_c8cmf")
+weight = 0.1
 metadata/_custom_type_script = "uid://cmpw4tk5uc8e"

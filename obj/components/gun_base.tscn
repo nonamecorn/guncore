@@ -19,21 +19,21 @@ _limits = [0.0, 1.0, 0.0, 20.0]
 _data = [Vector2(0, 0.47191), 0.0, 0.049955, 0, 0, Vector2(20, 1), 0.0, 0.0, 0, 0]
 point_count = 2
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lxys1"]
+
 [sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lxys1"]
 light_mode = 2
 
 [sub_resource type="ViewportTexture" id="ViewportTexture_lxys1"]
 viewport_path = NodePath("SubViewport")
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_lxys1"]
-
 [node name="gun_base" type="Area2D" unique_id=577689113 node_paths=PackedStringArray("mag", "barrel", "muzzle", "attach")]
 script = ExtResource("1_it1k3")
 pitch_shifing = SubResource("Curve_lxys1")
-mag = NodePath("SubViewport/MAG")
-barrel = NodePath("SubViewport/BARREL")
-muzzle = NodePath("SubViewport/MUZZLE")
-attach = NodePath("SubViewport/ATTACH")
+mag = NodePath("MAG")
+barrel = NodePath("BARREL")
+muzzle = NodePath("MUZZLE")
+attach = NodePath("ATTACH")
 default_modules = Dictionary[String, ExtResource("2_h8yh0")]({
 "ATTACH": null,
 "BARREL": ExtResource("4_2625t"),
@@ -46,15 +46,30 @@ default_modules = Dictionary[String, ExtResource("2_h8yh0")]({
 [node name="Node" type="Node" parent="AnimationPlayer" unique_id=1025461610]
 script = ExtResource("5_h8yh0")
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1651363459]
+shape = SubResource("RectangleShape2D_lxys1")
+
 [node name="Render" type="Sprite2D" parent="." unique_id=1460667944]
 material = SubResource("CanvasItemMaterial_lxys1")
 texture = SubResource("ViewportTexture_lxys1")
 
+[node name="MAG" type="Marker2D" parent="." unique_id=1762944442]
+position = Vector2(-2, 1)
+
+[node name="BARREL" type="Marker2D" parent="." unique_id=1481952309]
+position = Vector2(3, 0)
+
+[node name="Reciever" type="Sprite2D" parent="." unique_id=694329754]
+texture = ExtResource("2_dxiyw")
+
+[node name="MUZZLE" type="Marker2D" parent="." unique_id=1380711274]
+position = Vector2(3, 0)
+
+[node name="ATTACH" type="Marker2D" parent="." unique_id=1429512227]
+position = Vector2(-4, -4)
+
 [node name="ejector" type="Marker2D" parent="." unique_id=1134795720]
 position = Vector2(2, -1)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1651363459]
-shape = SubResource("RectangleShape2D_lxys1")
 
 [node name="SubViewport" type="SubViewport" parent="." unique_id=1029796940]
 disable_3d = true
@@ -63,21 +78,6 @@ canvas_item_default_texture_filter = 0
 size = Vector2i(256, 256)
 
 [node name="Camera2D" type="Camera2D" parent="SubViewport" unique_id=1787214868]
-
-[node name="MAG" type="Marker2D" parent="SubViewport" unique_id=1762944442]
-position = Vector2(-2, 1)
-
-[node name="BARREL" type="Marker2D" parent="SubViewport" unique_id=1481952309]
-position = Vector2(3, 0)
-
-[node name="Reciever" type="Sprite2D" parent="SubViewport" unique_id=694329754]
-texture = ExtResource("2_dxiyw")
-
-[node name="MUZZLE" type="Marker2D" parent="SubViewport" unique_id=1380711274]
-position = Vector2(3, 0)
-
-[node name="ATTACH" type="Marker2D" parent="SubViewport" unique_id=1429512227]
-position = Vector2(-4, -4)
 
 [node name="pos" type="Marker2D" parent="." unique_id=1562127439]
 
