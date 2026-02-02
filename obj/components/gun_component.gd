@@ -322,9 +322,9 @@ func eject_brass():
 	#brass_inst.init(added_velocity, lifetime)
 func eject_mag():
 	var brass_inst = brass_obj.instantiate()
-	brass_inst.global_position = $MAG.global_position
+	brass_inst.global_position = global_position + mag.position
 	brass_inst.global_rotation = global_rotation + rng.randf_range(-PI/8, PI/8) -sign(global_scale.y)*PI/2
-	brass_inst.get_child(0).texture = $MAG.get_child(0).texture
+	brass_inst.get_child(0).texture = mag.get_child(0).texture
 	brass_inst.velocity_range = [200, 300] 
 	added_velocity = get_parent().get_parent().get_parent().velocity/2
 	get_tree().current_scene.find_child("ysort").call_deferred("add_child",brass_inst)

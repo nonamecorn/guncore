@@ -28,10 +28,6 @@ Randogunser="*res://others/randogunser.gd"
 GlobalVars="*res://others/global_vars.gd"
 OstManager="*res://others/ost_manager.tscn"
 
-[debug]
-
-settings/stdout/print_fps=true
-
 [display]
 
 window/size/viewport_width=1280
