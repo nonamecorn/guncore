@@ -14,7 +14,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SubViewport/Reciever:frame")
+tracks/0/path = NodePath("Reciever:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -50,7 +50,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SubViewport/MAG:position")
+tracks/3/path = NodePath("MAG:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -62,7 +62,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("SubViewport/MAG:rotation")
+tracks/4/path = NodePath("MAG:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -122,7 +122,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("SubViewport/MAG:visible")
+tracks/9/path = NodePath("MAG:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -163,7 +163,7 @@ step = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SubViewport/Reciever:frame")
+tracks/0/path = NodePath("Reciever:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -245,7 +245,7 @@ step = 0.005
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SubViewport/Reciever:frame")
+tracks/0/path = NodePath("Reciever:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -281,7 +281,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SubViewport/MAG:position")
+tracks/3/path = NodePath("MAG:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -293,7 +293,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("SubViewport/MAG:rotation")
+tracks/4/path = NodePath("MAG:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -353,7 +353,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("SubViewport/MAG:visible")
+tracks/9/path = NodePath("MAG:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -417,25 +417,25 @@ libraries/ = SubResource("AnimationLibrary_4b2ux")
 root_node = NodePath("../..")
 animation_p = NodePath("..")
 
-[node name="Render" parent="." index="1" unique_id=1460667944]
-texture = SubResource("ViewportTexture_0fpqu")
-
-[node name="ejector" parent="." index="2" unique_id=1134795720]
-position = Vector2(-3, -2)
-
-[node name="CollisionShape2D" parent="." index="3" unique_id=1651363459]
+[node name="CollisionShape2D" parent="." index="1" unique_id=1651363459]
 visible = false
 
-[node name="MAG" parent="SubViewport" parent_id_path=PackedInt32Array(1029796940) index="1" unique_id=1762944442]
+[node name="Render" parent="." index="2" unique_id=1460667944]
+texture = SubResource("ViewportTexture_0fpqu")
+
+[node name="MAG" parent="." index="3" unique_id=1762944442]
 position = Vector2(-3, 0)
 
-[node name="BARREL" parent="SubViewport" parent_id_path=PackedInt32Array(1029796940) index="2" unique_id=1481952309]
+[node name="BARREL" parent="." index="4" unique_id=1481952309]
 position = Vector2(1, -5)
 
-[node name="Reciever" parent="SubViewport" parent_id_path=PackedInt32Array(1029796940) index="3" unique_id=694329754]
+[node name="Reciever" parent="." index="5" unique_id=694329754]
 position = Vector2(-5, 0)
 texture = ExtResource("4_6ey2s")
 hframes = 5
+
+[node name="ejector" parent="." index="8" unique_id=1134795720]
+position = Vector2(-3, -2)
 
 [node name="muzzleflash" parent="pos" parent_id_path=PackedInt32Array(1562127439) index="0" unique_id=283036096]
 texture = ExtResource("7_k01fg")
@@ -444,10 +444,10 @@ hframes = 5
 [node name="shoting" parent="audio" parent_id_path=PackedInt32Array(238975974) index="1" unique_id=1511102791]
 stream = ExtResource("8_0fpqu")
 
-[node name="Phand2" parent="." index="8" unique_id=956056910]
+[node name="Phand2" parent="." index="13" unique_id=956056910]
 position = Vector2(-5, 2)
 
-[node name="Phand" parent="." index="9" unique_id=1564190309]
+[node name="Phand" parent="." index="14" unique_id=1564190309]
 position = Vector2(5, 1)
 
 [editable path="pos/muzzleflash"]

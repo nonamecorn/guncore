@@ -30,6 +30,7 @@ var rooms = [
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Input.mouse_mode = Input.MOUSE_MODE_HIDDEN
 	rects.append($"ysort/modules/starting room".get_rect())
 	OstManager.switch_track("Battle")
 	OstManager.shift_calm()
