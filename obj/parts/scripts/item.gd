@@ -19,7 +19,7 @@ var broken = false
 			destry_item()
 	get():
 		return curr_durability
-@export var sprite : Texture
+@export var sprite : Texture2D
 @export var sprite_offset : Vector2
 @export var bullet_strategies : Array[BasicBulletStrategy]
 @export var player_strategies : Array[BasicPlayerStrategy]

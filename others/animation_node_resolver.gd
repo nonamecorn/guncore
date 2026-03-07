@@ -9,7 +9,6 @@ extends Node
 @export var animation_p : AnimationPlayer
 
 func resolve():
-	print("asfasfsds")
 	for a_name in animation_p.get_animation_list():
 		var animation : Animation = animation_p.get_animation(a_name)
 		for i in animation.get_track_count() - 1:
@@ -25,5 +24,4 @@ func resolve_track(animation : Animation, i : int):
 	else:
 		new_path = root_node.get_path_to(root_node.find_child(node_name))
 	var f_path = NodePath(str(new_path) + str(subname))
-	print(new_path)
 	animation.track_set_path(i, f_path)

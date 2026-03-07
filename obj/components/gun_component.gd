@@ -1,65 +1,49 @@
-extends Node2D
+extends CharacterBody2D
 class_name Gun
-
+#var player_crosshair
+#do not save
 var facade = preload("res://obj/components/facade.tscn")
 var p_facade = preload("res://obj/components/p_facade.tscn")
-var gun_resources
-var point_of_shooting = Vector2(0,0)
 var spread_tween
-@onready var rng = RandomNumberGenerator.new()
-@export var player_handled = false
 var firing : bool
-var ammo := 0
+var reloading : bool
+@export var player_handled = false
 var spread := 0.0
 var added_velocity : Vector2
 var state = STOP
 var assambled = false
+var on_ground := true
 @export var pitch_shifing : Curve
-
 @export var mag : Marker2D
 @export var barrel : Marker2D
 @export var muzzle : Marker2D
 @export var attach : Marker2D
-
-var player_crosshair
-
+@onready var rng = RandomNumberGenerator.new()
+signal empty
+signal ammo_changed(current,max,ind)
+signal finished
+#signal stats_changed(stats)
 enum {
 	FIRE,
 	STOP,
 }
-signal empty
-signal ammo_changed(current,max,ind)
-#signal stats_changed(stats)
-
-#@export var muzzle_obj : PackedScene
 @onready var brass_obj = preload("res://obj/components/brass.tscn")
 @export var brass_texture: Texture
 @export var ver_recoil: float
 @export var hor_recoil: float
 @export var damage: float #needs implementing
 @export var semiauto: bool
-
-@onready var resource : GunResource = GunResource.new()
-
 @export var default_modules : Dictionary[String,Item] = {
 	"MAG": null,
 	"BARREL": null,
 	"MUZZLE": null,
 	"ATTACH": null,
 }
-var modules : Dictionary[String,Item] = {
-	"MAG": null,
-	"BARREL": null,
-	"MUZZLE": null,
-	"ATTACH": null,
-}
-
 var max_spread: float = 1.0
 var min_spread: float = 0.0
 var max_ammo: int = 1
 var num_of_bullets: int = 1
 var bullet_obj: PackedScene
-
 var lifetime: float = 1.0
 var noise_radius: float = 500.0
 var anim_firerate: float = 1.0
@@ -67,20 +51,29 @@ var anim_reload: float = 1.0
 var add_spd : float
 var wear : float
 var weight : float
-
 var falloff : Curve
 var firing_strategies = []
 var bullet_strategies = []
-
 var silenced = false
 
+@export var item_resource : GunResource
+var ammo := 0
+
 func _ready() -> void:
-	resource.sprite = $SubViewport.get_texture()
-	if player_handled:
-		$Render.material = null
-		player_crosshair = get_tree().get_nodes_in_group("crosshair")[0]
+	#item_resource = GunResource.new()
+	item_resource.sprite = $SubViewport.get_texture()
+	item_resource.modules_changed.connect(combine)
+	#if player_handled:
+		#player_crosshair = get_tree().get_nodes_in_group("crosshair")[0]
 	rng.randomize()
 	asseble_gun(default_modules)
+
+func combine(parts : Dictionary):
+	var clean_parts = parts.duplicate()
+	for key in clean_parts.keys():
+		if clean_parts[key] == null:
+			clean_parts.erase(key)
+	asseble_gun(default_modules.merged(clean_parts,true))
 
 func get_point_of_fire() -> Vector2:
 	return $pos.global_position
@@ -105,11 +98,11 @@ func dispawn_facade(part_name : String):
 		child.queue_free()
 	slot.position = Vector2.ZERO
 
-func asseble_gun(parts : Dictionary,loaded : bool = true):
+func asseble_gun(parts : Dictionary):
 	dissassemble_gun()
 	assambled = true
 	state = STOP
-	gun_resources = parts
+	#gun_resources = parts
 	spawn_facade(parts.BARREL, barrel.position+parts.BARREL.sprite_offset)
 	spawn_facade(parts.MAG, mag.position+parts.MAG.sprite_offset)
 	if parts.has("ATTACH") and parts.ATTACH:
@@ -136,7 +129,6 @@ func asseble_gun(parts : Dictionary,loaded : bool = true):
 	for part_name in parts:
 		if parts[part_name] == null: continue	
 		weight += parts[part_name].weight
-	get_parent().get_parent().set_handling_spd(weight, get_index())
 	
 	#$audio/shoting.stream = parts.MAG.sound
 	muzzle.position = parts.BARREL.muzzle_position + barrel.position
@@ -167,11 +159,9 @@ func asseble_gun(parts : Dictionary,loaded : bool = true):
 	else:
 		silenced = false
 		$pos/muzzleflash/light2.show()
-
-	if loaded:
-		_on_reload_timeout()
-	else:
-		reload()
+	
+	if !on_ground:
+		get_parent().get_parent().set_handling_spd(weight, get_index())
 	reset_spread()
 	#$Sprite2D.texture = $SubViewport.get_texture()
 	ammo_changed.emit(0,1,get_index())
@@ -237,6 +227,7 @@ func _on_reload_timeout():
 
 func reload():
 	if !assambled or !mag.visible or ammo == max_ammo: return
+	reloading = true
 	stop_fire()
 	state = STOP
 	if player_handled:
@@ -252,13 +243,13 @@ func reload():
 		#if !gun_resources[part]: continue
 		#gun_resources[part].curr_durability -= wear
 
-func weapon_functional():
-	for part in gun_resources:
-		if !gun_resources[part]: continue
-		if gun_resources[part].curr_durability <= 0:
-			gun_resources[part].destry_item()
-			return false
-	return true
+#func weapon_functional():
+	#for part in gun_resources:
+		#if !gun_resources[part]: continue
+		#if gun_resources[part].curr_durability <= 0:
+			#gun_resources[part].destry_item()
+			#return false
+	#return true
 
 func display_ammo():
 	ammo_changed.emit(ammo,max_ammo,get_index())
@@ -314,11 +305,11 @@ func fire():
 			#Input.warp_mouse(get_viewport().get_mouse_position()*viewscale + recoil_vector*viewscale)
 		#else:
 			#get_parent().get_parent().apply_recoil(recoil_vector)
-	if !weapon_functional():
-		dissassemble_gun()
-		$audio/something_broke.play()
-		display_ammo()
-		stop_fire()
+	#if !weapon_functional():
+		#dissassemble_gun()
+		#$audio/something_broke.play()
+		#display_ammo()
+		#stop_fire()
 
 func eject_brass():
 	var brass_inst = brass_obj.instantiate()
@@ -347,7 +338,11 @@ func eject_mag():
 func _on_animation_player_animation_finished(anim_name: StringName) -> void:
 	if firing and anim_name == "fire" and state == FIRE and !semiauto:
 		$AnimationPlayer.play("fire")
+		return
 	if anim_name == "reload":
 		_on_reload_timeout()
+		reloading = false
 		if firing:
 			$AnimationPlayer.play("fire")
+			return
+	finished.emit()

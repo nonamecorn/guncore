@@ -27,7 +27,7 @@ func _process(delta):
 		#global_position = global_position.lerp(mouse_pos, delta * FOLLOW_SPEED)
 
 func apply_recoil(recoil_vector):
-	var los_vec = global_position - get_parent().global_position
+	var los_vec = global_position - get_parent().get_parent().global_position
 	var new_len = los_vec.length() + recoil_vector.x
 	var change_vec = los_vec - (los_vec.normalized() * new_len).rotated(deg_to_rad(recoil_vector.y))
 	global_position -= change_vec

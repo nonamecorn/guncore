@@ -21,5 +21,4 @@ func resolve_track(animation : Animation, i : int,root_node, animation_p):
 	else:
 		new_path = root_node.get_path_to(root_node.find_child(node_name))
 	var f_path = NodePath(str(new_path) + str(subname))
-	print(new_path)
 	animation.track_set_path(i, f_path)

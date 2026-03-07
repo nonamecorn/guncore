@@ -1,8 +1,22 @@
 [gd_scene format=3 uid="uid://qh51xv03x1h0"]
 
 [ext_resource type="Texture2D" uid="uid://dpdcmyiyv1l1w" path="res://img/ui/new_inventory_1slot.png" id="1_lvxw8"]
+[ext_resource type="Script" uid="uid://cl0p3rmx3klv5" path="res://ui/inventory_cell.gd" id="2_lmtd1"]
 
 [node name="InventoryCell" type="TextureRect" unique_id=653112565]
+custom_minimum_size = Vector2(64, 64)
 offset_right = 40.0
 offset_bottom = 40.0
 texture = ExtResource("1_lvxw8")
+script = ExtResource("2_lmtd1")
+
+[node name="Icon" type="TextureRect" parent="." unique_id=967237357]
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+expand_mode = 5
+stretch_mode = 5

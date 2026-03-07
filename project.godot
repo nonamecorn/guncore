@@ -50,7 +50,6 @@ cultist=""
 corp=""
 targetable=""
 body="for enemy ai"
-crosshair=""
 
 [gui]
 

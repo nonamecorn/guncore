@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://dtyxyalfruuet"]
+
+[ext_resource type="PackedScene" uid="uid://beeabqpl43msb" path="res://obj/guns/foad.tscn" id="1_wtcfe"]
+
+[node name="Node2D" type="Node2D" unique_id=1053947535]
+
+[node name="FOAD" parent="." unique_id=577689113 instance=ExtResource("1_wtcfe")]

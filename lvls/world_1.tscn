@@ -5,6 +5,7 @@
 [ext_resource type="Script" uid="uid://n65iu11m587y" path="res://others/camera_2d.gd" id="3_5hpog"]
 [ext_resource type="PackedScene" uid="uid://btw10scl5f85a" path="res://obj/bodies/player.tscn" id="4_22ug0"]
 [ext_resource type="PackedScene" uid="uid://ddfo6c5nx4m8h" path="res://lvls/misc/light.tscn" id="5_h5ytn"]
+[ext_resource type="PackedScene" uid="uid://beeabqpl43msb" path="res://obj/guns/foad.tscn" id="5_xrcka"]
 [ext_resource type="Script" uid="uid://chnsh464847oi" path="res://lvls/misc/moving_light.gd" id="6_kdott"]
 
 [sub_resource type="Environment" id="Environment_3i0yf"]
@@ -43,14 +44,17 @@ y_sort_enabled = true
 
 [node name="starting room" parent="ysort/modules" unique_id=1325481179 instance=ExtResource("1_08hws")]
 
+[node name="items" type="Node2D" parent="ysort" unique_id=611275120]
+y_sort_enabled = true
+
+[node name="FOAD" parent="ysort/items" unique_id=555164426 instance=ExtResource("5_xrcka")]
+position = Vector2(523, 170)
+
 [node name="enemies" type="Node2D" parent="ysort" unique_id=1051561702]
 y_sort_enabled = true
 
 [node name="Player" parent="ysort/enemies" unique_id=254545906 instance=ExtResource("4_22ug0")]
 position = Vector2(513, 145)
-
-[node name="items" type="Node2D" parent="ysort" unique_id=611275120]
-y_sort_enabled = true
 
 [node name="environment" type="Node2D" parent="ysort" unique_id=148648298]
 

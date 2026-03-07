@@ -1,0 +1,54 @@
+[gd_scene format=3 uid="uid://j3dx06m8seyc"]
+
+[ext_resource type="Script" uid="uid://bdvhvk8bwjbjn" path="res://ui/weapon_slot2.gd" id="1_52bv8"]
+[ext_resource type="PackedScene" uid="uid://qh51xv03x1h0" path="res://ui/inventory_cell.tscn" id="2_d1ax8"]
+[ext_resource type="Texture2D" uid="uid://ccltcglux18vs" path="res://img/ui/mag_icon.png" id="3_52bv8"]
+[ext_resource type="Texture2D" uid="uid://da8f60yhiojam" path="res://img/ui/attach_icon.png" id="4_1ysx0"]
+[ext_resource type="Texture2D" uid="uid://cvlphyooi2iec" path="res://img/ui/barrel_icon.png" id="5_ga75n"]
+[ext_resource type="Texture2D" uid="uid://csedln31bm6lb" path="res://img/ui/muzzle_icon.png" id="6_2jgit"]
+
+[node name="WeaponSlot" type="VBoxContainer" unique_id=1955224423]
+offset_left = 1002.0
+offset_top = 75.0
+offset_right = 1258.0
+offset_bottom = 259.0
+theme_override_constants/separation = 0
+script = ExtResource("1_52bv8")
+
+[node name="InventoryCell" parent="." unique_id=653112565 instance=ExtResource("2_d1ax8")]
+layout_mode = 2
+size_flags_vertical = 3
+type = "GUN"
+
+[node name="Icon" parent="InventoryCell" index="0" unique_id=967237357]
+stretch_mode = 0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=895227200]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="InventoryCell" parent="HBoxContainer" unique_id=347072334 instance=ExtResource("2_d1ax8")]
+layout_mode = 2
+texture = ExtResource("3_52bv8")
+type = "MAG"
+disabled = true
+
+[node name="InventoryCell2" parent="HBoxContainer" unique_id=129259001 instance=ExtResource("2_d1ax8")]
+layout_mode = 2
+texture = ExtResource("4_1ysx0")
+type = "ATTACH"
+disabled = true
+
+[node name="InventoryCell3" parent="HBoxContainer" unique_id=154533636 instance=ExtResource("2_d1ax8")]
+layout_mode = 2
+texture = ExtResource("5_ga75n")
+type = "BARREL"
+disabled = true
+
+[node name="InventoryCell4" parent="HBoxContainer" unique_id=299973995 instance=ExtResource("2_d1ax8")]
+layout_mode = 2
+texture = ExtResource("6_2jgit")
+type = "MUZZLE"
+disabled = true
+
+[editable path="InventoryCell"]

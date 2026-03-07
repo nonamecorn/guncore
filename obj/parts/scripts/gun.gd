@@ -2,20 +2,20 @@ extends Item
 
 class_name GunResource
 
-@export var modules : Dictionary[String,Item]
+@export var modules : Dictionary[String,Item] = {
+	"MAG": null,
+	"BARREL": null,
+	"MUZZLE": null,
+	"ATTACH": null,
+}
+var ammo
+signal modules_changed(modules)
+@warning_ignore("unused_signal")
+signal drop
 
-func remove_module(slot_name : String) -> Item:
-	var item = modules[slot_name]
-	modules[slot_name] = null
-	modules_changed.emit()
-	return item
+func _init():
+	slot = "GUN"
 
-func equip_module(item : Item, slot_name : String) -> Item:
-	var ret_item : Item = null
-	if modules[slot_name] != null:
-		ret_item = modules[slot_name]
+func set_module(item : Item, slot_name : String) -> void:
 	modules[slot_name] = item
-	modules_changed.emit()
-	return ret_item
-
-signal modules_changed
+	modules_changed.emit(modules)

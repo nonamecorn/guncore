@@ -28,8 +28,6 @@
 [ext_resource type="Texture2D" uid="uid://c1lee8a3t06tt" path="res://img/ui/ArmorSlot.png" id="15_isfqa"]
 [ext_resource type="Texture2D" uid="uid://ds0gmt5dgnqnp" path="res://img/ui/Hand.png" id="16_7ox2p"]
 [ext_resource type="Texture2D" uid="uid://c3plgap64ejfc" path="res://img/ui/Stas.png" id="16_bb8wr"]
-[ext_resource type="Texture2D" uid="uid://dpdcmyiyv1l1w" path="res://img/ui/new_inventory_1slot.png" id="18_y8phs"]
-[ext_resource type="PackedScene" uid="uid://qh51xv03x1h0" path="res://ui/inventory_cell.tscn" id="19_o7akx"]
 [ext_resource type="Texture2D" uid="uid://c422ygxdmneag" path="res://img/ui/shop.png" id="20_8ghwf"]
 [ext_resource type="Texture2D" uid="uid://dduylcjk7w1y3" path="res://img/ui/shop_cover.png" id="22_fsjln"]
 [ext_resource type="PackedScene" uid="uid://ggi5lqbxx6uu" path="res://ui/ui_button.tscn" id="28_1kw70"]
@@ -489,51 +487,6 @@ offset_bottom = 96.0
 mouse_filter = 2
 texture = ExtResource("6_uhxew")
 stretch_mode = 4
-
-[node name="WeaponSlot" type="VBoxContainer" parent="equipments" unique_id=182059412]
-layout_mode = 0
-offset_left = 1002.0
-offset_top = 75.0
-offset_right = 1258.0
-offset_bottom = 259.0
-theme_override_constants/separation = 0
-
-[node name="Weapon" type="NinePatchRect" parent="equipments/WeaponSlot" unique_id=201280218]
-custom_minimum_size = Vector2(0, 120)
-layout_mode = 2
-texture = ExtResource("18_y8phs")
-region_rect = Rect2(0, 0, 64, 64)
-patch_margin_left = 4
-patch_margin_top = 4
-patch_margin_right = 4
-patch_margin_bottom = 4
-
-[node name="CenterContainer" type="CenterContainer" parent="equipments/WeaponSlot/Weapon" unique_id=1409571975]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-
-[node name="TextureRect" type="TextureRect" parent="equipments/WeaponSlot/Weapon/CenterContainer" unique_id=174315647]
-layout_mode = 2
-
-[node name="HBoxContainer" type="HBoxContainer" parent="equipments/WeaponSlot" unique_id=1199587579]
-layout_mode = 2
-theme_override_constants/separation = 0
-
-[node name="InventoryCell" parent="equipments/WeaponSlot/HBoxContainer" unique_id=653112565 instance=ExtResource("19_o7akx")]
-layout_mode = 2
-
-[node name="InventoryCell2" parent="equipments/WeaponSlot/HBoxContainer" unique_id=2125869637 instance=ExtResource("19_o7akx")]
-layout_mode = 2
-
-[node name="InventoryCell3" parent="equipments/WeaponSlot/HBoxContainer" unique_id=718769466 instance=ExtResource("19_o7akx")]
-layout_mode = 2
-
-[node name="InventoryCell4" parent="equipments/WeaponSlot/HBoxContainer" unique_id=203245844 instance=ExtResource("19_o7akx")]
-layout_mode = 2
 
 [node name="grid_backpack" type="TextureRect" parent="." unique_id=16394912]
 layout_mode = 0

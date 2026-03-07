@@ -13,4 +13,5 @@ range_in_secs = 3.0
 min_spread = 5.0
 muzzle_position = Vector2(19, 4)
 sprite = ExtResource("6_8phlj")
+sprite_offset = Vector2(0, -5)
 metadata/_custom_type_script = "uid://c5jo0hlucnsy3"

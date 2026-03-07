@@ -6,15 +6,18 @@
 [ext_resource type="Resource" uid="uid://clwomb4qelbku" path="res://obj/newparts/barrels/FOAD_barrel.tres" id="3_0fpqu"]
 [ext_resource type="Resource" uid="uid://bdwhjqlgkbp5s" path="res://obj/newparts/mags/FOAD_mag.tres" id="4_4b2ux"]
 [ext_resource type="Texture2D" uid="uid://doxn8pp40a4g" path="res://img/parts2/reciver/FOAD_anim.png" id="4_6ey2s"]
+[ext_resource type="Resource" uid="uid://b72o1v3h3mshu" path="res://obj/newparts/guns/foad.tres" id="6_4b2ux"]
 [ext_resource type="Texture2D" uid="uid://q0gjtfmpgyr7" path="res://img/misc/new_muzzleflash.png" id="7_k01fg"]
 [ext_resource type="AudioStream" uid="uid://bseru4wnpe0hh" path="res://snd/sfx/ar_fire.wav" id="8_0fpqu"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0fpqu"]
 
 [sub_resource type="Animation" id="Animation_k01fg"]
 length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Reciever:frame")
+tracks/0/path = NodePath("SubViewport/Reciever:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -26,43 +29,43 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
+tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 0)]
+"values": [0.0]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath(".:rotation")
+tracks/2/path = NodePath("SubViewport/MAG:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [0.0]
+"values": [Vector2(-3, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("MAG:position")
+tracks/3/path = NodePath("SubViewport/MAG:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(-3, 0)]
+"values": [0.0]
 }
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("MAG:rotation")
+tracks/4/path = NodePath("Phand2:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -74,82 +77,46 @@ tracks/4/keys = {
 tracks/5/type = "value"
 tracks/5/imported = false
 tracks/5/enabled = true
-tracks/5/path = NodePath("Phand:position")
+tracks/5/path = NodePath("Phand:rotation")
 tracks/5/interp = 1
 tracks/5/loop_wrap = true
 tracks/5/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(5, 1)]
+"values": [0.0]
 }
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("Phand2:position")
+tracks/6/path = NodePath("SubViewport/MAG:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-5, 2)]
+"update": 1,
+"values": [true]
 }
 tracks/7/type = "value"
 tracks/7/imported = false
 tracks/7/enabled = true
-tracks/7/path = NodePath("Phand2:rotation")
+tracks/7/path = NodePath("pos/muzzleflash:frame")
 tracks/7/interp = 1
 tracks/7/loop_wrap = true
 tracks/7/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
+"update": 1,
+"values": [0]
 }
 tracks/8/type = "value"
 tracks/8/imported = false
 tracks/8/enabled = true
-tracks/8/path = NodePath("Phand:rotation")
+tracks/8/path = NodePath("pos/muzzleflash:visible")
 tracks/8/interp = 1
 tracks/8/loop_wrap = true
 tracks/8/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/9/type = "value"
-tracks/9/imported = false
-tracks/9/enabled = true
-tracks/9/path = NodePath("MAG:visible")
-tracks/9/interp = 1
-tracks/9/loop_wrap = true
-tracks/9/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/10/type = "value"
-tracks/10/imported = false
-tracks/10/enabled = true
-tracks/10/path = NodePath("pos/muzzleflash:frame")
-tracks/10/interp = 1
-tracks/10/loop_wrap = true
-tracks/10/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [0]
-}
-tracks/11/type = "value"
-tracks/11/imported = false
-tracks/11/enabled = true
-tracks/11/path = NodePath("pos/muzzleflash:visible")
-tracks/11/interp = 1
-tracks/11/loop_wrap = true
-tracks/11/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
@@ -163,7 +130,7 @@ step = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Reciever:frame")
+tracks/0/path = NodePath("SubViewport/Reciever:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -191,7 +158,7 @@ tracks/1/keys = {
 }
 tracks/2/type = "value"
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/path = NodePath(".:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
@@ -245,7 +212,7 @@ step = 0.005
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("Reciever:frame")
+tracks/0/path = NodePath("SubViewport/Reciever:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -268,7 +235,7 @@ tracks/1/keys = {
 }
 tracks/2/type = "value"
 tracks/2/imported = false
-tracks/2/enabled = true
+tracks/2/enabled = false
 tracks/2/path = NodePath(".:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
@@ -281,7 +248,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("MAG:position")
+tracks/3/path = NodePath("SubViewport/MAG:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -293,7 +260,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("MAG:rotation")
+tracks/4/path = NodePath("SubViewport/MAG:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -353,7 +320,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("MAG:visible")
+tracks/9/path = NodePath("SubViewport/MAG:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -396,10 +363,12 @@ _data = {
 &"reload": SubResource("Animation_wsvm0")
 }
 
-[sub_resource type="ViewportTexture" id="ViewportTexture_0fpqu"]
+[sub_resource type="ViewportTexture" id="ViewportTexture_4b2ux"]
 viewport_path = NodePath("SubViewport")
 
 [node name="FOAD" unique_id=577689113 instance=ExtResource("1_kwsex")]
+collision_layer = 16
+collision_mask = 0
 brass_texture = ExtResource("2_6ey2s")
 ver_recoil = 5.0
 hor_recoil = 10.0
@@ -409,33 +378,38 @@ default_modules = Dictionary[String, ExtResource("2_k01fg")]({
 "MAG": ExtResource("4_4b2ux"),
 "MUZZLE": null
 })
+item_resource = ExtResource("6_4b2ux")
 
-[node name="AnimationPlayer" parent="." index="0" unique_id=233868523]
+[node name="CollisionShape2D" parent="." index="0" unique_id=779206535]
+rotation = 1.5707964
+shape = SubResource("CapsuleShape2D_0fpqu")
+
+[node name="AnimationPlayer" parent="." index="1" unique_id=233868523]
 libraries/ = SubResource("AnimationLibrary_4b2ux")
 
 [node name="Node" parent="AnimationPlayer" index="0" unique_id=1025461610 node_paths=PackedStringArray("root_node", "animation_p")]
 root_node = NodePath("../..")
 animation_p = NodePath("..")
 
-[node name="CollisionShape2D" parent="." index="1" unique_id=1651363459]
-visible = false
-
 [node name="Render" parent="." index="2" unique_id=1460667944]
-texture = SubResource("ViewportTexture_0fpqu")
+texture = SubResource("ViewportTexture_4b2ux")
 
-[node name="MAG" parent="." index="3" unique_id=1762944442]
+[node name="ejector" parent="." index="3" unique_id=1134795720]
+position = Vector2(-3, -2)
+
+[node name="SubViewport" parent="." index="4" unique_id=1029796940]
+size = Vector2i(64, 64)
+
+[node name="MAG" parent="SubViewport" index="0" unique_id=1762944442]
 position = Vector2(-3, 0)
 
-[node name="BARREL" parent="." index="4" unique_id=1481952309]
+[node name="BARREL" parent="SubViewport" index="1" unique_id=1481952309]
 position = Vector2(1, -5)
 
-[node name="Reciever" parent="." index="5" unique_id=694329754]
+[node name="Reciever" parent="SubViewport" index="2" unique_id=694329754]
 position = Vector2(-5, 0)
 texture = ExtResource("4_6ey2s")
 hframes = 5
-
-[node name="ejector" parent="." index="8" unique_id=1134795720]
-position = Vector2(-3, -2)
 
 [node name="muzzleflash" parent="pos" parent_id_path=PackedInt32Array(1562127439) index="0" unique_id=283036096]
 texture = ExtResource("7_k01fg")
@@ -444,10 +418,10 @@ hframes = 5
 [node name="shoting" parent="audio" parent_id_path=PackedInt32Array(238975974) index="1" unique_id=1511102791]
 stream = ExtResource("8_0fpqu")
 
-[node name="Phand2" parent="." index="13" unique_id=956056910]
+[node name="Phand2" parent="." index="8" unique_id=956056910]
 position = Vector2(-5, 2)
 
-[node name="Phand" parent="." index="14" unique_id=1564190309]
+[node name="Phand" parent="." index="9" unique_id=1564190309]
 position = Vector2(5, 1)
 
 [editable path="pos/muzzleflash"]

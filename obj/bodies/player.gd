@@ -28,7 +28,7 @@ var tween : Tween
 var eq_res : Dictionary
 var strategies = []
 var strategy_dic = {}
-var active_gun : int = 0
+var active_gun : int = -1
 
 func _ready() -> void:
 	on_score_change(GlobalVars.kills, GlobalVars.loop)
@@ -38,16 +38,16 @@ func _ready() -> void:
 		on_ammo_change(null,null,0)
 	$hurt_box.damaged.connect(hurt)
 	#$CanvasLayer/Inventory.money_changed.connect(refresh)
-	#$CanvasLayer/Inventory.drop.connect(drop)
+	$CanvasLayer/Inventory.drop.connect(drop)
 	#$CanvasLayer/Inventory.eq_slot1.assemble.connect(on_assemble)
 	#$CanvasLayer/Inventory.eq_slot1.dissassemble.connect(on_dissassemble)
 	#$CanvasLayer/Inventory.eq_slot2.assemble.connect(on_assemble2)
 	#$CanvasLayer/Inventory.eq_slot2.dissassemble.connect(on_dissassemble2)
 	#$CanvasLayer/Inventory.eq_slot3.change.connect(on_augs_change)
 	#$CanvasLayer/Inventory.load_save()
-	$player_hand_component/Marker2D/Melee_component.hitted.connect(heal)
-	$player_hand_component/Marker2D.get_child(0).ammo_changed.connect(on_ammo_change)
-	$player_hand_component/Marker2D.get_child(1).ammo_changed.connect(on_ammo_change)
+	#$player_hand_component/Marker2D/Melee_component.hitted.connect(heal)
+	#$player_hand_component/Marker2D.get_child(0).ammo_changed.connect(on_ammo_change)
+	#$player_hand_component/Marker2D.get_child(1).ammo_changed.connect(on_ammo_change)
 	GlobalVars.score_changed.connect(on_score_change)
 	GlobalVars.i_see_you.connect(on_perception_change)
 
@@ -75,9 +75,10 @@ func tab_state():
 	$Sprite2D/IdleAnimation.show()
 	$Sprite2D/RunninAnnimation.hide()
 	if Input.is_action_just_pressed("ui_tab") or Input.is_action_just_pressed("ui_cancel"):
-		#$CanvasLayer/Inventory.hide_properly()
+		$player_hand_component.process_mode = Node.PROCESS_MODE_INHERIT
+		$CanvasLayer/Inventory.hide()
 		#$CanvasLayer/Inventory.switch_to_inventory()
-		$player_hand_component.follow = true
+		#$player_hand_component.follow = true
 		$Camera2D.follow = true
 		state = MOVE
 
@@ -102,9 +103,9 @@ func move_state(delta):
 	if Input.is_action_just_pressed("ui_tab"):
 		
 		#get_items()
-		#$CanvasLayer/Inventory.show()
+		$CanvasLayer/Inventory.show()
 		$Camera2D.follow = false
-		$player_hand_component.follow = false
+		$player_hand_component.process_mode = Node.PROCESS_MODE_DISABLED
 		state = TAB_MENU
 	var input_vector = get_input_dir()
 	if input_vector != Vector2.ZERO:
@@ -201,11 +202,12 @@ func drop(item : Item):
 func get_item():
 	if $collector.get_overlapping_areas().size() == 0:
 		return
-	var res = $collector.get_overlapping_areas()[0].pickup()
-	if res is Array: return
-	#if res is Gun:
-		#$CanvasLayer/Inventory.pickup_gun(res)
-	#$CanvasLayer/Inventory.pickup_item(res)
+	var res : Item = $collector.get_overlapping_areas()[0].pickup()
+	#if res is Array: return
+	$CanvasLayer/Inventory.pickup_item(res)
+	if res.slot == "GUN":
+		$CanvasLayer/Inventory.pickup_gun(res, active_gun)
+	#
 	#if !:
 		#var item_inst = item_base.instantiate()
 		#item_inst.global_position = global_position
@@ -224,8 +226,8 @@ func on_assemble2(parts,loaded):
 func on_dissassemble2():
 	$player_hand_component/Marker2D/gun_base2.dissassemble_gun()
 
-func on_ammo_change(curr_mmo,max_mmo,ind):
-	if $player_hand_component.active_base != ind: return
+func on_ammo_change(curr_mmo,max_mmo,_ind):
+	#if $player_hand_component.active_base != ind: return
 	if curr_mmo == null or max_mmo == null:
 		$CanvasLayer/VBoxContainer/ammo.text = ""
 		$AmmoBar.hide()

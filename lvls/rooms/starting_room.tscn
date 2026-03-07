@@ -1,16 +1,17 @@
-[gd_scene load_steps=5 format=4 uid="uid://b720un0jadula"]
+[gd_scene format=4 uid="uid://b720un0jadula"]
 
 [ext_resource type="PackedScene" uid="uid://dma1u48bdqnkr" path="res://lvls/layers.tscn" id="1_cvnqd"]
-[ext_resource type="Script" uid="uid://cnmey37n2k7b6" path="res://lvls/rooms/starting_room.gd" id="1_ytocs"]
+[ext_resource type="Script" uid="uid://cwa11g81ip6nm" path="res://lvls/rooms/starting_room.gd" id="1_ytocs"]
 [ext_resource type="PackedScene" uid="uid://bf65xavyr0pes" path="res://lvls/misc/module_connector.tscn" id="2_jwvtk"]
 [ext_resource type="PackedScene" uid="uid://dww7vxteobmel" path="res://lvls/env/explosive_barrel.tscn" id="4_6lyqu"]
+[ext_resource type="PackedScene" uid="uid://beeabqpl43msb" path="res://obj/guns/foad.tscn" id="5_vqmbp"]
 
-[node name="starting room" type="Node2D"]
+[node name="starting room" type="Node2D" unique_id=1858295283]
 z_index = -1
 y_sort_enabled = true
 script = ExtResource("1_ytocs")
 
-[node name="layers" parent="." instance=ExtResource("1_cvnqd")]
+[node name="layers" parent="." unique_id=880776085 instance=ExtResource("1_cvnqd")]
 
 [node name="Ceiling" parent="layers" index="0"]
 tile_map_data = PackedByteArray("AAAXAAsAAQABAAEAAAAXAAkAAQABAAEAAAAXAAgAAQABAAEAAAAXAAcAAQABAAEAAAAXAAYAAQABAAEAAAAXAAUAAQABAAEAAAAXAAQAAQABAAEAAAAXAAMAAQABAAEAAAAXAAIAAQABAAEAAAAXAAEAAQABAAEAAAAWAAsAAQABAAEAAAAWAAkAAQABAAEAAAAWAAgAAQABAAEAAAAWAAcAAQABAAEAAAAWAAYAAQABAAEAAAAWAAUAAQABAAEAAAAWAAQAAQABAAEAAAAWAAMAAQABAAEAAAAWAAIAAQABAAEAAAAWAAEAAQABAAEAAAAVAAsAAQABAAEAAAAVAAkAAQABAAEAAAAVAAgAAQABAAEAAAAVAAcAAQABAAEAAAAVAAYAAQABAAEAAAAVAAUAAQABAAEAAAAVAAQAAQABAAEAAAAVAAMAAQABAAEAAAAVAAIAAQABAAEAAAAVAAEAAQABAAEAAAARAAsAAQABAAEAAAAQAAsAAQABAAEAAAAQAAoAAQABAAEAAAAQAAkAAQABAAEAAAAQAAUAAQABAAEAAAAQAAQAAQABAAEAAAAQAAMAAQABAAEAAAAQAAIAAQABAAEAAAAPAAQAAQABAAEAAAAPAAMAAQABAAEAAAAPAAIAAQABAAEAAAAOAAsAAQABAAEAAAAOAAoAAQABAAEAAAANAAsAAQABAAEAAAANAAoAAQABAAEAAAANAAUAAQABAAEAAAANAAQAAQABAAEAAAANAAMAAQABAAEAAAANAP//AQABAAAAAAAOAP//AQABAAAAAAAPAP//AQABAAAAAAAQAP//AQABAAAAAAARAP//AQABAAAAAAASAP//AQABAAAAAAATAP//AQABAAAAAAAUAP//AQABAAAAAAAVAP//AQABAAAAAAAWAP//AQABAAAAAAAXAP//AQABAAAAAAAMAAEAAQAAAAEAAAAMAAAAAQAAAAEAAAAMAP//AQAAAAAAAAAMAAIAAQAAAAEAAAAMAAMAAQAAAAEAAAAMAAQAAQAAAAEAAAAMAAUAAQAAAAEAAAAMAAYAAQAAAAEAAAAMAAcAAQAAAAEAAAAMAAgAAQAAAAEAAAAMAAkAAQAAAAEAAAAMAAoAAQAAAAEAAAAMAAsAAQAAAAEAAAAOAAwAAQABAAIAAAANAAwAAQABAAIAAAAMAAwAAQAAAAIAAAAQAAwAAQAEAAAAAAAPAAwAAQABAAIAAAAWAAwAAQADAAAAAAAXAAwAAQABAAIAAAAYAAsAAQACAAEAAAAYAAwAAQACAAIAAAAYAAoAAQACAAEAAAAYAAkAAQACAAEAAAAYAAgAAQACAAEAAAAYAAcAAQACAAEAAAAYAAYAAQACAAEAAAAYAAUAAQACAAEAAAAYAAQAAQACAAEAAAAYAAMAAQACAAEAAAAYAAIAAQACAAEAAAAYAAEAAQACAAEAAAAYAAAAAQACAAEAAAAYAP//AQACAAAAAAAWAA0AAQACAAEAAAAQAA0AAQAAAAEAAAARAAwAAQABAAEAAAARAA0AAQABAAEAAAAVAAwAAQABAAEAAAAVAA0AAQABAAEAAAAQAAYABwABAAAAAAA=")
@@ -30,22 +31,24 @@ tile_map_data = PackedByteArray("AAANAAYABwAAAAAAAAAOAAYABwABAAAAAAARAAYABwACAAA
 [node name="Decorations" parent="layers" index="5"]
 tile_map_data = PackedByteArray("AAANAAEAAwAAAAIAAAAOAAEAAwAAAAAAAAAPAAEAAwABAAAAAAAQAAEAAwACAAAAAAARAAEAAwADAAEAAAARAAIAAwAEAAEAAAARAAMAAwADAAAAAAARAAQAAwAEAAEAAAARAAUAAwADAAAAAAARAAYAAwAEAAEAAAARAAcAAwAEAAEAAAARAAgAAwAEAAEAAAARAAkAAwADAAAAAAARAAoAAwACAAIAAAASAAoAAwAAAAAAAAATAAoAAwAAAAAAAAAUAAoAAwAAAAAAAAAVAAoAAwACAAAAAAAWAAoAAwABAAAAAAAXAAoAAwAAAAAAAAANAAkAAwAAAAAAAAAOAAkAAwACAAAAAAAPAAkAAwADAAEAAAAPAAoAAwAEAAEAAAAPAAsAAwAEAAIAAAANAAIAAwAAAAAAAAAOAAIAAwADAAEAAAAOAAMAAwADAAAAAAAOAAQAAwAEAAIAAAAOAAUAAwACAAIAAAAPAAUAAwABAAIAAAA=")
 
-[node name="markers" type="Node2D" parent="."]
+[node name="markers" type="Node2D" parent="." unique_id=49577527]
 
-[node name="module_connector" parent="markers" instance=ExtResource("2_jwvtk")]
+[node name="module_connector" parent="markers" unique_id=35562038 instance=ExtResource("2_jwvtk")]
 position = Vector2(608, 448)
 type = 1
 orientation = 3
 authorised = true
 
-[node name="env" type="Node2D" parent="."]
+[node name="env" type="Node2D" parent="." unique_id=1557589366]
 z_as_relative = false
 y_sort_enabled = true
 
-[node name="explosive_barrel" parent="env" instance=ExtResource("4_6lyqu")]
+[node name="explosive_barrel" parent="env" unique_id=1997307567 instance=ExtResource("4_6lyqu")]
 position = Vector2(560, 436)
 
-[node name="explosive_barrel2" parent="env" instance=ExtResource("4_6lyqu")]
+[node name="explosive_barrel2" parent="env" unique_id=476964812 instance=ExtResource("4_6lyqu")]
 position = Vector2(687, 439)
+
+[node name="FOAD" parent="env" unique_id=577689113 instance=ExtResource("5_vqmbp")]
 
 [editable path="layers"]

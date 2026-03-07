@@ -3,6 +3,8 @@ extends Area2D
 @export var item_resources : Array[Item]
 @export var slice : Array[int] = [0, 100]
 
+
+
 func _ready():
 	var items = []
 	for item in Randogunser.shop_pool:

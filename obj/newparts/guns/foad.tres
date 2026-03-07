@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="GunResource" format=3 uid="uid://b72o1v3h3mshu"]
+
+[ext_resource type="Script" uid="uid://bewoh33t2jvqx" path="res://obj/parts/strategies/BasicBulletStrategy.gd" id="1_n1ojf"]
+[ext_resource type="Script" uid="uid://c11y0uxm67td" path="res://obj/components/change.gd" id="2_res0c"]
+[ext_resource type="Script" uid="uid://pegu5tln4i1u" path="res://obj/parts/scripts/item.gd" id="3_f471l"]
+[ext_resource type="Script" uid="uid://buggsj0y7xemx" path="res://obj/parts/strategies/BasicPlayerStrategy.gd" id="4_7mnpv"]
+[ext_resource type="Script" uid="uid://bmfe6ucfimids" path="res://obj/parts/scripts/gun.gd" id="5_5m1xp"]
+[ext_resource type="Script" uid="uid://6ct4nafsu8do" path="res://obj/parts/strategies/BasicShootingStrategy.gd" id="6_cpsj1"]
+
+[resource]
+script = ExtResource("5_5m1xp")
+item_name = "FOAD"
+metadata/_custom_type_script = "uid://bmfe6ucfimids"
