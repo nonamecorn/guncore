@@ -27,10 +27,10 @@ light_mode = 2
 [node name="gun_base" type="CharacterBody2D" unique_id=812221992 node_paths=PackedStringArray("mag", "barrel", "muzzle", "attach")]
 script = ExtResource("1_it1k3")
 pitch_shifing = SubResource("Curve_lxys1")
-mag = NodePath("SubViewport/MAG")
-barrel = NodePath("SubViewport/BARREL")
-muzzle = NodePath("SubViewport/MUZZLE")
-attach = NodePath("SubViewport/ATTACH")
+mag = NodePath("SubViewport/gun_container/MAG")
+barrel = NodePath("SubViewport/gun_container/BARREL")
+muzzle = NodePath("SubViewport/gun_container/MUZZLE")
+attach = NodePath("SubViewport/gun_container/ATTACH")
 default_modules = Dictionary[String, ExtResource("2_h8yh0")]({
 "ATTACH": null,
 "BARREL": ExtResource("4_2625t"),
@@ -58,19 +58,21 @@ transparent_bg = true
 canvas_item_default_texture_filter = 0
 size = Vector2i(256, 256)
 
-[node name="MAG" type="Marker2D" parent="SubViewport" unique_id=1762944442]
+[node name="gun_container" type="Node2D" parent="SubViewport" unique_id=891191924]
+
+[node name="MAG" type="Marker2D" parent="SubViewport/gun_container" unique_id=1762944442]
 position = Vector2(-2, 1)
 
-[node name="BARREL" type="Marker2D" parent="SubViewport" unique_id=1481952309]
+[node name="BARREL" type="Marker2D" parent="SubViewport/gun_container" unique_id=1481952309]
 position = Vector2(3, 0)
 
-[node name="Reciever" type="Sprite2D" parent="SubViewport" unique_id=694329754]
+[node name="Reciever" type="Sprite2D" parent="SubViewport/gun_container" unique_id=694329754]
 texture = ExtResource("2_dxiyw")
 
-[node name="MUZZLE" type="Marker2D" parent="SubViewport" unique_id=1380711274]
+[node name="MUZZLE" type="Marker2D" parent="SubViewport/gun_container" unique_id=1380711274]
 position = Vector2(3, 0)
 
-[node name="ATTACH" type="Marker2D" parent="SubViewport" unique_id=1429512227]
+[node name="ATTACH" type="Marker2D" parent="SubViewport/gun_container" unique_id=1429512227]
 position = Vector2(-4, -4)
 
 [node name="Camera2D" type="Camera2D" parent="SubViewport" unique_id=1787214868]

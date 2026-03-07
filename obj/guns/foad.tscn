@@ -17,7 +17,7 @@ length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SubViewport/Reciever:frame")
+tracks/0/path = NodePath("SubViewport/gun_container/Reciever:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -28,7 +28,7 @@ tracks/0/keys = {
 }
 tracks/1/type = "value"
 tracks/1/imported = false
-tracks/1/enabled = true
+tracks/1/enabled = false
 tracks/1/path = NodePath(".:rotation")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
@@ -41,7 +41,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("SubViewport/MAG:position")
+tracks/2/path = NodePath("SubViewport/gun_container/MAG:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -53,7 +53,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SubViewport/MAG:rotation")
+tracks/3/path = NodePath("SubViewport/gun_container/MAG:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -89,7 +89,7 @@ tracks/5/keys = {
 tracks/6/type = "value"
 tracks/6/imported = false
 tracks/6/enabled = true
-tracks/6/path = NodePath("SubViewport/MAG:visible")
+tracks/6/path = NodePath("SubViewport/gun_container/MAG:visible")
 tracks/6/interp = 1
 tracks/6/loop_wrap = true
 tracks/6/keys = {
@@ -122,6 +122,42 @@ tracks/8/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/9/type = "value"
+tracks/9/imported = false
+tracks/9/enabled = false
+tracks/9/path = NodePath(".:position")
+tracks/9/interp = 1
+tracks/9/loop_wrap = true
+tracks/9/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/10/type = "value"
+tracks/10/imported = false
+tracks/10/enabled = true
+tracks/10/path = NodePath("SubViewport/gun_container:position")
+tracks/10/interp = 1
+tracks/10/loop_wrap = true
+tracks/10/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/11/type = "value"
+tracks/11/imported = false
+tracks/11/enabled = true
+tracks/11/path = NodePath("SubViewport/gun_container:rotation")
+tracks/11/interp = 1
+tracks/11/loop_wrap = true
+tracks/11/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
 
 [sub_resource type="Animation" id="Animation_0fpqu"]
 resource_name = "fire"
@@ -130,7 +166,7 @@ step = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SubViewport/Reciever:frame")
+tracks/0/path = NodePath("SubViewport/gun_container/Reciever:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -163,19 +199,19 @@ tracks/2/path = NodePath(".:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0, 0.04, 0.06, 0.07),
+"times": PackedFloat32Array(0, 0.0402, 0.0602, 0.07015759),
 "transitions": PackedFloat32Array(1, -2, -2, -2),
 "update": 0,
 "values": [Vector2(0, 0), Vector2(-3, 0), Vector2(1, 0), Vector2(0, 0)]
 }
 tracks/3/type = "value"
 tracks/3/imported = false
-tracks/3/enabled = true
+tracks/3/enabled = false
 tracks/3/path = NodePath(".:rotation")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
-"times": PackedFloat32Array(0, 0.035, 0.055, 0.07),
+"times": PackedFloat32Array(0, 0.0352, 0.0552, 0.07),
 "transitions": PackedFloat32Array(1, -2, -2, -2),
 "update": 0,
 "values": [0.0, -0.05235988, 0.01745329251994329, 0.0]
@@ -204,6 +240,30 @@ tracks/5/keys = {
 "update": 1,
 "values": [true, false]
 }
+tracks/6/type = "value"
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/path = NodePath("SubViewport/gun_container:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/keys = {
+"times": PackedFloat32Array(0, 0.0402, 0.0602),
+"transitions": PackedFloat32Array(1, -2, -2),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-3, 0), Vector2(1, 0)]
+}
+tracks/7/type = "value"
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/path = NodePath("SubViewport/gun_container:rotation")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/keys = {
+"times": PackedFloat32Array(0, 0.0352, 0.0552),
+"transitions": PackedFloat32Array(1, -2, -2),
+"update": 0,
+"values": [0.0, -0.05235988, 0.017453292]
+}
 
 [sub_resource type="Animation" id="Animation_wsvm0"]
 resource_name = "reload"
@@ -212,7 +272,7 @@ step = 0.005
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
-tracks/0/path = NodePath("SubViewport/Reciever:frame")
+tracks/0/path = NodePath("SubViewport/gun_container/Reciever:frame")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
@@ -248,7 +308,7 @@ tracks/2/keys = {
 tracks/3/type = "value"
 tracks/3/imported = false
 tracks/3/enabled = true
-tracks/3/path = NodePath("SubViewport/MAG:position")
+tracks/3/path = NodePath("SubViewport/gun_container/MAG:position")
 tracks/3/interp = 1
 tracks/3/loop_wrap = true
 tracks/3/keys = {
@@ -260,7 +320,7 @@ tracks/3/keys = {
 tracks/4/type = "value"
 tracks/4/imported = false
 tracks/4/enabled = true
-tracks/4/path = NodePath("SubViewport/MAG:rotation")
+tracks/4/path = NodePath("SubViewport/gun_container/MAG:rotation")
 tracks/4/interp = 1
 tracks/4/loop_wrap = true
 tracks/4/keys = {
@@ -320,7 +380,7 @@ tracks/8/keys = {
 tracks/9/type = "value"
 tracks/9/imported = false
 tracks/9/enabled = true
-tracks/9/path = NodePath("SubViewport/MAG:visible")
+tracks/9/path = NodePath("SubViewport/gun_container/MAG:visible")
 tracks/9/interp = 1
 tracks/9/loop_wrap = true
 tracks/9/keys = {
@@ -386,6 +446,7 @@ shape = SubResource("CapsuleShape2D_0fpqu")
 
 [node name="AnimationPlayer" parent="." index="1" unique_id=233868523]
 libraries/ = SubResource("AnimationLibrary_4b2ux")
+autoplay = &"RESET"
 
 [node name="Node" parent="AnimationPlayer" index="0" unique_id=1025461610 node_paths=PackedStringArray("root_node", "animation_p")]
 root_node = NodePath("../..")
@@ -400,13 +461,13 @@ position = Vector2(-3, -2)
 [node name="SubViewport" parent="." index="4" unique_id=1029796940]
 size = Vector2i(64, 64)
 
-[node name="MAG" parent="SubViewport" index="0" unique_id=1762944442]
+[node name="MAG" parent="SubViewport/gun_container" parent_id_path=PackedInt32Array(891191924) index="0" unique_id=1762944442]
 position = Vector2(-3, 0)
 
-[node name="BARREL" parent="SubViewport" index="1" unique_id=1481952309]
+[node name="BARREL" parent="SubViewport/gun_container" parent_id_path=PackedInt32Array(891191924) index="1" unique_id=1481952309]
 position = Vector2(1, -5)
 
-[node name="Reciever" parent="SubViewport" index="2" unique_id=694329754]
+[node name="Reciever" parent="SubViewport/gun_container" parent_id_path=PackedInt32Array(891191924) index="2" unique_id=694329754]
 position = Vector2(-5, 0)
 texture = ExtResource("4_6ey2s")
 hframes = 5

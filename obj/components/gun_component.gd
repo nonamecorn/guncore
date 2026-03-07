@@ -57,10 +57,9 @@ var bullet_strategies = []
 var silenced = false
 
 @export var item_resource : GunResource
-var ammo := 0
 
 func _ready() -> void:
-	#item_resource = GunResource.new()
+	item_resource = item_resource.duplicate(true)
 	item_resource.sprite = $SubViewport.get_texture()
 	item_resource.modules_changed.connect(combine)
 	#if player_handled:
@@ -98,7 +97,7 @@ func dispawn_facade(part_name : String):
 		child.queue_free()
 	slot.position = Vector2.ZERO
 
-func asseble_gun(parts : Dictionary):
+func asseble_gun(parts : Dictionary, loaded : bool = false):
 	dissassemble_gun()
 	assambled = true
 	state = STOP
@@ -125,7 +124,9 @@ func asseble_gun(parts : Dictionary):
 	noise_radius = parts.MAG.loud_dist
 	wear = parts.MAG.wear
 	falloff = parts.MAG.falloff
-	ammo = 0
+	item_resource.ammo = 0
+	if loaded:
+		_on_reload_timeout()
 	for part_name in parts:
 		if parts[part_name] == null: continue	
 		weight += parts[part_name].weight
@@ -165,6 +166,7 @@ func asseble_gun(parts : Dictionary):
 	reset_spread()
 	#$Sprite2D.texture = $SubViewport.get_texture()
 	ammo_changed.emit(0,1,get_index())
+	state=FIRE
 	#stats_changed.emit(stats)
 
 
@@ -187,7 +189,7 @@ func dissassemble_gun():
 	dispawn_facade("MAG")
 	dispawn_facade("MUZZLE")
 	dispawn_facade("ATTACH")
-	ammo = 0
+	item_resource.ammo = 0
 	firing_strategies = []
 	bullet_strategies = []
 	state = STOP
@@ -200,8 +202,9 @@ func reset_spread():
 
 func start_fire():
 	if state: return
-	if ammo <= 0:
+	if item_resource.ammo <= 0:
 		if player_handled: $audio/out_of_ammo.play()
+		$AnimationPlayer.play("reload")
 		return
 	$AnimationPlayer.play("fire")
 	firing = true
@@ -219,19 +222,19 @@ func stop_fire():
 
 func _on_reload_timeout():
 	stop_fire()
-	ammo = max_ammo
+	item_resource.ammo = max_ammo
 	if player_handled: $audio/reload_end_cue.play()
 	mag.show()
 	state = FIRE
 	display_ammo()
 
 func reload():
-	if !assambled or !mag.visible or ammo == max_ammo: return
+	if !assambled or !mag.visible or item_resource.ammo == max_ammo: return
 	reloading = true
 	stop_fire()
 	state = STOP
 	if player_handled:
-		ammo = 0
+		item_resource.ammo = 0
 		display_ammo()
 		$audio/reload_start_cue.play()
 	mag.hide()
@@ -252,11 +255,11 @@ func reload():
 	#return true
 
 func display_ammo():
-	ammo_changed.emit(ammo,max_ammo,get_index())
+	ammo_changed.emit(item_resource.ammo,max_ammo,get_index())
 
 func get_pitch() -> float:
-	if ammo <= 20:
-		return pitch_shifing.sample(ammo)
+	if item_resource.ammo <= 20:
+		return pitch_shifing.sample(item_resource.ammo)
 	if !silenced:
 		return rng.randf_range(0.9,1.1)
 	else:
@@ -265,11 +268,11 @@ func get_pitch() -> float:
 func fire():
 	if state: return
 	for i in num_of_bullets:
-		if ammo <= 0:
+		if item_resource.ammo <= 0:
 			firing = false
 			empty.emit()
 			return
-		ammo -= 1
+		item_resource.ammo -= 1
 		display_ammo()
 		#wear_down()
 		
